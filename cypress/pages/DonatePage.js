@@ -39,6 +39,12 @@ class SignupPage {
         //Clica no botao para finalizar cadastro
         cy.get('#btnSubmit').click();
     }
+
+    alertMessageShouldBe(expectedMessage) {
+        //Verifica a msg de erro
+        //cy.get('.alert-error').should('have.text', expectedMessage);
+        cy.contains(' rx-errors > div', expectedMessage).should('be.visible')
+    }
 }
 
 export default new SignupPage;
