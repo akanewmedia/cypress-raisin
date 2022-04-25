@@ -11,7 +11,7 @@ describe('Donate', function () {
 
     })
 
-    it.only('Donate to Event', function () {
+    it('Donate to Event', function () {
 
         var deliver = signupFactory.deliver();
         var payment = paymentFactory.payment();
@@ -29,7 +29,7 @@ describe('Donate', function () {
     context('Required fields', function(){
 
         const messages = [
-            {field: 'firstName', output: 'First Namezz is required'},
+            {field: 'firstName', output: 'First Name is required'},
             {field: 'lastName', output: 'Last Name is required'},
             {field: 'email', output: 'E-mail is required'},
             {field: 'street', output: 'Address is required'},
