@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/Victorteix/cypress-raisin#readme",
   "devDependencies": {
-    "cypress": "^9.5.4",
+    "cypress": "^9.6.0",
     "faker": "^5.5.3"
   }
 }
