@@ -26,7 +26,7 @@ describe('Donate', function () {
     })
 
 
-    context.only('Required fields', function(){
+    context('Required fields', function(){
 
         const messages = [
             {field: 'firstName', output: 'First Namezz is required'},
