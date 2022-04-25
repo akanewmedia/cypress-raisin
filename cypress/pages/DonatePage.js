@@ -1,6 +1,7 @@
 class DonatePage {
     go() {
         cy.visit('/');
+        cy.wait(1500);
         cy.get('[data-pgid="3"] > a').click()
         
     }
