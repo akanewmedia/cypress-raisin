@@ -1,4 +1,4 @@
-import signup from '../pages/DonatePage';
+import donate from '../pages/DonatePage';
 import signupFactory from '../factories/SignupFactory';
 import paymentFactory from '../factories/PaymentFactory';
 
@@ -7,21 +7,21 @@ describe('Donate', function () {
 
      it('Go to Donate page', function () {
       
-        signup.go();        
+        donate.go();        
 
     })
 
-    it('Donate to Event', function () {
+    it.only('Donate to Event', function () {
 
         var deliver = signupFactory.deliver();
         var payment = paymentFactory.payment();
 
         
-        signup.go();
-        signup.donateToEvent();
-        signup.fillForm(deliver);
-        signup.fillPaymentInformation(payment);
-        signup.submit();
+        donate.go();
+        donate.donateToEvent();
+        donate.fillForm(deliver);
+        donate.fillPaymentInformation(payment);
+        donate.submit();
 
     })
 
@@ -39,15 +39,15 @@ describe('Donate', function () {
         ]
 
         before(function(){
-            signup.go();
-            signup.donateToEvent();
+            donate.go();
+            donate.donateToEvent();
             cy.wait(1500);
-            signup.submit();
+            donate.submit();
         })
 
         messages.forEach(function(msg){
             it(`${msg.field} is required`, function(){
-                signup.alertMessageShouldBe(msg.output)
+                donate.alertMessageShouldBe(msg.output)
             })
         })
 

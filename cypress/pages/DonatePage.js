@@ -1,4 +1,4 @@
-class SignupPage {
+class DonatePage {
     go() {
         cy.visit('/');
         cy.get('[data-pgid="3"] > a').click()
@@ -47,4 +47,4 @@ class SignupPage {
     }
 }
 
-export default new SignupPage;
+export default new DonatePage;
