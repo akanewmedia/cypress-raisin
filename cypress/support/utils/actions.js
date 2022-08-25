@@ -321,16 +321,15 @@ export function wait(timeout) {
  * @param protractorSelector
  */
 export async function setFocus(protractorSelector) {
-  this.scrollToElement(protractorSelector);
-  return browser.driver.executeScript('arguments[0].focus();', protractorSelector.getWebElement());
+  cy.get(protractorSelector).first().focus();
 }
 
 export async function scrollToElement(protractorSelector) {
-  return browser.executeScript('arguments[0].scrollIntoView({block: "center"})', protractorSelector.getWebElement());
+  return cy.scrollTo(protractorSelector);
 }
 
 export async function scrollToTop() {
-  browser.actions().mouseMove({ x: 0, y: 0 }).perform();
+  cy.scrollToTop();
 }
 
 /**
