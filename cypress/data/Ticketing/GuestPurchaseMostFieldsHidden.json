@@ -1,0 +1,16 @@
+{
+    "events": 2,
+    "addressType": null,
+    "billingContact": {
+        "firstName" : "First Name Billing",
+        "lastName": "Last Name Billing",
+        "fullName": "First Name Billing Last Name Billing",
+        "email": "billing@abc.ca",
+        "address": "Address Line 1 Billing",
+        "city": "Test City Billing",
+        "country": "Canada",
+        "province": "Ontario",
+        "postCode": "A0A 0A0"
+    },
+    "updatedTotalAmountOnReviewPage": "$1,000.00"
+} 

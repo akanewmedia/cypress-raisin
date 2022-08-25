@@ -1,0 +1,25 @@
+{
+  "events": [3],
+  "matrixValues": {
+    "oneTimeGeneralDonation": [
+      "$15.00", 
+      "$25.00",
+      "$50.00",
+      "$75.00",
+      "$100.00"
+    ],
+    "oneTimeInHonour": [
+      "$25.00", 
+      "$35.00",
+      "$50.00",
+      "$75.00",
+      "$100.00"
+    ]
+  },
+  "monthlyInHonourSuggestedValue": "$20.00",
+  "annuallyInHonourSuggestedValue": "$25.00",
+  "matrixButtonSelection": "$30.00",
+  "frequencyButtonSelection": "One-Time",
+  "typeTabSelection": "Tribute – In Honour",
+  "defaultFrequencyAfterTypeTabSelection": "Monthly"
+}

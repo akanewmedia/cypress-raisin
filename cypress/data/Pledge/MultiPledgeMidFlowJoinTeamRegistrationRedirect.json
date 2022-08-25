@@ -1,0 +1,13 @@
+{
+    "URL": "pledge/registration/profile",
+    "account": {
+        "username": "-TMReg",
+        "fundraisingGoal": "20",
+        "password": "Akaaka1!"
+    },
+    "team": {
+        "teamName": "Auto Test Team",
+        "subEventGroupName": "City1a"
+    },
+    "transactionNumberStartsWith": "N/A"
+}

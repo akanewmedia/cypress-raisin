@@ -1,0 +1,68 @@
+{
+  "events": [
+    1
+  ],
+  "team": {
+    "name": "Test Team",
+    "goal": 100,
+    "goal2": 1000,
+    "password": "Akaaka1!"
+  },
+  "account": {
+    "username": "User",
+    "fundraisingGoal": "100",
+    "fundraisingGoal2": "700",
+    "password": "Akaaka1!"
+  },
+  "hideMeFromSearch": true,
+  "surveyResponses": [
+    {
+      "question": "Question 1 - Choice One Option",
+      "answer": "Yes"
+    },
+    {
+      "question": "Question 2 - Short answer",
+      "answer": "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla malesuada dictum purus quis luctus. Morbi aliquet tellus ut orci pretium, at vehicula felis malesuada."
+    },
+    {
+      "question": "Question 3 - Choose 1 option",
+      "answer": "Yes"
+    },
+    {
+      "question": "Question 4 - Choose which ones apply",
+      "answer": "Item 4"
+    },
+    {
+      "question": "Tell me your story",
+      "answer": "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla malesuada dictum purus quis luctus. Morbi aliquet tellus ut orci pretium, at vehicula felis malesuada."
+    }
+  ],
+  "teamCaptainSurveyResponses": [
+    {
+      "question": "Single Line Text",
+      "answer": "Aliquam ultricies fermentum dapibus. Nullam sodales tempus nulla a mollis"
+    },
+    {
+      "question": "Single Choice List",
+      "answer": "2"
+    },
+    {
+      "question": "Single Choice Radio",
+      "answer": "yes"
+    },
+    {
+      "question": "Multi-Line Text",
+      "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam leo enim, eleifend vehicula cursus a, sollicitudin vel leo. Donec cursus elit eget dolor efficitur venenatis. Aenean ipsum nisl, semper ac faucibus quis, laoreet a elit. Mauris auctor tellus sapien, sit amet facilisis mauris sollicitudin sit amet. Nunc sed elit justo. Donec viverra sed ligula non maximus. Pellentesque in massa in tellus vulputate efficitur. Curabitur convallis id erat sed pulvinar. Aenean libero dolor, consectetur facilisis vulputate in, elementum id erat."
+    },
+    {
+      "question": "Multiple Choice",
+      "answer": [
+        "Item 1",
+        "Item 2",
+        "Item 3"
+      ]
+    }
+  ],
+  "location": "City2b",
+  "fullName": "Dr. Bobby Ricky Smith"
+}

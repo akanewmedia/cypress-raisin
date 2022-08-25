@@ -1,15 +1,44 @@
+import {el} from './elements'
+
+
 class DonatePage {
     go() {
-        cy.visit('/');
-        cy.wait(1500);
-        cy.get('[data-pgid="3"] > a').click()
-        
+        cy.visit('/pledge/sponsor/start');        
     }
 
     donateToEvent(){
         cy.get('#search-navigation-event').click()   
         cy.get('input[placeholder="Other Amount"]').type("50");
         cy.get('button[class$="btn-continue"]').click();
+    }
+
+    donateToTeam(){
+        cy.get('#search-navigation-team').click()   
+        cy.get('button[class$="btn btn-default btn-flow--light"]').click();
+        cy.get('button[class*="btn-donate"]').first().click(); 
+        cy.wait(2000)   
+        cy.get('mat-radio-button[id*="mat-radio-"]').first().click();   
+        cy.contains('span', ' Show My Name and Amount ').click()
+        cy.get('#btnSubmit').click();        
+    }
+
+    donateToIndividual(){
+        cy.get('#search-navigation-individual').click()   
+        cy.get('button[class$="btn btn-default btn-flow--light"]').click();
+        cy.get('button[class*="btn-donate"]').first().click(); 
+        cy.wait(2000)   
+        cy.get('mat-radio-button[id*="mat-radio-"]').first().click();   
+        cy.contains('span', ' Show My Name and Amount ').click()
+        cy.get('#btnSubmit').click();        
+    }
+
+    donateToGroup(){
+        cy.get('#search-navigation-group').click()   
+        cy.get('button[class$="btn btn-default btn-flow--light"]').click();
+        cy.get('button[class*="btn-donate"]').first().click(); 
+        cy.get('#customAmount').type("100"); 
+        cy.contains('span', ' Show My Name and Amount ').click()
+        cy.get('#btnSubmit').click();        
     }
 
     fillForm(deliver) {
@@ -20,9 +49,8 @@ class DonatePage {
         cy.get('input[id="email"]').type(deliver.email);
         cy.get('input[id="addressLine1"]').type(deliver.address.street);
         cy.get('input[id="city"]').type(deliver.address.city);
-        cy.get('mat-select[id="province"]').click();
-        cy.get('#mat-option-541 > span').click();
-        cy.get('input[id="postalCode"]').type(deliver.address.postalCode);
+        cy.get('#province').click().get('mat-option').contains('Alberta').click();;
+        cy.get('input[id="postalCode"]').type(deliver.address.postalCode);        
         cy.get('#btnSubmit').click();
     }
 
@@ -33,6 +61,7 @@ class DonatePage {
         cy.get('#mat-option-557').click();
         cy.get('#creditCardExpirationYear').click();
         cy.get('#mat-option-569').click();
+        cy.get('input[id="cvvCode"]').type("123");
         cy.get('#btnSubmit').click();
     }
 

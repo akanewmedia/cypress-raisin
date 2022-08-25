@@ -1,0 +1,79 @@
+{
+	"events": 2,
+	"fullNameWithMiddleName": "Bobby John Smith",
+	"title": "Mr.",
+	"firstName": "Bobby",
+	"middleName": "John",
+	"lastName": "Smith",
+	"companyName": "Baker",
+	"emailType": "Business",
+	"addressType": "Business",
+	"phoneType": "Business",
+	"phoneNumber": "555-555-5555",
+	"phoneExtension": "555",
+	"gender": "Male",
+	"dateOfBirth": "10/16/1947",
+	"corporateDonation": true,
+	"optOut": true,
+	"optOutToShare": true,
+	"attribute1": "Yes",
+	"attribute2": "Custom field 2 answer",
+	"attribute3": "Custom field 3 answer",
+	"attribute4": "Custom field 4 answer",
+	"attribute5": "Custom field 5 answer",
+	"failedCard": {
+		"verification": {
+			"type": "Amex",
+			"number": "xxxxxxxxxxx4343",
+			"expiryDate": "12/2028"
+		},
+		"number": "343434343434343",
+		"cardHolderName": "Akaka",
+		"expiryMonth": "12",
+		"expiryYear": "2028",
+		"cvv": "123"
+	},
+	"card": {
+		"verification": {
+			"type": "Amex",
+			"number": "xxxxxxxxxxx4343",
+			"expiryDate": "12/2028"
+		},
+		"number": "343434343434343",
+		"cardHolderName": "Vito Corleone",
+		"expiryMonth": "12",
+		"expiryYear": "2028",
+		"cvv": "1234"
+	},
+	"requiredFieldsDonorInfoValidationMessages": [
+		"Title is required",
+		"First Name is required",
+		"Middle Name is required",
+		"Last Name is required",
+		"E-mail Type is required",
+		"E-mail is required",
+		"Phone Type is required",
+		"Phone is required",
+		"Phone Extension is required",
+		"Gender is required",
+		"Date of Birth is required",
+		"Organization Name is required",
+		"Address Type is required",
+		"Address is required",
+		"City is required",
+		"Province / State is required",
+		"Postal Code / ZIP is required",
+		"Custom Field DD 1 is required",
+		"Custom Field TB 2 is required",
+		"Custom Field TB 3 is required",
+		"Custom Field TB 4 is required",
+		"Custom Field TB 5 is required"
+	],
+	"requiredFieldsPaymentValidationMessages": [
+		"Credit Card Number is required",
+		"Card Holder Name is required",
+		"Expiration Month is required",
+		"Expiration Year is required",
+		"CVV is required"
+	]
+}

@@ -1,0 +1,66 @@
+{
+    "events": [3],
+    "surveyResponses": [
+        {"question": "Question 1 - Choice One Option", "answer": "Yes"},
+        {"question": "Question 2 - Short answer", "answer": "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla malesuada dictum purus quis luctus. Morbi aliquet tellus ut orci pretium, at vehicula felis malesuada."},
+        {"question": "Question 3 - Choose 1 from the List", "answer": "Yes"},
+        {"question": "Question 4 - Choose which ones apply", "answer": "Item 4"}
+    ],
+    "fullName": "Bobby Smith",
+    "additionalParticipants": [
+        {
+            "firstName": "John",
+            "lastName": "Participant",
+            "fullName": "John Participant",
+            "email": "aka@aka.com",
+            "registrationType": "Registration Fee, Individual",
+            "acceptWaiverOnBehalf": true
+        },
+        {
+            "firstName": "Garry",
+            "lastName": "Participant",
+            "fullName": "Garry Participant",
+            "email": "Garry@aka.com",
+            "registrationType": "Registration Fee, Individual",
+            "acceptWaiverOnBehalf": true
+        },
+        {
+            "firstName": "Tim",
+            "lastName": "Participant",
+            "fullName": "Tim Participant",
+            "email": "Tim@aka.com",
+            "registrationType": "Registration Fee, Individual",
+            "acceptWaiverOnBehalf": true
+        }
+    ],
+    "editedData": {
+        "additionalParticipants": [
+            {
+                "firstName": "John E",
+                "lastName": "Participant",
+                "fullName": "John E Participant",
+                "email": "aka@aka.com",
+                "registrationType": "Registration Fee, Individual",
+                "acceptWaiverOnBehalf": true
+            },
+            {
+                "firstName": "Replacement",
+                "lastName": "Participant",
+                "fullName": "Replacement Participant",
+                "email": "replacement@aka.com",
+                "registrationType": "Registration Fee, Individual",
+                "acceptWaiverOnBehalf": true
+            },
+            {
+                "firstName": "Third",
+                "lastName": "Participant",
+                "fullName": "Third Participant",
+                "email": "third@aka.com",
+                "registrationType": "Registration Fee, Individual",
+                "acceptWaiverOnBehalf": true
+            }
+        ]
+    },
+    "transactionNumberStartsWith": "N/A",
+    "location": "active group"
+}

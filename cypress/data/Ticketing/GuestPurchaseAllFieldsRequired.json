@@ -1,0 +1,17 @@
+{
+    "events": 1,
+    "fullName": "Ms. Sammy Middle Dilion",
+    "billingContact": {
+        "firstName" : "First Name Billing",
+        "lastName": "Last Name Billing",
+        "fullName": "First Name Billing Last Name Billing",
+        "email": "billing@abc.ca",
+        "address": "Address Line 1 Billing",
+        "city": "Test City Billing",
+        "country": "Canada",
+        "province": "Ontario",
+        "postCode": "A0A 0A0"
+    },
+    "updatedTotalAmount": "$1,000.00",
+    "updatedTotalAmountOnReviewPage": "$1,000.00"
+} 

@@ -1,0 +1,71 @@
+{
+    "events": 7,
+    "teamname": "Team One",
+    "team": {
+        "name": "Test Team",
+        "goal": 100,
+        "goal2": 1000,
+        "password": "Akaaka1!"
+    },
+    "additionalParticipants": [
+        {
+            "title": "Dr.",
+            "firstName": "John",
+            "middleName": "Middle",
+            "lastName": "Participant",
+            "fullName": "John Participant",
+            "emailType": "Business",
+            "email": "aka@aka.com",
+            "companyName": "Test Organization",
+            "phoneType": "Business",
+            "phoneNumber": "555-555-5555",
+            "phoneExtension": "555",
+            "gender": "Female",
+            "dayOfBirth": "1",
+            "monthOfBirth": "April",
+            "yearOfBirth": "1980",
+            "useMainParticipantAddress": true,
+            "hideMeFromSearch": true,
+            "allowAkaCommunication": true,
+            "allowScreenedCompanies": true,
+            "registrationType": "City1 Team Member Free English",
+            "acceptWaiverOnBehalf": true
+        }
+    ],
+    "transactionNumberStartsWith": "Test",
+    "transactionNACode": "N/A",
+    "teamCaptainSurveyResponses": [
+        {
+            "question": "Question 4-Multiple Choice",
+            "answer": [
+                "Item 1",
+                "Item 3"
+            ]
+        }
+    ],
+    "cardInfo": {
+      "verification": {
+        "type": "Visa",
+        "number": "xxxxxxxxxxxx1111",
+        "expiryDate": "12/2028"
+      },
+      "number": "4111111111111111",
+      "cardHolderName": "Akaka",
+      "expiryMonth": "12",
+      "expiryYear": "2028",
+      "cvv":"123"
+    },
+    "validCard": {
+      "verification": {
+        "type": "Mastercard",
+        "number": "xxxxxxxxxxxx5454",
+        "expiryDate": "12/2028"
+      },
+      "number": "5454545454545454",
+      "cardHolderName": "Bobby Smith",
+      "expiryMonth": "12",
+      "expiryYear": "2028",
+      "cvv":"123"
+    },
+    "totalRegAmount":"50.00"
+}

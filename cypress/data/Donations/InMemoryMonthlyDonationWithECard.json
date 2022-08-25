@@ -1,0 +1,50 @@
+{
+  "events": [3],
+  "matrixValues": {
+    "oneTimeGeneralDonation": [
+      "$15.00",
+      "$25.00",
+      "$50.00",
+      "$75.00",
+      "$100.00"
+    ],
+    "monthlynMemory": [
+      "$25.00",
+      "$35.00",
+      "$50.00",
+      "$75.00",
+      "$100.00"
+    ]
+  },
+  "monthlyInMemorySuggestedValue": "$20.00",
+  "donateButtonFrequencyLabel": "/month",
+  "frequencyButtonSelection": "Monthly",
+  "typeTabSelection": "Tribute – In Memory",
+  "defaultFrequencyAfterTypeTabSelection": "Monthly",
+  "tributeInfo": {
+    "firstName": "Michael",
+    "lastName": "Corleone",
+    "cardType": "eCard",
+    "templateImage": "1",
+    "templateImageAltText": "In-Memory eCard Template 2",
+    "message": "In-Memory eCard Template 2 message",
+    "recipient": {
+      "firstName": "Fredo",
+      "lastName": "Corleone",
+      "email": "fredo@recipient.ca"
+    },
+    "templateImageText1": 0,
+    "templateImageAltText1": "In-Memory eCard Template 1",
+    "defaultTemplateMessage1": "In-Memory eCard Template 1 message",
+    "templateImageText2": "1",
+    "templateImageAltText2": "In-Memory eCard Template 2",
+    "defaultTemplateMessage2": "In-Memory eCard Template 2 message"
+  },
+  "requiredFieldsTributeInfoValidationMessages": [
+    "First Name is required",
+    "Last Name is required",
+    "First Name is required",
+    "Last Name is required",
+    "E-mail is required"
+  ]
+}

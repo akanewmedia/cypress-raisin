@@ -1,0 +1,46 @@
+{
+  "isTestrailEnabled": false,
+  "isBrowserStackEnabled": false,
+  "isMobile": false,
+  "testrail": {
+    "host": "https://developer.testrail.io/",
+    "user": "developer@akanewmedia.com",
+    "password": "1jdk.admin",
+    "runName": "Protractor Test Run ",
+    "projectId": 1,
+    "runId": null
+  },
+  "browserStack": {
+    "browserName": "chrome",
+    "browserstack.user": "dimmmane1",
+    "browserstack.key": "pzGssyUVd8cTrkN21Qh6",
+    "os": "Windows",
+    "chromeOptions": {
+      "args": ["--incognito", "--window-size=1920,1080"]
+    },
+    "browserstack.local": true
+  },
+  "mobile": {
+    "browserstack.user": "dimmmane1",
+    "browserstack.key": "pzGssyUVd8cTrkN21Qh6",
+    "device": "Samsung Galaxy S9",
+    "realMobile": true,
+    "browserName": "chrome",
+    "browserstack.debug": true,
+    "acceptSslCerts": true,
+    "browserstack.local": true,
+    "browserstack.console": "warnings"
+  },
+  "browser": {
+    "browserName": "chrome",
+    "acceptInsecureCerts": true,
+    "chromeOptions": {
+      "args": [
+        "--incognito",
+        "--headless",
+        "--disable-gpu",
+        "--window-size=1920,1080"
+      ]
+    }
+  }
+}

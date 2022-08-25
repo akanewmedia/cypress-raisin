@@ -1,0 +1,31 @@
+{
+  "events": 7,
+  "team": {
+    "name": "Reg Item By Grp Team",
+    "goal": 500
+  },
+  "searchTeam": "Team One",
+  "teamCaptainSurveyResponses": [
+    {
+      "question": "Question 4-Multiple Choice",
+      "answer": [
+        "Item 1",
+        "Item 3"
+      ]
+    }
+  ],
+  "additionalParticipants": [
+    {
+      "firstName": "John",
+      "lastName": "Participant",
+      "fullName": "John Participant",
+      "email": "John.Participant@example.com",
+      "hideMeFromSearch": true,
+      "allowAkaCommunication": true,
+      "allowScreenedCompanies": true,
+      "registrationType": "Registration Fee, Individual"
+    }
+  ],
+  "totalAmountWithRegFee": "$150.00",
+  "transactionNumberStartsWith": "Test-"
+}

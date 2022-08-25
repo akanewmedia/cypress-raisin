@@ -1,0 +1,10 @@
+{
+	"events": 5,
+	"URL": "",
+	"widgetDefaults": {
+		"amount": "25",
+		"frequency": "4"
+	},
+	"selectedFrequencyFromWidget": "Monthly",
+	"selectedAmountFromWidget": "25.00"
+}

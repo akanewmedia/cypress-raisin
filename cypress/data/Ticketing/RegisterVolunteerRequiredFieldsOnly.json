@@ -1,0 +1,30 @@
+{
+    "title": null,
+    "middleName": null,
+    "emailType": null,
+    "companyName": null,
+    "phoneType": null,
+    "phoneNumber": null,
+    "phoneExtension": null,
+    "gender": null,
+    "dayOfBirth": null,
+    "monthOfBirth": null,
+    "yearOfBirth": null,
+    "addressType": null,
+    "allowAkaCommunication": null,
+    "allowScreenedCompanies": null,
+    "attribute1": null,
+    "attribute2": null,
+    "attribute3": null,
+    "attribute4": null,
+    "attribute5": null,
+    "requiredFieldsValidationMessages": [
+        "First Name is required",
+        "Last Name is required",
+        "E-mail is required",
+        "Address is required",
+        "City is required",
+        "Province / State is required",
+        "Postal Code / ZIP is required"
+    ]
+}

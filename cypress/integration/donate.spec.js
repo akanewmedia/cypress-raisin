@@ -5,6 +5,9 @@ import paymentFactory from '../factories/PaymentFactory';
 
 describe('Donate', function () {
 
+    var deliver = signupFactory.deliver();
+    var payment = paymentFactory.payment();
+
      it('Go to Donate page', function () {
       
         donate.go();        
@@ -12,13 +15,39 @@ describe('Donate', function () {
     })
 
     it('Donate to Event', function () {
-
-        var deliver = signupFactory.deliver();
-        var payment = paymentFactory.payment();
-
-        
+    
         donate.go();
         donate.donateToEvent();
+        donate.fillForm(deliver);
+        donate.fillPaymentInformation(payment);
+        donate.submit();
+
+    })
+
+    it('Donate to Team', function () {
+        
+        donate.go();
+        donate.donateToTeam();
+        donate.fillForm(deliver);
+        donate.fillPaymentInformation(payment);
+        donate.submit();
+
+    })
+
+    it('Donate to Individual', function () {
+        
+        donate.go();
+        donate.donateToIndividual();
+        donate.fillForm(deliver);
+        donate.fillPaymentInformation(payment);
+        donate.submit();
+
+    })
+
+    it.only('Donate to Group', function () {
+        
+        donate.go();
+        donate.donateToGroup();
         donate.fillForm(deliver);
         donate.fillPaymentInformation(payment);
         donate.submit();
@@ -29,7 +58,7 @@ describe('Donate', function () {
     context('Required fields', function(){
 
         const messages = [
-            {field: 'firstName', output: 'First Namezasda is required'},
+            {field: 'firstName', output: 'First Name is required'},
             {field: 'lastName', output: 'Last Name is required'},
             {field: 'email', output: 'E-mail is required'},
             {field: 'street', output: 'Address is required'},

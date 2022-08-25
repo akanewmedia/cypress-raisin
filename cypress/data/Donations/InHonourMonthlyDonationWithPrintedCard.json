@@ -1,0 +1,71 @@
+{
+  "events": [3],
+  "matrixValues": {
+    "oneTimeGeneralDonation": [
+      "$15.00",
+      "$25.00",
+      "$50.00",
+      "$75.00",
+      "$100.00"
+    ],
+    "monthlyInHonour": [
+      "$15.00",
+      "$20.00",
+      "$25.00",
+      "$35.00",
+      "$50.00"
+    ],
+    "annuallyInHonour": [
+      "$10.00",
+      "$15.00",
+      "$20.00",
+      "$25.00",
+      "$30.00"
+    ]
+  },
+  "monthlyInHonourSuggestedValue": "$20.00",
+  "donateButtonFrequencyLabel": "/month",
+  "frequencyButtonSelection": "Monthly",
+  "typeTabSelection": "Tribute – In Honour",
+  "defaultFrequencyAfterTypeTabSelection": "Monthly",
+  "tributeInfo": {
+    "firstName": "Michael",
+    "lastName": "Corleone",
+    "cardType": "Printed Card",
+    "templateImage": "2",
+    "templateImageAltText": "In-Honour Printed Card Template 2",
+    "message": "I would like you to support The Vito Andolini Corleone Foundation.",
+    "recipient": {
+      "firstName": "Fredo",
+      "lastName": "Corleone",
+      "address": {
+        "country": "Italy",
+        "line1": "Via Don Corleone",
+        "city": "Corleone",
+        "region": "All Regions",
+        "postalCode": "93100"
+      }
+    }
+  },
+  "requiredFieldsTributeInfoValidationMessages": [
+    "Address is required",
+    "City is required",
+    "Province / State is required",
+    "Postal Code / ZIP is required",
+    "Message is required"
+  ],
+  "eCardTributeInfo": {
+    "firstName": "Michael",
+    "lastName": "Corleone",
+    "cardType": "eCard",
+    "templateImage": "1",
+    "templateImageAltText": "In-Honour eCard Template 2",
+    "message": "I would like you to support The Vito Andolini Corleone Foundation.",
+    "recipient": {
+      "firstName": "Fredo",
+      "lastName": "Corleone",
+      "email": "fredo@recipient.ca"
+    },
+    "deliveryDate": "10/16/2020"
+  }
+}

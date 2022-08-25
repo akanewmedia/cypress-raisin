@@ -1,0 +1,17 @@
+{
+  "username": "testlogin",
+  "fullName": "Sammy Dilion",
+  "email": "diane@akanewmedia.com",
+  "address": "20 Maud Street, Suite 100",
+  "city": "Toronto",
+  "province": "Manitoba",
+  "postCode": "M5V 2H5",
+  "enteredTotalAmount": "$100.00 CAD",
+  "totalAmountOnReviewPage": "$100.00",
+  "attendee": {
+    "firstName": "Attendee",
+    "lastName": "One",
+    "email": "attendee.one@test.org"
+  },
+  "successMessage": "YOUR CHANGES HAVE BEEN SAVED"
+} 

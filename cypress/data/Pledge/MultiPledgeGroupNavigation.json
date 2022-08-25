@@ -1,0 +1,22 @@
+{
+  "events": [3],
+  "activeLocation": {
+    "name": "active group"
+  },
+  "inactiveLocation": {
+    "id": 19164,
+    "name": "inactive group"
+  },
+  "expiredLocation": {
+    "name": "expired group"
+  },
+  "homepageUrl": "forgrouprelatedtests",
+  "teamMemberInInactiveGroup": {
+    "userId": 4581195,
+    "firstName": "TeamMemberInInActiveGroup"
+  },
+  "teamCaptainInInactiveGroup": {
+    "userId": 4581191,
+    "firstName": "InactiveTeamCap"
+  }
+}

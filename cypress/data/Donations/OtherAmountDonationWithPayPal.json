@@ -1,0 +1,28 @@
+{
+	"events": 6,
+	"fullNameWithMiddleName": "Bobby John Smith",
+	"title": "Mr.",
+	"firstName": "Bobby",
+	"middleName": "John",
+	"lastName": "Smith",
+	"companyName": "Baker",
+	"emailType": "Business",
+	"addressType": "Business",
+	"phoneType": "Business",
+	"phoneNumber": "555-555-5555",
+	"phoneExtension": "555",
+	"gender": "Male",
+	"dateOfBirth": "10/16/1947",
+	"corporateDonation": true,
+	"optOut": true,
+	"optOutToShare": true,
+	"attribute1": "Yes",
+	"attribute2": "Custom field 2 answer",
+	"attribute3": "Custom field 3 answer",
+	"attribute4": "Custom field 4 answer",
+	"attribute5": "Custom field 5 answer",
+	"paypal": {
+		"email": "paypaltest@akanewmedia.com",
+		"password": "paypaltest"
+	}
+}

@@ -1,0 +1,10 @@
+{
+  "events": [0],
+  "funds": {
+    "default": "Fund 1",
+    "nonExistant": "Sample Not",
+    "fundSelection": "Sample Fund 1",
+    "otherFunds": "Other Funds"
+  },
+  "matrixButtonSelection": "$75.00"
+}

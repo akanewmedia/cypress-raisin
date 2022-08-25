@@ -1,0 +1,14 @@
+{
+	"events": [5],
+	"URL": "",
+	"widgetDefaults": {
+		"amount": "25",
+		"frequency": "4"
+	},
+	"widgetData": {
+		"amount": "75",
+		"frequency": "1"
+	},
+	"selectedFrequencyFromWidget": "One-Time",
+	"selectedAmountFromWidget": "75"
+}

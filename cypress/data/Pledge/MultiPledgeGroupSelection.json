@@ -1,0 +1,12 @@
+{
+  "events": [3],
+  "activeLocation": {
+    "name": "active group"
+  },
+  "inactiveLocation": {
+    "name": "inactive group"
+  },
+  "expiredLocation": {
+    "name": "expired group"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "testrail": {
+    "host": "https://developer.testrail.io/",
+    "user": "developer@akanewmedia.com",
+    "password": "1jdk.admin",
+    "runName": "Protractor Test Run ",
+    "projectId": 1,
+    "runId": null
+  },
+  "common": {
+    "browserstack.user": "akaraisin",
+    "browserstack.key": "JaSwAWzUsCu3WzquPv4b",
+    "acceptSslCerts": "true",
+    "project" : "raisin-ui",
+    "browserstack.local" : "false",
+    "browserstack.debug" : "true",
+    "browserstack.console" : "info",
+    "browserstack.networkLogs" : "true"
+  }, 
+  "configurations": [{
+      "os_version": "10",
+      "browserName": "Chrome",
+      "browser_version": "74.0",
+      "resolution": "1440x900",
+      "chromeOptions": {
+        "args": ["--incognito", "--window-size=1440,900"]
+      }
+    }
+  ]
+}

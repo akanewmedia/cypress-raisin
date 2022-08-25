@@ -1,0 +1,36 @@
+{
+    "events": [
+        1
+    ],
+    "account": {
+        "username": "User",
+        "fundraisingGoal": "100",
+        "fundraisingGoal2": "600",
+        "password": "Akaaka1!"
+    },
+    "hideMeFromSearch": true,
+    "surveyResponses": [
+        {
+            "question": "Question 1 - Choice One Option",
+            "answer": "Yes"
+        },
+        {
+            "question": "Question 2 - Short answer",
+            "answer": "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla malesuada dictum purus quis luctus. Morbi aliquet tellus ut orci pretium, at vehicula felis malesuada."
+        },
+        {
+            "question": "Question 3 - Choose 1 option",
+            "answer": "Yes"
+        },
+        {
+            "question": "Question 4 - Choose which ones apply",
+            "answer": "Item 4"
+        },
+        {
+            "question": "Tell me your story",
+            "answer": "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla malesuada dictum purus quis luctus. Morbi aliquet tellus ut orci pretium, at vehicula felis malesuada."
+        }
+    ],
+    "transactionNumberStartsWith": "Test-",
+    "fullName": "Dr. Bobby Ricky Smith"
+}

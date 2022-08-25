@@ -1,0 +1,23 @@
+{
+    "events": [3],
+    "surveyResponses": [
+        {"question": "Question 1 - Choice One Option", "answer": "Yes"},
+        {"question": "Question 2 - Short answer", "answer": "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla malesuada dictum purus quis luctus. Morbi aliquet tellus ut orci pretium, at vehicula felis malesuada."},
+        {"question": "Question 3 - Choose 1 from the List", "answer": "Yes"},
+        {"question": "Question 4 - Choose which ones apply", "answer": "Item 4"}
+    ],
+    "fullName": "Bobby Smith",
+    "teamname": "",
+    "additionalParticipants": [
+        {
+            "firstName": "John",
+            "lastName": "Participant",
+            "fullName": "John Participant",
+            "email": "aka@aka.com",
+            "registrationType": "Registration Fee, Team Member",
+            "acceptWaiverOnBehalf": true
+        }
+    ],
+    "transactionNumberStartsWith": "N/A",
+    "location": "active group"
+}

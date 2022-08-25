@@ -1,0 +1,22 @@
+{
+	"events": 1,
+	"card": {
+		"verification": {
+			"type": "MasterCard",
+			"number": "xxxxxxxxxxxx5454",
+			"expiryDate": "12/2028"
+		},
+		"number": "5454545454545454",
+		"cardHolderName": "Vito Corleone",
+		"expiryMonth": "12",
+		"expiryYear": "2028",
+		"cvv": "123"
+	},
+	"requiredFieldsPaymentValidationMessages": [
+		"Credit Card Number is required",
+		"Card Holder Name is required",
+		"Expiration Month is required",
+		"Expiration Year is required",
+		"CVV is required"
+	]
+}

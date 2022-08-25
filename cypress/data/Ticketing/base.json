@@ -1,0 +1,74 @@
+
+{
+  "updatedTotalAmount": "$1,000.00",
+  "enteredTotalAmount": "$1,100.00 CAD",
+  "totalAmountOnReviewPage": "$1,100.00",
+  "updatedTotalAmountOnReviewPage": "$100.00",
+  "emptyShoppingCardText":"Your shopping cart is empty.",
+  "transactionNumberStartsWith": "Test-",
+  "username": "AKA",
+  "password": "Akaaka1!",
+  "title": "Ms.",
+  "middleName": "Middle",
+  "emailType": "Business",
+  "phoneType": "Business",
+  "phoneNumber": "555-555-5555",
+  "phoneExtension": "555",
+  "gender": "Female",
+  "dayOfBirth": "1",
+  "monthOfBirth": "April",
+  "yearOfBirth": "1980",
+  "addressType": "Business",
+  "allowAkaCommunication": true,
+  "allowScreenedCompanies": true,
+  "attribute1": "A1",
+  "attribute2": "A2",
+  "attribute3": "A3",
+  "attribute4": "A4",
+  "attribute5": "A5",
+  "surveyResponses": [
+      {"question": "List", "answer": "b"},
+      {"question": "Radio", "answer": "No"},
+      {"question": "Multi-Line Text", "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam leo enim, eleifend vehicula cursus a, sollicitudin vel leo. Donec cursus elit eget dolor efficitur venenatis. Aenean ipsum nisl, semper ac faucibus quis, laoreet a elit. Mauris auctor tellus sapien, sit amet facilisis mauris sollicitudin sit amet. Nunc sed elit justo. Donec viverra sed ligula non maximus. Pellentesque in massa in tellus vulputate efficitur. Curabitur convallis id erat sed pulvinar. Aenean libero dolor, consectetur facilisis vulputate in, elementum id erat."},
+      {"question": "Multiple Choice", "answer": "Item 3"},
+      {"question": "Single Line Text", "answer": "Aliquam ultricies fermentum dapibus. Nullam sodales tempus nulla a mollis"}
+  ],
+  "volunteerThankYouMessage": "Thank you for Registering as a Volunteer",
+  "firstName": "Sammy",
+  "lastName": "Dilion",
+  "companyName": "Test Organization",
+  "email": "aka@aka.com",
+  "address": "123 Super Street",
+  "city": "BorringTown",
+  "province": "Ontario",
+  "postCode": "L7J 0A5",
+  "card" : {
+      "verification": {
+          "type": "Visa",
+          "number": "xxxxxxxxxxxx4242",
+          "expiryDate": "12/2028"
+      },
+      "number": "4242424242424242",
+      "cardHolderName": "Akaka",
+      "expiryMonth": "12",
+      "expiryYear": "2028"
+  },
+  "paypal": {
+    "email": "PayPalTest@akanewmedia.com",
+    "password": "paypaltest"
+  },
+  "promocode": "PROMO11",
+  "country": "Canada",
+  "singleTicketedFirstName":"Attendee First Name",
+  "singleTicketedLastName":"Attendee Last Name",
+  "successMessage":"YOUR CHANGES HAVE BEEN SAVED",
+  "verifyTickets": ["Single Ticketed Item","Registration Fee, Group","Non-Ticketed Item"],
+  "verifySponsorships": ["Sponsorship Item", "Sponsorship Item, Group"],
+  "fullName": "Sammy Dilion",                                    
+  "FORMAT FOR MANDATORY FIELDS": ["full name","organization","country","address","city","state","zip code"],
+  "edited": {
+      "companyName": "Test Organization Edited",
+      "fullName": "Sammy Dilion",
+      "cardholderName": "AkaakaEdited"
+  }                                         
+} 

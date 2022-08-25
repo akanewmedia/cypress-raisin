@@ -1,0 +1,17 @@
+{
+    "events": [5],
+    "fullName": "Bobby Smith",
+    "additionalParticipants": [
+        {
+            "firstName": "John",
+            "lastName": "Participant",
+            "fullName": "John Participant",
+            "email": "aka@aka.com",
+            "registrationType": "Free Registration",
+            "acceptWaiverOnBehalf": true
+        }
+],
+    "maxEventParticipantsReachedMessage": "The maximum number of participants for this event has been reached. No more participants can be added at this point, please contact the event manager directly.",
+    "transactionNumberStartsWith": "N/A",
+    "location": "City1a"
+}

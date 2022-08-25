@@ -1,0 +1,30 @@
+{
+    "events": [6],
+    "customFields": [
+        {
+            "queryParamString": "cf1",
+            "fieldName": "customField1",
+            "value": "Test1"
+        },
+        {
+            "queryParamString": "cf2",
+            "fieldName": "customField2",
+            "value": "Test2"
+        },
+        {
+            "queryParamString": "cf3",
+            "fieldName": "customField3",
+            "value": "Test3"
+        },
+        {
+            "queryParamString": "cf4",
+            "fieldName": "customField4",
+            "value": "Test4"
+        },
+        {
+            "queryParamString": "cf5",
+            "fieldName": "customField5",
+            "value": "Test5"
+        }
+    ]
+}
