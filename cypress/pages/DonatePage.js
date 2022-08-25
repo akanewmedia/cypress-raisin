@@ -1,9 +1,9 @@
-import {el} from './elements'
+
 
 
 class DonatePage {
     go() {
-        cy.visit('/pledge/sponsor/start');        
+        cy.visit('mpamr/pledge/sponsor/start');        
     }
 
     donateToEvent(){
