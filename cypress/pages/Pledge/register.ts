@@ -1,11 +1,20 @@
-import { Profile } from '../../components/profile.co'
-import { Address } from '../../components/address.co';
-import { AccountInformation } from '../../components/accountInformation.co';
-import { TaxReceipts } from '../../components/taxReceipts.co';
-import { AdditionalInformation } from '../../components/additionalInformation.co';
-import { getLocalDateTime, scrollToElement, setMatCheckboxChecked, setUserReferral } from '../../utils/actions';
+import { AccountInformation } from "../../support/components/accountInformation.co";
+import { AdditionalInformation } from "../../support/components/additionalInformation.co";
+import { Address } from "../../support/components/address.co";
+import { Profile } from "../../support/components/profile.co";
+import { TaxReceipts } from "../../support/components/taxReceipts.co";
+import { setMatCheckboxChecked, getLocalDateTime, scrollToElement, setUserReferral } from "../../support/utils/actions";
 
 export class RegisterPage {
+  container: any;
+  organizationUserType: any;
+  accountInformationCO: any;
+  profileInformationCO: any;
+  addressInformationCO: any;
+  additionalInformation: any;
+  taxReceiptsCO: any;
+  referralInformation: any;
+  requiredValidationErrors: any;
 
   constructor() {
     this.container = cy.get('#userDetails');

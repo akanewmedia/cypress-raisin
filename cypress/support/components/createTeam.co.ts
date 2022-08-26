@@ -1,4 +1,4 @@
-import { enterText } from "../utils/actions";
+import { elementById, enterText } from "../utils/actions";
 
 /**
  * Represents the create team component in the flow
@@ -13,14 +13,14 @@ export class CreateTeamComponent {
   isOpenToEveryoneRadioBtn: any;
   isPasswordProtectedRadioBtn: any;
   constructor() {
-    this.container = $('#base-page-top');
-    this.teamInfoContainer = this.container.$('#createTeamSection');
-    this.teamNameInput = this.teamInfoContainer.$('#TeamName');
-    this.teamGoalInput = this.teamInfoContainer.$('#TeamGoal');
-    this.regPasswordInput = this.teamInfoContainer.$('#regPassword');
-    this.repPasswordInput = this.teamInfoContainer.$('#repPassword');
-    this.isOpenToEveryoneRadioBtn = this.teamInfoContainer.$('#open');
-    this.isPasswordProtectedRadioBtn = this.teamInfoContainer.$('#closed');
+    this.container = elementById('#base-page-top');
+    this.teamInfoContainer = elementById(this.container, '#createTeamSection');
+    this.teamNameInput = elementById(this.teamInfoContainer, '#TeamName');
+    this.teamGoalInput = elementById(this.teamInfoContainer, '#TeamGoal');
+    this.regPasswordInput = elementById(this.teamInfoContainer, '#regPassword');
+    this.repPasswordInput = elementById(this.teamInfoContainer, '#repPassword');
+    this.isOpenToEveryoneRadioBtn = elementById(this.teamInfoContainer, '#open');
+    this.isPasswordProtectedRadioBtn = elementById(this.teamInfoContainer, '#closed');
   }
 
   /**

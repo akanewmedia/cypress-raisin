@@ -1,4 +1,4 @@
-import { setCheckboxChecked, setCustomAttribute } from "../utils/actions";
+import { elementById, setCheckboxChecked, setCustomAttribute } from "../utils/actions";
 export class AdditionalInformation {
   akaCommunicationCheckbox: any;
   akaCommunicationText: any;
@@ -10,17 +10,18 @@ export class AdditionalInformation {
   attribute3: any;
   attribute4: any;
   attribute5: any;
+
   constructor(private additionalInformationContainer: any) {
-    this.akaCommunicationCheckbox = this.additionalInformationContainer.$('#optOut');
-    this.akaCommunicationText = this.additionalInformationContainer.$('#optOut-title');
-    this.screenedCompaniesCheckbox = this.additionalInformationContainer.$('#optOutToShare');
-    this.screenedCompaniesText = this.additionalInformationContainer.$('#optOutToShare-title');
-    this.hideMeFromSearchCheckbox = this.additionalInformationContainer.$('#privacy');
-    this.attribute1 = this.additionalInformationContainer.$('#attribute1');
-    this.attribute2 = this.additionalInformationContainer.$('#attribute2');
-    this.attribute3 = this.additionalInformationContainer.$('#attribute3');
-    this.attribute4 = this.additionalInformationContainer.$('#attribute4');
-    this.attribute5 = this.additionalInformationContainer.$('#attribute5');
+    this.akaCommunicationCheckbox = elementById(this.additionalInformationContainer, '#optOut');
+    this.akaCommunicationText = elementById(this.additionalInformationContainer, '#optOut-title');
+    this.screenedCompaniesCheckbox = elementById(this.additionalInformationContainer, '#optOutToShare');
+    this.screenedCompaniesText = elementById(this.additionalInformationContainer, '#optOutToShare-title');
+    this.hideMeFromSearchCheckbox = elementById(this.additionalInformationContainer, '#privacy');
+    this.attribute1 = elementById(this.additionalInformationContainer, '#attribute1');
+    this.attribute2 = elementById(this.additionalInformationContainer, '#attribute2');
+    this.attribute3 = elementById(this.additionalInformationContainer, '#attribute3');
+    this.attribute4 = elementById(this.additionalInformationContainer, '#attribute4');
+    this.attribute5 = elementById(this.additionalInformationContainer, '#attribute5');
   }
 
   setHideMeFromSearch(checked) {

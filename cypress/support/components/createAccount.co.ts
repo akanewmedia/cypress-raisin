@@ -1,5 +1,6 @@
 //The information regarding the libraries
-import { clickElement, enterText } from "../utils/actions";
+import { clickElement, elementByClass, elementById, enterText } from "../utils/actions";
+
 //Locators
 export class CreateAccount {
   container: any;
@@ -8,11 +9,11 @@ export class CreateAccount {
   password: any;
   createAccountButton: any;
   constructor() {
-    this.container = $('rx-create-account');
-    this.proceedAsGuestButton = this.container.$('a.continue');
-    this.username = this.container.$('input.username');
-    this.password = this.container.$('input.password');
-    this.createAccountButton = this.container.$('.btn-login');
+    this.container = elementById('rx-create-account');
+    this.proceedAsGuestButton = elementByClass(this.container, 'a.continue');
+    this.username = elementByClass(this.container, 'input.username');
+    this.password = elementByClass(this.container, 'input.password');
+    this.createAccountButton = elementByClass(this.container, '.btn-login');
   }
 
   clickOnProceedAsGuestButton() {

@@ -1,13 +1,13 @@
-import { enterText, waitForElementToBeVisible } from "../utils/actions";
+import { elementById, enterText } from "../utils/actions";
 
 export class AccountInformation {
   fundraisingGoal: any;
   username: any;
   password: any;
   constructor(private accountContainer: any) {
-    this.username = this.accountContainer.$('#username');
-    this.password = this.accountContainer.$('#password');
-    this.fundraisingGoal = this.accountContainer.$('#goal');
+    this.username = elementById(this.accountContainer, '#username');
+    this.password = elementById(this.accountContainer, '#password');
+    this.fundraisingGoal = elementById(this.accountContainer, '#goal');
   }
 
   enterGoal(goal) {
@@ -15,7 +15,6 @@ export class AccountInformation {
   }
 
   enterUsername(username) {
-    waitForElementToBeVisible(this.username);
     enterText(this.username, username);
   }
 

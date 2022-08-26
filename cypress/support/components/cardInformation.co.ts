@@ -8,6 +8,7 @@ export class CardInformation {
   creditCardExpiryMonth: any;
   creditCardExpiryYear: any;
   creditCardCvv: any;
+
   constructor() {
     this.container = $('rx-credit-card-payment');
     // this.creditCardInformation = this.container.$('div.credit-card-payment.ccPaymentInfo');

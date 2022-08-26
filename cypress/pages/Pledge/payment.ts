@@ -1,7 +1,7 @@
-import { CardInformation } from '../../components/cardInformation.co'
-import { Store } from '../../components/store.co';
-import { scrollToElement, enterText, clickElement } from '../../utils/actions'
 import { isEmpty } from 'lodash';
+import { CardInformation } from '../../support/components/cardInformation.co';
+import { Store } from '../../support/components/store.co';
+import { scrollToElement, enterText, clickElement } from '../../support/utils/actions';
 
 export class PaymentPage {
   container: any;

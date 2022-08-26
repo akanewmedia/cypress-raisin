@@ -82,12 +82,12 @@ export class TicketingNavBar {
   }
 
   enterUsername(username) {
-    // expect(this.username.isDisplayed()).true;
+    expect(this.username.isDisplayed()).true;
     enterText(this.username, username);
   }
 
   enterPassword(password) {
-    // expect(this.password.isDisplayed()).true;
+    expect(this.password.isDisplayed()).true;
     enterText(this.password, password);
   }
 
@@ -97,7 +97,7 @@ export class TicketingNavBar {
   }
 
   clickOnLogin() {
-    // expect(this.loginButtonFromDialog.isDisplayed()).true;
+    expect(this.loginButtonFromDialog.isDisplayed()).true;
     this.loginButtonFromDialog.click();
   }
 

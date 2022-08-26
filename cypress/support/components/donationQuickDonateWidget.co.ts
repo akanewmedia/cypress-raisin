@@ -15,12 +15,12 @@ export class DonationQuickDonateWidget {
   constructor() {
     this.container = elementByClass('.quick-donate-widget-container');
 
-    this.frequency = this.container.$('.donate-widget-type');
-    this.selectedFrequency = this.frequency.$('input[checked="checked"]');
-    this.frequencyOneTimeLabel = this.frequency.$('.btn-primary[for="it_1"]');
-    this.frequencyMonthlyLabel = this.frequency.$('.btn-primary[for="it_4"]');
-    this.amount = this.container.$('.donate-widget-amount input');
-    this.donateButton = this.container.$('.donate-widget-button');
+    this.frequency = elementByClass(this.container, '.donate-widget-type');
+    this.selectedFrequency = elementByClass(this.frequency, 'input[checked="checked"]');
+    this.frequencyOneTimeLabel = elementByClass(this.frequency, '.btn-primary[for="it_1"]');
+    this.frequencyMonthlyLabel = elementByClass(this.frequency, '.btn-primary[for="it_4"]');
+    this.amount = elementByClass(this.container, '.donate-widget-amount input');
+    this.donateButton = elementByClass(this.container, '.donate-widget-button');
   }
 
   /**

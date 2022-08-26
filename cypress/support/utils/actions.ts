@@ -1,4 +1,4 @@
-import { isNil } from 'lodash';
+import { isNil, isString } from 'lodash';
 import 'cypress-plugin-tab';
 
 /**
@@ -9,11 +9,19 @@ import 'cypress-plugin-tab';
  * @return {*}  {ElementFinder}
  */
 export function elementById(id, container = null) {
-  if (isNil(container)) {
-    return cy.get(id);
-  }
+  if (isString(id)) {
+    if (isNil(container)) {
+      return cy.get(id);
+    }
 
-  return container.get(id);
+    return container.get(id);
+  } else {
+    if (isNil(id)) {
+      return cy.get(container);
+    }
+
+    return container.get(container);
+  }
 }
 /**
  * Gets the element by class and needs a .(dot) in the name
@@ -23,10 +31,19 @@ export function elementById(id, container = null) {
  * @return {*}  {ElementFinder}
  */
 export function elementByClass(className, container = null) {
-  if (isNil(container)) {
-    return cy.get(className).first();
+
+  if (isString(className)) {
+    if (isNil(container)) {
+      return cy.get(className).first();
+    }
+    return container.get(className).first();
+  } else {
+    if (isNil(className)) {
+      return cy.get(container).first();
+    }
+    return className.get(container).first();
   }
-  return container.get(className).first();
+
 }
 /**
  * Gets the element by class and needs a .(dot) in the name

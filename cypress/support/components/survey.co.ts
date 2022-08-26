@@ -8,21 +8,21 @@ export class SurveyComponent {
 
   // fills out a textbox survey field
   textbox(container, answer) {
-    var element = elementByClass(container, 'input[type="text"]');
+    const element = elementByClass(container, 'input[type="text"]');
     scrollToElement(element)
     return enterText(element, answer)
   }
 
   // fills out a textarea survey field
   textarea(container, answer) {
-    var element = elementByClass(container, 'textarea');
+    const element = elementByClass(container, 'textarea');
     scrollToElement(element)
     return enterText(element, answer);
   }
 
   // fills out a radio button list survey field
   radioBtnList(container, answer) {
-    var element = container.get('mat-radio-button').contains(answer);
+    const element = container.get('mat-radio-button').contains(answer);
     scrollToElement(element);
     return element.click();
   }

@@ -1,4 +1,4 @@
-import { clearInput, clickElement, elementByClass, elementsByClass, enterMatInput, enterText, scrollToElement, setFocus } from "../utils/actions";
+import { clearInput, clickElement, elementByClass, elementById, elementsByClass, enterMatInput, enterText, scrollToElement, setFocus } from "../utils/actions";
 import { getNextAvailableDate, getNextDate, getNextMonthDate } from "../utils/dateUtils";
 
 export class DonationMatrix {
@@ -13,14 +13,14 @@ export class DonationMatrix {
 
   constructor() {
     this.container = elementByClass('.rx-matrix-container');
-    this.title = this.container.$('h3');
-    this.donationAmountsContainer = this.container.$('.donation-matrix-other-amount');
+    this.title = elementById(this.container, 'h3');
+    this.donationAmountsContainer = elementByClass(this.container, '.donation-matrix-other-amount');
 
-    this.otherAmount = this.donationAmountsContainer.$('.donation-matrix-other-amount .globalized-number-input input');
-    this.amountField = this.donationAmountsContainer.$('.globalized-number input');
+    this.otherAmount = elementByClass(this.donationAmountsContainer, '.donation-matrix-other-amount .globalized-number-input input');
+    this.amountField = elementByClass(this.donationAmountsContainer, '.globalized-number input');
     this.selectedAmount = elementByClass('.mat-button-toggle-checked', this.container);
     this.donationAmountButtons = elementsByClass('.donation-matrix-button', this.container);
-    this.errorMessage = this.container.$('.mat-error');
+    this.errorMessage = elementByClass(this.container, '.mat-error');
   }
 
   /**
@@ -32,7 +32,7 @@ export class DonationMatrix {
   }
 
   getSelectedMatrixValue() {
-    return this.container.$('.donation-matrix-button.selected').getText();
+    return elementByClass(this.container, '.donation-matrix-button.selected').text();
   }
 
   clickOtherAmount() {
@@ -117,11 +117,11 @@ export class DonationDetails {
   constructor() {
     this.container = elementByClass('.choose-donation');
     this.donationMatrix = new DonationMatrix();
-    this.donationTypeGroup = this.container.$('.mat-button-toggle-group.donation-type');
-    this.selectedDonationType = this.donationTypeGroup.$('.mat-button-toggle-checked');
+    this.donationTypeGroup = this.container, '.mat-button-toggle-group.donation-type');
+    this.selectedDonationType = this.donationTypeGroup, '.mat-button-toggle-checked');
     this.donationFrequencyGroup = elementByClass('.donation-frequency', this.container);
-    this.selectedDonationFrequency = this.donationFrequencyGroup.$('.mat-button-toggle-checked');
-    this.coverAdminFeeCheckbox = this.container.$('.mat-checkbox-inner-container');
+    this.selectedDonationFrequency = this.donationFrequencyGroup, '.mat-button-toggle-checked');
+    this.coverAdminFeeCheckbox = this.container, '.mat-checkbox-inner-container');
     this.startDateFooter = elementByClass('.donations-step-footer-container');
   }
 

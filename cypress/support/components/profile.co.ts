@@ -1,5 +1,5 @@
 
-import { clickElement, enterText, selectMatDropDownOption, setCheckboxChecked, waitForElementToBeVisible } from "../utils/actions";
+import { clickElement, elementByClass, elementById, enterText, selectMatDropDownOption, setCheckboxChecked, waitForElementToBeVisible } from "../utils/actions";
 
 export class Profile {
   sameAsPurchaserCheckbox: any;
@@ -21,22 +21,22 @@ export class Profile {
   acceptWaiverOnBehalf: any;
   constructor(private container: any) {
 
-    this.sameAsPurchaserCheckbox = this.container.$('#chkUseConstituentAddress');
-    this.organisationButton = this.container.$('#contact-type .mat-checkbox');
-    this.title = this.container.$('#title');
-    this.firstName = this.container.$('#firstName');
-    this.middleName = this.container.$('#middleName');
-    this.lastName = this.container.$('#lastName');
-    this.orgName = this.container.$('#companyName');
-    this.emailType = this.container.$('#emailType');
-    this.email = this.container.$('#email');
-    this.phoneType = this.container.$('#phoneType');
-    this.phoneNumber = this.container.$('#phone');
-    this.phoneExtension = this.container.$('#phoneExtension');
-    this.gender = this.container.$('#gender');
-    this.dateOfBirth = this.container.$('#date-of-birth');
-    this.registrationType = this.container.$('#registrationType');
-    this.acceptWaiverOnBehalf = this.container.$('#acceptOnBehalf .mat-checkbox');
+    this.sameAsPurchaserCheckbox = elementById(this.container, '#chkUseConstituentAddress');
+    this.organisationButton = elementByClass(this.container, '#contact-type .mat-checkbox');
+    this.title = elementById(this.container, '#title');
+    this.firstName = elementById(this.container, '#firstName');
+    this.middleName = elementById(this.container, '#middleName');
+    this.lastName = elementById(this.container, '#lastName');
+    this.orgName = elementById(this.container, '#companyName');
+    this.emailType = elementById(this.container, '#emailType');
+    this.email = elementById(this.container, '#email');
+    this.phoneType = elementById(this.container, '#phoneType');
+    this.phoneNumber = elementById(this.container, '#phone');
+    this.phoneExtension = elementById(this.container, '#phoneExtension');
+    this.gender = elementById(this.container, '#gender');
+    this.dateOfBirth = elementById(this.container, '#date-of-birth');
+    this.registrationType = elementById(this.container, '#registrationType');
+    this.acceptWaiverOnBehalf = elementByClass(this.container, '#acceptOnBehalf .mat-checkbox');
   }
 
   selectSameAsPurchaser(sameAsPurchaser) {
@@ -58,8 +58,6 @@ export class Profile {
   selectGender(gender) {
     selectMatDropDownOption(this.gender, gender);
   }
-
-
 
   selectDateOfBirth(day, month, year) {
     enterText(this.dateOfBirth, `${month}\\${day}\\${year}`);

@@ -20,9 +20,9 @@ export class DonationPaymentInformation {
     this.container = elementByClass('.gd-complete-donation');
 
     // payment method
-    this.creditCardPaymentMethod = this.container.$('mat-button-toggle-group[name="paymentType"]  mat-button-toggle[value="0"]');
-    this.debitCardPaymentMethod = this.container.$('mat-button-toggle-group[name="paymentType"]  mat-button-toggle[value="debit"]');
-    this.paymentTypeGroup = this.container.$('mat-button-toggle-group[name="paymentType"]');
+    this.creditCardPaymentMethod = elementById(this.container, 'mat-button-toggle-group[name="paymentType"]  mat-button-toggle[value="0"]');
+    this.debitCardPaymentMethod = elementById(this.container, 'mat-button-toggle-group[name="paymentType"]  mat-button-toggle[value="debit"]');
+    this.paymentTypeGroup = elementById(this.container, 'mat-button-toggle-group[name="paymentType"]');
 
     // card details
     this.txtCardNumber = elementByClass('.credit-card-number', this.container);

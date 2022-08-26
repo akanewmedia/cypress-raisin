@@ -1,3 +1,5 @@
+import { elementById } from "../utils/actions";
+
 /**
  * Represents the error section of the form
  */
@@ -6,9 +8,9 @@ export class DonationError {
     title: any;
     content: any;
     constructor(container) {
-        this.container = container.$('mat-card.error-notification');
-        this.title = this.container.$('mat-card-title');
-        this.content = this.container.$('mat-card-content');
+      this.container = elementById(container, 'mat-card.error-notification');
+      this.title = elementById(this.container, 'mat-card-title');
+      this.content = elementById(this.container, 'mat-card-content');
     }
 }
 

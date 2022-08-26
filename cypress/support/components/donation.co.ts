@@ -1,9 +1,8 @@
-import { clickElement, elementByClass, elementById, enterText, setCheckboxChecked } 
-from "../utils/actions";
-
+import { isNil } from "lodash";
+import { clickElement, elementByClass, elementById, enterText, setCheckboxChecked } from "../utils/actions";
 
 export class Donation {
-  container: any; 
+  container: any;
   honourRollContainer: any;
   donationContainer: any;
   privateMessageContainer: any;
@@ -40,12 +39,14 @@ export class Donation {
   }
 
   setAmount(amount) {
-    // waitForElement(this.donation);
     enterText(this.donation, amount);
   }
 
   selectHonorRollOption(option) {
-    elementClick(this.honourRollOptionsContainer, '.mat-radio-button .mat-radio-label-content').click();
+    if (!isNil(option)) {
+      clickElement(this.honourRollOptionsContainer.get('.mat-radio-button .mat-radio-label-content').contains(option));
+    }
+    clickElement(this.honourRollOptionsContainer.get('.mat-radio-button .mat-radio-label-content'));
 
   }
 
@@ -66,7 +67,7 @@ export class Donation {
   }
 
   enterCustomHonorRollText(text) {
-    
+
     this.honourRollCustomText.type(text)
   }
 
@@ -79,12 +80,11 @@ export class Donation {
   }
 
   setEventDonationAmount(amount) {
-    waitForElementToBeClickable(this.donationAmountText);
-    this.donationAmountText.type(amount)    
+    this.donationAmountText.type(amount)
   }
 
   pressEventDonationContinueBtn() {
-    elementthis.eventDonationContinueBtn.click();
+    clickElement(this.eventDonationContinueBtn);
   }
 
   setCoverAdminFee(value) {
