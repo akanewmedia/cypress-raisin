@@ -1,6 +1,17 @@
 import { isNil, isString } from 'lodash';
 import 'cypress-plugin-tab';
 
+export function buildSelector(selector1, selector2 = null, selector3 = null) {
+
+  let selector = selector1;
+  if (selector2){
+    selector = selector + ' ' + selector2;
+  }
+  if (selector3){
+    selector = selector + ' ' + selector3;
+  }
+  return selector;
+}
 /**
  * Gets the element by class
  *
@@ -14,7 +25,7 @@ export function elementById(id, container = null) {
       return cy.get(id);
     }
 
-    return container.get(id);
+    return cy.get(container).get(id);
   } else {
     if (isNil(id)) {
       return cy.get(container);
@@ -36,7 +47,7 @@ export function elementByClass(className, container = null) {
     if (isNil(container)) {
       return cy.get(className).first();
     }
-    return container.get(className).first();
+    return cy.get(container).get(className).first();
   } else {
     if (isNil(className)) {
       return cy.get(container).first();
@@ -64,15 +75,15 @@ export function elementsByClass(className, container = null) {
  * @param {boolean} [true] wait - if the driver should be used to click the element
  */
 export function clickElement(selector, wait = false) {
-  if (wait) {
-    selector.click();
-  }
-  return selector.click();
+  // if (wait) {
+  //   cy.get(selector).click();
+  // }
+  return cy.get(selector).click();
 }
 
 export function enterText(protractorSelector, text) {
-  this.clearInputWithBackspace(protractorSelector);
-  protractorSelector.type(text);
+  //this.clearInputWithBackspace(protractorSelector);
+  cy.get(protractorSelector).type(text);
 }
 
 /**
@@ -280,8 +291,8 @@ export function selectMatDropDownOption(
   selectedOption
 ) {
   // waitForElement(dropdownElementSelector);
-  scrollToElement(dropdownElementSelector);
-  dropdownElementSelector.click();
+  //scrollToElement(dropdownElementSelector);
+  cy.get(dropdownElementSelector).click();
   const ddlContainer = cy.get('.cdk-overlay-container');
   // waitForElement(ddlContainer);
   // browser.sleep(200);
@@ -392,9 +403,9 @@ export function setFocus(protractorSelector) {
   cy.get(protractorSelector).first().focus();
 }
 
-export function scrollToElement(protractorSelector) {
-  return cy.scrollTo(protractorSelector);
-}
+// export function scrollToElement(protractorSelector) {
+//   return cy.scrollTo(protractorSelector);
+// }
 
 export function scrollToTop() {
   cy.scrollTo(0, 0);

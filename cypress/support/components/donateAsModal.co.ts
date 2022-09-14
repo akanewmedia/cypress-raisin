@@ -1,4 +1,4 @@
-import { elementByClass } from "../utils/actions";
+import { buildSelector, elementByClass } from "../utils/actions";
 
 /**
  * Represents the Donate As modal that comes up when you try to donate while logged in.
@@ -8,9 +8,9 @@ export class DonateAsComponent {
   sponsorBtn: any;
   sponsorNewBtn: any;
   constructor() {
-    this.container = elementByClass(".returning-user");
-    this.sponsorBtn = elementByClass(this.container, '#sponsor');
-    this.sponsorNewBtn = elementByClass(this.container, '#sponsorNew');
+    this.container = buildSelector(".returning-user");
+    this.sponsorBtn = buildSelector(this.container, '#sponsor');
+    this.sponsorNewBtn = buildSelector(this.container, '#sponsorNew');
   }
 
   /**

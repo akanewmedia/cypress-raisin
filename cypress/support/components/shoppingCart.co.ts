@@ -1,6 +1,6 @@
 //The information regarding the libraries
 
-import { clickElement, elementByClass, elementById, elementsByClass, enterText } from "../utils/actions";
+import { buildSelector, clickElement, elementByClass, elementById, elementsByClass, enterText } from "../utils/actions";
 
 export class ShoppingCart {
   container: any;
@@ -17,18 +17,18 @@ export class ShoppingCart {
   promoCodeApplyButton: any;
 
   constructor() {
-    this.container = elementByClass('.shopping-cart-view-dialog');
-    this.emptyCartText = elementById(this.container, '#empty-cart');
-    this.cartButtons = elementByClass(this.container, '.shopping-cart-footer');
-    this.verifyAmount = elementByClass(this.container, '.price-row label.cart-label-right');
-    this.keepShoppingButton = elementByClass(this.cartButtons, '.btn-keep-shopping span:nth-child(2)');
-    this.checkOutButtonInPopUp = elementByClass(this.cartButtons, '.btn-confirm-checkout-cart span:first-child');
-    this.itemsContainer = elementByClass(this.container, '#tickets-title-label + div');
-    this.cartItems = elementsByClass(this.itemsContainer, 'tbody');
-    this.closeButton = elementByClass(this.container, '.mat-dialog-title button.close-modal-button');
-    this.donationAmount = elementByClass(this.container, '#txtDonationAmount');
-    this.promoCodeInputText = elementByClass(this.container, '#promoCode');
-    this.promoCodeApplyButton = elementByClass(this.container, '.btn-promocode');
+    this.container = buildSelector('.shopping-cart-view-dialog');
+    this.emptyCartText = buildSelector(this.container, '#empty-cart');
+    this.cartButtons = buildSelector(this.container, '.shopping-cart-footer');
+    this.verifyAmount = buildSelector(this.container, '.price-row label.cart-label-right');
+    this.keepShoppingButton = buildSelector(this.cartButtons, '.btn-keep-shopping span:nth-child(2)');
+    this.checkOutButtonInPopUp = buildSelector(this.cartButtons, '.btn-confirm-checkout-cart span:first-child');
+    this.itemsContainer = buildSelector(this.container, '#tickets-title-label + div');
+    this.cartItems = buildSelector(this.itemsContainer, 'tbody');
+    this.closeButton = buildSelector(this.container, '.mat-dialog-title button.close-modal-button');
+    this.donationAmount = buildSelector(this.container, '#txtDonationAmount');
+    this.promoCodeInputText = buildSelector(this.container, '#promoCode');
+    this.promoCodeApplyButton = buildSelector(this.container, '.btn-promocode');
   }
 
   getCartItemLabel(index) {

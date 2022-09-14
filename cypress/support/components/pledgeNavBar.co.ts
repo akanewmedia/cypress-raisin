@@ -1,4 +1,4 @@
-import { elementByClass, elementById, clickElement } from '../utils/actions';
+import { elementByClass, elementById, clickElement, buildSelector } from '../utils/actions';
 
 export class PledgeNavBarComponent {
   container: any;
@@ -11,18 +11,18 @@ export class PledgeNavBarComponent {
   menu: any;
 
   constructor() {
-    this.container = elementByClass('.navbar-default');
-    this.pcNavbarButton = elementByClass('.nav li[data-pgid="3"]');
-    this.navbarActions = elementByClass(this.container, '.login-actions');
-    this.registerButton = elementByClass(this.navbarActions, 'li[data-pgid="2"]');
-    this.donateButton = elementByClass(this.navbarActions, 'li[data-pgid="3"]');
-    this.loginButton = elementByClass(this.navbarActions, 'li a[href*="login.aspx"]');
-    this.logoutButton = elementByClass(this.navbarActions, 'li a[href*="logout.aspx"]');
-    this.menu = elementById(this.container, '#nav');
+    this.container = buildSelector('.navbar-default');
+    this.pcNavbarButton = buildSelector('.nav li[data-pgid="3"]');
+    this.navbarActions = buildSelector(this.container, '.login-actions');
+    this.registerButton = buildSelector(this.navbarActions, 'li[data-pgid="2"]');
+    this.donateButton = buildSelector(this.navbarActions, 'li[data-pgid="3"]');
+    this.loginButton = buildSelector(this.navbarActions, 'li a[href*="login.aspx"]');
+    this.logoutButton = buildSelector(this.navbarActions, 'li a[href*="logout.aspx"]');
+    this.menu = buildSelector(this.container, '#nav');
   }
 
   register() {
-    cy.get(this.registerButton).click();
+    // cy.get(this.registerButton).click();
     clickElement(this.registerButton);
   }
 

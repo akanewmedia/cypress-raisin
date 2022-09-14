@@ -1,4 +1,4 @@
-import { clickElement, elementByClass } from "../../utils/actions";
+import { buildSelector, clickElement, elementByClass } from "../../utils/actions";
 import { Search } from '../../components/search.co';
 import { DonateAsComponent } from "../../components/donateAsModal.co";
 
@@ -8,7 +8,7 @@ export class DonationSearchPage {
   donateAsModal: any;
 
   constructor() {
-    this.container = elementByClass('.search-page');
+    this.container = buildSelector('.search-page');
     this.searchComponent = new Search(this.container);
     this.donateAsModal = new DonateAsComponent();
   }

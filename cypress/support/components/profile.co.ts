@@ -1,5 +1,5 @@
 
-import { clickElement, elementByClass, elementById, enterText, selectMatDropDownOption, setCheckboxChecked, waitForElementToBeVisible } from "../utils/actions";
+import { buildSelector, clickElement, elementByClass, elementById, enterText, selectMatDropDownOption, setCheckboxChecked, waitForElementToBeVisible } from "../utils/actions";
 
 export class Profile {
   sameAsPurchaserCheckbox: any;
@@ -21,22 +21,22 @@ export class Profile {
   acceptWaiverOnBehalf: any;
   constructor(private container: any) {
 
-    this.sameAsPurchaserCheckbox = elementById(this.container, '#chkUseConstituentAddress');
-    this.organisationButton = elementByClass(this.container, '#contact-type .mat-checkbox');
-    this.title = elementById(this.container, '#title');
-    this.firstName = elementById(this.container, '#firstName');
-    this.middleName = elementById(this.container, '#middleName');
-    this.lastName = elementById(this.container, '#lastName');
-    this.orgName = elementById(this.container, '#companyName');
-    this.emailType = elementById(this.container, '#emailType');
-    this.email = elementById(this.container, '#email');
-    this.phoneType = elementById(this.container, '#phoneType');
-    this.phoneNumber = elementById(this.container, '#phone');
-    this.phoneExtension = elementById(this.container, '#phoneExtension');
-    this.gender = elementById(this.container, '#gender');
-    this.dateOfBirth = elementById(this.container, '#date-of-birth');
-    this.registrationType = elementById(this.container, '#registrationType');
-    this.acceptWaiverOnBehalf = elementByClass(this.container, '#acceptOnBehalf .mat-checkbox');
+    this.sameAsPurchaserCheckbox = buildSelector(this.container, '#chkUseConstituentAddress');
+    this.organisationButton = buildSelector(this.container, '#contact-type .mat-checkbox');
+    this.title = buildSelector(this.container, '#title');
+    this.firstName = buildSelector(this.container, '#firstName');
+    this.middleName = buildSelector(this.container, '#middleName');
+    this.lastName = buildSelector(this.container, '#lastName');
+    this.orgName = buildSelector(this.container, '#companyName');
+    this.emailType = buildSelector(this.container, '#emailType');
+    this.email = buildSelector(this.container, '#email');
+    this.phoneType = buildSelector(this.container, '#phoneType');
+    this.phoneNumber = buildSelector(this.container, '#phone');
+    this.phoneExtension = buildSelector(this.container, '#phoneExtension');
+    this.gender = buildSelector(this.container, '#gender');
+    this.dateOfBirth = buildSelector(this.container, '#date-of-birth');
+    this.registrationType = buildSelector(this.container, '#registrationType');
+    this.acceptWaiverOnBehalf = buildSelector(this.container, '#acceptOnBehalf .mat-checkbox');
   }
 
   selectSameAsPurchaser(sameAsPurchaser) {
@@ -73,7 +73,7 @@ export class Profile {
   }
 
   enterFirstName(text) {
-    waitForElementToBeVisible(this.firstName)
+    //waitForElementToBeVisible(this.firstName)
     enterText(this.firstName, text);
   }
 

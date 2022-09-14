@@ -3,7 +3,7 @@ import { Address } from '../../components/address.co';
 import { AccountInformation } from '../../components/accountInformation.co';
 import { TaxReceipts } from '../../components/taxReceipts.co';
 import { AdditionalInformation } from '../../components/additionalInformation.co';
-import { elementByClass, elementById, elementsByClass, getLocalDateTime, scrollToElement, setMatCheckboxChecked, setUserReferral } from '../../utils/actions';
+import { buildSelector, elementByClass, elementById, elementsByClass, getLocalDateTime, scrollToElement, setMatCheckboxChecked, setUserReferral } from '../../utils/actions';
 
 export class RegisterPage {
   container: any;
@@ -17,15 +17,15 @@ export class RegisterPage {
   referralInformation: any;
   requiredValidationErrors: any;
   constructor() {
-    this.container = elementById('#userDetails');
-    this.organizationUserType = elementByClass(this.container, ".contact-type");
+    this.container = buildSelector('#userDetails');
+    this.organizationUserType = buildSelector(this.container, ".contact-type");
     this.accountInformationCO = new AccountInformation(this.container);
     this.profileInformationCO = new Profile(this.container);
     this.addressInformationCO = new Address(this.container);
     this.additionalInformation = new AdditionalInformation(this.container);
     this.taxReceiptsCO = new TaxReceipts();
-    this.referralInformation = elementByClass(this.container, '#refCode');
-    this.requiredValidationErrors = elementsByClass(this.container, 'small[ng-message="required"]');
+    this.referralInformation = buildSelector(this.container, '#refCode');
+    this.requiredValidationErrors = buildSelector(this.container, 'small[ng-message="required"]');
   }
 
   /**

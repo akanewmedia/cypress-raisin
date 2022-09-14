@@ -1,13 +1,13 @@
-import { elementById, enterText } from "../utils/actions";
+import { buildSelector, elementById, enterText } from "../utils/actions";
 
 export class AccountInformation {
   fundraisingGoal: any;
   username: any;
   password: any;
   constructor(private accountContainer: any) {
-    this.username = elementById(this.accountContainer, '#username');
-    this.password = elementById(this.accountContainer, '#password');
-    this.fundraisingGoal = elementById(this.accountContainer, '#goal');
+    this.username = buildSelector(this.accountContainer, '#username');
+    this.password = buildSelector(this.accountContainer, '#password');
+    this.fundraisingGoal = buildSelector(this.accountContainer, '#goal');
   }
 
   enterGoal(goal) {

@@ -1,5 +1,5 @@
 //The information regarding the libraries
-import { selectMatDropDownOption, enterText, setCheckboxChecked, elementById } from "../utils/actions";
+import { selectMatDropDownOption, enterText, setCheckboxChecked, elementById, buildSelector } from "../utils/actions";
 
 export class Address {
   addressType: any;
@@ -10,13 +10,13 @@ export class Address {
   postCode: any;
   useMainParticipantAddress: any;
   constructor(private addressInformationContainer: any) {
-    this.addressType = elementById(this.addressInformationContainer, '#addressType');
-    this.address = elementById(this.addressInformationContainer, '#addressLine1');
-    this.city = elementById(this.addressInformationContainer, '#city');
-    this.country = elementById(this.addressInformationContainer, '#country');
-    this.province = elementById(this.addressInformationContainer, '#province');
-    this.postCode = elementById(this.addressInformationContainer, '#postalCode');
-    this.useMainParticipantAddress = elementById(this.addressInformationContainer, '#UseMainPartAddress-single');
+    this.addressType = buildSelector(this.addressInformationContainer, '#addressType');
+    this.address = buildSelector(this.addressInformationContainer, '#addressLine1');
+    this.city = buildSelector(this.addressInformationContainer, '#city');
+    this.country = buildSelector(this.addressInformationContainer, '#country');
+    this.province = buildSelector(this.addressInformationContainer, '#province');
+    this.postCode = buildSelector(this.addressInformationContainer, '#postalCode');
+    this.useMainParticipantAddress = buildSelector(this.addressInformationContainer, '#UseMainPartAddress-single');
   }
 
   selectAddressType(addressType) {

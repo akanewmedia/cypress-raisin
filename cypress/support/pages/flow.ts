@@ -1,11 +1,11 @@
-import { clickElement, elementByClass, elementById } from "../utils/actions";
+import { buildSelector, clickElement, elementByClass, elementById } from "../utils/actions";
 
 export class FlowPage {
   continueButton: any;
   backButton: any;
   constructor() {
-    this.continueButton = elementById('#btnSubmit');
-    this.backButton = elementByClass('.btn-flow.btn-back');
+    this.continueButton = buildSelector('#btnSubmit');
+    this.backButton = buildSelector('.btn-flow.btn-back');
 
   }
   continue() {

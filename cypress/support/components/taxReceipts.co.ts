@@ -1,5 +1,5 @@
 //The information regarding the libraries
-import { clickElement, elementByClass } from "../utils/actions";
+import { buildSelector, clickElement, elementByClass } from "../utils/actions";
 
 export class TaxReceipts {
   container: any;
@@ -9,12 +9,12 @@ export class TaxReceipts {
   optInRadioButton: any;
   optOutRadioButton: any;
   constructor() {
-    this.container = elementByClass('rx-user-details-tax-receipts');
-    this.disclaimer = elementByClass(this.container, 'small');
-    this.title = elementByClass(this.container, 'h2');
-    this.form = elementByClass(this.container, '.form-group');
-    this.optInRadioButton = elementByClass(this.form, '#OptTaxReceiptYes + label');
-    this.optOutRadioButton = elementByClass(this.form, '#OptTaxReceiptNo + label');
+    this.container = buildSelector('rx-user-details-tax-receipts');
+    this.disclaimer = buildSelector(this.container, 'small');
+    this.title = buildSelector(this.container, 'h2');
+    this.form = buildSelector(this.container, '.form-group');
+    this.optInRadioButton = buildSelector(this.form, '#OptTaxReceiptYes + label');
+    this.optOutRadioButton = buildSelector(this.form, '#OptTaxReceiptNo + label');
   }
 
   optIn() {

@@ -1,5 +1,5 @@
 //The information regarding the libraries
-import { clickElement, elementByClass, elementById, elementsByClass, enterText } from "../utils/actions";
+import { buildSelector, clickElement, elementByClass, elementById, elementsByClass, enterText } from "../utils/actions";
 export class SearchResult {
   container: any;
   name: any;
@@ -7,9 +7,9 @@ export class SearchResult {
   button: any;
   constructor(result) {
     this.container = result;
-    this.name = elementByClass(this.container, '.search-title');
-    this.location = elementByClass(this.container, '.search-group:last-child');
-    this.button = elementByClass(this.container, '.pull-right .btn-search-donate');
+    this.name = buildSelector(this.container, '.search-title');
+    this.location = buildSelector(this.container, '.search-group:last-child');
+    this.button = buildSelector(this.container, '.pull-right .btn-search-donate');
   }
 }
 
@@ -25,15 +25,15 @@ export class Search {
   eventTab: any;
 
   constructor(private container: any) {
-    this.searchBarContainer = elementByClass(this.container, '.search-form');
-    this.searchBar = elementByClass(this.searchBarContainer, '#search-box');
-    this.searchButton = elementByClass(this.searchBarContainer, '.btn-flow--light');
-    this.searchResultsContainer = elementByClass(this.container, '#search');
+    this.searchBarContainer = buildSelector(this.container, '.search-form');
+    this.searchBar = buildSelector(this.searchBarContainer, '#search-box');
+    this.searchButton = buildSelector(this.searchBarContainer, '.btn-flow--light');
+    this.searchResultsContainer = buildSelector(this.container, '#search');
 
-    this.individualTab = elementById(this.container, 'search-navigation-individual');
-    this.teamTab = elementById(this.container, 'search-navigation-team');
-    this.groupTab = elementById(this.container, 'search-navigation-group');
-    this.eventTab = elementById(this.container, 'search-navigation-event');
+    this.individualTab = buildSelector(this.container, '#search-navigation-individual');
+    this.teamTab = buildSelector(this.container, '#search-navigation-team');
+    this.groupTab = buildSelector(this.container, '#search-navigation-group');
+    this.eventTab = buildSelector(this.container, '#search-navigation-event');
   }
 
   initContainer() {

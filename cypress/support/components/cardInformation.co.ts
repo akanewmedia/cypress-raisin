@@ -1,5 +1,5 @@
 //The information regarding the Library 
-import { selectMatDropDownOption, enterText } from "../utils/actions";
+import { selectMatDropDownOption, enterText, buildSelector } from "../utils/actions";
 
 export class CardInformation {
   container: any;
@@ -10,13 +10,13 @@ export class CardInformation {
   creditCardCvv: any;
 
   constructor() {
-    this.container = $('rx-credit-card-payment');
+    this.container = buildSelector('rx-credit-card-payment');
     // this.creditCardInformation = this.container.$('div.credit-card-payment.ccPaymentInfo');
-    this.creditCardNumber = this.container.$('#txtCardNumber');
-    this.creditCardHolderName = this.container.$('#txtCardHolderName');
-    this.creditCardExpiryMonth = this.container.$('#creditCardExpirationMonth');
-    this.creditCardExpiryYear = this.container.$('#creditCardExpirationYear');
-    this.creditCardCvv = this.container.$('#cvvCode');
+    this.creditCardNumber = buildSelector('#txtCardNumber');
+    this.creditCardHolderName = buildSelector('#txtCardHolderName');
+    this.creditCardExpiryMonth = buildSelector('#creditCardExpirationMonth');
+    this.creditCardExpiryYear = buildSelector('#creditCardExpirationYear');
+    this.creditCardCvv = buildSelector('#cvvCode');
   }
 
   selectCardExpiryMonth(cardExpiryMonth) {

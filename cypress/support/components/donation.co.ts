@@ -1,5 +1,5 @@
 import { isNil } from "lodash";
-import { clickElement, elementByClass, elementById, enterText, setCheckboxChecked } from "../utils/actions";
+import { buildSelector, clickElement, elementByClass, elementById, enterText, setCheckboxChecked } from "../utils/actions";
 
 export class Donation {
   container: any;
@@ -18,73 +18,71 @@ export class Donation {
   donationAmountText: any;
 
   constructor() {
-    this.container = elementByClass('.base-page');
+    this.container = buildSelector('.base-page');
 
-    this.honourRollContainer = elementById('rx-honor-roll');
-    this.donationContainer = elementById('rx-sponsor');
-    this.privateMessageContainer = elementById('rx-private-message');
-    this.searchContainer = elementByClass(this.container, '.search-page');
+    this.honourRollContainer = buildSelector('rx-honor-roll');
+    this.donationContainer = buildSelector('rx-sponsor');
+    this.privateMessageContainer = buildSelector('rx-private-message');
+    this.searchContainer = buildSelector(this.container, '.search-page');
 
-    this.donation = elementById(this.donationContainer, 'customAmount');
-    this.honourRollOptionsContainer = elementByClass(this.honourRollContainer, '.honour-roll-options');
-    this.honourRollCustomOptions = elementByClass(this.honourRollContainer, '.custom-show-amount-option');
-    this.honourRollCustomText = elementByClass(this.honourRollContainer, '.custom-honourRoll-text');
-    this.privateMessage = elementById(this.privateMessageContainer, 'textarea[formcontrolname=message]');
+    this.donation = buildSelector(this.donationContainer, 'customAmount');
+    this.honourRollOptionsContainer = buildSelector(this.honourRollContainer, '.honour-roll-options');
+    this.honourRollCustomOptions = buildSelector(this.honourRollContainer, '.custom-show-amount-option');
+    this.honourRollCustomText = buildSelector(this.honourRollContainer, '.custom-honourRoll-text');
+    this.privateMessage = buildSelector(this.privateMessageContainer, 'textarea[formcontrolname=message]');
 
-    this.invalidDonationAmountValidationMsg = elementByClass(this.donationContainer, 'rx-errors .error-message');
+    this.invalidDonationAmountValidationMsg = buildSelector(this.donationContainer, 'rx-errors .error-message');
 
-    this.eventDonationContinueBtn = elementByClass(this.container, '.btn-continue');
-    this.coverAdminFeeChk = elementByClass(this.container, 'coverAdminFeeForIndividualAndTeam');
-    this.donationAmountText = elementByClass(this.container, '.globalized-number .globalized-number-input input');
+    this.eventDonationContinueBtn = buildSelector(this.container, '.btn-continue');
+    this.coverAdminFeeChk = buildSelector(this.container, 'coverAdminFeeForIndividualAndTeam');
+    this.donationAmountText = buildSelector(this.container, '.globalized-number .globalized-number-input input');
   }
 
   setAmount(amount) {
+    //waitForElement(this.donation);
     enterText(this.donation, amount);
   }
 
   selectHonorRollOption(option) {
-    if (!isNil(option)) {
-      clickElement(this.honourRollOptionsContainer.get('.mat-radio-button .mat-radio-label-content').contains(option));
-    }
-    clickElement(this.honourRollOptionsContainer.get('.mat-radio-button .mat-radio-label-content'));
+    this.honourRollOptionsContainer.element(by.cssContainingText('.mat-radio-button .mat-radio-label-content', option)).click();
 
   }
 
   selectHonorRollOptionByIndex(index) {
-    this.honourRollOptionsContainer.get('.mat-radio-button').get(index).click()
+    this.honourRollOptionsContainer.all(by.css('.mat-radio-button')).get(index).click()
   }
 
   selectSponsorshipLevel(text) {
-    this.donationContainer.get('.mat-radio-button .mat-radio-label-content').click();
+    this.donationContainer.element(by.cssContainingText('.mat-radio-button .mat-radio-label-content', text)).click();
   }
 
   selectShowAmount(showAmount) {
     if (showAmount) {
-      this.honourRollCustomOptions.get('.custom-show-amount-option-yes').click();
+      clickElement(this.honourRollCustomOptions.$('.custom-show-amount-option-yes'));
     } else {
-      this.honourRollCustomOptions.get('.custom-show-amount-option-no').click();
+      clickElement(this.honourRollCustomOptions.$('.custom-show-amount-option-no'));
     }
   }
 
   enterCustomHonorRollText(text) {
-
-    this.honourRollCustomText.type(text)
+    enterText(this.honourRollCustomText, text);
   }
 
   enterHonourRollText(text) {
-    this.honourRollCustomText.type(text)
+    enterText(this.honourRollCustomText, text);
   }
 
   enterPrivateMessage(message) {
-    this.privateMessage.type(message)
+    enterText(this.privateMessage, message);
   }
 
   setEventDonationAmount(amount) {
-    this.donationAmountText.type(amount)
+    //waitForElementToBeClickable(this.donationAmountText);
+    enterText(this.donationAmountText, amount);
   }
 
   pressEventDonationContinueBtn() {
-    clickElement(this.eventDonationContinueBtn);
+    cy.get(this.eventDonationContinueBtn).click();
   }
 
   setCoverAdminFee(value) {

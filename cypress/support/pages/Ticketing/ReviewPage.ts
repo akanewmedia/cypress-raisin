@@ -44,13 +44,21 @@ export class ReviewPage {
     expect(this.review.ticketsTableRows.last().getText()).contains(amount, message);
   }
   verifyProfileInformation(data) {
-    expect(this.review.profileInformation.name.getText()).eq(data.fullName);
-    expect(this.review.profileInformation.email.getText()).eq(data.email);
-    expect(this.review.profileInformation.country.getText()).eq(data.country);
-    expect(this.review.profileInformation.address.getText()).eq(data.address);
-    expect(this.review.profileInformation.city.getText()).eq(data.city);
-    expect(this.review.profileInformation.province.getText()).eq(data.province);
-    expect(this.review.profileInformation.postCode.getText()).eq(data.postCode);
+    cy.get(this.review.profileInformation.name).should('have.text', data.fullName);
+    cy.get(this.review.profileInformation.email).should('have.text', data.email);
+    cy.get(this.review.profileInformation.country).should('have.text', data.country);
+    cy.get(this.review.profileInformation.address).should('have.text', data.address + ' ');
+    cy.get(this.review.profileInformation.city).should('have.text', data.city);
+    cy.get(this.review.profileInformation.province).should('have.text', data.province);
+    cy.get(this.review.profileInformation.postCode).should('have.text', data.postCode);
+
+    // expect(this.review.profileInformation.name.getText()).eq(data.fullName);
+    // expect(this.review.profileInformation.email.getText()).eq(data.email);
+    // expect(this.review.profileInformation.country.getText()).eq(data.country);
+    // expect(this.review.profileInformation.address.getText()).eq(data.address);
+    // expect(this.review.profileInformation.city.getText()).eq(data.city);
+    // expect(this.review.profileInformation.province.getText()).eq(data.province);
+    // expect(this.review.profileInformation.postCode.getText()).eq(data.postCode);
   }
   verifyAdditionalParticipantsInformation(data, dataIndex = 0, reviewIndex = 0) {
     const additionalParticipant = this.review.getAdditionalParticipant(reviewIndex);
@@ -70,10 +78,15 @@ export class ReviewPage {
   }
 
   verifyPaymentInformation(card) {
-    expect(this.review.cardType.getText()).eq(card.verification.type);
-    expect(this.review.cardNumber.getText()).eq(card.verification.number);
-    expect(this.review.cardHolderName.getText()).eq(card.cardHolderName);
-    expect(this.review.expiryDate.getText()).eq(card.verification.expiryDate);
+    cy.get(this.review.cardType).should('have.text', ' ' + card.verification.type + ' ');
+    cy.get(this.review.cardNumber).should('have.text', card.verification.number);
+    cy.get(this.review.cardHolderName).should('have.text', card.cardHolderName);
+    cy.get(this.review.expiryDate).should('have.text', card.verification.expiryDate);
+
+    // expect(this.review.cardType.getText()).eq(card.verification.type);
+    // expect(this.review.cardNumber.getText()).eq(card.verification.number);
+    // expect(this.review.cardHolderName.getText()).eq(card.cardHolderName);
+    // expect(this.review.expiryDate.getText()).eq(card.verification.expiryDate);
   }
 
   verifyPayPalInformation(paypalText) {

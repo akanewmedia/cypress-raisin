@@ -3,7 +3,7 @@ import { AdditionalInformation } from "../../support/components/additionalInform
 import { Address } from "../../support/components/address.co";
 import { Profile } from "../../support/components/profile.co";
 import { TaxReceipts } from "../../support/components/taxReceipts.co";
-import { setMatCheckboxChecked, getLocalDateTime, scrollToElement, setUserReferral } from "../../support/utils/actions";
+import { setMatCheckboxChecked, getLocalDateTime, scrollToElement, setUserReferral, buildSelector } from "../../support/utils/actions";
 
 export class RegisterPage {
   container: any;
@@ -17,8 +17,8 @@ export class RegisterPage {
   requiredValidationErrors: any;
 
   constructor() {
-    this.container = cy.get('#userDetails');
-    this.organizationUserType = this.container.get(".contact-type");
+    this.container = buildSelector('#userDetails');
+    this.organizationUserType = this.container.$(".contact-type");
     this.accountInformationCO = new AccountInformation(this.container);
     this.profileInformationCO = new Profile(this.container);
     this.addressInformationCO = new Address(this.container);

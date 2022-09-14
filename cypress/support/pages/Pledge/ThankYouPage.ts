@@ -1,4 +1,4 @@
-import { clickElement, elementByClass, elementById } from '../../utils/actions';
+import { buildSelector, clickElement, elementByClass, elementById } from '../../utils/actions';
 
 export class ThankYouPage {
   container: any;
@@ -8,23 +8,27 @@ export class ThankYouPage {
   startFundraisingButton: any;
   goToProfileButton: any;
   constructor() {
-    this.container = elementById('#base-page-top');
-    this.thankYouMessageContainer = elementById(this.container, 'rx-base-page');
-    this.transactionNumber = elementByClass(this.thankYouMessageContainer, '.page-content-20000');
+    this.container = buildSelector('#base-page-top');
+    this.thankYouMessageContainer = buildSelector(this.container, 'rx-base-page');
+    this.transactionNumber = buildSelector(this.thankYouMessageContainer, '.page-content-20000');
 
-    this.systemContentContainer = elementByClass('.system-content');
-    this.startFundraisingButton = elementByClass(this.systemContentContainer, '.start-fundraising-btn');
-    this.goToProfileButton = elementByClass(this.systemContentContainer, '.sponsor-finish-btn');
+    this.systemContentContainer = buildSelector('.system-content');
+    this.startFundraisingButton = buildSelector(this.systemContentContainer, '.start-fundraising-btn');
+    this.goToProfileButton = buildSelector(this.systemContentContainer, '.sponsor-finish-btn');
   }
   verifyTransactionNumber(data) {
     //Transaction submission may take long, so we delay then we check if container is displayed
-    expect(this.transactionNumber.getText()).contains(data.transactionNumberStartsWith);
+    
+    cy.contains(this.transactionNumber, data.transactionNumberStartsWith, {timeout:10000})
+    //expect(this.transactionNumber.getText()).contains(data.transactionNumberStartsWith);
   }
   verifyTransactionNumberContains(code) {
-    expect(this.transactionNumber.getText()).contains(code);
+    cy.contains(this.transactionNumber, code)
+    //expect(this.transactionNumber.getText()).contains(code);
   }
   verifySuccessfulTransaction(data) {
-    expect(this.transactionNumber.getText()).not.contains(data.unsuccessfulTransactionMessage);
+    cy.get(data.transactionNumberStartsWith).should('not.have.text', data.transactionNumberStartsWith)
+    //expect(this.transactionNumber.getText()).not.contains(data.unsuccessfulTransactionMessage);
   }
   startFundraising() {
     clickElement(this.startFundraisingButton);

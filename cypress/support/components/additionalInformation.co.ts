@@ -1,4 +1,4 @@
-import { elementById, setCheckboxChecked, setCustomAttribute } from "../utils/actions";
+import { buildSelector, elementById, setCheckboxChecked, setCustomAttribute } from "../utils/actions";
 export class AdditionalInformation {
   akaCommunicationCheckbox: any;
   akaCommunicationText: any;
@@ -12,16 +12,16 @@ export class AdditionalInformation {
   attribute5: any;
 
   constructor(private additionalInformationContainer: any) {
-    this.akaCommunicationCheckbox = elementById(this.additionalInformationContainer, '#optOut');
-    this.akaCommunicationText = elementById(this.additionalInformationContainer, '#optOut-title');
-    this.screenedCompaniesCheckbox = elementById(this.additionalInformationContainer, '#optOutToShare');
-    this.screenedCompaniesText = elementById(this.additionalInformationContainer, '#optOutToShare-title');
-    this.hideMeFromSearchCheckbox = elementById(this.additionalInformationContainer, '#privacy');
-    this.attribute1 = elementById(this.additionalInformationContainer, '#attribute1');
-    this.attribute2 = elementById(this.additionalInformationContainer, '#attribute2');
-    this.attribute3 = elementById(this.additionalInformationContainer, '#attribute3');
-    this.attribute4 = elementById(this.additionalInformationContainer, '#attribute4');
-    this.attribute5 = elementById(this.additionalInformationContainer, '#attribute5');
+    this.akaCommunicationCheckbox = buildSelector(this.additionalInformationContainer, '#optOut');
+    this.akaCommunicationText = buildSelector(this.additionalInformationContainer, '#optOut-title');
+    this.screenedCompaniesCheckbox = buildSelector(this.additionalInformationContainer, '#optOutToShare');
+    this.screenedCompaniesText = buildSelector(this.additionalInformationContainer, '#optOutToShare-title');
+    this.hideMeFromSearchCheckbox = buildSelector(this.additionalInformationContainer, '#privacy');
+    this.attribute1 = buildSelector(this.additionalInformationContainer, '#attribute1');
+    this.attribute2 = buildSelector(this.additionalInformationContainer, '#attribute2');
+    this.attribute3 = buildSelector(this.additionalInformationContainer, '#attribute3');
+    this.attribute4 = buildSelector(this.additionalInformationContainer, '#attribute4');
+    this.attribute5 = buildSelector(this.additionalInformationContainer, '#attribute5');
   }
 
   setHideMeFromSearch(checked) {

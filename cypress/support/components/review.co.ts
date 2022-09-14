@@ -1,4 +1,4 @@
-import { elementByClass, elementsByClass } from "../utils/actions";
+import { buildSelector, elementByClass, elementsByClass } from "../utils/actions";
 
 export class AdditionalParticipantReview {
   additionalParticipantInfo: any;
@@ -6,8 +6,8 @@ export class AdditionalParticipantReview {
   regItem: any;
   constructor(container) {
     this.additionalParticipantInfo = container;
-    this.fullName = elementByClass(this.additionalParticipantInfo, '.full-name');
-    this.regItem = elementByClass(this.additionalParticipantInfo, '.reg-item');
+    this.fullName = buildSelector(this.additionalParticipantInfo, '.full-name');
+    this.regItem = buildSelector(this.additionalParticipantInfo, '.reg-item');
   }
 }
 
@@ -37,31 +37,31 @@ export class Review {
   additionalParticipantsContainer: any;
   editAdditionalParticipantsButton: any;
   constructor() {
-    this.container = elementByClass('.review');
-    this.profileInformation = new ReviewProfile(this.container.get('rx-participant-info').first());
-    this.teamInformation = elementByClass(this.container, 'rx-team-info');
-    this.editProfileInformationButton = elementByClass(this.profileInformation.container, '.edit-link').get('.btn-flow--reverse');
-    this.ticketingInformation = elementByClass(this.container, 'rx-ticketing-info');
-    this.ticketsTableRows = elementByClass(this.ticketingInformation, 'table').get('tr');
-    this.editTicketsButton = this.ticketingInformation.get('.edit-link').get('.btn-flow--reverse');
-    this.paymentInformation = elementByClass(this.container, 'rx-payment-info');
-    this.cardType = elementByClass(this.paymentInformation, '.review-cardType');
-    this.cardNumber = elementByClass(this.paymentInformation, '.review-creditCardNumberMasked');
-    this.cardHolderName = elementByClass(this.paymentInformation, '.review-cardHolderName');
-    this.expiryDate = elementByClass(this.paymentInformation, '.review-cardExpirationDate');
-    this.payPalText = elementByClass(this.paymentInformation, '.review-paypal');
-    this.editPaymentInformationButton = elementByClass(this.paymentInformation, '.edit-link').$('.btn-flow--reverse');
-    this.amountInformation = elementByClass(this.container, 'rx-amount-info');
-    this.totalAmount = elementByClass(this.amountInformation, '.review-totalAmount');
-    this.editAmountButton = elementByClass(this.amountInformation, 'div.edit-link a.btn-flow--reverse');
-    this.teamName = elementByClass(this.teamInformation, '.review-teamName');
-    this.ticketingInformation = elementByClass(this.container, 'rx-ticketing-info');
-    this.billingInformation = new ReviewProfile(elementByClass(this.container, 'rx-participant-info[ng-reflect-is-billing="true"]'));
-    this.editBillingInformationButton = elementByClass(this.billingInformation.container, '.edit-link .btn-flow--reverse');
-    this.registrationInformation = elementByClass(this.container, 'rx-registration-info');
-    this.additionalParticipants = elementByClass(this.registrationInformation, 'div[ng-repeat="ap in .additionalParticipants"]');
-    this.additionalParticipantsContainer = elementByClass(this.container, '.additional-participants-review-container');
-    this.editAdditionalParticipantsButton = elementByClass(this.additionalParticipantsContainer, '.edit-additional-participants-btn');
+    this.container = buildSelector('.review');
+    this.profileInformation = new ReviewProfile(buildSelector('rx-participant-info'));
+    this.teamInformation = buildSelector(this.container, 'rx-team-info');
+    this.editProfileInformationButton = buildSelector('.btn-flow--reverse');
+    this.ticketingInformation = buildSelector(this.container, 'rx-ticketing-info');
+    this.ticketsTableRows = buildSelector('tr');
+    this.editTicketsButton = buildSelector('.btn-flow--reverse');
+    this.paymentInformation = buildSelector(this.container, 'rx-payment-info');
+    this.cardType = buildSelector(this.paymentInformation, '.review-cardType');
+    this.cardNumber = buildSelector(this.paymentInformation, '.review-creditCardNumberMasked');
+    this.cardHolderName = buildSelector(this.paymentInformation, '.review-cardHolderName');
+    this.expiryDate = buildSelector(this.paymentInformation, '.review-cardExpirationDate');
+    this.payPalText = buildSelector(this.paymentInformation, '.review-paypal');
+    this.editPaymentInformationButton = buildSelector('.btn-flow--reverse');
+    this.amountInformation = buildSelector(this.container, 'rx-amount-info');
+    this.totalAmount = buildSelector(this.amountInformation, '.review-totalAmount');
+    this.editAmountButton = buildSelector(this.amountInformation, 'div.edit-link a.btn-flow--reverse');
+    this.teamName = buildSelector(this.teamInformation, '.review-teamName');
+    this.ticketingInformation = new ReviewProfile(buildSelector(this.container, 'rx-ticketing-info'));
+    this.billingInformation = new ReviewProfile(buildSelector(this.container, 'rx-participant-info[ng-reflect-is-billing="true"]'));
+    this.editBillingInformationButton = buildSelector(this.billingInformation.container, '.edit-link .btn-flow--reverse');
+    this.registrationInformation = buildSelector(this.container, 'rx-registration-info');
+    this.additionalParticipants = buildSelector(this.registrationInformation, 'div[ng-repeat="ap in .additionalParticipants"]');
+    this.additionalParticipantsContainer = buildSelector(this.container, '.additional-participants-review-container');
+    this.editAdditionalParticipantsButton = buildSelector(this.additionalParticipantsContainer, '.edit-additional-participants-btn');
   }
 
   getAdditionalParticipant(index) {
@@ -88,16 +88,16 @@ export class ReviewProfile {
   taxReceipt: any;
   constructor(container) {
     this.container = container;
-    this.name = elementByClass(this.container, '.review-participantName');
-    this.email = elementByClass(this.container, '.review-email');
-    this.country = elementByClass(this.container, '.review-country');
-    this.address = elementByClass(this.container, '.review-address');
-    this.city = elementByClass(this.container, '.review-city');
-    this.province = elementByClass(this.container, '.review-province');
-    this.postCode = elementByClass(this.container, '.review-postalCode');
-    this.phone = elementByClass(this.container, '.review-phone');
-    this.fundraisingGoal = elementByClass(this.container, '.review-fundraisingGoal');
-    this.username = elementByClass(this.container, '.review-username');
-    this.taxReceipt = elementByClass(this.container, '.review-taxReceipt');
+    this.name = buildSelector(this.container, '.review-participantName');
+    this.email = buildSelector(this.container, '.review-email');
+    this.country = buildSelector(this.container, '.review-country');
+    this.address = buildSelector(this.container, '.review-address');
+    this.city = buildSelector(this.container, '.review-city');
+    this.province = buildSelector(this.container, '.review-province');
+    this.postCode = buildSelector(this.container, '.review-postalCode');
+    this.phone = buildSelector(this.container, '.review-phone');
+    this.fundraisingGoal = buildSelector(this.container, '.review-fundraisingGoal');
+    this.username = buildSelector(this.container, '.review-username');
+    this.taxReceipt = buildSelector(this.container, '.review-taxReceipt');
   }
 }
