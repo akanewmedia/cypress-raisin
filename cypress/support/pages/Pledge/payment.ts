@@ -1,7 +1,7 @@
+import { CardInformation } from '../../components/cardInformation.co'
+import { Store } from '../../components/store.co';
+import { enterText, clickElement, elementByClass, elementById, buildSelector } from '../../utils/actions'
 import { isEmpty } from 'lodash';
-import { CardInformation } from '../../support/components/cardInformation.co';
-import { Store } from '../../support/components/store.co';
-import { scrollToElement, enterText, clickElement } from '../../support/utils/actions';
 
 export class PaymentPage {
   container: any;
@@ -24,31 +24,31 @@ export class PaymentPage {
   cardInformationCO: CardInformation;
 
   constructor() {
-    this.container = cy.get('.flow-step');
+    this.container = buildSelector('.flow-step');
 
-    this.donationContainer = this.container.get('#donationSection');
-    this.donationAmount = this.donationContainer.get('.input-amount');
+    this.donationContainer = buildSelector(this.container, '#donationSection');
+    this.donationAmount = buildSelector(this.donationContainer, '.input-amount');
 
-    this.creditCardButton = this.container.get('#credit-card-payment + label.payment-title');
-    this.paypalButton = this.container.get('#paypal + label.payment-title');
-    this.registrationFeeContainer = this.container.get('.registration-fee');
-    this.registrationFeeText = this.registrationFeeContainer.get('[class*="-xs-4"] > strong');
-    this.registrationFeeDiscountTextContainer = this.registrationFeeContainer.get('.registration-discount');
-    this.registrationFeeDiscountText = this.registrationFeeDiscountTextContainer.get('.registration-discount-amount');
-    this.registrationFeePromoCodeContainer = this.registrationFeeContainer.get('.registration-promo-code');
-    this.registrationFeePromoCode = this.registrationFeePromoCodeContainer.get('.promoCodeToApply');
-    this.registrationFeePromoCodeApplyButton = this.registrationFeePromoCodeContainer.get('.btn-promoCodeApply');
-    this.store = this.container.get('section.store');
-    this.storePromoCode = this.store.get('#promoCode');
-    this.storePromoCodeApplyButton = this.store.get('.btn-flow[key="m_btn_PromoCodeApply"]');
-    this.total = this.store.get('div[aria-labelledby="store-items-total"]');
-    this.storePromoCodeLabel = this.store.get('#store-promoCode-totalDiscount-title');
+    this.creditCardButton = buildSelector(this.container, '#credit-card-payment + label.payment-title');
+    this.paypalButton = buildSelector(this.container, '#paypal + label.payment-title');
+    this.registrationFeeContainer = buildSelector(this.container, '.registration-fee');
+    this.registrationFeeText = buildSelector(this.registrationFeeContainer, '[class*="-xs-4"] > strong');
+    this.registrationFeeDiscountTextContainer = buildSelector(this.registrationFeeContainer, '.registration-discount');
+    this.registrationFeeDiscountText = buildSelector(this.registrationFeeDiscountTextContainer, '.registration-discount-amount');
+    this.registrationFeePromoCodeContainer = buildSelector(this.registrationFeeContainer, '.registration-promo-code');
+    this.registrationFeePromoCode = buildSelector(this.registrationFeePromoCodeContainer, '.promoCodeToApply');
+    this.registrationFeePromoCodeApplyButton = buildSelector(this.registrationFeePromoCodeContainer, '.btn-promoCodeApply');
+    this.store = buildSelector(this.container, 'section.store');
+    this.storePromoCode = buildSelector(this.store, '#promoCode');
+    this.storePromoCodeApplyButton = buildSelector(this.store, '.btn-flow[key="m_btn_PromoCodeApply"]');
+    this.total = buildSelector(this.store, 'div[aria-labelledby="store-items-total"]');
+    this.storePromoCodeLabel = buildSelector(this.store, '#store-promoCode-totalDiscount-title');
 
     this.cardInformationCO = new CardInformation();
   }
 
   donate(amount) {
-    scrollToElement(this.donationAmount);
+    //scrollToElement(this.donationAmount);
     enterText(this.donationAmount, amount);
     clickElement(this.donationContainer);
   }
@@ -57,13 +57,13 @@ export class PaymentPage {
    * Removes the amount from the donation textbox in the flow
    */
   clearDonation() {
-    scrollToElement(this.donationAmount);
+   // scrollToElement(this.donationAmount);
     enterText(this.donationAmount, ' ');
     clickElement(this.donationContainer);
   }
 
   buyItem(index) {
-    scrollToElement(this.store);
+    //scrollToElement(this.store);
     new Store(this.store).addItem(index);
   }
 
@@ -80,13 +80,11 @@ export class PaymentPage {
    * when you apply a promo code.
    */
   verifyStorePromoCodeApplied() {
-    this.storePromoCodeLabel.should('be.true')
-    //expect(this.storePromoCodeLabel.isDisplayed).true;
+    expect(this.storePromoCodeLabel.isDisplayed).true;
   }
 
   verifyTotalAmount(amount) {
-    new Store(this.store).total.should('have.text', amount)
-    //expect(new Store(this.store).total.getText()).contains(amount);
+    expect(new Store(this.store).total.getText()).contains(amount);
   }
 
   /**
@@ -94,8 +92,7 @@ export class PaymentPage {
    * @param amount
    */
   verifyRegFeeAmount(amount) {
-    this.registrationFeeText.should('have.text', amount)
-    //expect(this.registrationFeeText.getText()).contains(amount);
+    expect(this.registrationFeeText.getText()).contains(amount);
   }
 
   /**
@@ -104,11 +101,9 @@ export class PaymentPage {
    */
   verifyRegFeeDiscountAmount(amount) {
     if (isEmpty(amount)) {
-      this.registrationFeeDiscountText.should('not.exist')
-      //expect(this.registrationFeeDiscountText.isPresent()).toBeFalsy();
+      expect(this.registrationFeeDiscountText.isPresent()).toBeFalsy();
     } else {
-      this.registrationFeeDiscountText.should('have.text', amount)
-      //expect(this.registrationFeeDiscountText.getText()).toBe(amount);
+      expect(this.registrationFeeDiscountText.getText()).toBe(amount);
     }
   }
 
@@ -127,20 +122,26 @@ export class PaymentPage {
   }
 
   verifyCreditCardIsDisplayed() {
-    this.cardInformationCO.creditCardHolderName.should('be.visible')
-    //expect(this.cardInformationCO.creditCardHolderName.isDisplayed()).true;
+    cy.get(this.cardInformationCO.creditCardHolderName).should('be.visible')
+    // expect(this.cardInformationCO.creditCardHolderName.isDisplayed()).true;
   }
   verifyPaymentFieldsPresent() {
-    this.cardInformationCO.creditCardNumber.should('exist')
-    this.cardInformationCO.creditCardHolderName.should('exist')
-    this.cardInformationCO.creditCardExpiryMonth.should('exist')
-    this.cardInformationCO.creditCardExpiryYear.should('exist')
+    cy.get(this.cardInformationCO.creditCardNumber).should('be.visible')
+    cy.get(this.cardInformationCO.creditCardHolderName).should('be.visible')
+    cy.get(this.cardInformationCO.creditCardExpiryMonth).should('be.visible')
+    cy.get(this.cardInformationCO.creditCardExpiryYear).should('be.visible')
+
+    // expect(this.cardInformationCO.creditCardNumber.isPresent()).true;
+    // expect(this.cardInformationCO.creditCardHolderName.isPresent()).true;
+    // expect(this.cardInformationCO.creditCardExpiryMonth.isPresent()).true;
+    // expect(this.cardInformationCO.creditCardExpiryYear.isPresent()).true;
   }
 
   enterCardDetails(card) {
     this.cardInformationCO.enterCardNumber(card.number);
     this.cardInformationCO.enterCardHolderName(card.cardHolderName);
     this.cardInformationCO.selectCardExpiryDate(card.expiryMonth, card.expiryYear);
+    
 
     if (card.cvv) {
       this.cardInformationCO.enterCardCvv(card.cvv);
