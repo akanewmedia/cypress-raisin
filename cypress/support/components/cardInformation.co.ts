@@ -32,6 +32,7 @@ export class CardInformation {
     this.selectCardExpiryYear(year);
   }
 
+
   enterCardNumber(creditCardNumber) {
     enterText(this.creditCardNumber, creditCardNumber);
   }

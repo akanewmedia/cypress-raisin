@@ -733,6 +733,11 @@ isstream@~0.1.2:
   resolved "https://registry.yarnpkg.com/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
   integrity sha512-Yljz7ffyPbrLpLngrMtZ7NduUgVvi6wG9RJ9IUcyCd59YQ911PBJphODUcbOVbqYfxe1wuYf/LJ8PauMRwsM/g==
 
+jasmine-data-provider@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/jasmine-data-provider/-/jasmine-data-provider-2.2.0.tgz#5f029b2c5fbcdaafbfa5b910ca627eac48cdbb66"
+  integrity sha512-0mdt8k46aTNntTiaa7gINkcnqeQhVTiL6JQGl+SPdeQOggWgwu1UDQ1PNoJRGv1tkoLUThZ0Z/WxTdDbV8Yk3A==
+
 jsbn@~0.1.0:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/jsbn/-/jsbn-0.1.1.tgz#a5e654c2e5a2deb5f201d96cefbca80c0ef2f513"

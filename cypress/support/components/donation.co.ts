@@ -25,7 +25,7 @@ export class Donation {
     this.privateMessageContainer = buildSelector('rx-private-message');
     this.searchContainer = buildSelector(this.container, '.search-page');
 
-    this.donation = buildSelector(this.donationContainer, 'customAmount');
+    this.donation = buildSelector(this.donationContainer, '#customAmount');
     this.honourRollOptionsContainer = buildSelector(this.honourRollContainer, '.honour-roll-options');
     this.honourRollCustomOptions = buildSelector(this.honourRollContainer, '.custom-show-amount-option');
     this.honourRollCustomText = buildSelector(this.honourRollContainer, '.custom-honourRoll-text');
@@ -44,16 +44,16 @@ export class Donation {
   }
 
   selectHonorRollOption(option) {
-    this.honourRollOptionsContainer.element(by.cssContainingText('.mat-radio-button .mat-radio-label-content', option)).click();
+    cy.get(this.honourRollOptionsContainer).get('.mat-radio-button .mat-radio-label-content', option).click();
 
   }
 
   selectHonorRollOptionByIndex(index) {
-    this.honourRollOptionsContainer.all(by.css('.mat-radio-button')).get(index).click()
+    cy.get(this.honourRollOptionsContainer).get('.mat-radio-button').first().click()
   }
 
   selectSponsorshipLevel(text) {
-    this.donationContainer.element(by.cssContainingText('.mat-radio-button .mat-radio-label-content', text)).click();
+    cy.get(this.donationContainer).get('.mat-radio-button .mat-radio-label-content', text).click();
   }
 
   selectShowAmount(showAmount) {
