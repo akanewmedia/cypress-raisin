@@ -40,6 +40,6 @@ export class ThankYouPage {
   }
 
   goToProfile() {
-    this.goToProfileButton.click();
+    cy.get(this.goToProfileButton).click();
   }
 }

@@ -67,7 +67,7 @@ export function elementsByClass(className, container = null) {
   if (isNil(container)) {
     return cy.get(className);
   }
-  return container.all.get(className);
+  return cy.get(container).get(className);
 }
 /**
  * Clicks an element
@@ -371,10 +371,16 @@ export function selectDropdownRegularOption(
  * @param {number} console.errorTimeout - the timeout in milliseconds
  */
 // export function waitForUrl(url, console.errorTimeout = 1000) {
-//   return browser.driver.wait(EC.urlContains(url), console.errorTimeout)
-//     .catch(() =>
-//       browser.driver.getCurrentUrl()
-//         .then((currentUrl) => `Current page: ${currentUrl} does not contain ${url} in time(${console.errorTimeout}ms)`));
+//   return cy
+//   .wait(EC.urlContains(url))
+//   .catch(() =>
+//     cy
+//       .location('href')
+//       .then(
+//         (currentUrl) =>
+//           `Current page: ${currentUrl} does not contain ${url} in time(${console.errorTimeout}ms)`
+//       )
+//   )
 // }
 
 /**
