@@ -30,54 +30,54 @@ const donationCO = new Donation();
 const surveyCO = new SurveyComponent();
 
 describe('TR(24) Scenario -> Multi Pledge donation to participant from page link - includes private message and custom honor roll : ', () => {
-    context('Donate to Participant from Page Link', () => {
-        describe(`${event}`, () => {
-            before(() => {
-                pageSetup = new PageSetup();
-                pageSetup.goToEvent(`${event}/${data2.URL}`);
-                //pageSetup.logoutIfLoggedIn();
-            });          
-            it('should search for a participant then navigate to its page', () => {
-                cy.get(donationSearchPO.container).should('be.visible');              
-                donationSearchPO.clickIndividualTab();
-                donationSearchPO.searchAndSelectFirstOption(data.donationName);
-            });
-            it('Should check the cover admin fee checkbox, then press continue', () => {
-                cy.get(donationCO.honourRollContainer).should('be.visible'); 
-                cy.get(donationCO.donationContainer).should('be.visible');
-                
-                donationCO.setAmount(data.donationAmount);
-                donationCO.setCoverAdminFee(true);
+  context('Donate to Participant from Page Link', () => {
+    describe(`${event}`, () => {
+      before(() => {
+        pageSetup = new PageSetup();
+        pageSetup.goToEvent(`${event}/${data2.URL}`);
+        //pageSetup.logoutIfLoggedIn();
+      });
+      it('should search for a participant then navigate to its page', () => {
+        cy.get(donationSearchPO.container).should('be.visible');
+        donationSearchPO.clickIndividualTab();
+        donationSearchPO.searchAndSelectFirstOption(data.donationName);
+      });
+      it('Should check the cover admin fee checkbox, then press continue', () => {
+        cy.get(donationCO.honourRollContainer).should('be.visible');
+        cy.get(donationCO.donationContainer).should('be.visible');
 
-                // Custom option 
-                donationCO.selectLastHonorRollOption(data.honourRoleOptionIndex);
-                donationCO.enterCustomHonorRollText(data.customHonourRollText);
-                donationCO.enterPrivateMessage(data.privateMessage);
-            });
-            it('should enter the participant details', () => {
-                flowPO.continue();
-                cy.wait(5000)
-                registerPO.fillInProfileAddressAndAdditionalInformation(data);
-                surveyCO.fill(data.surveyResponses);
-            });
-            // it('should verify and enter the credit card information', () => {
-            //     flowPO.continue();
-            //     paymentPO.verifyPaymentFieldsPresent();
-            //     paymentPO.verifyCreditCardIsDisplayed();
-            //     paymentPO.enterCardDetails(data.card);
-            // });
-            // it('Should verify the profile and payment info on the review page', () => {
-            //     flowPO.continue();
-            //     reviewPO.verifyProfileInformation(data);
-            //     reviewPO.verifyPaymentInformation(data.card);
-            // });
-            // it('Should verify the donation amount', () => {
-            //     reviewPO.verifyTotalAmount(data.totalAmount);
-            // });
-            // it('should verify the Transaction code', () => {
-            //     flowPO.continue();
-            //     thankYouPO.verifyTransactionNumber(data);
-            // });
-        });
+        donationCO.setAmount(data.donationAmount);
+        donationCO.setCoverAdminFee(true);
+
+        // Custom option 
+        donationCO.selectLastHonorRollOption(data.honourRoleOptionIndex);
+        donationCO.enterCustomHonorRollText(data.customHonourRollText);
+        donationCO.enterPrivateMessage(data.privateMessage);
+      });
+      it('should enter the participant details', () => {
+        flowPO.continue();
+        cy.wait(1000);
+        registerPO.fillInProfileAddressAndAdditionalInformation(data);
+        surveyCO.fill(data.surveyResponses);
+      });
+      // it('should verify and enter the credit card information', () => {
+      //     flowPO.continue();
+      //     paymentPO.verifyPaymentFieldsPresent();
+      //     paymentPO.verifyCreditCardIsDisplayed();
+      //     paymentPO.enterCardDetails(data.card);
+      // });
+      // it('Should verify the profile and payment info on the review page', () => {
+      //     flowPO.continue();
+      //     reviewPO.verifyProfileInformation(data);
+      //     reviewPO.verifyPaymentInformation(data.card);
+      // });
+      // it('Should verify the donation amount', () => {
+      //     reviewPO.verifyTotalAmount(data.totalAmount);
+      // });
+      // it('should verify the Transaction code', () => {
+      //     flowPO.continue();
+      //     thankYouPO.verifyTransactionNumber(data);
+      // });
     });
+  });
 });

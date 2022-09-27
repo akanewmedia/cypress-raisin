@@ -4,10 +4,10 @@ import 'cypress-plugin-tab';
 export function buildSelector(selector1, selector2 = null, selector3 = null) {
 
   let selector = selector1;
-  if (selector2){
+  if (selector2) {
     selector = selector + ' ' + selector2;
   }
-  if (selector3){
+  if (selector3) {
     selector = selector + ' ' + selector3;
   }
   return selector;
@@ -240,6 +240,19 @@ export function selectDropDownOption(protractorSelector, selectedOption) {
 }
 
 /**
+ * Selects an option in drop downs
+ * @param {ElementFinder} dropdown - the dropdown list
+ * @param {string} selectedOption - the option to select
+ */
+export function selectRadioption(protractorSelector, selectedOption) {
+  if (isNil(selectedOption)) {
+    return;
+  }
+
+  cy.get(protractorSelector).find('mat-radio-button').contains(selectedOption).click();
+}
+
+/**
  * Selects an option in the newer material design drop downs
  * @param {ElementFinder} dropdown - the dropdown list
  * @param {string} selectedOption - the option to select
@@ -409,8 +422,14 @@ export function setFocus(protractorSelector) {
   cy.get(protractorSelector).first().focus();
 }
 
+/**
+ * Scroll into view the element that is passed with a padding of 200 to compensate for header
+ *
+ * @export
+ * @param {*} protractorSelector
+ */
 export function scrollToElement(protractorSelector) {
-  cy.scrollTo(protractorSelector);
+  cy.get(protractorSelector).scrollIntoView({ offset: { top: 200, left: 0 } });
 }
 
 export function scrollToTop() {
@@ -426,9 +445,8 @@ export function setCustomAttribute(element, value) {
   if (!value) {
     return;
   }
-  
 
-  cy.get(element).then(function (){
+  cy.get(element).then(function () {
     switch (element) {
       case 'md-select':
         this.selectMatDropDownOption(element, value);
@@ -468,7 +486,7 @@ export function setCustomAttribute(element, value) {
   //       }
   //       break;
   //   }
-  };
+};
 
 
 /**

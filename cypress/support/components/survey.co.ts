@@ -1,4 +1,4 @@
-import { elementByClass, enterText, pressEsc, scrollToElement, selectMatDropDownOption } from "../utils/actions";
+import { elementByClass, elementsByClass, enterText, pressEsc, scrollToElement, selectMatDropDownOption, selectRadioption } from "../utils/actions";
 /**
  * Represents the survey component in forms
  */
@@ -8,23 +8,20 @@ export class SurveyComponent {
 
   // fills out a textbox survey field
   textbox(container, answer) {
-    const element = elementByClass(container, 'input[type="text"]');
-    scrollToElement(element)
-    return enterText(element, answer)
+    scrollToElement(container)
+    return enterText(container, answer)
   }
 
   // fills out a textarea survey field
   textarea(container, answer) {
-    const element = elementByClass(container, 'textarea');
-    scrollToElement(element)
-    return enterText(element, answer);
+    scrollToElement(container)
+    return enterText(container, answer);
   }
 
   // fills out a radio button list survey field
   radioBtnList(container, answer) {
-    const element = container.get('mat-radio-button').contains(answer);
-    scrollToElement(element);
-    return element.click();
+    scrollToElement(container);
+    return selectRadioption(container, answer);
   }
 
   // fills out the checkbox group survey field, the answer can be a string, or an array of strings
@@ -43,15 +40,22 @@ export class SurveyComponent {
 
   // fills out a kendo dropdown survey field
   dropdownlist(container, answer) {
-    const dropDownSelector = elementByClass(container, 'mat-select');
+    let element = null;
+    if (typeof container === 'string') {
+      element = elementByClass(container, 'mat-select');
+    } else {
+      element = container.find('mat-select');
+    }
+
     scrollToElement(container);
-    selectMatDropDownOption(dropDownSelector, answer)
+    selectMatDropDownOption(element, answer)
   }
 
   // factory method that returns a survey field filler based be the [type] parameter
   getSurveyFieldFiller(type, container, answer) {
     switch (type) {
       case 'text':
+      case 'tel':
         this.textbox(container, answer);
         break;
       case 'textarea':
@@ -64,6 +68,7 @@ export class SurveyComponent {
         this.dropdownlist(container, answer);
         break;
       case 'checkboxgroup':
+      case 'checkbox':
         this.checkboxGroup(container, answer);
         break;
       default:
@@ -77,32 +82,67 @@ export class SurveyComponent {
    * This cannot be called in the constructor, so call this prior to calling [fill].
    * @returns {promise.Promise<any[]> | *}
    */
-   bindSelectors(question, answer) {    
-    let questionFound = false;
-    cy.get('#survey rx-field-input').each(el => {
-        // exist when finding the question
-        if (questionFound) {
-            return;
-        }
-        let label = el.find('.mat-label, .radio-title').first();
-        let type = el.find('input').attr('type');
+  bindSelectors(question, answer) {
+    let questionsFound = [];
 
-        if(!type && !!el.find('textarea').first()) {
-          type = 'textarea';
-        }
-        console.log('bindSelectors',type, label.text());
-        
+    elementsByClass('.survey .input-wrap').each(el => {
 
-        // label.prop('innerText')
-        //     .then(questionValue => el.find('ng-star-inserted').first()
-        //         .then(type => {
-        //             if (questionValue.includes(question)) {                        
-        //                 this.getSurveyFieldFiller(type, el, answer);
-        //                 questionFound = true;
-        //             }
-        //         }))
+      let label = el.find('mat-label, .radio-title');
+      // Check to make sure that the quesiton being anwsered is the same that is passed
+      if (label.text() === question) {
+        let type = this.getElementType(el);
+        let questionId = this.getQuestionId(label, type, el);
+
+        // If the question has already been anwsered if it skipped
+        if (questionsFound.filter((item) => item === questionId).length > 0) {
+          return;
+        }
+
+        questionsFound.push(questionId);
+        console.debug('bindSelectors', type, questionId, question, answer);
+        this.getSurveyFieldFiller(type, el, answer);
+      }
     });
-}
+  }
+
+  /**
+   * Gets the question id of the element
+   *
+   * @private
+   * @param {JQuery<HTMLElement>} label
+   * @param {string} type
+   * @param {JQuery<HTMLElement>} el
+   * @return {*} 
+   * @memberof SurveyComponent
+   */
+  private getQuestionId(label: JQuery<HTMLElement>, elementType: string, el: JQuery<HTMLElement>) {
+    let questionId = label.attr('for');
+    if (elementType === 'radio' || elementType === 'dropdownlist') {
+      questionId = el.find('mat-radio-group, mat-select').attr('id');
+    }
+    return questionId;
+  }
+
+  /**
+   * Determines the type of input to fill and returns the type
+   *
+   * @private
+   * @param {JQuery<HTMLElement>} el
+   * @return {*} 
+   * @memberof SurveyComponent
+   */
+  private getElementType(el: JQuery<HTMLElement>) {
+    let elementType = el.find('input').attr('type');
+    if (!elementType && el.find('textarea').first().length > 0) {
+      elementType = 'textarea';
+    }
+
+    if (!elementType && el.find('mat-select').length > 0) {
+      elementType = 'dropdownlist';
+    }
+
+    return elementType;
+  }
 
   /**
    * Answers a survey question. Triggers a fail if the question is not found.
@@ -119,11 +159,7 @@ export class SurveyComponent {
    * @param data
    */
   fill(data) {
-    data.forEach(o => {
-      let question = o.question;
-      let answer = o.answer;
-      this.setAnswer({ question, answer });
-    });
+    data.forEach(o => this.setAnswer(o));
 
   }
 }
