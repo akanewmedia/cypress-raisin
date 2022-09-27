@@ -34,7 +34,7 @@ export class Donation {
     this.invalidDonationAmountValidationMsg = buildSelector(this.donationContainer, 'rx-errors .error-message');
 
     this.eventDonationContinueBtn = buildSelector(this.container, '.btn-continue');
-    this.coverAdminFeeChk = buildSelector(this.container, 'coverAdminFeeForIndividualAndTeam');
+    this.coverAdminFeeChk = buildSelector(this.container, '#coverAdminFeeForIndividualAndTeam');
     this.donationAmountText = buildSelector(this.container, '.globalized-number .globalized-number-input input');
   }
 
@@ -48,8 +48,12 @@ export class Donation {
 
   }
 
-  selectHonorRollOptionByIndex(index) {
+  selectFirstHonorRollOption(index) {
     cy.get(this.honourRollOptionsContainer).get('.mat-radio-button').first().click()
+  }
+
+  selectLastHonorRollOption(index) {
+    cy.get(this.honourRollOptionsContainer).get('.mat-radio-button').last().click()
   }
 
   selectSponsorshipLevel(text) {

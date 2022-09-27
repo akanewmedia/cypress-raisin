@@ -8,7 +8,7 @@ import { ReviewPage } from "../../../support/pages/Ticketing/ReviewPage";
 import { FlowPage } from "../../../support/pages/flow";
 import { PaymentPage } from "../../../support/pages/Pledge/payment";
 import { DonationSearchPage } from "../../../support/pages/Pledge/donationSearch";
-import { waitForUrl } from "../../../support/utils/actions";
+//import { waitForUrl } from "../../../support/utils/actions";
 //import using from "jasmine-data-provider";
 import { data } from '../../../data/Pledge/base.js'
 
@@ -54,7 +54,7 @@ describe('TR(657) Scenario -> Multi Pledge Search For Team And Donate : ', () =>
 				cy.get(donationCO.donationContainer).should('be.visible');				
 
 				donationCO.setAmount(data.donationAmount);
-				donationCO.selectHonorRollOptionByIndex(data.honourRoleOptionIndex);
+				donationCO.selectFirstHonorRollOption(data.honourRoleOptionIndex);
 			});
 
 			it('should enter the Team details', () => {

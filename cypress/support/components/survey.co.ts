@@ -50,7 +50,7 @@ export class SurveyComponent {
 
   // factory method that returns a survey field filler based be the [type] parameter
   getSurveyFieldFiller(type, container, answer) {
-    switch (type.toLowerCase()) {
+    switch (type) {
       case 'text':
         this.textbox(container, answer);
         break;
@@ -77,25 +77,32 @@ export class SurveyComponent {
    * This cannot be called in the constructor, so call this prior to calling [fill].
    * @returns {promise.Promise<any[]> | *}
    */
-  bindSelectors(question, answer) {
-    this.container = $('#survey');
+   bindSelectors(question, answer) {    
     let questionFound = false;
-    this.container.$$('rx-field-input').each(el => {
-      // exist when finding the question
-      if (questionFound) {
-        return;
-      }
-      let label = el.$$('.input-wrap').first();
-      label.getAttribute('innerText')
-        .then(questionValue => el.$$('div[ng-reflect-ng-switch]').first().getAttribute('ng-reflect-ng-switch')
-          .then(type => {
-            if (questionValue.includes(question)) {
-              this.getSurveyFieldFiller(type, el, answer);
-              questionFound = true;
-            }
-          }))
+    cy.get('#survey rx-field-input').each(el => {
+        // exist when finding the question
+        if (questionFound) {
+            return;
+        }
+        let label = el.find('.mat-label, .radio-title').first();
+        let type = el.find('input').attr('type');
+
+        if(!type && !!el.find('textarea').first()) {
+          type = 'textarea';
+        }
+        console.log('bindSelectors',type, label.text());
+        
+
+        // label.prop('innerText')
+        //     .then(questionValue => el.find('ng-star-inserted').first()
+        //         .then(type => {
+        //             if (questionValue.includes(question)) {                        
+        //                 this.getSurveyFieldFiller(type, el, answer);
+        //                 questionFound = true;
+        //             }
+        //         }))
     });
-  }
+}
 
   /**
    * Answers a survey question. Triggers a fail if the question is not found.

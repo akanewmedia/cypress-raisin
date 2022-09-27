@@ -100,7 +100,7 @@ export class RegisterPage {
    * @param data
    */
   fillInAllProfileInformation(data) {
-    scrollToElement(this.container);
+    //scrollToElement(this.container);
     if (data.title) {
       this.profileInformationCO.selectTitle(data.title);
     }
