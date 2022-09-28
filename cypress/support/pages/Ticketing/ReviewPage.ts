@@ -44,7 +44,7 @@ export class ReviewPage {
     expect(this.review.ticketsTableRows.last().getText()).contains(amount, message);
   }
   verifyProfileInformation(data) {
-    cy.get(this.review.profileInformation.name).should('have.text', data.title + data.fullNameWithMiddleName);
+    cy.get(this.review.profileInformation.name).should('have.text', data.fullName);
     cy.get(this.review.profileInformation.email).should('have.text', data.email);
     cy.get(this.review.profileInformation.country).should('have.text', data.country);
     cy.get(this.review.profileInformation.address).should('have.text', data.address + ' ');

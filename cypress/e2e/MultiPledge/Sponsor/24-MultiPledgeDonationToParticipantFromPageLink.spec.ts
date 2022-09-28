@@ -12,7 +12,6 @@ import { data2 } from '../../../data/Pledge/MultiPledgeDonationToParticipantFrom
 
 
 //The information regarding the Library
-const using = require('jasmine-data-provider');
 let pageSetup: PageSetup = new PageSetup();
 
 //const data = pageSetup.getData('Pledge', 'MultiPledgeDonationToParticipantFromPageLink');
@@ -71,7 +70,7 @@ describe('TR(24) Scenario -> Multi Pledge donation to participant from page link
       });
       it('Should verify the profile and payment info on the review page', () => {
           flowPO.continue();          
-          reviewPO.verifyProfileInformation(data);
+          reviewPO.verifyProfileInformation(data2);
           reviewPO.verifyPaymentInformation(data.card);
       });
       it('Should verify the donation amount', () => {

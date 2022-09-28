@@ -44,8 +44,7 @@ export class Donation {
   }
 
   selectHonorRollOption(option) {
-    cy.get(this.honourRollOptionsContainer).get('.mat-radio-button .mat-radio-label-content', option).click();
-
+    cy.get(this.honourRollOptionsContainer).get('.mat-radio-button .mat-radio-label-content').contains(option).click();
   }
 
   selectFirstHonorRollOption(index) {
