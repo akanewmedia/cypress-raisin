@@ -73,7 +73,9 @@ export class ReviewPage {
    */
   verifyAllProfileInformation(data) {
     this.verifyProfileInformation(data);
-    expect(this.review.profileInformation.phone.getText()).eq(data.phoneNumber);
+    cy.contains('.review .sr-only', "Phone Number " + data.phoneNumber)
+    ///cy.get(this.review.profileInformation.phone).should('have.text', data.phoneNumber)
+    //expect(this.review.profileInformation.phone.getText()).eq(data.phoneNumber);
     // TODO: add survey once it is implemented
   }
 

@@ -438,30 +438,9 @@ export function scrollToTop() {
 export function setCustomAttribute(element, value) {
   if (!value) {
     return;
-  }
-  
+  }    
 
-  cy.get(element).then(function (){
-    switch (element) {
-      case 'md-select':
-        this.selectMatDropDownOption(element, value);
-        break;
-      case 'input':
-        switch (element.type) {
-          case undefined: // default is text when [type] is not set
-          case 'text':
-            this.type(element, value);
-            break;
-          default:
-            // TODO: implement other types like radio and checkbox when those tests are done
-            throw new Error(
-              `To fix, implement ${element.type} in actions.setAttribute()`
-            );
-        }
-        break;
-    }
-  })
-
+  cy.get(element).type(value);
   // element.getTagName().then((tagName) => {
   //   switch (tagName.toLowerCase()) {
   //     case 'md-select':
@@ -481,7 +460,8 @@ export function setCustomAttribute(element, value) {
   //       }
   //       break;
   //   }
-  };
+  // }
+}
 
 
 /**
