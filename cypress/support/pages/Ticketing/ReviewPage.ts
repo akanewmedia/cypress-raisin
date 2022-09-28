@@ -38,7 +38,7 @@ export class ReviewPage {
     this.shoppingCart.closeButton.click();
   }
   verifyTotalAmount(amount) {
-    cy.get(this.review.totalAmount).should('have.text', amount);    
+    cy.get(this.review.totalAmount).should('have.text','$'+ amount);    
   }
   verifyTotalTicketAmount(amount, message = '') {
     expect(this.review.ticketsTableRows.last().getText()).contains(amount, message);
