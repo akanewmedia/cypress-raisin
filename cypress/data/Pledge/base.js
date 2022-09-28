@@ -1,6 +1,6 @@
 exports.data = {
   donationAmount: "20.00",
-  totalAmount: 50,
+  totalAmount: "20.40",
   donationName: "a ad",
   teamname: "Auto Test Team",
   individualName: "a ad",
@@ -45,7 +45,7 @@ exports.data = {
   LoginOrCreateAccountHeader: "Login or Create an Account",
   WaiverHeader: "Please Accept Waiver",
   YourInformationHeader: "Your Information",
-  title: "Dr.",
+  title: "Dr. ",
   fullName: "Bobby Smith",
   fullNameWithMiddleName: "Bobby Ricky Smith",
   firstName: "Bobby",
@@ -113,14 +113,14 @@ exports.data = {
     },
     {
       question: "Text Box",
-      answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam leo enim, eleifend vehicula cursus a, sollicitudin vel leo. Donec cursus elit eget dolor efficitur venenatis. Aenean ipsum nisl, semper ac faucibus quis, laoreet a elit. Mauris auctor tellus sapien, sit amet facilisis mauris sollicitudin sit amet. Nunc sed elit justo. Donec viverra sed ligula non maximus. Pellentesque in massa in tellus vulputate efficitur. Curabitur convallis id erat sed pulvinar. Aenean libero dolor, consectetur facilisis vulputate in, elementum id erat."
+      answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam leo enim, eleifend vehicula cursus a, sollicitudin vel leo. Donec cursus elit eget dolor efficitur venenatis. Aenean ipsum nisl, semper ac faucibus quis, laoreet a elit."
     },
     {
       question: "Radio Choice",
       answer: "no"
     },
     {
-      question: "Multiple Choice Conditional",
+      question: "Multiple Choice",
       answer: "d"
     }
   ],

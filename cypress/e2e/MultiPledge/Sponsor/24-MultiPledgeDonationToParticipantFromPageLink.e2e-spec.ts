@@ -56,28 +56,31 @@ describe('TR(24) Scenario -> Multi Pledge donation to participant from page link
       });
       it('should enter the participant details', () => {
         flowPO.continue();
-        cy.wait(1000);
+        cy.wait(3000);
         registerPO.fillInProfileAddressAndAdditionalInformation(data);
         surveyCO.fill(data.surveyResponses);
+        cy.get('body').trigger('keydown', { keyCode: 27});
+        cy.wait(500);
+        cy.get('body').trigger('keyup', { keyCode: 27});  
       });
-      // it('should verify and enter the credit card information', () => {
-      //     flowPO.continue();
-      //     paymentPO.verifyPaymentFieldsPresent();
-      //     paymentPO.verifyCreditCardIsDisplayed();
-      //     paymentPO.enterCardDetails(data.card);
-      // });
-      // it('Should verify the profile and payment info on the review page', () => {
-      //     flowPO.continue();
-      //     reviewPO.verifyProfileInformation(data);
-      //     reviewPO.verifyPaymentInformation(data.card);
-      // });
-      // it('Should verify the donation amount', () => {
-      //     reviewPO.verifyTotalAmount(data.totalAmount);
-      // });
-      // it('should verify the Transaction code', () => {
-      //     flowPO.continue();
-      //     thankYouPO.verifyTransactionNumber(data);
-      // });
+      it('should verify and enter the credit card information', () => {
+          flowPO.continue();
+          paymentPO.verifyPaymentFieldsPresent();
+          paymentPO.verifyCreditCardIsDisplayed();
+          paymentPO.enterCardDetails(data.card);
+      });
+      it('Should verify the profile and payment info on the review page', () => {
+          flowPO.continue();          
+          reviewPO.verifyProfileInformation(data);
+          reviewPO.verifyPaymentInformation(data.card);
+      });
+      it('Should verify the donation amount', () => {
+          reviewPO.verifyTotalAmount("$"+data.totalAmount);
+      });
+      it('should verify the Transaction code', () => {
+          flowPO.continue();
+          thankYouPO.verifyTransactionNumber(data);
+      });
     });
   });
 });
