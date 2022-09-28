@@ -68,12 +68,22 @@ export class TicketingNavBar {
     this.clickNavButton(this.donateButton);
   }
 
-  isLoggedIn() {
-    return this.logoutButton.isPresent();
+  isLoggedOut() {
+    if(cy.get(this.loginButton).should('be.visible')) {
+      return true
+    }
+    else {
+      return false
+    }
   }
 
-  isLoggedOut() {
-    return this.loginDropdownButton.isPresent();
+  isLoggedIn() {
+    if(cy.get(this.logoutButton).should('be.visible')) {
+      return true
+    }
+    else {
+      return false
+    }
   }
 
   logout() {

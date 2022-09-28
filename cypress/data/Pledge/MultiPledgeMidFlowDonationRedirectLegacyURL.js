@@ -1,4 +1,4 @@
-{
+exports.data ={
     "URL": "pledge/sponsor/profile",
     "team" : {
         "teamName": "Auto Test Team"

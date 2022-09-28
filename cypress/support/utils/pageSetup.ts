@@ -5,9 +5,6 @@ import { ShoppingCart } from '../components/shoppingCart.co';
 import { TicketingNavBar } from '../components/ticketingNavbar.co';
 import { elementByClass, wait } from './actions';
 
-
-
-
 const basePageClass = '.base-page';
 
 export class PageSetup {
@@ -33,7 +30,7 @@ export class PageSetup {
     return assign({}, baseData, eventData);
   }
 
-  getEvents(events, indexes) {
+  getEvents(events: any, indexes?: number) {
     return indexes ? at(events, indexes) : at(events, 0);
   }
 
@@ -44,18 +41,7 @@ export class PageSetup {
      */
   goToEvent(url) {
     cy.visit(url);
-
-
-    // browser.waitForAngularEnabled(false);
-    // if (!browser.params.isMobile) {
-    //   browser.manage().window().maximize();
-    // }
-    // browser.get(`${browser.params.baseUrl}/ui/${url}`)
-    // // console.log(`test url: ${browser.params.baseUrl}/ui/${url}`);
-    // waitForElement(elementByClass(basePageClass), timeout);
   }
-
-
 
   /**
      * Makes the browser go to a 'baseUrl/url' address in 'timeout' milliseconds
@@ -85,26 +71,26 @@ export class PageSetup {
   //   waitForElement($(basePageClass), timeout);
   // }
 
-  // logoutIfLoggedIn() {
-  //   this.pledgeNavBar.isLoggedIn().then(isLoggedIn => {
-  //     if (isLoggedIn) {
-  //       this.pledgeNavBar.logout();
-  //       return waitForElement($(basePageClass));
-  //     }
-  //   });
-  //   this.ticketingNavBar.isLoggedIn().then(isLoggedIn => {
-  //     if (isLoggedIn) {
-  //       this.ticketingNavBar.logout();
-  //       return waitForElement($(basePageClass));
-  //     }
-  //   });
-  //   this.pledgeNavBar.isLoggedIn().then(isLoggedIn => {
-  //     if (isLoggedIn) {
-  //       this.pledgeNavBar.logout();
-  //       return waitForElement($(basePageClass));
-  //     }
-  //   });
-  // }
+  logoutIfLoggedIn() {
+    if(this.pledgeNavBar.isLoggedIn()){(isLoggedIn => {
+      if (isLoggedIn) {
+        this.pledgeNavBar.logout();
+        return $(basePageClass);
+      }
+    })}
+    // if(this.ticketingNavBar.isLoggedIn()){(isLoggedIn => {
+    //   if (isLoggedIn) {
+    //     this.ticketingNavBar.logout();
+    //     return $(basePageClass);
+    //   }
+    // })};
+    if(this.pledgeNavBar.isLoggedIn()){(isLoggedIn => {
+      if (isLoggedIn) {
+        this.pledgeNavBar.logout();
+        return $(basePageClass);
+      }
+    })};
+  }
 
   // startLogin() {
   //   this.pledgeNavBar.isLoggedOut().then(isLoggedOut => {
@@ -143,12 +129,13 @@ export class PageSetup {
   //   this.shoppingCartCO.clearCart();
   // }
 
-  // cleanupPage() {
-  //   // browser.ignoreSynchronization = false;
-  //   browser.executeScript('window.sessionStorage.clear();');
-  //   browser.executeScript('window.localStorage.clear();');
-  //   browser.sleep(1000);
-  // }
+  cleanupPage() {    
+    cy.window().then((win) => {
+      win.sessionStorage.clear()
+    })
+    cy.clearLocalStorage()
+    cy.wait(1000)
+  }
 
   // /**
   //  * Pass true to allow your tests to work on external sites (eg. V3 login, paypal, masterpass)

@@ -17,8 +17,8 @@ export class RegisterPage {
   referralInformation: any;
   requiredValidationErrors: any;
   constructor() {
-    this.container = buildSelector('#userDetails');
-    this.organizationUserType = buildSelector(this.container, ".contact-type");
+    this.container = buildSelector('.userDetails');
+    this.organizationUserType = buildSelector(this.container, ".mat-checkbox-label");
     this.accountInformationCO = new AccountInformation(this.container);
     this.profileInformationCO = new Profile(this.container);
     this.addressInformationCO = new Address(this.container);
@@ -32,7 +32,9 @@ export class RegisterPage {
    * Presses the individual user type button at the top of the user profile
    */
   clickIndividualUserType() {
-    setMatCheckboxChecked(this.organizationUserType, false);
+    cy.wait(3000)
+    cy.contains(this.organizationUserType, 'User Type').click()
+    //setMatCheckboxChecked(this.organizationUserType, false);
   }
 
   /**
@@ -40,7 +42,9 @@ export class RegisterPage {
    * organization field mandatory.
    */
   clickOrganizationUserType() {
-    setMatCheckboxChecked(this.organizationUserType, true);
+    cy.wait(3000)
+    cy.contains(this.organizationUserType, 'User Type').click()
+    //setMatCheckboxChecked(this.organizationUserType, true);
   }
 
   optInToTaxReceipts() {
@@ -101,6 +105,7 @@ export class RegisterPage {
    */
   fillInAllProfileInformation(data) {
     //scrollToElement(this.container);
+    cy.wait(3000)
     if (data.title) {
       this.profileInformationCO.selectTitle(data.title);
     }

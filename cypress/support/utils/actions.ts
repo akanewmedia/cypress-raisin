@@ -4,10 +4,10 @@ import 'cypress-plugin-tab';
 export function buildSelector(selector1, selector2 = null, selector3 = null) {
 
   let selector = selector1;
-  if (selector2) {
+  if (selector2){
     selector = selector + ' ' + selector2;
   }
-  if (selector3) {
+  if (selector3){
     selector = selector + ' ' + selector3;
   }
   return selector;
@@ -244,7 +244,7 @@ export function selectDropDownOption(protractorSelector, selectedOption) {
  * @param {ElementFinder} dropdown - the dropdown list
  * @param {string} selectedOption - the option to select
  */
-export function selectRadioption(protractorSelector, selectedOption) {
+ export function selectRadioption(protractorSelector, selectedOption) {
   if (isNil(selectedOption)) {
     return;
   }
@@ -349,9 +349,9 @@ export function selectNativeDropDownOption(
  * Waits for an element to become visible
  * @param {ElementFinder} protractorSelector - the selector of the element
  */
-// export function // waitForElementToBeVisible(protractorSelector) {
-//   return cy.wait(EC.visibilityOf(protractorSelector));
-// }
+export function waitForElementToBeVisible(protractorSelector) {
+  return cy.get(protractorSelector).should('be.visible')
+}
 
 export function selectDropdownRegularOption(
   dropdownElementSelector,
@@ -366,7 +366,7 @@ export function selectDropdownRegularOption(
     .click();
 }
 
-// export function // waitForElement(protractorSelector, timeout = 4000) {
+// export function  waitForElement(protractorSelector, timeout = 4000) {
 //   return browser.wait(EC.presenceOf(protractorSelector), timeout, 'Element taking too long to appear in the DOM');
 // }
 
@@ -422,12 +422,6 @@ export function setFocus(protractorSelector) {
   cy.get(protractorSelector).first().focus();
 }
 
-/**
- * Scroll into view the element that is passed with a padding of 200 to compensate for header
- *
- * @export
- * @param {*} protractorSelector
- */
 export function scrollToElement(protractorSelector) {
   cy.get(protractorSelector).scrollIntoView({ offset: { top: 200, left: 0 } });
 }
@@ -445,8 +439,9 @@ export function setCustomAttribute(element, value) {
   if (!value) {
     return;
   }
+  
 
-  cy.get(element).then(function () {
+  cy.get(element).then(function (){
     switch (element) {
       case 'md-select':
         this.selectMatDropDownOption(element, value);
@@ -486,7 +481,7 @@ export function setCustomAttribute(element, value) {
   //       }
   //       break;
   //   }
-};
+  };
 
 
 /**

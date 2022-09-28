@@ -44,12 +44,22 @@ export class PledgeNavBarComponent {
     clickElement(this.logoutButton);
   }
 
-  isLoggedIn() {
-    return this.logoutButton.isPresent();
+  isLoggedOut() {
+    if(cy.get(this.loginButton).should('be.visible')) {
+      return true
+    }
+    else {
+      return false
+    }
   }
 
-  isLoggedOut() {
-    return this.loginButton.isPresent();
+  isLoggedIn() {
+    if(cy.get(this.logoutButton).should('be.visible')) {
+      return true
+    }
+    else {
+      return false
+    }
   }
 }
 

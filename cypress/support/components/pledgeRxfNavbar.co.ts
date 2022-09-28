@@ -1,5 +1,5 @@
 //The information regarding the libraries
-import { clickElement, elementByClass, elementById } from "../utils/actions";
+import { buildSelector, clickElement, elementByClass, elementById } from "../utils/actions";
 
 export class PledgeRxfNavBarComponent {
   container: any;
@@ -12,15 +12,15 @@ export class PledgeRxfNavBarComponent {
   scoreboardMenuItemLnk: any;
   menuActions: any;
   constructor() {
-    this.container = elementById('header.site-header');
-    this.menuActions = elementByClass(this.container, '.rfx-header__actions .nav.nav-pills');
-    this.registerButton = elementByClass(this.menuActions, 'li[data-pgid="2"]');
-    this.donateButton = elementByClass(this.menuActions, 'li[data-pgid="3"]');
-    this.loginButton = elementByClass(this.menuActions, 'li a[href*="login.aspx"]');
-    this.logoutButton = elementByClass(this.menuActions, 'li a[href*="logout.aspx"]');
-    this.menu = elementById(this.container, '#nav');
-    this.volunteerMenuItemLnk = elementByClass(this.menu, 'li[data-pgid="81"][data-mid="80"] a');
-    this.scoreboardMenuItemLnk = elementByClass(this.menu, 'li[data-pgid="75"][data-mid="84"] a');
+    this.container = buildSelector('header.site-header');
+    this.menuActions = buildSelector(this.container, '.rfx-header__actions .nav.nav-pills');
+    this.registerButton = buildSelector(this.menuActions, 'li[data-pgid="2"]');
+    this.donateButton = buildSelector(this.menuActions, 'li[data-pgid="3"]');
+    this.loginButton = buildSelector(this.menuActions, 'li a[href*="login.aspx"]');
+    this.logoutButton = buildSelector(this.menuActions, 'li a[href*="logout.aspx"]');
+    this.menu = buildSelector(this.container, '#nav');
+    this.volunteerMenuItemLnk = buildSelector(this.menu, 'li[data-pgid="81"][data-mid="80"] a');
+    this.scoreboardMenuItemLnk = buildSelector(this.menu, 'li[data-pgid="75"][data-mid="84"] a');
   }
 
   register() {
@@ -41,11 +41,11 @@ export class PledgeRxfNavBarComponent {
   }
 
   isLoggedOut() {
-    return this.loginButton.isPresent();
+    return cy.get(this.logoutButton).should('be.visible')
   }
 
   isLoggedIn() {
-    return this.logoutButton.isPresent();
+    return cy.get(this.loginButton).should('be.visible')
   }
 
   /**
