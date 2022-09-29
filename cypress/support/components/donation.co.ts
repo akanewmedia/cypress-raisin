@@ -56,7 +56,12 @@ export class Donation {
   }
 
   selectSponsorshipLevel(text) {
-    cy.get(this.donationContainer).get('.mat-radio-button .mat-radio-label-content', text).click();
+    cy.contains('.mat-radio-button .mat-radio-label-content', text).click()
+    //cy.get(this.donationContainer).get('.mat-radio-button .mat-radio-label-content').click();
+  }
+
+  selectHonorRollOptionByIndex(index) {
+    cy.get(this.honourRollOptionsContainer + ' .mat-radio-button').eq(index).click()
   }
 
   selectShowAmount(showAmount) {

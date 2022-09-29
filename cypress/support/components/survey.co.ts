@@ -160,6 +160,5 @@ export class SurveyComponent {
    */
   fill(data) {
     data.forEach(o => this.setAnswer(o));
-
   }
 }

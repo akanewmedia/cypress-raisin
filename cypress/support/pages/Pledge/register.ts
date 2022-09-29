@@ -105,7 +105,6 @@ export class RegisterPage {
    * @param data
    */
   fillInAllProfileInformation(data) {
-    //scrollToElement(this.container);
     cy.wait(3000)
     if (data.title) {
       this.profileInformationCO.selectTitle(data.title);
