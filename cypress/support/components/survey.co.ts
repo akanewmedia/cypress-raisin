@@ -85,7 +85,7 @@ export class SurveyComponent {
   bindSelectors(question, answer) {
     let questionsFound = [];
 
-    elementsByClass('.survey .input-wrap').each(el => {
+    cy.get(elementsByClass('.survey .input-wrap')).each(el => {
 
       let label = el.find('mat-label, .radio-title');
       // Check to make sure that the quesiton being anwsered is the same that is passed

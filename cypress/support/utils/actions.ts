@@ -65,9 +65,13 @@ export function elementByClass(className, container = null) {
  */
 export function elementsByClass(className, container = null) {
   if (isNil(container)) {
-    return cy.get(className);
+    return className
   }
-  return cy.get(container).get(className);
+  else{
+    let elements = className + " " + container
+    return elements
+  }
+  
 }
 /**
  * Clicks an element

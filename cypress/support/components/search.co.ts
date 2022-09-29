@@ -42,8 +42,8 @@ export class Search {
 
   selectSearchResult(index) {
     this.initContainer();
-    const searchResult = cy.get(this.searchResults.get('.btn-donate').click());
-    ///clickElement(searchResult, true);
+    cy.get(this.searchResults).get('.btn-donate').click();
+    //clickElement(searchResult, true);
   }
 
   search(text) {
@@ -60,8 +60,10 @@ export class Search {
 
   searchAndNavigateFirstOption(text) {
     this.search(text);
-    this.initContainer();
-    const searchResult = new SearchResult(this.searchResults.get(0));
-    searchResult.name.$$('a').first().click();
+    this.initContainer(); 
+    const searchResult = new SearchResult(this.searchResults);
+    cy.get(searchResult.name + ' a').click();
+    
   }
 }
+
