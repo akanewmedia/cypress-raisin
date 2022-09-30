@@ -8,13 +8,13 @@ import { RegisterPage } from "../../../support/pages/Pledge/register";
 import { ThankYouPage } from "../../../support/pages/Pledge/ThankYouPage";
 import { ReviewPage } from "../../../support/pages/Ticketing/ReviewPage";
 import { SurveyComponent } from "../../../support/components/survey.co";
-import { data } from '../../../data/Pledge/base'
-import { data2 } from '../../../data/Pledge/MultiPledgeDonationToParticipantWithExtraValidationBlankForms'
+import * as specificData  from '../../../data/Pledge/MultiPledgeDonationToParticipantWithExtraValidationBlankForms.json'
 
 //The information regarding the Library
+const using = require('jasmine-data-provider');
 let pageSetup: PageSetup = new PageSetup();
-
-const event = '/8B55D2ADA6BF433B966CB10B49079587'
+const data = pageSetup.getData('Pledge', specificData);
+const events = pageSetup.getEvents(pageSetup.getEnvironment().multipledge, data.events);
 
 const donationSearchPO = new DonationSearchPage();
 const registerPO = new RegisterPage();
@@ -29,6 +29,7 @@ const surveyCO = new SurveyComponent();
 
 // use event 17560
 describe('TR(2998) Scenario -> Multi Pledge donation to participant - submit blank forms : ', () => {
+    using(events, event => { 
         describe(`${event}`, () => {
             before(() => {
                 pageSetup = new PageSetup();
@@ -47,9 +48,9 @@ describe('TR(2998) Scenario -> Multi Pledge donation to participant - submit bla
             it('Should fill out the donation details', () => {
                 cy.get(donationCO.honourRollContainer).should('be.visible');
                 cy.get(donationCO.donationContainer).should('be.visible');
-                donationCO.selectSponsorshipLevel(data2.sponsorshipLevel);
+                donationCO.selectSponsorshipLevel(data.sponsorshipLevel);
 
-                donationCO.selectHonorRollOptionByIndex(data2.honourRoleOptionIndex); // select Other (Custom)
+                donationCO.selectHonorRollOptionByIndex(data.honourRoleOptionIndex); // select Other (Custom)
                 donationCO.enterCustomHonorRollText(data.customHonourRollText);
                 donationCO.enterPrivateMessage(data.privateMessage);
                 flowPO.continue();
@@ -59,7 +60,7 @@ describe('TR(2998) Scenario -> Multi Pledge donation to participant - submit bla
                 flowPO.continue();
                 cy.wait(2500)
                 cy.get(registerPO.container).should('exist');
-                registerPO.fillInProfileAddressAndAdditionalInformation(data2);
+                registerPO.fillInProfileAddressAndAdditionalInformation(data);
                 surveyCO.fill(data.surveyResponses);
                 cy.get('body').trigger('keydown', { keyCode: 27});
                 cy.wait(500);
@@ -76,11 +77,11 @@ describe('TR(2998) Scenario -> Multi Pledge donation to participant - submit bla
             });
             it('Should verify the profile and payment info on the review page', () => {
                 flowPO.continue();
-                reviewPO.verifyProfileInformation(data2);
+                reviewPO.verifyProfileInformation(data);
                 reviewPO.verifyPaymentInformation(data.card);
             });
             it('Should verify the donation amount', () => {
-                reviewPO.verifyTotalAmount(data2.totalAmount);
+                reviewPO.verifyTotalAmount(data.totalAmount);
             });
             it('should verify the Transaction code', () => {
                 flowPO.continue();
@@ -88,3 +89,4 @@ describe('TR(2998) Scenario -> Multi Pledge donation to participant - submit bla
             });
         });
     });
+});

@@ -8,16 +8,15 @@ import { ReviewPage } from "../../../support/pages/Ticketing/ReviewPage";
 import { FlowPage } from "../../../support/pages/flow";
 import { PaymentPage } from "../../../support/pages/Pledge/payment";
 import { DonationSearchPage } from "../../../support/pages/Pledge/donationSearch";
-import { data } from '../../../data/Pledge/base.js'
-
+import * as specificData from '../../../data/Pledge/MultiPledgeDonationToGroup.json'
 
 
 //The information regarding the Library
+const using = require('jasmine-data-provider');
 let pageSetup: PageSetup = new PageSetup();
 
-const event = '/AD9235BF0C2148F29DD47B092A3564AB'
-
-
+const data = pageSetup.getData('Pledge', specificData);
+const events = pageSetup.getEvents(pageSetup.getEnvironment().multipledge, data.events);
 
 const donationCO = new Donation();
 const registerPO = new RegisterPage();
@@ -29,17 +28,15 @@ const navbarCO = new PledgeNavBarComponent();
 const donationSearchPO = new DonationSearchPage();
 
 describe('TR(658) Scenario -> Multi Pledge donation to group : ', () => {    
+    using(events, event => {
         describe(`${event}`, () => {
             before(() => {
                 pageSetup.goToEvent(event);
-                //pageSetup.logoutIfLoggedIn();
             });
-            // after(() => {
-            //     pageSetup.goToEvent(event);
-            //     pageSetup.logoutIfLoggedIn();
-            //     browser.executeScript('window.sessionStorage.clear();');
-            //     browser.executeScript('window.localStorage.clear();');
-            // });
+            after(() => {
+                pageSetup.goToEvent(event);
+                pageSetup.cleanupPage();
+            });
             it('Should start a donation to the group', () => {
                 navbarCO.donate();
 
@@ -54,7 +51,6 @@ describe('TR(658) Scenario -> Multi Pledge donation to group : ', () => {
             });
             it('should enter the participant details', () => {
                 flowPO.continue();
-                cy.wait(3000)
                 registerPO.fillInProfileAndAddressInformation(data);
                 cy.get(registerPO.container).should('be.visible')                
             });
@@ -75,4 +71,5 @@ describe('TR(658) Scenario -> Multi Pledge donation to group : ', () => {
             });
         });
     });
+});
 

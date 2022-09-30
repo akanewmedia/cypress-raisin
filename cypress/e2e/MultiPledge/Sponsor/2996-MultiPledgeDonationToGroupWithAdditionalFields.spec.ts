@@ -7,14 +7,15 @@ import { PaymentPage } from "../../../support/pages/Pledge/payment";
 import { RegisterPage } from "../../../support/pages/Pledge/register";
 import { ThankYouPage } from "../../../support/pages/Pledge/ThankYouPage";
 import { ReviewPage } from "../../../support/pages/Ticketing/ReviewPage";
-import {data} from '../../../data/Pledge/base'
-import {data2} from '../../../data/Pledge/MultiPledgeDonationToGroupWithAdditionalFields'
+import * as specificData from '../../../data/Pledge/MultiPledgeDonationToGroupWithAdditionalFields.json'
 import { SurveyComponent } from "../../../support/components/survey.co";
 
 
 //The information regarding the Library
+const using = require('jasmine-data-provider');
 let pageSetup: PageSetup = new PageSetup();
-const event = '/8b55d2ada6bf433b966cb10b49079587'
+const data = pageSetup.getData('Pledge', specificData);
+const events = pageSetup.getEvents(pageSetup.getEnvironment().multipledge, data.events);
 
 const donationSearchPO = new DonationSearchPage();
 const registerPO = new RegisterPage();
@@ -27,7 +28,8 @@ const surveyCO = new SurveyComponent();
 const donationCO = new Donation();
 const navbarCO = new PledgeRxfNavBarComponent();
 
-describe('TR(2995) Scenario -> Multi Pledge donation to group and fill out optional fields : ', () => {    
+describe('TR(2995) Scenario -> Multi Pledge donation to group and fill out optional fields : ', () => {  
+    using(events, event => {   
         describe(`${event}`, () => {
             before(() => {
                 pageSetup = new PageSetup();
@@ -61,7 +63,7 @@ describe('TR(2995) Scenario -> Multi Pledge donation to group and fill out optio
             });
             it('Should verify the profile and payment info on the review page', () => {
                 flowPO.continue();
-                reviewPO.verifyAllProfileInformation(data2);
+                reviewPO.verifyAllProfileInformation(data);
                 reviewPO.verifyPaymentInformation(data.card);
             });
             it('should verify the Transaction code', () => {
@@ -70,3 +72,4 @@ describe('TR(2995) Scenario -> Multi Pledge donation to group and fill out optio
             });
         });
     });
+});

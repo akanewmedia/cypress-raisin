@@ -7,19 +7,19 @@ import { RegisterPage } from '../../../support/pages/Pledge/register';
 import { ThankYouPage } from '../../../support/pages/Pledge/ThankYouPage';
 import { ReviewPage } from '../../../support/pages/Ticketing/ReviewPage';
 import { PageSetup } from '../../../support/utils/pageSetup';
-import { data } from '../../../data/Pledge/base.js'
+import * as specificData from '../../../data/Pledge/MultiPledgeDonationToEvent.json'
 
 
 describe('TR(656) Scenario -> Multi Pledge donation to event : ', () => {
+  const using = require('jasmine-data-provider'); 
 
+  const pageSetup = new PageSetup();
 
-  const event = '/AD9235BF0C2148F29DD47B092A3564AB'
+  const data = pageSetup.getData('Pledge', specificData);
+  const events = pageSetup.getEvents(pageSetup.getEnvironment().multipledge, data.events);
 
-
-  //using(events, event => {
-  context('Donate to Event', () => {
-
-    const pageSetup = new PageSetup();
+  using(events, event => {
+  context('Donate to Event', () => {   
     
     const donationCO = new Donation();
     const navbarCO = new PledgeNavBarComponent();
@@ -48,7 +48,6 @@ describe('TR(656) Scenario -> Multi Pledge donation to event : ', () => {
     });
     
     it('should enter the participant details', () => {
-      cy.wait(2000)      
       registerPO.fillInProfileAndAddressInformation(data);
       cy.get(registerPO.container).should('be.visible')
     });
@@ -70,5 +69,6 @@ describe('TR(656) Scenario -> Multi Pledge donation to event : ', () => {
       thankYouPO.verifyTransactionNumber(data);
     });
   });
+})
 });
 

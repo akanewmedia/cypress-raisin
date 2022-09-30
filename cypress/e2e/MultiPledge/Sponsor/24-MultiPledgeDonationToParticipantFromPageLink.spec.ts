@@ -7,16 +7,16 @@ import { RegisterPage } from "../../../support/pages/Pledge/register";
 import { ThankYouPage } from "../../../support/pages/Pledge/ThankYouPage";
 import { ReviewPage } from "../../../support/pages/Ticketing/ReviewPage";
 import { SurveyComponent } from "../../../support/components/survey.co";
-import { data } from '../../../data/Pledge/base.js'
-import { data2 } from '../../../data/Pledge/MultiPledgeDonationToParticipantFromPageLink'
+import * as specificData from '../../../data/Pledge/MultiPledgeDonationToParticipantFromPageLink.json'
 
 
 //The information regarding the Library
+const using = require('jasmine-data-provider');
 let pageSetup: PageSetup = new PageSetup();
 
-//const data = pageSetup.getData('Pledge', 'MultiPledgeDonationToParticipantFromPageLink');
-//const events = pageSetup.getEvents(browser.params.multipledge);
-const event = '/rxfmpaee'
+const data = pageSetup.getData('Pledge', specificData);
+const events = pageSetup.getEvents(pageSetup.getEnvironment().multipledge, data.events);
+
 
 const donationSearchPO = new DonationSearchPage();
 const registerPO = new RegisterPage();
@@ -29,11 +29,12 @@ const donationCO = new Donation();
 const surveyCO = new SurveyComponent();
 
 describe('TR(24) Scenario -> Multi Pledge donation to participant from page link - includes private message and custom honor roll : ', () => {
+  using(events, event => {
   context('Donate to Participant from Page Link', () => {
     describe(`${event}`, () => {
       before(() => {
         pageSetup = new PageSetup();
-        pageSetup.goToEvent(`${event}/${data2.URL}`);
+        pageSetup.goToEvent(`${event}/${data.URL}`);
         //pageSetup.logoutIfLoggedIn();
       });
       it('should search for a participant then navigate to its page', () => {
@@ -46,7 +47,7 @@ describe('TR(24) Scenario -> Multi Pledge donation to participant from page link
         cy.get(donationCO.donationContainer).should('be.visible');
 
         donationCO.setAmount(data.donationAmount);
-        donationCO.setCoverAdminFee(true);
+        //donationCO.setCoverAdminFee(true);
 
         // Custom option 
         donationCO.selectLastHonorRollOption(data.honourRoleOptionIndex);
@@ -54,8 +55,7 @@ describe('TR(24) Scenario -> Multi Pledge donation to participant from page link
         donationCO.enterPrivateMessage(data.privateMessage);
       });
       it('should enter the participant details', () => {
-        flowPO.continue();
-        cy.wait(3000);
+        flowPO.continue();        
         registerPO.fillInProfileAddressAndAdditionalInformation(data);
         surveyCO.fill(data.surveyResponses);
         cy.get('body').trigger('keydown', { keyCode: 27});
@@ -70,7 +70,7 @@ describe('TR(24) Scenario -> Multi Pledge donation to participant from page link
       });
       it('Should verify the profile and payment info on the review page', () => {
           flowPO.continue();          
-          reviewPO.verifyProfileInformation(data2);
+          reviewPO.verifyProfileInformation(data);
           reviewPO.verifyPaymentInformation(data.card);
       });
       it('Should verify the donation amount', () => {
@@ -82,4 +82,5 @@ describe('TR(24) Scenario -> Multi Pledge donation to participant from page link
       });
     });
   });
+});
 });

@@ -1,9 +1,15 @@
-import { assign, at } from 'lodash';
+import { assign, at, isNil } from 'lodash';
+import * as fs from 'fs';
 import { PledgeNavBarComponent } from '../components/pledgeNavbar.co';
 import { PledgeV3LoginFormComponent } from '../components/pledgeV3LoginForm.co';
 import { ShoppingCart } from '../components/shoppingCart.co';
 import { TicketingNavBar } from '../components/ticketingNavbar.co';
 import { elementByClass, wait } from './actions';
+import { environments } from '../../environments/environments'
+import * as basePledge from '../../data/Pledge/base.json'
+import * as baseDonations from '../../data/Donations/base.json'
+import * as baseTicketing from '../../data/Ticketing/base.json'
+
 
 const basePageClass = '.base-page';
 
@@ -12,6 +18,7 @@ export class PageSetup {
   ticketingNavBar: TicketingNavBar;
   shoppingCartCO: ShoppingCart;
   pledgeV3LoginCO: PledgeV3LoginFormComponent;
+  currentEnvironment: any;
   
   constructor() {
     this.pledgeNavBar = new PledgeNavBarComponent();
@@ -21,16 +28,35 @@ export class PageSetup {
     
   }
 
-  getData(eventType, eventDataFileName) {
+  getData(eventType:string, eventData: any | null = null) {
+    let baseData = {};
+    
+    if (eventType === 'Pledge') {
+      baseData = basePledge;
+    } else if (eventType === 'Ticketing') {
+      baseData = baseTicketing;
+    } else if (eventType === 'Donations') {
+      baseData = baseDonations;
+    } else {
+      throw(new Error(`${eventType} not found`))
+    }
+
+    if (isNil(eventData)) {
+      return baseData;
+    }
+
     // import the fs module    cypress\data\Donations\base.json
-    const dataPath = `cypress/data/${eventType}`;
+    // const dataPath = `../../data/${eventType}`;
     // read the file into raw data
-    let baseData = cy.readFile(`${dataPath}/base.json`);
-    let eventData = cy.readFile(`${dataPath}/${eventDataFileName}.json`);
+
+    // let eventData = cy.readFile(`${dataPath}/${eventDataFileName}.json`);
+
+    // const eventData: any = await import(`${dataPath}/${eventDataFileName}.json`);
+    // let eventData = cy.readFile(`${dataPath}/${eventDataFileName}.json`);
     return assign({}, baseData, eventData);
   }
 
-  getEvents(events: any, indexes?: number) {
+  getEvents(events: any, indexes?: number[]) {
     return indexes ? at(events, indexes) : at(events, 0);
   }
 
@@ -39,8 +65,18 @@ export class PageSetup {
      * @param {string} url - the event url
      * @param {number} [timeout=3000] - the max time (in ms) the test will wait for the page to load
      */
-  goToEvent(url) {
-    cy.visit(url);
+  goToEvent(url) {  
+    cy.visit(`${this.getEnvironment().baseUrl}/ui/${url}`)  
+  }
+
+  getEnvironment(){
+    if(isNil(this.currentEnvironment)){
+      return environments.AKA_INT //Hardcoded to INT, needs to be changed after
+    }
+  }
+
+  setEnvironment(env?: any) {
+    this.currentEnvironment = env;    
   }
 
   /**

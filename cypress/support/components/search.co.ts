@@ -29,7 +29,7 @@ export class Search {
     this.searchBar = buildSelector(this.searchBarContainer, '#search-box');
     this.searchButton = buildSelector(this.searchBarContainer, '.btn-flow--light');
     this.searchResultsContainer = buildSelector(this.container, '#search');
-
+    this.searchResults = buildSelector(this.container, '.search-result');
     this.individualTab = buildSelector(this.container, '#search-navigation-individual');
     this.teamTab = buildSelector(this.container, '#search-navigation-team');
     this.groupTab = buildSelector(this.container, '#search-navigation-group');

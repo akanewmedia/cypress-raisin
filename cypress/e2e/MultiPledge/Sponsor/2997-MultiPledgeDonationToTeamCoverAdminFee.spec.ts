@@ -8,13 +8,13 @@ import { PaymentPage } from "../../../support/pages/Pledge/payment";
 import { RegisterPage } from "../../../support/pages/Pledge/register";
 import { ThankYouPage } from "../../../support/pages/Pledge/ThankYouPage";
 import { ReviewPage } from "../../../support/pages/Ticketing/ReviewPage";
-import {data} from '../../../data/Pledge/base'
-
+import * as specificData from '../../../data/Pledge/MultiPledgeDonationToTeamCoverAdminFee.json'
 
 //The information regarding the Library
+const using = require('jasmine-data-provider');
 let pageSetup: PageSetup = new PageSetup();
-
-const event = '/rxfmpaee'
+const data = pageSetup.getData('Pledge', specificData);
+const events = pageSetup.getEvents(pageSetup.getEnvironment().multipledge, data.events);
 
 const donationSearchPO = new DonationSearchPage();
 const registerPO = new RegisterPage();
@@ -28,6 +28,7 @@ const navbarCO = new PledgeRxfNavBarComponent();
 const entityDetailsCO = new EnitytDetails();
 
 describe('TR(2997) Scenario -> Multi Pledge donation to team (cover admin fee) : ', () => {
+    using(events, event => {   
         describe(`${event}`, () => {
             before(() => {
                 pageSetup = new PageSetup();
@@ -80,3 +81,4 @@ describe('TR(2997) Scenario -> Multi Pledge donation to team (cover admin fee) :
             });
         });
     });
+});
