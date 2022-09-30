@@ -66,9 +66,9 @@ export class Donation {
 
   selectShowAmount(showAmount) {
     if (showAmount) {
-      clickElement(this.honourRollCustomOptions.$('.custom-show-amount-option-yes'));
+      cy.get(this.honourRollCustomOptions).get('.custom-show-amount-option-yes').click()
     } else {
-      clickElement(this.honourRollCustomOptions.$('.custom-show-amount-option-no'));
+      cy.get(this.honourRollCustomOptions).get('.custom-show-amount-option-no').click()
     }
   }
 

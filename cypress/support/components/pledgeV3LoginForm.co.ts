@@ -1,4 +1,4 @@
-import { elementByClass, enterText } from "../utils/actions";
+import { buildSelector ,enterText } from "../utils/actions";
 
 /**
  * Represents the login portion of the login page in Pledge V3. Including the Facebook login button.
@@ -12,13 +12,13 @@ export class PledgeV3LoginFormComponent {
   facebookLogoutBtn: any;
   constructor() {
     // this selects the div that surrounds the username, password and FB login controls
-    this.container = elementByClass('.container [id$=pnlLogin]');
+    this.container = buildSelector('.container [id$=pnlLogin]');
     //
-    this.username = elementByClass(this.container, '[id$=txtUserName]');
-    this.password = elementByClass(this.container, '[id$=txtPassword]');
-    this.raisinLoginBtn = elementByClass(this.container, '[id$=btnLogin]');
-    this.facebookLoginBtn = elementByClass(this.container, '[id$=fbButton]');
-    this.facebookLogoutBtn = elementByClass(this.container, '[id$=FacebookLoginButton_loggedInDiv] .fb-tooltip span');
+    this.username = buildSelector(this.container, '[id$=txtUserName]');
+    this.password = buildSelector(this.container, '[id$=txtPassword]');
+    this.raisinLoginBtn = buildSelector(this.container, '[id$=btnLogin]');
+    this.facebookLoginBtn = buildSelector(this.container, '[id$=fbButton]');
+    this.facebookLogoutBtn = buildSelector(this.container, '[id$=FacebookLoginButton_loggedInDiv] .fb-tooltip span');
   }
 
   /**

@@ -387,18 +387,9 @@ export function selectDropdownRegularOption(
  * @param {string} url - the url of the page
  * @param {number} console.errorTimeout - the timeout in milliseconds
  */
-// export function waitForUrl(url, console.errorTimeout = 1000) {
-//   return cy
-//   .wait(EC.urlContains(url))
-//   .catch(() =>
-//     cy
-//       .location('href')
-//       .then(
-//         (currentUrl) =>
-//           `Current page: ${currentUrl} does not contain ${url} in time(${console.errorTimeout}ms)`
-//       )
-//   )
-// }
+export function waitForUrl(url) {
+  return cy.url().should('include', url)
+}
 
 /**
  * Waits for a text to be present in an element
@@ -444,27 +435,7 @@ export function setCustomAttribute(element, value) {
     return;
   }    
 
-  cy.get(element).type(value);
-  // element.getTagName().then((tagName) => {
-  //   switch (tagName.toLowerCase()) {
-  //     case 'md-select':
-  //       this.selectMatDropDownOption(element, value);
-  //       break;
-  //     case 'input':
-  //       switch (element.type) {
-  //         case undefined: // default is text when [type] is not set
-  //         case 'text':
-  //           this.type(element, value);
-  //           break;
-  //         default:
-  //           // TODO: implement other types like radio and checkbox when those tests are done
-  //           throw new Error(
-  //             `To fix, implement ${element.type} in actions.setAttribute()`
-  //           );
-  //       }
-  //       break;
-  //   }
-  // }
+  cy.get(element).type(value); 
 }
 
 

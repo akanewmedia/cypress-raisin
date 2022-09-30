@@ -50,7 +50,7 @@ describe('TR(2999) Scenario -> Multi Pledge donation to participant - invalid cu
                 // trying to advance should trigger the validation
                 flowPO.continue();
                 // check if the validation error came up
-                cy.get(donationCO.invalidDonationAmountValidationMsg).should('be.visible')
+                cy.get(donationCO.invalidDonationAmountValidationMsg).should('exist')
             });
         });
     });
