@@ -20,7 +20,7 @@ export class EnitytDetails {
     this.honourRoll = buildSelector(this.container, '.honour-roll');
     this.thermometerContainer = buildSelector(this.container, '.thermometer-container');
     this.locationLink = buildSelector(this.participantTop, '.team-links [widget-group-name] div a');
-    this.locationLinkDisabled = buildSelector(this.participantTop, '.team-links [widget-group-name] div a.disable');
+    this.locationLinkDisabled = buildSelector(this.participantTop, '.page-details [widget-group-name] div a.disable');
   }
 
   joinTeam() {
