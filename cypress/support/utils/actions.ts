@@ -4,10 +4,10 @@ import 'cypress-plugin-tab';
 export function buildSelector(selector1, selector2 = null, selector3 = null) {
 
   let selector = selector1;
-  if (selector2){
+  if (selector2) {
     selector = selector + ' ' + selector2;
   }
-  if (selector3){
+  if (selector3) {
     selector = selector + ' ' + selector3;
   }
   return selector;
@@ -67,11 +67,11 @@ export function elementsByClass(className, container = null) {
   if (isNil(container)) {
     return className
   }
-  else{
+  else {
     let elements = className + " " + container
     return elements
   }
-  
+
 }
 /**
  * Clicks an element
@@ -82,7 +82,7 @@ export function clickElement(selector, wait = false) {
   // if (wait) {
   //   cy.get(selector).click();
   // }
-  return cy.get(selector).click();
+  cy.get(selector).click();
 }
 
 export function enterText(protractorSelector, text) {
@@ -248,7 +248,7 @@ export function selectDropDownOption(protractorSelector, selectedOption) {
  * @param {ElementFinder} dropdown - the dropdown list
  * @param {string} selectedOption - the option to select
  */
- export function selectRadioption(protractorSelector, selectedOption) {
+export function selectRadioption(protractorSelector, selectedOption) {
   if (isNil(selectedOption)) {
     return;
   }
@@ -363,11 +363,17 @@ export function selectDropdownRegularOption(
 ) {
   // waitForElement(dropdownElementSelector);
   scrollToElement(dropdownElementSelector);
-  dropdownElementSelector.click();
+  cy.get(dropdownElementSelector).click();
   const ddlContainer = cy.get('.cdk-overlay-container');
   ddlContainer
     .get('mat-option .mat-option-text').contains(option)
     .click();
+}
+
+export function pressEsc() {
+  cy.get('body').trigger('keydown', { keyCode: 27 });
+  cy.wait(500);
+  cy.get('body').trigger('keyup', { keyCode: 27 });
 }
 
 // export function  waitForElement(protractorSelector, timeout = 4000) {
@@ -433,9 +439,9 @@ export function scrollToTop() {
 export function setCustomAttribute(element, value) {
   if (!value) {
     return;
-  }    
+  }
 
-  cy.get(element).type(value); 
+  cy.get(element).type(value);
 }
 
 
@@ -479,9 +485,7 @@ export function generateUniqueUsername(data) {
 /**
  * Presses the "Escape" (Esc) keyboard button
  */
-export function pressEsc() {
-  return cy.get('body').type("{esc}");
-}
+
 
 /**
  * Presses the "Escape" (Esc) keyboard button

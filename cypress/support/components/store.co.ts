@@ -1,5 +1,5 @@
 //The information regarding the libraries
-import { clickElement, elementByClass, elementById, elementsByClass, enterText } from "../utils/actions";
+import { buildSelector, clickElement, elementByClass, elementById, elementsByClass, enterText } from "../utils/actions";
 export class StoreItem {
   container: any;
   quantity: any;
@@ -8,10 +8,10 @@ export class StoreItem {
   amount: any;
   constructor(item) {
     this.container = item;
-    this.quantity = elementByClass(this.container, '.qty-wrap');
-    this.plusButton = elementByClass(this.quantity, '.btnPlus');
-    this.minusButton = elementByClass(this.quantity, '.btnMinus');
-    this.amount = elementByClass(this.quantity, '.ui-input-text')
+    this.quantity = buildSelector(this.container, '.qty-wrap');
+    this.plusButton = buildSelector(this.quantity, '.btnPlus');
+    this.minusButton = buildSelector(this.quantity, '.btnMinus');
+    this.amount = buildSelector(this.quantity, '.ui-input-text')
   }
 
   addItem() {
@@ -30,18 +30,18 @@ export class Store {
   promoCodeApplyButton: any;
   total: any;
   constructor(private container: any) {
-    this.items = elementsByClass(this.container, 'div.row-store');
-    this.promoCode = elementById(this.container, '#promoCode');
-    this.promoCodeApplyButton = elementByClass(this.container, '.promo-code');
-    this.total = elementByClass(this.container, '.store-item-total');
+    this.items = buildSelector(this.container, 'div.row-store');
+    this.promoCode = buildSelector(this.container, '#promoCode');
+    this.promoCodeApplyButton = buildSelector(this.container, '.promo-code');
+    this.total = buildSelector(this.container, '.store-item-total');
   }
 
   addItem(index) {
-    new StoreItem(this.items.get(index)).addItem();
+    cy.get(this.items).eq(index).find('.btnPlus').click()    
   }
 
   removeItem(index) {
-    new StoreItem(this.items.get(index)).removeItem();
+    cy.get(this.items).eq(index).find('.btnMinus').click() 
   }
 
   enterPromoCode(code) {

@@ -1,7 +1,7 @@
 import { Profile } from '../../components/profile.co'
 import { Address } from '../../components/address.co'
 import { AdditionalInformation } from '../../components/additionalInformation.co';
-import { elementByClass, elementById, elementsByClass, scrollToElement } from '../../utils/actions'
+import { buildSelector, elementByClass, elementById, elementsByClass, scrollToElement } from '../../utils/actions'
 
 export class AdditionalParticipantsPage {
   container: any;
@@ -20,9 +20,9 @@ export class AdditionalParticipantsPage {
   accordionTab: any;
   helpBlock: any;
   constructor() {
-    this.container = elementByClass('.additional-participants');
-    this.helpBlock = elementByClass('.help-block');
-    this.addParticipantButton = elementById(this.container, "#btnAddParticipant");
+    this.container = buildSelector('.additional-participants');
+    this.helpBlock = buildSelector('.help-block');
+    this.addParticipantButton = buildSelector(this.container, "#btnAddParticipant");
   }
 
   assignContainer() {

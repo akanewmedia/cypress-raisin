@@ -1,5 +1,5 @@
 //The information regarding the libraries
-import { clickElement, elementByClass, enterText } from "../utils/actions";
+import { clickElement, buildSelector, enterText } from "../utils/actions";
 
 export class ReturningParticipant {
   container: any;
@@ -10,13 +10,13 @@ export class ReturningParticipant {
   forgotDetails: any;
   createAccountButton: any;
   constructor() {
-    this.container = elementByClass('.returning-participant');
-    this.username = elementByClass(this.container, '#username');
-    this.password = elementByClass(this.container, '#password');
-    this.loginButton = elementByClass(this.container, '.btn-login');
-    this.loginViaFacebookButton = elementByClass(this.container, '.fb-login-button');
-    this.forgotDetails = elementByClass(this.container, '.btn-link.btn-flow[key="subttl_ForgotLogin"]');
-    this.createAccountButton = elementByClass(this.container, '.returning-participant-newUser');
+    this.container = buildSelector('.returning-participant');
+    this.username = buildSelector(this.container, '#username');
+    this.password = buildSelector(this.container, '#password');
+    this.loginButton = buildSelector(this.container, '.btn-login');
+    this.loginViaFacebookButton = buildSelector(this.container, '.fb-login-button');
+    this.forgotDetails = buildSelector(this.container, '.btn-link.btn-flow[key="subttl_ForgotLogin"]');
+    this.createAccountButton = buildSelector(this.container, '.returning-participant-newUser');
   }
 
   clickForgotDetails() {

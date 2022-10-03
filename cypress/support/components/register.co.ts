@@ -1,4 +1,4 @@
-import { clickElement, elementByClass, elementsByClass, selectDropdownRegularOption } from "../utils/actions";
+import { buildSelector, clickElement, elementByClass, elementsByClass, selectDropdownRegularOption } from "../utils/actions";
 
 export class RegistrationItem {
 
@@ -23,10 +23,10 @@ export class RegisterComponent {
   registrationTypeContainer: any;
   subEventGroupSelector: any;
   constructor() {
-    this.container = elementByClass('.registration-start');
-    this.groupSelectionContainer = elementByClass('.subevent-group-selector');
-    this.registrationTypeContainer = elementByClass(this.container, '.reg-listing');
-    this.subEventGroupSelector = elementByClass(this.groupSelectionContainer, '.mat-select');
+    this.container = buildSelector('.registration-start');
+    this.groupSelectionContainer = buildSelector('.subevent-group-selector');
+    this.registrationTypeContainer = buildSelector(this.container, '.reg-listing');
+    this.subEventGroupSelector = buildSelector(this.groupSelectionContainer, '.mat-select');
   }
 
   /**
@@ -36,8 +36,8 @@ export class RegisterComponent {
    * @param regItemIndex - the index of the registration item within the section specified above
    */
   register(sectionIndex, regItemIndex = 0) {
-    let registrationGroup = elementsByClass(this.registrationTypeContainer, 'article.reg-items').get(sectionIndex);
-    elementsByClass(registrationGroup, '.btn-block').get(regItemIndex).click();
+    let registrationGroup = cy.get(this.registrationTypeContainer).get('article.reg-items').eq(sectionIndex);
+    registrationGroup.get('.btn-block').eq(regItemIndex).click();
   }
 
   selectSubEventGroup(subEventGroup) {

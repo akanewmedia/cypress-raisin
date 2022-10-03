@@ -57,9 +57,10 @@ export class PaymentPage {
    * Removes the amount from the donation textbox in the flow
    */
   clearDonation() {
-   // scrollToElement(this.donationAmount);
-    enterText(this.donationAmount, ' ');
-    clickElement(this.donationContainer);
+    //scrollToElement(this.donationAmount);
+    cy.get(this.donationAmount).clear()
+    // enterText(this.donationAmount, ' ');
+    // clickElement(this.donationContainer);
   }
 
   buyItem(index) {

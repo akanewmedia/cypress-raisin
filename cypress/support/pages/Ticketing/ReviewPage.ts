@@ -111,7 +111,7 @@ export class ReviewPage {
   }
 
   verifyIsNotOnScreen(selector) {
-    selector.isPresent().then(isPresent => {
+    cy.get(selector).should('exist').then(isPresent => {
       if (isPresent) {
         expect(selector.isDisplayed()).false;
       }

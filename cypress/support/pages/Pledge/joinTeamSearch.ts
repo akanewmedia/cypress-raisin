@@ -1,14 +1,14 @@
 import { Search } from '../../components/search.co';
-import { elementByClass } from '../../utils/actions';
+import { buildSelector, elementByClass } from '../../utils/actions';
 
 export class JoinTeamPage {
   container: any;
   searchComponent: Search;
   maxTeamSizeErr: any;
   constructor() {
-    this.container = elementByClass('.join-team');
+    this.container = buildSelector('.join-team');
     this.searchComponent = new Search(this.container);
-    this.maxTeamSizeErr = elementByClass(this.container, '#templates .alert.alert-danger');
+    this.maxTeamSizeErr = buildSelector(this.container, '#templates .alert.alert-danger');
   }
 
   search(searchValue = '', index = 5) {
