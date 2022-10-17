@@ -27,7 +27,7 @@ export class ThankYouPage {
     //expect(this.transactionNumber.getText()).contains(code);
   }
   verifySuccessfulTransaction(data) {
-    cy.get(data.transactionNumberStartsWith).should('not.have.text', data.transactionNumberStartsWith)
+    cy.get(this.transactionNumber).should('not.have.text', data.unsuccessfulTransactionMessage)
     //expect(this.transactionNumber.getText()).not.contains(data.unsuccessfulTransactionMessage);
   }
   startFundraising() {

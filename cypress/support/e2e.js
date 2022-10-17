@@ -31,3 +31,8 @@ if (!app.document.head.querySelector('[data-hide-command-log-request]')) {
 
   app.document.head.appendChild(style);
 }
+
+// ignore uncaught exceptions
+Cypress.on('uncaught:exception', (err) => {
+  return false
+})

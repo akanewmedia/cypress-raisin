@@ -31,6 +31,13 @@ const surveyCO = new SurveyComponent();
 
 /* use event 17560 */
 describe('TR(648) Scenario -> Multi Pledge free registration - all fields required: ', () => {
+
+    Cypress.on('uncaught:exception', (err, runnable) => {
+        return false;
+      });
+
+
+
     using(events, (event) => {
         describe(`${event}`, () => {
             before(() => {

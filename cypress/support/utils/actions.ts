@@ -31,7 +31,7 @@ export function elementById(id, container = null) {
       return cy.get(container);
     }
 
-    return container.get(container);
+    return cy.get(container);
   }
 }
 /**
@@ -470,6 +470,7 @@ export function generateUniqueUsername(data) {
   if (data.account.username) {
     data.account.username += val;
     data.loginForm.username = data.account.username;
+    return data.loginForm.username
   }
 }
 
@@ -500,5 +501,7 @@ export function pressTab() {
  * @param referee Referee
  */
 export function setUserReferral(container, referee) {
-  container.type(container, referee);
+  cy.get(container).type(referee).then(() => {
+    cy.get('span[class="mat-option-text"]').eq(0).click()
+  })
 }

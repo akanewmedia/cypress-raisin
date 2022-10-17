@@ -3,7 +3,7 @@ import { Address } from '../../components/address.co';
 import { AccountInformation } from '../../components/accountInformation.co';
 import { TaxReceipts } from '../../components/taxReceipts.co';
 import { AdditionalInformation } from '../../components/additionalInformation.co';
-import { buildSelector, elementByClass, elementById, elementsByClass, getLocalDateTime, scrollToElement, setMatCheckboxChecked, setUserReferral } from '../../utils/actions';
+import { buildSelector, elementByClass, elementById, elementsByClass, getLocalDateTime, pressEsc, scrollToElement, setMatCheckboxChecked, setUserReferral } from '../../utils/actions';
 
 export class RegisterPage {
   container: any;
@@ -62,6 +62,10 @@ export class RegisterPage {
 
   fillInAccountInformation(data) {
     this.accountInformationCO.enterDetails(getLocalDateTime() + data.account.username, data.account.password, data.account.fundraisingGoal);
+  }
+
+  fillInFundraisingGoal(data){
+    cy.get('#goal').type(data.account.fundraisingGoal)
   }
 
   fillInExactAccountInformation(data) {
@@ -228,7 +232,10 @@ export class RegisterPage {
   }
 
   fillInReferredUser(data) {
-    setUserReferral(this.referralInformation, data.referredUser);
+    setUserReferral(this.referralInformation, data.referredUser);    
   }
+
+
+  
 }
 

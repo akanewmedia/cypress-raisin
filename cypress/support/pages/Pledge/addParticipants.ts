@@ -26,21 +26,21 @@ export class AdditionalParticipantsPage {
   }
 
   assignContainer() {
-    this.openAccordionContainer = elementByClass(this.container, ".mat-expansion-panel.mat-expanded");
-    this.individualUserType = elementById(this.openAccordionContainer, "#UserType_0-title");
-    this.organizationUserType = elementById(this.openAccordionContainer, "#UserType_1-title");
+    this.openAccordionContainer = buildSelector(this.container, ".mat-expansion-panel.mat-expanded");
+    this.individualUserType = buildSelector(this.openAccordionContainer, "#UserType_0-title");
+    this.organizationUserType = buildSelector(this.openAccordionContainer, "#UserType_1-title");
     this.profileInformationCO = new Profile(this.openAccordionContainer);
     this.addressInformationCO = new Address(this.openAccordionContainer);
     this.additionalInformation = new AdditionalInformation(this.openAccordionContainer);
-    this.requiredValidationErrors = elementsByClass(this.openAccordionContainer, 'small[ng-message="required"]');
-    this.participantAlreadyRegisteredError = elementByClass(this.container, '.err-already-registered-wrap');
+    this.requiredValidationErrors = buildSelector(this.openAccordionContainer, 'small[ng-message="required"]');
+    this.participantAlreadyRegisteredError = buildSelector(this.container, '.err-already-registered-wrap');
     this.assignErrorContainer();
-    this.removeLastParticipantButton = elementByClass(this.openAccordionContainer, 'button[key="btn_Delete"]');
-    this.accordionTab = elementById(this.container, '#accordion-tab-0');
+    this.removeLastParticipantButton = buildSelector(this.openAccordionContainer, 'button[key="btn_Delete"]');
+    this.accordionTab = buildSelector(this.container, '#accordion-tab-0');
   }
   assignErrorContainer() {
-    this.maxTeamMembersReachedError = elementByClass(this.container, '.err-team-max-limit');
-    this.maxEventParticipantsReachedError = elementByClass(this.container, '.err-event-max-limit');
+    this.maxTeamMembersReachedError = buildSelector(this.container, '.err-team-max-limit');
+    this.maxEventParticipantsReachedError = buildSelector(this.container, '.err-event-max-limit');
   }
   /** check if team size allow additional participant */
   isMaxTeamMemberReached() {
@@ -50,7 +50,7 @@ export class AdditionalParticipantsPage {
    * Presses the Add Participant button at the bottom of the Additional Participants section
    */
   clickAddParticipantButton() {
-    this.addParticipantButton.click();
+    cy.get(this.addParticipantButton).click();
     this.assignContainer();
   }
 
@@ -99,8 +99,8 @@ export class AdditionalParticipantsPage {
    */
   fillInProfileInformationNoWaiver(data) {
     this.profileInformationCO.enterFirstName(data.firstName);
-    this.profileInformationCO.enterLastName(data.lastName);
-    this.profileInformationCO.enterEmail(data.email);
+    this.profileInformationCO.enterLastName(data.lastName + '1');
+    this.profileInformationCO.enterEmail(data.email); 
     this.profileInformationCO.selectRegistrationType(data.registrationType);
   }
 

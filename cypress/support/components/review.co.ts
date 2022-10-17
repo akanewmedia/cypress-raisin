@@ -65,8 +65,9 @@ export class Review {
   }
 
   getAdditionalParticipant(index) {
-    return new AdditionalParticipantReview(elementsByClass(this.additionalParticipantsContainer, '.additional-participant').get(index));
-  }
+    return cy.get('.review' + ' .additional-participants-review-container' + ' .additional-participant').eq(index)
+  }  
+  
 
   getTicketingItem(index) {
     return elementsByClass(this.ticketingInformation, 'table tr').get(index + 1);

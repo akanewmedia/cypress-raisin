@@ -27,6 +27,12 @@ export class ReturningParticipant {
     clickElement(this.createAccountButton, true);
   }
 
+  loginAsReturning(username, data){
+    cy.get('input[aria-labelledby="username"]').type(username)
+    cy.contains('div', "Password").type(data.account.password)
+    cy.contains('.btn', "Login").click()
+  }
+
   loginViaFacebook() {
     clickElement(this.loginViaFacebookButton);
   }

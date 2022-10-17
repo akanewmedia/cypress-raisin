@@ -2,6 +2,7 @@ import { clickElement } from "../../utils/actions";
 import { Review } from "../../components/review.co";
 import { ShoppingCart } from "../../components/shoppingCart.co";
 
+
 //The information regarding the libraries
 export class ReviewPage {
   review: Review;
@@ -63,8 +64,14 @@ export class ReviewPage {
   verifyAdditionalParticipantsInformation(data, dataIndex = 0, reviewIndex = 0) {
     const additionalParticipant = this.review.getAdditionalParticipant(reviewIndex);
     const additionalParticipantData = data.additionalParticipants[dataIndex];
-    expect(additionalParticipant.fullName.getText()).eq(additionalParticipantData.fullName);
-    expect(additionalParticipant.regItem.getText()).eq(additionalParticipantData.registrationType);
+    
+    additionalParticipant.within(()=> {
+      cy.get('.full-name').should('have.text', additionalParticipantData.fullName + '1')
+    })
+
+    additionalParticipant.within(()=>{
+      cy.get('.reg-item').should('have.text', additionalParticipantData.registrationType)
+    })
   }
 
   /**
@@ -104,19 +111,17 @@ export class ReviewPage {
     this.verifyIsNotOnScreen(this.review.cardNumber);
     this.verifyIsNotOnScreen(this.review.cardHolderName);
     this.verifyIsNotOnScreen(this.review.expiryDate);
+    this.verifyIsNotOnScreen(this.review.totalAmount);
 
     // the total must either invisible, or visible and equal to the [freeAmount] parameter
-    this.review.totalAmount.isPresent()
-      .then(visible => visible && this.review.totalAmount.getText().then(total => expect(total).eq(freeAmount)));
+    // cy.get(this.review.totalAmount).should('be.visible')
+    //   .then(visible => visible && this.review.totalAmount.getText().then(total => expect(total).eq(freeAmount)));
   }
 
-  verifyIsNotOnScreen(selector) {
-    cy.get(selector).should('exist').then(isPresent => {
-      if (isPresent) {
-        expect(selector.isDisplayed()).false;
-      }
-    });
+  verifyIsNotOnScreen(selector) { 
+            cy.get(selector).should('not.exist')  
   }
+
   verifyBillingInformation(billingContact) {
     expect(this.review.billingInformation.name.getText()).eq(billingContact.fullName);
     expect(this.review.billingInformation.email.getText()).eq(billingContact.email);

@@ -102,7 +102,7 @@ export class PaymentPage {
    */
   verifyRegFeeDiscountAmount(amount) {
     if (isEmpty(amount)) {
-      expect(this.registrationFeeDiscountText.isPresent()).toBeFalsy();
+      cy.get(this.registrationFeeDiscountText).should('not.exist')
     } else {
       expect(this.registrationFeeDiscountText.getText()).toBe(amount);
     }
