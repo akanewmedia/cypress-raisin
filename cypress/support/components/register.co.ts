@@ -37,7 +37,9 @@ export class RegisterComponent {
    */
   register(sectionIndex, regItemIndex = 0) {
     let registrationGroup = cy.get(this.registrationTypeContainer).get('article.reg-items').eq(sectionIndex);
-    registrationGroup.get('.btn-block').eq(regItemIndex).click();
+    registrationGroup.within(()=> {
+      cy.get('.btn-block').eq(regItemIndex).click();
+    })
   }
 
   selectSubEventGroup(subEventGroup) {

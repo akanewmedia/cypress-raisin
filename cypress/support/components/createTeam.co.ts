@@ -49,7 +49,7 @@ export class CreateTeamComponent {
       enterText(this.regPasswordInput, data.team.password);
       enterText(this.repPasswordInput, data.team.password);
     } else {
-      this.isOpenToEveryoneRadioBtn.click();
+      cy.get(this.isOpenToEveryoneRadioBtn).click();
       // the password area should not be displayed
       // expect(this.regPasswordInput.isPresent()).toBeFalsy();
     }

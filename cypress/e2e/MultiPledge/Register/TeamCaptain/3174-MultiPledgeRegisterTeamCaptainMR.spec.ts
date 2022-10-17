@@ -13,11 +13,15 @@ import { ReviewPage } from "../../../../support/pages/Ticketing/ReviewPage";
 import { PageSetup } from "../../../../support/utils/pageSetup";
 import { generateUniqueName } from "../../../../support/utils/actions";
 import using from "jasmine-data-provider";
+import * as specificData from '../../../../data/Pledge/MultiPledgeRegisterTeamCaptainMR.json'
+
 
 //The information regarding the Library
+const using = require('jasmine-data-provider');
 let pageSetup: PageSetup = new PageSetup();
-const data = pageSetup.getData('Pledge', 'MultiPledgeRegisterTeamCaptainMR');
-var events = pageSetup.getEvents(browser.params.multipledge, data.events);
+
+const data = pageSetup.getData('Pledge', specificData);
+const events = pageSetup.getEvents(pageSetup.getEnvironment().multipledge, data.events);
 
 
 const registerPO = new RegisterPage();
@@ -36,20 +40,20 @@ const createTeamCO = new CreateTeamComponent();
 describe('TR(3174) Scenario -> Multi Pledge Team Captain Registration with Additional Participant: ', () => {
     using(events, event => {
         describe(`${event}`, () => {
-            beforeAll(() => {
+            before(() => {
                 pageSetup.goToEvent(event);
-                pageSetup.logoutIfLoggedIn();
+                //pageSetup.logoutIfLoggedIn();
                 generateUniqueName(data);
                 generateUniqueName(data.additionalParticipants[0]);
             });
-            afterAll(() => {
+            after(() => {
                 pageSetup.goToEvent(event);
-                pageSetup.logoutIfLoggedIn();
+                //pageSetup.logoutIfLoggedIn();
                 pageSetup.cleanupPage();
             });
             it('Should press the register button at the top, then select the location and reg item', () => {
                 navbarCO.register();
-                expect(registerCO.container.isDisplayed()).toBeTruthy();
+                cy.get(registerCO.container).should('be.visible')
                 registerCO.selectSubEventGroup(data.location);
                 registerCO.register(2);
             });
@@ -57,6 +61,7 @@ describe('TR(3174) Scenario -> Multi Pledge Team Captain Registration with Addit
                 returningParticipantCO.createAccount();
             });
             it('should enter the participant details', () => {
+                cy.wait(2000)
                 flowPO.continue();
                 registerPO.fillInAccountInformation(data);
                 registerPO.fillInProfileAndAddressInformation(data);
