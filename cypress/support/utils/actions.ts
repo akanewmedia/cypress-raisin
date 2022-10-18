@@ -158,12 +158,17 @@ export function setCheckboxChecked(protractorSelector, checked) {
  * @param {ElementFinder} protractorSelector - the input element
  * @param {string} value - the value of the input
  */
+
+export function enterTextInput(selector, data){
+  cy.get(selector).type(data)
+}
+
 export function enterMatInput(protractorSelector, value) {
   if (isNil(value)) {
     return;
   }
 
-  return protractorSelector.getAttribute('class').then((classString) => {
+  return cy.get(protractorSelector).invoke('attr','class').then((classString) => {
     // Need to verify if it is select first because a native select has the mat-input-element class
     if (
       classString.indexOf('mat-select') >= 0 ||
@@ -183,7 +188,7 @@ export function enterMatInput(protractorSelector, value) {
             return protractorSelector.type(value); // TODO: create a method in actions to manually select a date from the material datepicker
           } // If input type is text
           // console.log('enterMatInput => enterText', value);
-          return this.enterText(protractorSelector, value);
+          return cy.get(protractorSelector).type(value);
         });
     }
     if (classString.indexOf('mat-checkbox-input') >= 0) {
@@ -229,9 +234,9 @@ export function selectDropDownOption(protractorSelector, selectedOption) {
     return;
   }
 
-  return protractorSelector.getAttribute('class').then((classString) => {
+  return cy.get(protractorSelector).invoke('attr', 'class').then((classString) => {
     if (classString.indexOf('mat-select') >= 0) {
-      return this.selectMatDropDownOption(protractorSelector, selectedOption);
+      selectMatDropDownOption(protractorSelector, selectedOption);
     }
     if (classString.indexOf('matNativeControl') >= 0) {
       return this.selectNativeDropDownOption(

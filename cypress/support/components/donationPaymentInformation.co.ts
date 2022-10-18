@@ -1,4 +1,4 @@
-import { clickElement, elementByClass, elementById, enterMatInput, selectDropDownOption } from "../utils/actions";
+import { clickElement, buildSelector, enterMatInput, selectDropDownOption } from "../utils/actions";
 
 /**
  * Represents the "Enter Payment & Complete Donation" step
@@ -17,24 +17,24 @@ export class DonationPaymentInformation {
   transactionFailedMessage: any;
   transactionSuccessful: any;
   constructor() {
-    this.container = elementByClass('.gd-complete-donation');
+    this.container = buildSelector('.gd-complete-donation');
 
     // payment method
-    this.creditCardPaymentMethod = elementById(this.container, 'mat-button-toggle-group[name="paymentType"]  mat-button-toggle[value="0"]');
-    this.debitCardPaymentMethod = elementById(this.container, 'mat-button-toggle-group[name="paymentType"]  mat-button-toggle[value="debit"]');
-    this.paymentTypeGroup = elementById(this.container, 'mat-button-toggle-group[name="paymentType"]');
+    this.creditCardPaymentMethod = buildSelector(this.container, 'mat-button-toggle-group[name="paymentType"]  mat-button-toggle[value="0"]');
+    this.debitCardPaymentMethod = buildSelector(this.container, 'mat-button-toggle-group[name="paymentType"]  mat-button-toggle[value="debit"]');
+    this.paymentTypeGroup = buildSelector(this.container, 'mat-button-toggle-group[name="paymentType"]');
 
     // card details
-    this.txtCardNumber = elementByClass('.credit-card-number', this.container);
-    this.txtCardHolderName = elementByClass('.credit-card-holder-name', this.container);
-    this.creditCardExpirationMonth = elementByClass('.credit-card-expiry-month', this.container);
-    this.creditCardExpirationYear = elementByClass('.credit-card-expiry-year', this.container);
-    this.txtCVV = elementByClass('.credit-card-cvv', this.container);
+    this.txtCardNumber = buildSelector(this.container, '.credit-card-number');
+    this.txtCardHolderName = buildSelector(this.container, '.credit-card-holder-name');
+    this.creditCardExpirationMonth = buildSelector(this.container, '.credit-card-expiry-month');
+    this.creditCardExpirationYear = buildSelector(this.container, '.credit-card-expiry-year');
+    this.txtCVV = buildSelector(this.container,'.credit-card-cvv');
 
     // transaction
-    this.transactionFailed = elementByClass('.error-notification', this.container);
-    this.transactionFailedMessage = elementByClass('.mat-card-content', this.transactionFailed);
-    this.transactionSuccessful = elementById('transactionSuccessful', this.container);
+    this.transactionFailed = buildSelector(this.container, '.error-notification');
+    this.transactionFailedMessage = buildSelector(this.transactionFailed, '.mat-card-content');
+    this.transactionSuccessful = buildSelector(this.container, 'transactionSuccessful');
   }
 
   /**

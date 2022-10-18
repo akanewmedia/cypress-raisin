@@ -8,8 +8,10 @@
     "lastName": "Corleone",
     "cardType": "No Card"
   },
-  "fullName": "Vito Corleone",
+  "title": "Dr.",
+  "fullName": "Vito Tutti Corleone",
   "firstName": "Vito",
+  "middleName": "Tutti",
   "lastName": "Corleone",
   "email": "aka@aka.com",
   "address": "123 Main St",
@@ -17,6 +19,7 @@
   "province": "Ontario",
   "city": "Toronto",
   "postCode": "L7J 0A5",
+  "companyName": "Test Organization",
   "card": {
     "verification": {
       "type": "MasterCard",

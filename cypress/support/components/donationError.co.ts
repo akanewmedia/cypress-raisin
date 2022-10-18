@@ -1,4 +1,4 @@
-import { elementById } from "../utils/actions";
+import { buildSelector } from "../utils/actions";
 
 /**
  * Represents the error section of the form
@@ -8,9 +8,9 @@ export class DonationError {
     title: any;
     content: any;
     constructor(container) {
-      this.container = elementById(container, 'mat-card.error-notification');
-      this.title = elementById(this.container, 'mat-card-title');
-      this.content = elementById(this.container, 'mat-card-content');
+      this.container = buildSelector(container, 'mat-card.error-notification');
+      this.title = buildSelector(this.container, 'mat-card-title');
+      this.content = buildSelector(this.container, 'mat-card-content');
     }
 }
 

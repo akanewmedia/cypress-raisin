@@ -1,4 +1,5 @@
-import { clearInput, clickElement, elementByClass, elementById, elementsByClass, enterMatInput, enterText, scrollToElement, setFocus } from "../utils/actions";
+import { type } from "cypress/types/jquery";
+import { buildSelector, clearInput, clickElement, elementByClass, enterMatInput, enterText, scrollToElement, setFocus } from "../utils/actions";
 import { getNextAvailableDate, getNextDate, getNextMonthDate } from "../utils/dateUtils";
 
 export class DonationMatrix {
@@ -12,15 +13,15 @@ export class DonationMatrix {
   otherAmount: any;
 
   constructor() {
-    this.container = elementByClass('.rx-matrix-container');
-    this.title = elementById(this.container, 'h3');
-    this.donationAmountsContainer = elementByClass(this.container, '.donation-matrix-other-amount');
+    this.container = buildSelector('.rx-matrix-container');
+    this.title = buildSelector(this.container, 'h3');
+    this.donationAmountsContainer = buildSelector(this.container, '.donation-matrix-other-amount');
 
-    this.otherAmount = elementByClass(this.donationAmountsContainer, '.donation-matrix-other-amount .globalized-number-input input');
-    this.amountField = elementByClass(this.donationAmountsContainer, '.globalized-number input');
-    this.selectedAmount = elementByClass('.mat-button-toggle-checked', this.container);
-    this.donationAmountButtons = elementsByClass('.donation-matrix-button', this.container);
-    this.errorMessage = elementByClass(this.container, '.mat-error');
+    this.otherAmount = buildSelector(this.donationAmountsContainer, '.globalized-number-input input');
+    this.amountField = buildSelector(this.donationAmountsContainer, '.globalized-number input');
+    this.selectedAmount = buildSelector(this.container , '.mat-button-toggle-checked');
+    this.donationAmountButtons = buildSelector(this.container, '.donation-matrix-button');
+    this.errorMessage = buildSelector(this.container, '.mat-error');
   }
 
   /**
@@ -89,7 +90,7 @@ export class DonationMatrix {
    */
   enterOtherAmount(data) {
     clickElement(this.otherAmount);
-    return enterMatInput(this.otherAmount, data.donationAmount);
+    cy.get(this.otherAmount).type(data.donationAmount)
   }
 
   /**
@@ -115,14 +116,14 @@ export class DonationDetails {
   startDateFooter: any;
 
   constructor() {
-    this.container = elementByClass('.choose-donation');
+    this.container = '.choose-donation';
     this.donationMatrix = new DonationMatrix();
-    this.donationTypeGroup = this.container, '.mat-button-toggle-group.donation-type');
-    this.selectedDonationType = this.donationTypeGroup, '.mat-button-toggle-checked');
-    this.donationFrequencyGroup = elementByClass('.donation-frequency', this.container);
-    this.selectedDonationFrequency = this.donationFrequencyGroup, '.mat-button-toggle-checked');
-    this.coverAdminFeeCheckbox = this.container, '.mat-checkbox-inner-container');
-    this.startDateFooter = elementByClass('.donations-step-footer-container');
+    this.donationTypeGroup = buildSelector(this.container, '.mat-button-toggle-group.donation-type');
+    this.selectedDonationType = buildSelector(this.donationTypeGroup, '.mat-button-toggle-checked');
+    this.donationFrequencyGroup = buildSelector(this.container, '.donation-frequency');
+    this.selectedDonationFrequency = buildSelector(this.donationFrequencyGroup, '.mat-button-toggle-checked');
+    this.coverAdminFeeCheckbox = buildSelector(this.container, '.mat-checkbox-inner-container');
+    this.startDateFooter = buildSelector('.donations-step-footer-container');
   }
 
   /*
@@ -130,8 +131,7 @@ export class DonationDetails {
    *@param value - the value to select
    */
   selectDonationType(value) {
-    const button = this.donationTypeGroup.get('.mat-button-toggle').contains(value);
-    clickElement(button);
+    cy.get(this.donationTypeGroup).contains('.mat-button-toggle', value).click();    
   }
 
   /**
@@ -139,7 +139,7 @@ export class DonationDetails {
    * @param value - the type that is expected to be selected
    */
   verifySelectedDonationType(value) {
-    expect(this.selectedDonationType.getText()).contains(value);
+    cy.get(this.selectedDonationType).should('have.text', value)
   }
 
   /*
@@ -147,8 +147,8 @@ export class DonationDetails {
    *@param value - the value to select
    */
   selectDonationFrequency(value) {
-    const button = this.donationFrequencyGroup.get('button').contains(value);
-    clickElement(button);
+    cy.get(this.donationFrequencyGroup).contains('button',value).click();
+    
   }
 
   /**
@@ -156,8 +156,8 @@ export class DonationDetails {
    * @param value - the frequency that is expected to be selected
    */
   verifySelectedDonationFrequency(value) {
-    const button = this.donationFrequencyGroup.get('button').contains(value);
-    expect(button.getText()).contains(value);
+    const button = cy.get(this.donationFrequencyGroup).contains('button',value);
+    button.should('have.text', value)
   }
 
   /**
@@ -198,9 +198,13 @@ export class DonationDetails {
    *@desc Method to get the text values from all the donation matrix buttons
    *@returns {string []} donationMatrixValues - the text values of the donation matrix buttons, eg. ['$1', '$2']
    */
-  getDonationMatrixValues() {
+  getDonationMatrixValues(data) {
     scrollToElement(this.container);
-    return this.donationMatrix.donationAmountButtons.getText();
+    cy.get(this.donationMatrix.donationAmountButtons).should('be.visible')
+    .then(($el) => {
+      return Cypress._.map($el, 'innerText')
+    }).should('deep.equal', data)   
+    //return this.donationMatrix.donationAmountButtons.getText();
   }
 
   /**

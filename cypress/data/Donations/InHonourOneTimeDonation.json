@@ -19,7 +19,7 @@
   "monthlyInHonourSuggestedValue": "$20.00",
   "annuallyInHonourSuggestedValue": "$25.00",
   "matrixButtonSelection": "$30.00",
-  "frequencyButtonSelection": "One-Time",
-  "typeTabSelection": "Tribute – In Honour",
+  "frequencyButtonSelection": " One-Time ",
+  "typeTabSelection": "Tribute – In Honour ",
   "defaultFrequencyAfterTypeTabSelection": "Monthly"
 }

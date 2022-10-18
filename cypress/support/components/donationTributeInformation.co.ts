@@ -1,4 +1,4 @@
-import { enterMatInput, clickElement, pressEsc, selectDropDownOption, elementByClass, scrollToElement } from '../utils/actions';
+import { enterMatInput, clickElement, pressEsc, selectDropDownOption, elementByClass, scrollToElement, buildSelector } from '../utils/actions';
 import { DonationCardPreviewComponent } from './donationCardPreview.co';
 
 /**
@@ -27,48 +27,48 @@ export class TributeInformation {
   recipientRegion: any;
   recipientPostalCode: any;
   constructor(public container: any) {
-    this.tributeContainer = elementByClass('.gd-tribute-details');
+    this.tributeContainer = buildSelector('.gd-tribute-details');
     this.cardPreview = new DonationCardPreviewComponent();
     this.loadMinimumFields();
   }
 
   loadMinimumFields() {
-    this.firstName = this.tributeContainer.$('#tributeeFirstName');
-    this.lastName = this.tributeContainer.$('#tributeeLastName');
-    this.cardTypeGroup = this.tributeContainer.$('.toggle-group.card-type');
-    this.selectedDonationFrequency = this.cardTypeGroup.$('.card-type-button.mat-button-toggle-checked');
-    this.continueButton = this.container.$('.continue-button');
+    this.firstName = buildSelector(this.tributeContainer , '#tributeeFirstName');
+    this.lastName = buildSelector(this.tributeContainer, '#tributeeLastName');
+    this.cardTypeGroup = buildSelector(this.tributeContainer,'.toggle-group.card-type');
+    this.selectedDonationFrequency = buildSelector(this.cardTypeGroup, '.card-type-button.mat-button-toggle-checked');
+    this.continueButton = buildSelector(this.container, '.continue-button');
   }
 
   loadECardMinimumFields() {
-    this.recipientContainer = this.tributeContainer.$('.recipient-container');
-    this.cardContentContainer = this.tributeContainer.$('.card-content-container');
-    this.recipientFirstName = this.recipientContainer.$('#recipientFirstName');
-    this.recipientLastName = this.recipientContainer.$('#recipientLastName');
-    this.recipientEmail = this.recipientContainer.$('#recipientEmail');
-    this.imageSelectionContainer = this.cardContentContainer.$('.image-selection-wrapper');
-    this.message = this.cardContentContainer.$('#message');
-    this.previewButton = this.container.$('.action-button');
+    this.recipientContainer = buildSelector(this.tributeContainer, '.recipient-container');
+    this.cardContentContainer = buildSelector(this.tributeContainer , '.card-content-container');
+    this.recipientFirstName = buildSelector(this.recipientContainer, '#recipientFirstName');
+    this.recipientLastName = buildSelector(this.recipientContainer, '#recipientLastName');
+    this.recipientEmail = buildSelector(this.recipientContainer,'#recipientEmail');
+    this.imageSelectionContainer = buildSelector(this.cardContentContainer, '.image-selection-wrapper');
+    this.message = buildSelector(this.cardContentContainer, '#message');
+    this.previewButton = buildSelector(this.container, '.action-button');
   }
 
   loadECardFields() {
     this.loadECardMinimumFields();
-    this.deliveryDate = this.cardContentContainer.$('#deliveryDate');
+    this.deliveryDate = buildSelector(this.cardContentContainer, '#deliveryDate');
   }
 
   loadPrintedCardMinimumFields() {
-    this.recipientContainer = this.tributeContainer.$('.recipient-container');
-    this.cardContentContainer = this.tributeContainer.$('.card-content-container');
-    this.recipientFirstName = this.recipientContainer.$('#recipientFirstName');
-    this.recipientLastName = this.recipientContainer.$('#recipientLastName');
-    this.recipientCountry = this.recipientContainer.$('#recipientCountry');
-    this.recipientAddressLine1 = this.recipientContainer.$('#recipientAddressLine1');
-    this.recipientCity = this.recipientContainer.$('#recipientCity');
-    this.recipientRegion = this.recipientContainer.$('#recipientRegion');
-    this.recipientPostalCode = this.recipientContainer.$('#recipientPostalCode');
-    this.imageSelectionContainer = this.cardContentContainer.$('.image-selection-wrapper');
-    this.message = this.cardContentContainer.$('#message');
-    this.previewButton = this.container.$('.action-button');
+    this.recipientContainer = buildSelector(this.tributeContainer , '.recipient-container');
+    this.cardContentContainer = buildSelector(this.tributeContainer, '.card-content-container');
+    this.recipientFirstName = buildSelector(this.recipientContainer, '#recipientFirstName');
+    this.recipientLastName = buildSelector(this.recipientContainer, '#recipientLastName');
+    this.recipientCountry = buildSelector(this.recipientContainer, '#recipientCountry');
+    this.recipientAddressLine1 = buildSelector(this.recipientContainer, '#recipientAddressLine1');
+    this.recipientCity = buildSelector(this.recipientContainer, '#recipientCity');
+    this.recipientRegion = buildSelector(this.recipientContainer, '#recipientRegion');
+    this.recipientPostalCode = buildSelector(this.recipientContainer, '#recipientPostalCode');
+    this.imageSelectionContainer = buildSelector(this.cardContentContainer, '.image-selection-wrapper');
+    this.message = buildSelector(this.cardContentContainer, '#message');
+    this.previewButton = buildSelector(this.container, '.action-button');
   }
 
   /**
@@ -78,8 +78,8 @@ export class TributeInformation {
    * @memberof TributeInformation
    */
   populateMinimumFields(tributeInfo) {
-    enterMatInput(this.firstName, tributeInfo.firstName);
-    enterMatInput(this.lastName, tributeInfo.lastName);
+    cy.get(this.firstName).type(tributeInfo.firstName);
+    cy.get(this.lastName).type(tributeInfo.lastName);
   }
 
   /**
@@ -92,11 +92,11 @@ export class TributeInformation {
     this.loadECardMinimumFields();
     this.populateMinimumFields(tributeInfo);
 
-    enterMatInput(this.recipientFirstName, tributeInfo.recipient.firstName);
-    enterMatInput(this.recipientLastName, tributeInfo.recipient.lastName);
-    enterMatInput(this.recipientEmail, tributeInfo.recipient.email);
+    cy.get(this.recipientFirstName).type(tributeInfo.recipient.firstName);
+    cy.get(this.recipientLastName).type(tributeInfo.recipient.lastName);
+    cy.get(this.recipientEmail).type(tributeInfo.recipient.email);
     this.selectCardTemplate(tributeInfo.templateImage);
-    enterMatInput(this.message, tributeInfo.message);
+    cy.get(this.message).type(tributeInfo.message);
   }
 
   /**
@@ -148,8 +148,7 @@ export class TributeInformation {
    */
   selectCardType(value) {
     scrollToElement(this.cardTypeGroup);
-    const button = this.cardTypeGroup.get('.card-type-button').contains(value);
-    clickElement(button);
+    cy.get(this.cardTypeGroup).contains('.card-type-button', value).click();
   }
 
   /**
