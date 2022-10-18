@@ -11,10 +11,14 @@ import { ReviewPage } from "../../../../support/pages/Ticketing/ReviewPage";
 import { ThankYouPage } from "../../../../support/pages/Pledge/ThankYouPage";
 import { AdditionalParticipantsPage } from "../../../../support/pages/Pledge/addParticipants";
 import using from "jasmine-data-provider";
+import * as specificData from '../../../../data/Pledge/MultiPledgeRegisterTeamMemberMR.json'
 
+
+const using = require('jasmine-data-provider');
 let pageSetup: PageSetup = new PageSetup();
-const data = pageSetup.getData('Pledge', 'MultiPledgeRegisterTeamMemberMR');
-var events = pageSetup.getEvents(browser.params.multipledge, data.events);
+
+const data = pageSetup.getData('Pledge', specificData);
+const events = pageSetup.getEvents(pageSetup.getEnvironment().multipledge, data.events);
 
 const registerPO = new RegisterPage();
 const navbarCO = new PledgeNavBarComponent();
@@ -30,25 +34,25 @@ let maxTeamReached: boolean;
 describe('TR(3187) Scenario -> Multi Pledge Team Member Registration with Additional Participant: ', () => {
     using(events, event => {
         describe(`${event}`, () => {
-            beforeAll(() => {
+            before(() => {
                 pageSetup.goToEvent(event);
-                pageSetup.logoutIfLoggedIn();
+                //pageSetup.logoutIfLoggedIn();
                 generateUniqueName(data);
                 generateUniqueName(data.additionalParticipants[0]);
             });
-            afterAll(() => {
+            after(() => {
                 pageSetup.goToEvent(event);
-                pageSetup.logoutIfLoggedIn();
+                //pageSetup.logoutIfLoggedIn();
                 pageSetup.cleanupPage();
             });
             it('Should press the register button at the top, then select the location and reg item', () => {
                 navbarCO.register();
-                expect(registerCO.container.isDisplayed()).toBeTruthy();
+                cy.get(registerCO.container).should('be.visible')
                 registerCO.selectSubEventGroup(data.location);
                 registerCO.register(1);
             });
             it('Should select the team', () => {
-                expect(joinTeamSearchPO.container.isDisplayed()).toBeTruthy();
+                cy.get(joinTeamSearchPO.container).should('be.visible')
                 joinTeamSearchPO.search(data.teamname);
             });
             it('Should press the create new account button', () => {

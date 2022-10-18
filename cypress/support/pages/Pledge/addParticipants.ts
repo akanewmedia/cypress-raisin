@@ -44,7 +44,12 @@ export class AdditionalParticipantsPage {
   }
   /** check if team size allow additional participant */
   isMaxTeamMemberReached() {
-    return this.helpBlock.isPresent()
+    var element = document.getElementById(this.helpBlock);
+    if (typeof (element) != 'undefined' && element != null) {
+      return true
+    } else {
+      return false
+    }
   }
   /**
    * Presses the Add Participant button at the bottom of the Additional Participants section
@@ -100,7 +105,7 @@ export class AdditionalParticipantsPage {
   fillInProfileInformationNoWaiver(data) {
     this.profileInformationCO.enterFirstName(data.firstName);
     this.profileInformationCO.enterLastName(data.lastName + '1');
-    this.profileInformationCO.enterEmail(data.email); 
+    this.profileInformationCO.enterEmail(data.email);
     this.profileInformationCO.selectRegistrationType(data.registrationType);
   }
 

@@ -42,7 +42,9 @@ export class Search {
 
   selectSearchResult(index) {
     this.initContainer();
-    cy.get(this.searchResults).get('.btn-donate').click();
+    cy.get(this.searchResults).within(()=>{
+      cy.get('.btn').click();
+    })
     //clickElement(searchResult, true);
   }
 

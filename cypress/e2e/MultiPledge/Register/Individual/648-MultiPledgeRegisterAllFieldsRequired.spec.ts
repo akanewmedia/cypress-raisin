@@ -36,8 +36,6 @@ describe('TR(648) Scenario -> Multi Pledge free registration - all fields requir
         return false;
       });
 
-
-
     using(events, (event) => {
         describe(`${event}`, () => {
             before(() => {
