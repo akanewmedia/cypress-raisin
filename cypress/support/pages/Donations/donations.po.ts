@@ -1,4 +1,4 @@
-import { elementByClass, elementsByClass, pressEsc, pressTab, scrollToTop } from '../../utils/actions';
+import { buildSelector, elementByClass, elementsByClass, pressEsc, pressTab, scrollToTop, waitForElementToBeVisible } from '../../utils/actions';
 import { DonationStepper } from '../../components/donationStepper.co'
 import { DonationSuccessComponent } from '../../components/donationSuccess.co'
 import { DonationDetails } from '../../components/donationDetails.co';
@@ -21,8 +21,8 @@ export class DonationsPage {
   success: DonationSuccessComponent;
 
   constructor() {
-    this.top = elementByClass('.page-content-20000');
-    this.container = elementByClass('.base-page');
+    this.top = buildSelector('.page-content-20000');
+    this.container = buildSelector('.base-page');
     this.stepper = new DonationStepper();
     this.donationDetails = this.stepper.donationDetails;
     this.tributeInformation = this.stepper.tributeInformation;
@@ -145,8 +145,8 @@ export class DonationsPage {
    *@desc Method to get the text values from all the donation matrix buttons
    *@returns {string []} donationMatrixValues - the text values of the donation matrix buttons, eg. ['$1', '$2']
    */
-  getDonationMatrixAmounts() {
-    return this.donationDetails.getDonationMatrixValues();
+  getDonationMatrixAmounts(data= null) {
+    return this.donationDetails.getDonationMatrixValues(data);
   }
 
   /**
@@ -243,8 +243,8 @@ export class DonationsPage {
    * Verifies the transaction successful block is present
    */
   verifyTransactionSuccessful() {
-    // browser.sleep(3000);
-    // expect(this.success.successMessage.isDisplayed()).true;
+    cy.wait(3000);
+    cy.get(this.success.successMessage).should('be.visible')
   }
 
   /**

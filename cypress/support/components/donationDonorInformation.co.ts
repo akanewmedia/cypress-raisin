@@ -1,4 +1,4 @@
-import { elementByClass, elementById, enterMatInput, selectDropDownOption, setMatCheckboxChecked } from "../utils/actions";
+import { buildSelector, enterMatInput, selectDropDownOption, setMatCheckboxChecked } from "../utils/actions";
 
 /**
  * Represents the "Enter Your Information" step
@@ -37,39 +37,39 @@ export class DonationDonorInformation {
   postalCode: any;
 
   constructor() {
-    this.profileContainer = elementByClass('.gd-donor-info');
-    this.addressContainer = elementByClass('.donations-address-info');
-    this.additionalContainer = elementByClass('.donations-additional-info');
+    this.profileContainer = '.gd-donor-info';
+    this.addressContainer = '.donations-address-info';
+    this.additionalContainer = '.donations-additional-info';
 
-    this.firstName = elementById('firstName', this.profileContainer);
-    this.lastName = elementById('lastName', this.profileContainer);
-    this.emailAddress = elementById('email', this.profileContainer);
-    this.addressLine1 = elementById('addressLine1', this.addressContainer);
-    this.country = elementById('country', this.addressContainer);
-    this.city = elementById('city', this.addressContainer);
-    this.province = elementById('province', this.addressContainer);
-    this.postalCode = elementById('postalCode', this.addressContainer);
+    this.firstName = buildSelector(this.profileContainer, '#firstName');
+    this.lastName = buildSelector(this.profileContainer, '#lastName');
+    this.emailAddress = buildSelector(this.profileContainer , '#email');
+    this.addressLine1 = buildSelector(this.addressContainer, '#addressLine1');
+    this.country = buildSelector(this.addressContainer, '#country');
+    this.city = buildSelector(this.addressContainer, '#city');
+    this.province = buildSelector(this.addressContainer, '#province');
+    this.postalCode = buildSelector(this.addressContainer, '#postalCode');
 
-    this.title = elementById('title', this.profileContainer);
-    this.middleName = elementById('middleName', this.profileContainer);
-    this.companyName = elementById('companyName', this.profileContainer);
-    this.emailType = elementById('emailType', this.profileContainer);
-    this.phoneType = elementById('phoneType', this.profileContainer);
-    this.phone = elementById('phone', this.profileContainer);
-    this.phoneExtension = elementById('phoneExtension', this.profileContainer);
-    this.gender = elementById('gender', this.profileContainer);
-    this.dateOfBirth = elementById('date-of-birth', this.profileContainer);
-    this.dateOfBirthDatePicker = elementById(this.profileContainer, '#date-of-birth + mat-datepicker');
-    this.corporateDonation = elementById(this.profileContainer, '#contact-type mat-checkbox');
-    this.addressType = elementById('addressType', this.addressContainer);
-    this.issueTaxReceipt = elementById('IssueTaxReceipt');
-    this.optOut = elementById(this.additionalContainer, '#optOut mat-checkbox');
-    this.optOutToShare = elementById(this.additionalContainer, '#optOutToShare mat-checkbox');
-    this.attribute1 = elementById('attribute1', this.additionalContainer);
-    this.attribute2 = elementById('attribute2', this.additionalContainer);
-    this.attribute3 = elementById('attribute3', this.additionalContainer);
-    this.attribute4 = elementById('attribute4', this.additionalContainer);
-    this.attribute5 = elementById('attribute5', this.additionalContainer);
+    this.title = buildSelector(this.profileContainer, '#title');
+    this.middleName = buildSelector(this.profileContainer, '#middleName');
+    this.companyName = buildSelector(this.profileContainer, '#companyName');
+    this.emailType = buildSelector(this.profileContainer, '#emailType');
+    this.phoneType = buildSelector(this.profileContainer, '#phoneType');
+    this.phone = buildSelector(this.profileContainer, '#phone');
+    this.phoneExtension = buildSelector(this.profileContainer, '#phoneExtension');
+    this.gender = buildSelector(this.profileContainer, '#gender');
+    this.dateOfBirth = buildSelector(this.profileContainer, '#date-of-birth');
+    this.dateOfBirthDatePicker = buildSelector(this.profileContainer, '#date-of-birth + mat-datepicker');
+    this.corporateDonation = buildSelector(this.profileContainer, '#contact-type mat-checkbox');
+    this.addressType = buildSelector(this.addressContainer, '#addressType');
+    this.issueTaxReceipt = 'IssueTaxReceipt';
+    this.optOut = buildSelector(this.additionalContainer, '#optOut mat-checkbox');
+    this.optOutToShare = buildSelector(this.additionalContainer, '#optOutToShare mat-checkbox');
+    this.attribute1 = buildSelector(this.additionalContainer, '#attribute1');
+    this.attribute2 = buildSelector(this.additionalContainer, '#attribute2');
+    this.attribute3 = buildSelector(this.additionalContainer, '#attribute3');
+    this.attribute4 = buildSelector(this.additionalContainer, '#attribute4');
+    this.attribute5 = buildSelector(this.additionalContainer, '#attribute5');
   }
 
   /**

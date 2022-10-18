@@ -1,5 +1,5 @@
 
-import { clickElement, elementByClass, elementsByClass, setFocus } from "../utils/actions";
+import { buildSelector, clickElement, elementByClass, setFocus } from "../utils/actions";
 import { DonationDetails } from "./donationDetails.co";
 import { DonationDonorInformation } from "./donationDonorInformation.co";
 import { TributeInformation } from "./donationTributeInformation.co";
@@ -23,8 +23,8 @@ export class DonationStepper {
   donateButton: any;
 
   constructor() {
-    this.container = elementByClass('.donations-stepper-container');
-    this.steps = elementsByClass('.donations-step', this.container);
+    this.container = buildSelector('.donations-stepper-container');
+    this.steps = buildSelector(this.container, '.donations-step');
     this.donationDetails = new DonationDetails();
     this.tributeInformation = new TributeInformation(this.container);
     this.donorInformation = new DonationDonorInformation();
@@ -50,16 +50,16 @@ export class DonationStepper {
    * @memberof DonationStepper
    */
   isStepDisplayed(index) {
-    return this.steps.get(index).isPresent();
+    return cy.get(this.steps).eq(index).should('exist');
   }
 
   /**
    * Presses the continue button
    */
   clickContinue() {
-    this.continueButton = elementByClass('.continue-button', this.container);
+    this.continueButton = buildSelector(this.container, '.continue-button' );
     // scrollToElement(this.continueButton);
-    return clickElement(this.continueButton);
+    cy.get(this.continueButton).click();
   }
 
   /**
@@ -75,9 +75,8 @@ export class DonationStepper {
    * Presses the donate button
    */
   clickDonate() {
-    this.donateButton = elementByClass('.submit-button', this.container);
+    cy.get(this.container + ' .submit-button').click();
     // scrollToElement(this.donateButton);
-    return clickElement(this.donateButton, true);
   }
 
   /**
@@ -86,10 +85,11 @@ export class DonationStepper {
    * @param {string} [donateButtonFrequencyLabel] - the text containing the frequency of a recurring donation
    */
   verifyDonationAmount(donationAmount, donateButtonFrequencyLabel = null) {
-    this.donateButton = elementByClass('.submit-button', this.container);
+    this.donateButton = buildSelector(this.container, '.submit-button');
     // waitForElementToBeVisible(this.donateButton);
     let donateButtonLabel = isNil(donateButtonFrequencyLabel) ? donationAmount : (donationAmount + donateButtonFrequencyLabel);
-    expect(this.donateButton.getText()).contains(donateButtonLabel);
+    cy.get(this.donateButton).should('contain.text', donateButtonLabel)
+    //expect(this.donateButton.getText()).contains(donateButtonLabel);
   }
 }
 
