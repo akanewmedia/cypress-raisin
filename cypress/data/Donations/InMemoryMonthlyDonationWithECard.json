@@ -18,7 +18,7 @@
   },
   "monthlyInMemorySuggestedValue": "$20.00",
   "donateButtonFrequencyLabel": "/month",
-  "frequencyButtonSelection": "Monthly",
+  "frequencyButtonSelection": " Monthly ",
   "typeTabSelection": "Tribute – In Memory",
   "defaultFrequencyAfterTypeTabSelection": "Monthly",
   "tributeInfo": {

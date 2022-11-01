@@ -1,25 +1,25 @@
-import { browser } from "protractor";
-import { PageSetup } from "../../../utils/pageSetup";
-import { setFocus } from "../../../utils/actions";
-import { concat } from "lodash";
-import { DonationsPage } from "../../../pages/Donations/donations.po";
+import { PageSetup } from "../../../support/utils/pageSetup";
+import { setFocus } from "../../../support/utils/actions";
+import { DonationsPage } from "../../../support/pages/Donations/donations.po";
+import * as specificData from '../../../data/Donations/InMemoryMonthlyDonationWithECard.json'
+
 
 //The information regarding the Library
 const using = require('jasmine-data-provider');
 const pageSetup: PageSetup = new PageSetup();
 const donationsPO = new DonationsPage();
-
-const data = pageSetup.getData('Donations', 'InMemoryMonthlyDonationWithECard');
-const events = pageSetup.getEvents(browser.params.donations, data.events);
+const data = pageSetup.getData('Donations', specificData);
+const events = pageSetup.getEvents(pageSetup.getEnvironment().donations, data.events);
 
 describe('TR(7147) Donations > In Memory > Monthly > eCard > Card Preview > Change Selection > Card Preview : ', () => {
     using(events, event => {
         describe(`${event}`, () => {
-            beforeAll(() => {
+            before(() => {
                 pageSetup.goToEvent(`${event}/${data.URL}`);
+                pageSetup.cleanupPage();
             });
 
-            afterAll(() => {
+            after(() => {
                 pageSetup.goToEvent(event);
                 pageSetup.cleanupPage();
             });
@@ -34,10 +34,10 @@ describe('TR(7147) Donations > In Memory > Monthly > eCard > Card Preview > Chan
             });
 
             it('should check if the default donation amount is selected and continue to the next page', () => {
-                expect(donationsPO.container.isDisplayed()).toBeTruthy();
+                cy.get(donationsPO.container).should('be.visible')
                 donationsPO.verifySelectedDonationMatrixAmount(data.monthlyInMemorySuggestedValue);
                 donationsPO.continue();
-                expect(donationsPO.isStepDisplayed(1)).toBeTruthy();
+                donationsPO.isStepDisplayed(1)
             });
 
             it('should populate the second step "Tribute Details"', () => {
@@ -48,14 +48,14 @@ describe('TR(7147) Donations > In Memory > Monthly > eCard > Card Preview > Chan
             it('should choose the first template and check the card preview', () => {
                 donationsPO.tributeInformation.selectCardTemplate(data.tributeInfo.templateImageText1);
                 donationsPO.tributeInformation.checkCardPreviewContent(data.tributeInfo.defaultTemplateMessage1);
-                browser.sleep(1000);
-                expect(donationsPO.isStepDisplayed(1)).toBeTruthy();
+                cy.wait(1000)
+                donationsPO.isStepDisplayed(1)
             });
 
             it('should choose the second template and check the card preview', () => {
                 donationsPO.tributeInformation.selectCardTemplate(data.tributeInfo.templateImageText2);
                 donationsPO.tributeInformation.checkCardPreviewContent(data.tributeInfo.defaultTemplateMessage2);
-                expect(donationsPO.isStepDisplayed(1)).toBeTruthy();
+                donationsPO.isStepDisplayed(1)
                 // Fixes the position of the page in order to allow the "Continue" button to be clickable
                 // after the material dialog containing the card preview has been dismissed
                 setFocus(donationsPO.tributeInformation.continueButton);
@@ -63,7 +63,7 @@ describe('TR(7147) Donations > In Memory > Monthly > eCard > Card Preview > Chan
 
             it('should go to next step (Profile & Payment)', () => {
                 donationsPO.continue();
-                expect(donationsPO.isStepDisplayed(2)).toBeTruthy();
+                donationsPO.isStepDisplayed(2)
             });
 
             it('should fill profile and payment required fields and complete the transaction', () => {

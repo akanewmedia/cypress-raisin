@@ -5,11 +5,11 @@ export class DonationCardPreviewComponent {
 
   constructor() {
     this.container = buildSelector('.cdk-overlay-container');
-    this.message = buildSelector('.preview-message', this.container);
+    this.message = buildSelector(this.container, '.preview-message');
   }
 
   getMessage() {
-    return this.message.getText();
+    return cy.get(this.message)
   }
 }
 

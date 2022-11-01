@@ -96,7 +96,7 @@ export class TributeInformation {
     cy.get(this.recipientLastName).type(tributeInfo.recipient.lastName);
     cy.get(this.recipientEmail).type(tributeInfo.recipient.email);
     this.selectCardTemplate(tributeInfo.templateImage);
-    cy.get(this.message).type(tributeInfo.message);
+    //cy.get(this.message).type(tributeInfo.message);
   }
 
   /**
@@ -162,8 +162,7 @@ export class TributeInformation {
    */
   selectCardTemplate(value) {
     // console.log('selectCardTemplate', value);
-    const img = cy.get(this.imageSelectionContainer + ` .gd-card-${value}`).click()
-    
+   cy.get(this.imageSelectionContainer + ` .gd-card-${value}`).click()    
   }
 
   /**
@@ -173,14 +172,9 @@ export class TributeInformation {
    * @memberof TributeInformation
    */
   checkCardPreviewContent(message) {
-    clickElement(this.previewButton);
+    cy.get(this.previewButton).click()
     this.cardPreview.getMessage()
-      .then(text => {
-        // console.log('checkCardPreviewContent text', text, 'message', message);
-        expect(text).contains(message);
-      })
+      .should('have.text', message)
       .then(_ => pressEsc())
-      .catch(error => console.log('checkCardPreviewContent error', error));
-
   }
 }
