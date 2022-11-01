@@ -198,11 +198,17 @@ export class DonationsPage {
    * @param {string[]} requiredFieldsValidationMessages - the validation messages
    */
   verifyRequiredFieldErrors(requiredFieldsValidationMessages) {
-    const validationMessages = this.container.$$('.mat-form-field-subscript-wrapper .error-message');
-    return validationMessages.getText().then(errors => {
-      // console.log('verifyRequiredFieldErrors', errors);
-      expect(errors).eq(requiredFieldsValidationMessages);
-    });
+    const getTexts = ($errors) => {
+      return Cypress._.map($errors, 'innerText')
+    }
+    cy.get(this.container + ' .mat-form-field-subscript-wrapper .error-message').should('exist').then(getTexts).should('deep.equal', requiredFieldsValidationMessages)
+
+
+    // const validationMessages = cy.get(this.container + ' .mat-form-field-subscript-wrapper .error-message');
+    // return validationMessages.invoke('attr', 'innerText').then(errors => {
+    //   // console.log('verifyRequiredFieldErrors', errors);
+    //   cy.get(errors).should('have.text', requiredFieldsValidationMessages);
+    // });
   }
   verifyDonationAmountError() {
     const validationMessage = this.container.$('.donation-amount-error');

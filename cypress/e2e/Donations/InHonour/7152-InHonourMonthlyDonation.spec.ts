@@ -1,24 +1,26 @@
-import { DonationsPage } from "../../../pages/Donations/donations.po";
-import { browser } from "protractor";
-import { PageSetup } from "../../../utils/pageSetup";
+import { DonationsPage } from "../../../support/pages/Donations/donations.po";
+import { PageSetup } from "../../../support/utils/pageSetup";
 import { concat } from "lodash";
 import using from "jasmine-data-provider";
+import * as specificData from '../../../data/Donations/InHonourMonthlyDonation.json'
+
+
 
 //The information regarding the Library
 let pageSetup: PageSetup = new PageSetup();
 const donationsPO = new DonationsPage();
 
-const data = pageSetup.getData('Donations', 'InHonourMonthlyDonation');
-const events = pageSetup.getEvents(browser.params.donations, data.events);
+const data = pageSetup.getData('Donations', specificData);
+const events = pageSetup.getEvents(pageSetup.getEnvironment().donations, data.events);
 
 describe('TR(7152) Donations > In Honour > Monthly > Modified Donation Matrix > Suggested Value Equal to Matrix Amount : ', () => {
     using(events, event => {
         describe(`${event}`, () => {
-            beforeAll(() => {
+            before(() => {
                 pageSetup.goToEvent(`${event}/${data.URL}`);
             });
 
-            afterAll(() => {
+            after(() => {
                 pageSetup.goToEvent(`${event}`);
                 pageSetup.cleanupPage();
             });
@@ -33,18 +35,18 @@ describe('TR(7152) Donations > In Honour > Monthly > Modified Donation Matrix > 
             });
 
             it('should display donation matrix for monthly frequency with correct suggested value selected', () => {
-                expect(donationsPO.getDonationMatrixAmounts()).toEqual(data.matrixValues.monthlyInHonour);
+                donationsPO.getDonationMatrixAmounts(data.matrixValues.monthlyInHonour)
                 donationsPO.verifySelectedDonationMatrixAmount(data.monthlyInHonourSuggestedValue);
             });
 
             it('should allow the user to select a donation matrix value and continue to the next page', () => {
-                expect(donationsPO.container.isDisplayed()).toBeTruthy();
+                cy.get(donationsPO.container).should('be.visible')
                 donationsPO.selectDonationMatrixAmount(data.matrixButtonSelection);
                 donationsPO.continue();
             });
 
             it('should see validation errors when trying to proceed without filling tributee info required fields', () => {
-                expect(donationsPO.isStepDisplayed(1)).toBeTruthy();
+                donationsPO.isStepDisplayed(1)
                 donationsPO.tributeInformation.selectCardType(data.tributeInfo.cardType);
                 donationsPO.continue();
             });
@@ -56,7 +58,7 @@ describe('TR(7152) Donations > In Honour > Monthly > Modified Donation Matrix > 
             });
 
             it('should see validation errors when trying to proceed without filling donor info required fields', () => {
-                expect(donationsPO.isStepDisplayed(2)).toBeTruthy();
+                donationsPO.isStepDisplayed(2)
                 donationsPO.stepper.verifyDonationAmount(data.matrixButtonSelection, data.donateButtonFrequencyLabel);
                 donationsPO.stepper.clickDonate();
                 donationsPO.verifyRequiredFieldErrors(concat(data.requiredFieldsDonorInfoValidationMessages, data.requiredFieldsPaymentValidationMessages));

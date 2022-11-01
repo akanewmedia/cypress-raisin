@@ -19,7 +19,7 @@ export class ThankYouPage {
   verifyTransactionNumber(data) {
     //Transaction submission may take long, so we delay then we check if container is displayed
     
-    cy.contains(this.transactionNumber, data.transactionNumberStartsWith, {timeout:10000})
+    cy.contains(this.transactionNumber, data.transactionNumberStartsWith, {timeout:20000})
     //expect(this.transactionNumber.getText()).contains(data.transactionNumberStartsWith);
   }
   verifyTransactionNumberContains(code) {

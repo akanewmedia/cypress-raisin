@@ -112,7 +112,7 @@ export function clearInputWithBackspace(protractorSelector, length) {
   for (let i = 0; i < length; i++) {
     backspaceSeries += "{backspace}"
   }
-  protractorSelector.type(backspaceSeries);
+  cy.type(backspaceSeries);
 }
 
 /**
@@ -272,16 +272,17 @@ export function selectAutoCompleteDropDownOption(
 ) {
   // // waitForElementToBeClickable(protractorSelector);
   // scrollToElement(dropdownElementSelector);
-  protractorSelector.click();
+  cy.get(protractorSelector).click();
   // this.clearInput(protractorSelector);
   // protractorSelector.sendKeys(selectedOption);
-  const ddlContainer = elementByClass('.cdk-overlay-container');
-  return ddlContainer.cy
-    .get('.mat-autocomplete-panel')
-    .all(cy.get('mat-option').contains(selectedOption))
-    .first()
-    .click();
-}
+  const ddlContainer = '.cdk-overlay-container';
+  return cy
+    .get(ddlContainer + ' .mat-autocomplete-panel').within(() => {
+      cy.get('mat-option').contains(selectedOption)
+      .first()
+      .click();
+    })}    
+
 
 /**
  * Finds an option in the newer material design drop downs

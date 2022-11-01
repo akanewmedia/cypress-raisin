@@ -108,7 +108,7 @@ export class TributeInformation {
   populateAllECardFields(tributeInfo) {
     this.loadECardFields();
     this.populateECardMinimumFields(tributeInfo);
-    this.populateDeliveryDate(tributeInfo.deliveryDate);
+    this.selectDeliveryDate()
   }
   populateDeliveryDate(deliveryDate: any) {
     let dd = new Date(deliveryDate);
@@ -118,6 +118,10 @@ export class TributeInformation {
       dd.setDate(now.getDate() + 1);
     }
     enterMatInput(this.deliveryDate, dd.toLocaleDateString('en-us'));
+  }
+
+  selectDeliveryDate() {
+    cy.get("mat-datepicker-toggle[class='mat-datepicker-toggle']").click().get('.mat-calendar-body-today').click()
   }
 
   /**
@@ -158,8 +162,8 @@ export class TributeInformation {
    */
   selectCardTemplate(value) {
     // console.log('selectCardTemplate', value);
-    const img = elementByClass(this.imageSelectionContainer, `.gd-card-${value}`);
-    clickElement(img);
+    const img = cy.get(this.imageSelectionContainer + ` .gd-card-${value}`).click()
+    
   }
 
   /**

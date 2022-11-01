@@ -1,4 +1,4 @@
-import { clearInput, clearInputWithBackspace, clickElement, elementByClass, elementById, elementsByClass, enterText, pressEsc, selectAutoCompleteDropDownOption } from "../utils/actions";
+import { buildSelector, clearInput, clearInputWithBackspace, clickElement, elementsByClass, enterText, pressEsc, selectAutoCompleteDropDownOption } from "../utils/actions";
 
 /**
  * Represents the fund list component
@@ -15,25 +15,24 @@ export class FundListComponent {
   fundName: any;
   otherFundNameError: any;
   constructor() {
-    this.container = elementByClass('.fund-list-container');
-    this.fundInput = elementByClass('.fund-selection-input');
-    this.autocomplete = elementByClass('.cdk-overlay-container');
-    this.divider = elementByClass(this.autocomplete, '.fund-list-divider');
+    this.container = buildSelector('.fund-list-container');
+    this.fundInput = buildSelector('.fund-selection-input');
+    this.autocomplete = buildSelector('.cdk-overlay-container');
+    this.divider = buildSelector(this.autocomplete, '.fund-list-divider');
     this.options = elementsByClass(this.autocomplete, '.fund-list-option');
-    this.shortlistOptions = elementsByClass(this.autocomplete, '.fund-list-option.fund-shortlist');
-    this.error = elementByClass(this.container, '.error-message strong');
-    this.fundName = elementByClass(this.container, '#other-fund-name');
-    this.otherFundNameError = elementByClass(this.container, '.error-message strong');
+    this.shortlistOptions = buildSelector(this.autocomplete, '.fund-list-option.fund-shortlist');
+    this.error = buildSelector(this.container, '.error-message strong');
+    this.fundName = buildSelector(this.container, '#other-fund-name');
+    this.otherFundNameError = buildSelector(this.container, '.error-message strong');
   }
 
-  getFundValue() {
-    return this.fundInput.getAttribute('value');
+  getFundValue(data) {
+    cy.get(this.fundInput).invoke('val').should('eq', data)
+    //return this.fundInput.getAttribute('value');
   }
 
   clearSelection() {
-    this.getFundValue().then(value => {
-      clearInputWithBackspace(this.fundInput, value?.length);
-    });
+    cy.get(this.fundInput).clear()
   }
 
 

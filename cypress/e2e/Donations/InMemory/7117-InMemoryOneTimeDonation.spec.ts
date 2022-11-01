@@ -1,7 +1,7 @@
-import { browser } from "protractor";
-import { PageSetup } from "../../../utils/pageSetup";
-import { DonationsPage } from "../../../pages/Donations/donations.po";
-import { FundListComponent } from "../../../components/fundList.co";
+import { PageSetup } from "../../../support//utils/pageSetup";
+import { DonationsPage } from "../../../support//pages/Donations/donations.po";
+import { FundListComponent } from "../../../support//components/fundList.co";
+import * as specificData from '../../../data/Donations/InMemoryOneTimeDonation.json'
 
 //The information regarding the Library
 const using = require('jasmine-data-provider');
@@ -9,17 +9,18 @@ const pageSetup: PageSetup = new PageSetup();
 const donationsPO = new DonationsPage();
 const fundListCO = new FundListComponent();
 
-const data = pageSetup.getData('Donations', 'InMemoryOneTimeDonation');
-const events = pageSetup.getEvents(browser.params.donations, data.events);
+const data = pageSetup.getData('Donations', specificData);
+const events = pageSetup.getEvents(pageSetup.getEnvironment().donations, data.events);
 
 describe('TR(7117) Donations > In Memory > One Time > Preset Amount > Admin Fee > Fund Select > Honouree > eCard > Select Card > Message > With Receipt > No Survey : ', () => {
     using(events, event => {
         describe(`${event}`, () => {
-            beforeAll(() => {
+            before(() => {
                 pageSetup.goToEvent(`${event}/${data.URL}`);
+                pageSetup.cleanupPage();
             });
 
-            afterAll(() => {
+            after(() => {
                 pageSetup.goToEvent(event);
                 pageSetup.cleanupPage();
             });
@@ -35,8 +36,8 @@ describe('TR(7117) Donations > In Memory > One Time > Preset Amount > Admin Fee 
             });
 
             it('should display donation matrix for one-time frequency and the default fund', () => {
-                expect(donationsPO.getDonationMatrixAmounts()).toEqual(data.matrixValues.oneTimeInMemory);
-                expect(fundListCO.getFundValue()).toEqual(data.funds.default);
+                donationsPO.getDonationMatrixAmounts(data.matrixValues.oneTimeInMemory);
+                fundListCO.getFundValue(data.funds.default);
             });
 
             it('should allow the user to select a custom donation value with admin fee and continue to the next page', () => {
@@ -44,14 +45,14 @@ describe('TR(7117) Donations > In Memory > One Time > Preset Amount > Admin Fee 
                 donationsPO.donationDetails.clickCoverAdminFee();
                 fundListCO.selectFund(data.funds.fundSelection);
                 donationsPO.continue();
-                expect(donationsPO.isStepDisplayed(1)).toBeTruthy();
+                donationsPO.isStepDisplayed(1)
             });
 
             it('should populate the second step "Tribute Details" and go to next step', () => {
                 donationsPO.tributeInformation.selectCardType('eCard');
                 donationsPO.tributeInformation.populateAllECardFields(data.tributeInfo);
                 donationsPO.continue();
-                expect(donationsPO.isStepDisplayed(2)).toBeTruthy();
+                donationsPO.isStepDisplayed(2)
             });
 
             it('should see validation errors when trying to proceed without filling payment required fields', () => {

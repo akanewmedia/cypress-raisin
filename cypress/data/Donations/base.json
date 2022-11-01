@@ -107,7 +107,8 @@
     "Credit Card Number is required",
     "Card Holder Name is required",
     "Expiration Month is required",
-    "Expiration Year is required"
+    "Expiration Year is required",
+    "CVV is required"
   ],
   "invalidCVVValidationMessages": [
     "Enter a valid CVV"

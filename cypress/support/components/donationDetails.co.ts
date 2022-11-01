@@ -28,8 +28,9 @@ export class DonationMatrix {
    * Returns the selected amount
    * @returns {*}
    */
-  getSelectedAmount() {
-    return this.selectedAmount.getText();
+  getSelectedAmount(value) {
+    cy.get(this.selectedAmount).should('have.text', value)
+    //return this.selectedAmount.getText();
   }
 
   getSelectedMatrixValue() {
@@ -71,9 +72,7 @@ export class DonationMatrix {
    *@param value - the value to select
    */
   selectDonationMatrixAmount(value) {
-    const button = this.container.get('button').contains(value);
-    scrollToElement(button);
-    clickElement(button);
+    cy.contains(this.container + ' button', value).click();    
   }
 
   /**
@@ -81,7 +80,7 @@ export class DonationMatrix {
    * @param value - the value that is expected to be selected
    */
   verifySelectedDonationMatrixAmount(value) {
-    expect(this.getSelectedAmount()).contains(value);
+    this.getSelectedAmount(value)
   }
 
   /**
