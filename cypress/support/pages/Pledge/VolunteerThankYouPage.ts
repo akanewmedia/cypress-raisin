@@ -1,4 +1,4 @@
-import { elementById } from "../../utils/actions";
+import { buildSelector, elementById } from "../../utils/actions";
 
 /**
  * Represents the volunteer thank you page
@@ -8,9 +8,9 @@ export class VolunteerThankYouPage {
   thankYouMessageContainer: any;
   thankYouMessageHeader: any;
   constructor() {
-    this.container = elementById('#base-page-top');
-    this.thankYouMessageContainer = elementById('div.is-container.is-builder.is-content-800');
-    this.thankYouMessageHeader = elementById(this.thankYouMessageContainer, 'h1 span');
+    this.container = buildSelector('#base-page-top');
+    this.thankYouMessageContainer = buildSelector('div.is-container.is-builder.is-content-800');
+    this.thankYouMessageHeader = buildSelector(this.thankYouMessageContainer, 'h1 span');
   }
 
   /**
@@ -18,6 +18,6 @@ export class VolunteerThankYouPage {
    * @param data
    */
   checkSuccessful(data) {
-    expect(this.thankYouMessageHeader.getText()).contains(data.successfulVolunteerText);
+    cy.get(this.thankYouMessageHeader).should('contain', data.successfulVolunteerText)
   }
 }
