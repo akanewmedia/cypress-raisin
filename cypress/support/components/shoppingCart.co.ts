@@ -72,7 +72,7 @@ export class ShoppingCart {
     this.getCartItemMinusButton(1).click();
   }
   clearCart() {
-    this.itemsContainer.isPresent().then(isPresent => {
+    cy.find(this.itemsContainer).then(isPresent => {
       if (isPresent) {
         this.cartItems.count().then(count => {
           for (let index = count - 1; index >= 0; index--) {
@@ -84,6 +84,6 @@ export class ShoppingCart {
     });
   }
   closeCart() {
-    clickElement(this.closeButton);
+    cy.get(this.closeButton).click();
   }
 }

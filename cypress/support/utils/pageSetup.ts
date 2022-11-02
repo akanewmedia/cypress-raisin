@@ -22,9 +22,9 @@ export class PageSetup {
   
   constructor() {
     this.pledgeNavBar = new PledgeNavBarComponent();
-    // this.ticketingNavBar = new TicketingNavBar();
-    // this.shoppingCartCO = new ShoppingCart();
-    // this.pledgeV3LoginCO = new PledgeV3LoginFormComponent();
+    this.ticketingNavBar = new TicketingNavBar();
+    this.shoppingCartCO = new ShoppingCart();
+    this.pledgeV3LoginCO = new PledgeV3LoginFormComponent();
     
   }
 
@@ -160,10 +160,10 @@ export class PageSetup {
   //   });
   // }
 
-  // clearCart() {
-  //   this.ticketingNavBar.openCart();
-  //   this.shoppingCartCO.clearCart();
-  // }
+  clearCart() {
+    this.ticketingNavBar.openCart()
+    this.shoppingCartCO.clearCart()
+  }
 
   cleanupPage() {    
     cy.window().then((win) => {

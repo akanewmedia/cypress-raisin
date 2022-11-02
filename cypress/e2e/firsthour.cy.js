@@ -1,6 +1,4 @@
 firstHour: [
-    'tests/MultiPledge/Sponsor/MultiPledgeDonationWhileLoggedInAsNewDonor.js', ///IGNORED
-    'tests/MultiPledge/Store/MultiPledgeStoreMultiplePurchasesOnly.js',
     'tests/Ticketing/BuyTicketsAndLoginToManageAttendee.js',
     'tests/Ticketing/RegisterVolunteerAllFields.js',
 ]
@@ -17,6 +15,7 @@ import './MultiPledge/Register/Individual/648-MultiPledgeRegisterAllFieldsRequir
 import './MultiPledge/Register/TeamCaptain/3174-MultiPledgeRegisterTeamCaptainMR.spec'
 import './MultiPledge/Register/TeamMember/3187-MultiPledgeRegisterTeamMemberMR.spec'
 import './MultiPledge/Register/Volunteer/3012-MultiPledgeRegisterVolunteerAllFieldsRequired.spec'
+import './MultiPledge/Store/3017-MultiPledgeStoreMultiplePurchasesOnly.spec'
 
 import './Donations/InHonour/7115-InHonourOneTimeDonation.spec'
 import './Donations/InHonour/7152-InHonourMonthlyDonation.spec'

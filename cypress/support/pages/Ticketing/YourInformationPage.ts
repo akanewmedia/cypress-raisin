@@ -1,7 +1,7 @@
 import { AdditionalInformation } from "../../components/additionalInformation.co";
 import { Address } from "../../components/address.co";
 import { Profile } from "../../components/profile.co";
-import { elementById, elementsByClass } from "../../utils/actions";
+import { buildSelector } from "../../utils/actions";
 
 export class YourInformationPage {
   container: any;
@@ -12,12 +12,12 @@ export class YourInformationPage {
   attendeeAccordions: any;
 
   constructor() {
-    this.container = elementById('#userDetails');
+    this.container = buildSelector('#userDetails');
     this.profileInformation = new Profile(this.container);
     this.addressInformation = new Address(this.container);
     this.additionalInformation = new AdditionalInformation(this.container);
-    this.requiredValidationErrors = elementsByClass(this.container, '.error-message');
-    this.attendeeAccordions = elementsByClass(this.container, 'div .attendee');
+    this.requiredValidationErrors = buildSelector(this.container, '.error-message');
+    this.attendeeAccordions = buildSelector(this.container, 'div .attendee');
   }
 
   /**

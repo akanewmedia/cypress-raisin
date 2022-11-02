@@ -49,6 +49,7 @@ export class SurveyComponent {
 
     scrollToElement(container);
     selectMatDropDownOption(element, answer)
+    pressEsc()
   }
 
   // factory method that returns a survey field filler based be the [type] parameter
