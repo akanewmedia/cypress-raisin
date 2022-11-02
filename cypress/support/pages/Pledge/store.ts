@@ -1,5 +1,5 @@
 import { Store } from '../../components/store.co';
-import { elementByClass, elementById } from '../../utils/actions';
+import { buildSelector, elementByClass, elementById } from '../../utils/actions';
 
 export class StorePage {
   container: any;
@@ -7,10 +7,10 @@ export class StorePage {
   storePromoCodeApplyButton: any;
   storePromoCodeLabel: any;
   constructor() {
-    this.container = elementByClass('rx-store');
-    this.storePromoCode = elementById(this.container, '#promoCode');
-    this.storePromoCodeApplyButton = elementByClass(this.container, '.btn-flow[key="m_btn_PromoCodeApply"]');
-    this.storePromoCodeLabel = elementById(this.container, '#store-promoCode-totalDiscount-title');
+    this.container = buildSelector('rx-store');
+    this.storePromoCode = buildSelector(this.container, '#promoCode');
+    this.storePromoCodeApplyButton = buildSelector(this.container, '.btn-flow[key="m_btn_PromoCodeApply"]');
+    this.storePromoCodeLabel = buildSelector(this.container, '#store-promoCode-totalDiscount-title');
   }
 
   buyItem(index) {
@@ -38,6 +38,6 @@ export class StorePage {
    * when you apply a promo code.
    */
   verifyStorePromoCodeApplied() {
-    expect(this.storePromoCodeLabel.isDisplayed).true;
+    cy.get(this.storePromoCodeLabel).should('be.visible')
   }
 }
