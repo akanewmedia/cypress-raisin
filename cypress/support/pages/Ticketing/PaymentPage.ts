@@ -3,7 +3,7 @@ import { Profile } from "../../components/profile.co";
 import { Address } from "../../components/address.co";
 
 //The information regarding the libraries
-import { clickElement, elementByClass } from "../../utils/actions";
+import { buildSelector, clickElement } from "../../utils/actions";
 export class PaymentPage {
   container: any;
   creditCardButton: any;
@@ -17,12 +17,12 @@ export class PaymentPage {
   cardInformation: any;
 
   constructor() {
-    this.container = elementByClass('form.system-content');
-    this.creditCardButton = elementByClass(this.container, '#credit-card-payment + label.payment-title');
-    this.paypalButton = elementByClass(this.container, '#paypal + label.payment-title');
-    this.visaCheckoutButton = elementByClass(this.container, '#visa-checkout + label.payment-title');
-    this.invoiceButton = elementByClass(this.container, '#invoice + label.payment-title');
-    this.invoice = elementByClass(this.container, 'rx-invoice');
+    this.container = buildSelector('form.system-content');
+    this.creditCardButton = buildSelector(this.container, '#credit-card-payment + label.payment-title');
+    this.paypalButton = buildSelector(this.container, '#paypal + label.payment-title');
+    this.visaCheckoutButton = buildSelector(this.container, '#visa-checkout + label.payment-title');
+    this.invoiceButton = buildSelector(this.container, '#invoice + label.payment-title');
+    this.invoice = buildSelector(this.container, 'rx-invoice');
     this.cardInformation = new CardInformation();
     this.profileInformation = new Profile(this.invoice);
     this.addressInformation = new Address(this.invoice);
@@ -49,7 +49,7 @@ export class PaymentPage {
   }
 
   verifyTheBillingInfoFieldsNotDisplayed() {
-    expect(this.profileInformation.firstName.isDisplayed()).toBeFalsy();
+    cy.get(this.profileInformation.firstName).should('not.be.visible')
   }
 
   verifySameAsPurchaserisChecked() {
@@ -61,14 +61,14 @@ export class PaymentPage {
   }
 
   verifyCreditCardIsDisplayed() {
-    expect(this.cardInformation.creditCardHolderName.isDisplayed()).true;
+    cy.get(this.cardInformation.creditCardHolderName).should('be.visible')
   }
 
   verifyPaymentFieldsPresent() {
-    expect(this.cardInformation.creditCardNumber.isPresent()).true;
-    expect(this.cardInformation.creditCardHolderName.isPresent()).true;
-    expect(this.cardInformation.creditCardExpiryMonth.isPresent()).true;
-    expect(this.cardInformation.creditCardExpiryYear.isPresent()).true;
+    cy.get(this.cardInformation.creditCardNumber).should('be.visible')
+    cy.get(this.cardInformation.creditCardHolderName).should('be.visible')
+    cy.get(this.cardInformation.creditCardExpiryMonth).should('be.visible')
+    cy.get(this.cardInformation.creditCardExpiryYear).should('be.visible')
   }
 
   enterCardDetails(card: any) {

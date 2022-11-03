@@ -1,5 +1,5 @@
 //The information regarding the libraries
-import { clickElement, elementByClass, elementById, enterText } from "../utils/actions";
+import { buildSelector, clickElement, enterText } from "../utils/actions";
 
 //Locators
 export class CreateAccount {
@@ -9,11 +9,11 @@ export class CreateAccount {
   password: any;
   createAccountButton: any;
   constructor() {
-    this.container = elementById('rx-create-account');
-    this.proceedAsGuestButton = elementByClass(this.container, 'a.continue');
-    this.username = elementByClass(this.container, 'input.username');
-    this.password = elementByClass(this.container, 'input.password');
-    this.createAccountButton = elementByClass(this.container, '.btn-login');
+    this.container = buildSelector('rx-create-account');
+    this.proceedAsGuestButton = buildSelector(this.container, 'a.continue');
+    this.username = buildSelector(this.container, '#username');
+    this.password = buildSelector(this.container, '#password');
+    this.createAccountButton = buildSelector(this.container, '.btn-login');
   }
 
   clickOnProceedAsGuestButton() {

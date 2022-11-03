@@ -1,10 +1,3 @@
-firstHour: [
-    'tests/Ticketing/BuyTicketsAndLoginToManageAttendee.js',
-    'tests/Ticketing/RegisterVolunteerAllFields.js',
-]
-
-
-
 import './MultiPledge/Sponsor/658-MultiPledgeDonationToGroup.spec'
 import './MultiPledge/Sponsor/656-MultiPledgeDonationToEvent.spec'
 import './MultiPledge/Sponsor/3014-MultiPledgeDonationToParticipant.spec'
@@ -18,6 +11,9 @@ import './MultiPledge/Register/Volunteer/3012-MultiPledgeRegisterVolunteerAllFie
 import './MultiPledge/Store/3017-MultiPledgeStoreMultiplePurchasesOnly.spec'
 
 import './Donations/InHonour/7115-InHonourOneTimeDonation.spec'
-import './Donations/InHonour/7152-InHonourMonthlyDonation.spec'
-import './Donations/InMemory/7147-InMemoryMonthlyDonationWithECard.spec'
+//import './Donations/InHonour/7152-InHonourMonthlyDonation.spec'
+//import './Donations/InMemory/7147-InMemoryMonthlyDonationWithECard.spec'
+
+import './Ticketing/2358-RegisterVolunteerAllFields.spec'
+import './Ticketing/22-BuyTicketsAndLoginToManageAttendee.spec'
 

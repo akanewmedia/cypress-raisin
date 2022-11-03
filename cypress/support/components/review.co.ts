@@ -42,7 +42,7 @@ export class Review {
     this.teamInformation = buildSelector(this.container, 'rx-team-info');
     this.editProfileInformationButton = buildSelector('.btn-flow--reverse');
     this.ticketingInformation = buildSelector(this.container, 'rx-ticketing-info');
-    this.ticketsTableRows = buildSelector('tr');
+    this.ticketsTableRows = buildSelector('.shopping-items tr:last-child span');
     this.editTicketsButton = buildSelector('.btn-flow--reverse');
     this.paymentInformation = buildSelector(this.container, 'rx-payment-info');
     this.cardType = buildSelector(this.paymentInformation, '.review-cardType');

@@ -57,7 +57,7 @@ export class TicketingNavBar {
   }
 
   clickOnBuyTickets() {
-    this.clickNavButton(this.buyTicketButton);
+    cy.get(this.buyTicketButton).click()
   }
 
   clickOnSponsorships() {

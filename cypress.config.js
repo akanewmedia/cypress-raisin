@@ -9,7 +9,7 @@ module.exports = {
     setupNodeEvents(on, config) {
       return require('./cypress/plugins/index.js')(on, config)
     },
-    baseUrl: 'https://org359.int.akaraisin.com/ui',
+    //baseUrl: 'https://org359.int.akaraisin.com/ui',
     specPattern: 'cypress/e2e/**/*.{js,jsx,ts,tsx}',
   }
 }

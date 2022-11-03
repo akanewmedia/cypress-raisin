@@ -12,13 +12,13 @@ export class ReviewPage {
     this.shoppingCart = new ShoppingCart();
   }
   editInformation() {
-    clickElement(this.review.editProfileInformationButton, true);
+    cy.get(this.review.editProfileInformationButton).first().click();
   }
   removeSingleTicketFromCart() {
-    this.shoppingCart.getCartItemXButton(0).click();
+    this.shoppingCart.getCartItemXButton("Single Ticketed Item")
   }
   removeGroupTicketFromCart() {
-    this.shoppingCart.getCartItemXButton(1).click();
+    this.shoppingCart.getCartItemXButton("Registration Fee, Group")
   }
   editBillingInformation() {
     clickElement(this.review.editBillingInformationButton, true);
@@ -27,13 +27,16 @@ export class ReviewPage {
     clickElement(this.review.editPaymentInformationButton, true);
   }
   editTickets() {
-    clickElement(this.review.editTicketsButton, true);
+    cy.contains('#reviewTeam-title', "Amount").parent().within(()=>{
+      cy.get(this.review.editTicketsButton).click()
+    })
+    //clickElement(this.review.editTicketsButton, true);
   }
   editAdditionalParticipants() {
     clickElement(this.review.editAdditionalParticipantsButton, true);
   }
   updateCart() {
-    this.shoppingCart.checkOutButtonInPopUp.click();
+    cy.get(this.shoppingCart.checkOutButtonInPopUp).click();
   }
   closeCart() {
     this.shoppingCart.closeButton.click();
@@ -42,7 +45,8 @@ export class ReviewPage {
     cy.get(this.review.totalAmount).should('have.text','$'+ amount);    
   }
   verifyTotalTicketAmount(amount, message = '') {
-    expect(this.review.ticketsTableRows.last().getText()).contains(amount, message);
+    cy.get(this.review.ticketsTableRows).should('have.text', amount)
+    //expect(this.review.ticketsTableRows.last().getText()).contains(amount, message);
   }
   verifyProfileInformation(data) {
     cy.get(this.review.profileInformation.name).should('have.text', data.fullName);

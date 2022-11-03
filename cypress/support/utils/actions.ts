@@ -87,6 +87,7 @@ export function clickElement(selector, wait = false) {
 
 export function enterText(protractorSelector, text) {
   //this.clearInputWithBackspace(protractorSelector);
+  cy.get(protractorSelector).clear()
   cy.get(protractorSelector).type(text);
 }
 

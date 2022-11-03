@@ -20,11 +20,11 @@ export class ShoppingCart {
     this.container = buildSelector('.shopping-cart-view-dialog');
     this.emptyCartText = buildSelector(this.container, '#empty-cart');
     this.cartButtons = buildSelector(this.container, '.shopping-cart-footer');
-    this.verifyAmount = buildSelector(this.container, '.price-row label.cart-label-right');
+    this.verifyAmount = buildSelector(this.container, '.price-row .cart-label-right');
     this.keepShoppingButton = buildSelector(this.cartButtons, '.btn-keep-shopping span:nth-child(2)');
     this.checkOutButtonInPopUp = buildSelector(this.cartButtons, '.btn-confirm-checkout-cart span:first-child');
-    this.itemsContainer = buildSelector(this.container, '#tickets-title-label + div');
-    this.cartItems = buildSelector(this.itemsContainer, 'tbody');
+    this.itemsContainer = buildSelector(this.container, '#shoppingCart');
+    this.cartItems = buildSelector(this.itemsContainer, '.shoppingCart');
     this.closeButton = buildSelector(this.container, '.mat-dialog-title button.close-modal-button');
     this.donationAmount = buildSelector(this.container, '#txtDonationAmount');
     this.promoCodeInputText = buildSelector(this.container, '#promoCode');
@@ -43,14 +43,17 @@ export class ShoppingCart {
   getCartItemMinusButton(index) {
     return elementByClass(this.getCartItemQuantityButtons(index), '.btn-remove');
   }
-  getCartItemXButton(index) {
-    return elementByClass(this.cartItems.get(index), 'button[aria-label="Close"]');
+  getCartItemXButton(item) {
+    return cy.contains(this.cartItems + " legend", item).parent().within(()=> {
+      cy.get('.shoppingCart-group--close').click()
+    })
+    // return elementByClass(this.cartItems.get(index), 'button[aria-label="Close"]');
   }
   clickOnKeepShoppingButton() {
     clickElement(this.keepShoppingButton);
   }
   clickOnCheckOutButtonInPopUp() {
-    clickElement(this.checkOutButtonInPopUp);
+    cy.contains(this.checkOutButtonInPopUp, "Checkout").click();
   }
   setDonationAmount(amount) {
     enterText(this.donationAmount, amount);

@@ -69,14 +69,37 @@ export class PageSetup {
     cy.visit(`${this.getEnvironment().baseUrl}/ui/${url}`, { timeout: 60000 })  
   }
 
-  getEnvironment(){
-    if(isNil(this.currentEnvironment)){
-      return environments.AKA_INT //Hardcoded to INT, needs to be changed after
+  getEnvironment() {
+    this.setEnvironment()
+
+    switch (this.currentEnvironment) {
+
+      case 'AKA_INT':
+        return environments.AKA_INT
+
+      case 'AKA_DEV':
+        return environments.AKA_DEV
+
+      case 'AKA_QA':
+        return environments.AKA_QA
+
+      case 'AKA_QA2':
+        return environments.AKA_QA2
+
+      case 'AKA_UAT':
+        return environments.AKA_UAT
+
+      case 'AKA_REL':
+        return environments.AKA_REL
+
+      case 'AKA_PROD':
+        return environments.AKA_PROD
     }
   }
 
-  setEnvironment(env?: any) {
-    this.currentEnvironment = env;    
+  setEnvironment() {
+    let envFromOctopus = 'AKA_UAT'
+    this.currentEnvironment = envFromOctopus;
   }
 
   /**

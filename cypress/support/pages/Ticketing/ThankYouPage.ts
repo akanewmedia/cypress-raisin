@@ -1,5 +1,5 @@
 import { TicketSuccess } from "../../components/ticketSuccess.co";
-import { elementByClass } from "../../utils/actions";
+import { buildSelector} from "../../utils/actions";
 
 export class ThankYouPage {
   thankYouMessageContainer: any;
@@ -7,13 +7,13 @@ export class ThankYouPage {
   ticketSuccessButtons: any;
 
   constructor() {
-    this.thankYouMessageContainer = elementByClass('#base-page-top .page-content-20000');
-    this.transactionNumber = elementByClass(this.thankYouMessageContainer, '.row .column');
+    this.thankYouMessageContainer = buildSelector('#base-page-top .page-content-20000');
+    this.transactionNumber = buildSelector(this.thankYouMessageContainer, '.row .column');
     this.ticketSuccessButtons = new TicketSuccess();
   }
 
   verifyTransactionNumber(data) {
-    expect(this.transactionNumber.getText()).contains(data.transactionNumberStartsWith);
+    cy.contains(this.transactionNumber, data.transactionNumberStartsWith)
   }
   clickOnDownloadInvoiceButton() {
     this.ticketSuccessButtons.downloadInvoice();
@@ -22,12 +22,12 @@ export class ThankYouPage {
     this.ticketSuccessButtons.manageAttendees();
   }
   downloadTicketButtonPresence() {
-    expect(this.ticketSuccessButtons.downloadTicketsButton.isDisplayed()).true;
+    cy.get(this.ticketSuccessButtons.downloadTicketsButton).should('be.visible')
   }
   manageAttendeesButtonPresence() {
-    expect(this.ticketSuccessButtons.manageAttendeesButton.isDisplayed()).true;
+    cy.get(this.ticketSuccessButtons.manageAttendeesButton).should('be.visible')
   }
   downloadInvoiceButtonPresense() {
-    expect(this.ticketSuccessButtons.printInvoiceButton.isDisplayed()).true;
+    cy.get(this.ticketSuccessButtons.printInvoiceButton).should('be.visible')
   }
 }

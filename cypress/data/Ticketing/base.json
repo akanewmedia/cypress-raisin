@@ -51,7 +51,8 @@
       "number": "4242424242424242",
       "cardHolderName": "Akaka",
       "expiryMonth": "12",
-      "expiryYear": "2028"
+      "expiryYear": "2028",
+      "cvv": "123"
   },
   "paypal": {
     "email": "PayPalTest@akanewmedia.com",

@@ -40,6 +40,7 @@ export class Address {
   }
 
   enterPostCode(text) {
+    cy.get(this.postCode).clear()
     enterText(this.postCode, text);
   }
 

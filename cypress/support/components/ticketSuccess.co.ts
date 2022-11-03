@@ -1,6 +1,6 @@
 //The information regarding the libraries
 
-import { clickElement, elementByClass } from "../utils/actions";
+import { buildSelector, clickElement } from "../utils/actions";
 
 export class TicketSuccess {
   container: any;
@@ -11,13 +11,13 @@ export class TicketSuccess {
   manageAttendeesButton: any;
   printInvoiceButton: any;
   constructor() {
-    this.container = elementByClass('rx-ticket-success-view');
-    this.tickets = elementByClass(this.container, '#ticketsBox');
-    this.attendees = elementByClass(this.container, '#attendeesBox');
-    this.invoice = elementByClass(this.container, '#invoiceBox');
-    this.downloadTicketsButton = elementByClass(this.tickets, '#btnPrintTickets');
-    this.manageAttendeesButton = elementByClass(this.attendees, '#btnManageAttendees');
-    this.printInvoiceButton = elementByClass(this.invoice, '#btnPrintInvoice');
+    this.container = buildSelector('rx-ticket-success-view');
+    this.tickets = buildSelector(this.container, '#ticketsBox');
+    this.attendees = buildSelector(this.container, '#attendeesBox');
+    this.invoice = buildSelector(this.container, '#invoiceBox');
+    this.downloadTicketsButton = buildSelector(this.tickets, '#btnPrintTickets');
+    this.manageAttendeesButton = buildSelector(this.attendees, '#btnManageAttendees');
+    this.printInvoiceButton = buildSelector(this.invoice, '#btnPrintInvoice');
   }
 
   downloadTickets() {

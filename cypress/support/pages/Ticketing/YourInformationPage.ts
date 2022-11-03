@@ -162,22 +162,23 @@ export class YourInformationPage {
   }
 
   verifyMandatoryFieldsHaveValues() {
-    expect(this.profileInformation.firstName.getText()).not.eq(""); // .because("first name is null");
-    expect(this.profileInformation.lastName.getText()).not.eq(""); // .because("last name is null");
-    expect(this.profileInformation.orgName.getText()).not.eq(""); // .because("org name is null");
-    expect(this.addressInformation.address.getText()).not.eq(""); // .because("address name is null");
-    expect(this.addressInformation.city.getText()).not.eq(""); // .because("city name is null");
-    expect(this.addressInformation.postCode.getText()).not.eq(""); // .because("postalcode name is null");
+    cy.get(this.profileInformation.firstName).should('not.eq', "")
+    cy.get(this.profileInformation.lastName).should('not.eq', "")
+    cy.get(this.profileInformation.orgName).should('not.eq', "")
+    cy.get(this.addressInformation.address).should('not.eq', "")
+    cy.get(this.addressInformation.city).should('not.eq', "")
+    cy.get(this.addressInformation.postCode).should('not.eq', "")
   }
 
   verifyFieldPresence() {
-    expect(this.profileInformation.firstName.isPresent()).true;
-    expect(this.profileInformation.lastName.isPresent()).true;
-    expect(this.profileInformation.email.isPresent()).true;
-    expect(this.addressInformation.address.isPresent()).true;
-    expect(this.addressInformation.city.isPresent()).true;
-    expect(this.addressInformation.postCode.isPresent()).true;
-    expect(this.addressInformation.province.isPresent()).true;
+    cy.get(this.profileInformation.firstName).should('be.visible')
+    cy.get(this.profileInformation.lastName).should('be.visible')
+    cy.get(this.profileInformation.email).should('be.visible')
+    cy.get(this.addressInformation.address).should('be.visible')
+    cy.get(this.addressInformation.city).should('be.visible')
+    cy.get(this.addressInformation.postCode).should('be.visible')
+    cy.get(this.addressInformation.province).should('be.visible')
+   
   }
 
   verifyRequiredFieldErrors(requiredFieldsValidationMessages) {

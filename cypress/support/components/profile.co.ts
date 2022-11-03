@@ -86,6 +86,7 @@ export class Profile {
   }
 
   enterOrgName(text) {
+    cy.get(this.orgName).clear()
     enterText(this.orgName, text);
   }
 

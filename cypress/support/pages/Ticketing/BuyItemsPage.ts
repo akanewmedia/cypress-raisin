@@ -1,28 +1,30 @@
 import { ShoppingCart } from "../../components/shoppingCart.co";
-import { elementByClass, elementsByClass } from "../../utils/actions";
+import { buildSelector } from "../../utils/actions";
 
 export class BuyItemsPage {
   shoppingCart: ShoppingCart;
   items: any;
-  plusButtonForSingleItem: any;
-  plusButtonForGroupItem: any;
-  plusButtonForNonTicketedItem: any;
+  plusButton: any;
   addToCartButton: any;
 
   constructor() {
     this.shoppingCart = new ShoppingCart();
-    this.items = elementsByClass('.event-item');
-    this.plusButtonForSingleItem = this.getPlusButton(0);
-    this.plusButtonForGroupItem = this.getPlusButton(1);
-    this.plusButtonForNonTicketedItem = this.getPlusButton(2);
-    this.addToCartButton = $('button.btn-add-cart');
+    this.items = '.event-item'
+    this.plusButton = '.item-container rx-item-qty-button .btn-item-qty.btn-add'
+    this.addToCartButton = 'button.btn-add-cart'
   }
 
-  getPlusButton(index) {
-    return elementByClass(this.items.get(index), '.item-container rx-item-qty-button .btn-item-qty.btn-add');
-  }
+  // getPlusButton(index) {
+  //   cy.get(this.items).eq(index).within(()=>{
+  //     cy.get('.item-container rx-item-qty-button .btn-item-qty.btn-add')
+  //   })
+  //   //return elementByClass(this.items.get(index), '.item-container rx-item-qty-button .btn-item-qty.btn-add');
+  // }
   getItemText(index) {
-    return elementsByClass(this.items.get(index), 'h2').text();
+    cy.get(this.items).eq(index).within(()=> {
+      cy.get('h2').invoke('text')
+    })
+    //return elementsByClass(this.items.get(index), 'h2').text();
   }
   clickOnAddToCartButton() {
     this.addToCartButton.click();
@@ -31,16 +33,23 @@ export class BuyItemsPage {
     this.shoppingCart.clickOnKeepShoppingButton();
   }
   clickOnPlusButtonForSingleItem() {
-    this.plusButtonForSingleItem.click();
+    cy.contains('h2', 'Single Ticketed Item').parent().within(()=> {
+      cy.get(this.plusButton).click()
+    })
+    //this.plusButton.first.click();
   }
   clickOnPlusButtonForGroupItem() {
-    this.plusButtonForGroupItem.click();
+    cy.contains('h2', 'Registration Fee, Group').parent().within(()=> {
+      cy.get(this.plusButton).click()
+    })
   }
   clickOnPlusButtonForNonTicketedItem() {
-    this.plusButtonForNonTicketedItem.click();
+    cy.contains('h2', 'Non-Ticketed Item').parent().within(()=> {
+      cy.get(this.plusButton).click()
+    })
   }
   clickOnAddToCartInBuyItemsPage() {
-    this.addToCartButton.click();
+    cy.get(this.addToCartButton).click();
   }
   clickOnCheckOutButtonInPopUp() {
     this.shoppingCart.clickOnCheckOutButtonInPopUp();
@@ -57,10 +66,12 @@ export class BuyItemsPage {
     }
   }
   verifyEmptyCartText(expectedText) {
-    expect(this.shoppingCart.emptyCartText.getText()).eq(expectedText);
+    cy.get(this.shoppingCart.emptyCartText).should('have.text', expectedText)
   }
   verifyAmountInCart(expectedAmount) {
-    expect(this.shoppingCart.verifyAmount.getText()).eq(expectedAmount);
+    cy.get(this.shoppingCart.verifyAmount).invoke('text').then((text) => {
+      expect(text.replace(/\u00a0/g, ' ')).equal(expectedAmount)
+    })
   }
   fillInDonationAmount(amount) {
     this.shoppingCart.setDonationAmount(amount);
