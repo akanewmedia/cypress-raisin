@@ -17,11 +17,11 @@ export class CreateAccount {
   }
 
   clickOnProceedAsGuestButton() {
-    return clickElement(this.proceedAsGuestButton);
+    cy.get(this.proceedAsGuestButton).click();
   }
 
   clickOnCreateAccountButton() {
-    return clickElement(this.createAccountButton);
+    cy.get(this.createAccountButton).click();
   }
 
   enterUsername(username) {

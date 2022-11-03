@@ -67,6 +67,7 @@ describe('TR(22) Scenario -> Buy Tickets And Login To Manage Attendee : ', () =>
 
 			it('Create a New Account', () => {
 				createAccountCO.enterUsernameAndPassword(data.username + getLocalDateTime(), data.password);
+				cy.wait(1000)
 				createAccountCO.clickOnCreateAccountButton();
 			});
 
@@ -99,23 +100,23 @@ describe('TR(22) Scenario -> Buy Tickets And Login To Manage Attendee : ', () =>
 				reviewPO.verifyTotalTicketAmount(data.totalAmountOnReviewPage);
 			});
 
-			// it('Edit the Information and Amount Section', () => {
-			// 	//Editted the Information section and verification
-			// 	reviewPO.editInformation();
-			// 	cy.wait(2000);
-			// 	yourInformationPO.fillInEditedMandatoryFields(data);
-			// 	cy.get(yourInformationPO.container).should('be.visible')
-			// 	flowPO.continue();
-			// 	cy.wait(2000);
-			// 	reviewPO.verifyProfileInformation(data);
+			it('Edit the Information and Amount Section', () => {
+				//Editted the Information section and verification
+				reviewPO.editInformation();
+				cy.wait(2000);
+				yourInformationPO.fillInEditedMandatoryFields(data);
+				cy.get(yourInformationPO.container).should('be.visible')
+				flowPO.continue();
+				cy.wait(2000);
+				reviewPO.verifyProfileInformation(data);
 
-			// 	//Editing the Amount Section and verification
-			// 	reviewPO.editTickets();
-			// 	reviewPO.removeGroupTicketFromCart();
-			// 	reviewPO.updateCart();
-			// 	cy.wait(2000);
-			// 	reviewPO.verifyTotalTicketAmount(data.updatedTotalAmountOnReviewPage);
-			// });
+				//Editing the Amount Section and verification
+				reviewPO.editTickets();
+				reviewPO.removeGroupTicketFromCart();
+				reviewPO.updateCart();
+				cy.wait(2000);
+				reviewPO.verifyTotalTicketAmount(data.updatedTotalAmountOnReviewPage);
+			});
 
 			it('Complete checkout and download tickets', () => {
 				flowPO.continue();

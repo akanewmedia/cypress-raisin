@@ -66,7 +66,7 @@ export class PageSetup {
      * @param {number} [timeout=3000] - the max time (in ms) the test will wait for the page to load
      */
   goToEvent(url) {  
-    cy.visit(`${this.getEnvironment().baseUrl}/ui/${url}`, { timeout: 60000 })  
+    cy.visit(`${this.getEnvironment().baseUrl}/ui/${url}`, { timeout: 6000 })  
   }
 
   getEnvironment() {
@@ -98,7 +98,8 @@ export class PageSetup {
   }
 
   setEnvironment() {
-    let envFromOctopus = 'AKA_UAT'
+    //let envFromOctopus = Cypress.env('environment')
+    let envFromOctopus = 'AKA_INT'
     this.currentEnvironment = envFromOctopus;
   }
 
