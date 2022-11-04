@@ -15,6 +15,7 @@ describe('TR(7115) Donations > In Honour > One Time > Preset Amount > No Admin F
         describe(`${event}`, () => {
             before(() => {
                 pageSetup.goToEvent(`${event}/${data.URL}`);
+                pageSetup.waitForPageLoad()
             });
 
             after(() => {

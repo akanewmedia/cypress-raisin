@@ -26,8 +26,8 @@ describe('TR(2358) Scenario -> Register Volunteer (all fields): ', function () {
 	using(events, function (event) {
 		describe(`${event}`, function () {
 			before(function () {
-				pageSetup = new PageSetup();
 				pageSetup.goToEvent(event);
+				pageSetup.waitForPageLoad()
 				//pageSetup.logoutIfLoggedIn();
 				//pageSetup.clearCart();
 			});

@@ -33,8 +33,8 @@ describe('TR(2995) Scenario -> Multi Pledge donation to event and fill out optio
     using(events, event => {   
         describe(`${event}`, () => {
             before(() => {
-                pageSetup = new PageSetup();
-                pageSetup.goToEvent(event);                
+                pageSetup.goToEvent(event);  
+                pageSetup.waitForPageLoad()              
             });
             after(() => {
                 pageSetup.goToEvent(event);                

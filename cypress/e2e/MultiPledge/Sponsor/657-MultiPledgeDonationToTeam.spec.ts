@@ -34,6 +34,7 @@ describe('TR(657) Scenario -> Multi Pledge Search For Team And Donate : ', () =>
 		context("Donate to Team", () => {
 			before(() => {
 				pageSetup.goToEvent(event);
+				pageSetup.waitForPageLoad()
 			});
 			after(() => {
 				pageSetup.goToEvent(event);

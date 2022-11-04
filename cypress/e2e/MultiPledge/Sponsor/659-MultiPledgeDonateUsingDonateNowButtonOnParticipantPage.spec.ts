@@ -34,6 +34,7 @@ describe('TR(659) Scenario -> Multi Pledge go to Participant page and click side
             before(() => {
                 pageSetup = new PageSetup();
                 pageSetup.goToEvent(`${event}/${data.URL}`);
+                pageSetup.waitForPageLoad()
             });
             after(() => {
                 pageSetup.goToEvent(event);

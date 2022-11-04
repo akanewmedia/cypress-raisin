@@ -18,8 +18,8 @@ describe('TR(1950) Scenario -> Multi Pledge Mid-Flow Donation Redirection: ', fu
 	using(events, event => {
 		describe(`${event}`, function () {
 			before(() => {
-				pageSetup = new PageSetup();
 				pageSetup.goToEvent(`${event}/${data.URL}`);
+				pageSetup.waitForPageLoad()
 			});
 
 			it('should be the Donation Search page', function () {

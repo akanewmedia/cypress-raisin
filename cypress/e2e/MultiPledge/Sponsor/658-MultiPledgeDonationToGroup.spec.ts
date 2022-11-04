@@ -32,6 +32,7 @@ describe('TR(658) Scenario -> Multi Pledge donation to group : ', () => {
         describe(`${event}`, () => {
             before(() => {
                 pageSetup.goToEvent(event);
+                pageSetup.waitForPageLoad()
             });
             after(() => {
                 pageSetup.goToEvent(event);

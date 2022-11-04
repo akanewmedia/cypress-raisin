@@ -17,7 +17,7 @@ describe('TR(7117) Donations > In Memory > One Time > Preset Amount > Admin Fee 
         describe(`${event}`, () => {
             before(() => {
                 pageSetup.goToEvent(`${event}/${data.URL}`);
-                pageSetup.cleanupPage();
+                pageSetup.waitForPageLoad()
             });
 
             after(() => {

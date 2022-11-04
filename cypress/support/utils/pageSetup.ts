@@ -66,8 +66,13 @@ export class PageSetup {
      * @param {number} [timeout=3000] - the max time (in ms) the test will wait for the page to load
      */
    goToEvent(url) {  
-    cy.visit(`${this.getEnvironment().baseUrl}/ui/${url}`, { timeout: 180000 })  
-    cy.get('.site-header', {timeout : 180000}).should('exist')
+    cy.visit(`${this.getEnvironment().baseUrl}/ui/${url}`) 
+  }
+
+  waitForPageLoad(){
+    cy.get('#base-page-top', {timeout : 180000}).should('exist')
+    // cy.intercept('GET', '/v2/pagecontent/page/').as('pageLoad')
+    // cy.wait('@pageLoad', {timeout: 180000})
   }
 
   getEnvironment() {

@@ -31,8 +31,8 @@ describe('TR(2993) Scenario -> Multi Pledge donation to event using the organiza
     using(events, event => {
         describe(`${event}`, () => {
             before(() => {
-                pageSetup = new PageSetup();
                 pageSetup.goToEvent(event);
+                pageSetup.waitForPageLoad()
             });
             after(() => {
                 pageSetup.goToEvent(event);

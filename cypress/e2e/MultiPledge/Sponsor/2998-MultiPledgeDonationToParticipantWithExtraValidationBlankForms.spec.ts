@@ -32,8 +32,8 @@ describe('TR(2998) Scenario -> Multi Pledge donation to participant - submit bla
     using(events, event => { 
         describe(`${event}`, () => {
             before(() => {
-                pageSetup = new PageSetup();
                 pageSetup.goToEvent(event);
+                pageSetup.waitForPageLoad()
             });
             after(() => {
                 pageSetup.goToEvent(event);

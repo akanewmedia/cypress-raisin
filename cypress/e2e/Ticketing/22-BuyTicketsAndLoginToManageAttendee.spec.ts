@@ -41,6 +41,7 @@ describe('TR(22) Scenario -> Buy Tickets And Login To Manage Attendee : ', () =>
 			before(() => {
 				pageSetup.goToEvent(event);
 				pageSetup.cleanupPage();
+				pageSetup.waitForPageLoad()
 				//pageSetup.logoutIfLoggedIn();
 				//pageSetup.clearCart();
 			});

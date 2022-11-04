@@ -17,8 +17,8 @@ const entityDetailsCO = new EnitytDetails();
 
 const doSetup = event => {
     before(() => {
-        pageSetup = new PageSetup();
         pageSetup.goToEvent(event);
+        pageSetup.waitForPageLoad()
     });
     after(() => {
         pageSetup.goToEvent(event);

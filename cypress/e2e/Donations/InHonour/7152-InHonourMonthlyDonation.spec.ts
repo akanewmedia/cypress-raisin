@@ -18,6 +18,7 @@ describe('TR(7152) Donations > In Honour > Monthly > Modified Donation Matrix > 
         describe(`${event}`, () => {
             before(() => {
                 pageSetup.goToEvent(`${event}/${data.URL}`);
+                pageSetup.waitForPageLoad()
             });
 
             after(() => {

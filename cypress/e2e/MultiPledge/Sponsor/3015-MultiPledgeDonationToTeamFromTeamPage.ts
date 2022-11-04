@@ -33,8 +33,8 @@ describe('TR(3015) Scenario -> Multi Pledge donation to team from team page : ',
     using(events, event => {
         describe(`${event}`, () => {
             before(() => {
-                pageSetup = new PageSetup();
                 pageSetup.goToEvent(event);
+                pageSetup.waitForPageLoad()
             });
             after(() => {
                 pageSetup.goToEvent(event);

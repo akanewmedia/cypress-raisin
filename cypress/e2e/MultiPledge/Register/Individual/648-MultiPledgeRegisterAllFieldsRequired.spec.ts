@@ -38,8 +38,8 @@ describe('TR(648) Scenario -> Multi Pledge free registration - all fields requir
     using(events, (event) => {
         describe(`${event}`, () => {
             before(() => {
-                pageSetup = new PageSetup();
                 pageSetup.goToEvent(event);
+                pageSetup.waitForPageLoad()
                 generateUniqueName(data);
             });
             // after(() => {

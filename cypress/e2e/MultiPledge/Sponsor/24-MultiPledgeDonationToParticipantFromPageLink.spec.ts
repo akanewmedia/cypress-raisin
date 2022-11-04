@@ -33,8 +33,8 @@ describe('TR(24) Scenario -> Multi Pledge donation to participant from page link
   context('Donate to Participant from Page Link', () => {
     describe(`${event}`, () => {
       before(() => {
-        pageSetup = new PageSetup();
         pageSetup.goToEvent(`${event}/${data.URL}`);
+        pageSetup.waitForPageLoad()
         //pageSetup.logoutIfLoggedIn();
       });
       it('should search for a participant then navigate to its page', () => {

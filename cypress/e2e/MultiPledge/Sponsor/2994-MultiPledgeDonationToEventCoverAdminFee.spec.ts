@@ -29,9 +29,8 @@ describe('TR(2994) Scenario -> Multi Pledge donation to event (cover admin fee) 
     using(events, event => { 
         describe(`${event}`, () => {
             before(() => {
-                pageSetup = new PageSetup();
                 pageSetup.goToEvent(event);
-                
+                pageSetup.waitForPageLoad()
             });
             after(() => {
                 pageSetup.goToEvent(event);

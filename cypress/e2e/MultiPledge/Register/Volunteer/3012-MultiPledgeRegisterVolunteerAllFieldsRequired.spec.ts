@@ -31,6 +31,7 @@ describe('TR(3012) Scenario -> Multi Pledge registration, volunteer - all fields
         describe(`${event}`, () => {
             before(() => {
                 pageSetup.goToEvent(event);
+                pageSetup.waitForPageLoad()
                 //pageSetup.logoutIfLoggedIn();
             });
             after(() => {

@@ -44,6 +44,7 @@ describe('TR(3165) Scenario -> Multi Pledge Individual Registration with Additio
             describe(`${event}`, () => {
                 before(() => {
                     pageSetup.goToEvent(event);
+                    pageSetup.waitForPageLoad()
                     // pageSetup.logoutIfLoggedIn();
                     
                 });

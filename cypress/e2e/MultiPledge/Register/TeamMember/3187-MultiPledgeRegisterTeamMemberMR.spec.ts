@@ -35,6 +35,7 @@ describe('TR(3187) Scenario -> Multi Pledge Team Member Registration with Additi
         describe(`${event}`, () => {
             before(() => {
                 pageSetup.goToEvent(event);
+                pageSetup.waitForPageLoad()
                 //pageSetup.logoutIfLoggedIn();
                 generateUniqueName(data);
                 generateUniqueName(data.additionalParticipants[0]);

@@ -34,8 +34,8 @@ describe('TR(3022) Scenario -> Multi Pledge Sponsor Team from Donation Page Link
 	using(events, function (event) {
 		describe(`${event}`, function () {
 			before(() => {
-				pageSetup = new PageSetup();
 				pageSetup.goToEvent(`${event}/${data.URL}`);
+				pageSetup.waitForPageLoad()
 			});
 
 			after(() => {

@@ -30,6 +30,7 @@ describe('TR(3017) Scenario -> Multi Pledge registration, volunteer - purchase o
         describe(`${event}`, () => {
             before(() => {
                 pageSetup.goToEvent(`${event}/${data.URL}`);
+                pageSetup.waitForPageLoad()
                 //pageSetup.logoutIfLoggedIn();
             });
             after(() => {

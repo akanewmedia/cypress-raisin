@@ -23,8 +23,8 @@ describe('TR(2999) Scenario -> Multi Pledge donation to participant - invalid cu
     using(events, event => {
         describe(`${event}`, () => {
             before(() => {
-                pageSetup = new PageSetup();
                 pageSetup.goToEvent(event);
+                pageSetup.waitForPageLoad()
             });
             after(() => {
                 pageSetup.goToEvent(event);

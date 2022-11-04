@@ -32,6 +32,7 @@ describe('TR(3014) Scenario -> Multi Pledge Search For Participant And Donate : 
 		describe(`Donation to participant with honor roll option -> Other amount -> Event: ${event}`, () => {
 			before(() => {
 				pageSetup.goToEvent(event);
+				pageSetup.waitForPageLoad()
 			});
 			after(() => {
 				pageSetup.goToEvent(event);

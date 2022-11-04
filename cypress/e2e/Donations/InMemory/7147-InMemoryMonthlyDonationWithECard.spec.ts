@@ -16,7 +16,7 @@ describe('TR(7147) Donations > In Memory > Monthly > eCard > Card Preview > Chan
         describe(`${event}`, () => {
             before(() => {
                 pageSetup.goToEvent(`${event}/${data.URL}`);
-                pageSetup.cleanupPage();
+                pageSetup.waitForPageLoad()
             });
 
             after(() => {

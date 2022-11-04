@@ -32,6 +32,7 @@ describe('TR(656) Scenario -> Multi Pledge donation to event : ', () => {
 
     before(() => {
       pageSetup.goToEvent(event);
+      pageSetup.waitForPageLoad()
       //pageSetup.logoutIfLoggedIn();
     });    
 
