@@ -16,7 +16,11 @@
  * @type {Cypress.PluginConfig}
  */
 // eslint-disable-next-line no-unused-vars
+const browserify = require('@cypress/browserify-preprocessor')
 module.exports = (on, config) => {  
   // `on` is used to hook into various events Cypress emits
   // `config` is the resolved Cypress config
+  const browserifyOptions = browserify.defaultOptions
+  browserifyOptions.browserifyOptions.transform[1][1].babelrc = true
+  on('file:preprocessor', browserify(browserifyOptions))
 }
