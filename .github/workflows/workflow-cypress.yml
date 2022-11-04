@@ -23,7 +23,7 @@ jobs:
           browser: chrome
           record: true
           group: 'UI - Chrome'
-          spec: cypress/e2e/firsthour.cy.js
+          spec: cypress\e2e\Donations\InHonour\7115-InHonourOneTimeDonation.spec.ts
         env:
           CYPRESS_RECORD_KEY: b6dbe722-08ce-4dff-80ba-2f5df8a90f35
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
