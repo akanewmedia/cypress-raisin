@@ -19,6 +19,7 @@
   "devDependencies": {
     "@types/lodash": "^4.14.186",
     "api-testrail": "^1.2.3",
+    "babel-plugin-module-resolver": "^4.1.0",
     "cypress": "10.6.0",
     "cypress-plugin-tab": "^1.0.5",
     "faker": "^5.5.3",
