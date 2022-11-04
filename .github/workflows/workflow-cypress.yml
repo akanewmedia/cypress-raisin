@@ -22,6 +22,7 @@ jobs:
           wait-on-timeout: 120
           browser: chrome
           record: true
+          key: b6dbe722-08ce-4dff-80ba-2f5df8a90f35
           group: 'UI - Chrome'
           spec: cypress/e2e/firsthour.cy.js
         env:
