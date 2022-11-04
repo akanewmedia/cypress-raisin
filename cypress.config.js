@@ -1,12 +1,3 @@
-const resolvePlugin = [
-  ["module-resolver", {
-    "alias": {
-      "@": "./src",
-      "@datasets": "./tests/e2e/datasets/helpers"
-    }
-  }]
-]
-
 module.exports = {
   projectId: 'cayihf',
   viewportWidth: 1920,
@@ -20,7 +11,5 @@ module.exports = {
     },
     //baseUrl: 'https://org359.int.akaraisin.com/ui',
     specPattern: 'cypress/e2e/**/*.{js,jsx,ts,tsx}',
-  },
-  presets: ['@babel/preset-env'],
-  plugins: ['@babel/transform-runtime', ...resolvePlugin]
+  }
 }
