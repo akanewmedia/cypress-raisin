@@ -103,10 +103,14 @@ export class PageSetup {
     }
   }
 
-  setEnvironment() {
-    //let envFromOctopus = Cypress.env('environment')
-    let envFromOctopus = 'AKA_UAT'
-    this.currentEnvironment = envFromOctopus;
+  setEnvironment() {    
+    if(Cypress.env('environment') == null){      
+      this.currentEnvironment = 'AKA_UAT'
+    }  
+    else {       
+      this.currentEnvironment = Cypress.env('environment')
+    }     
+   
   }
 
   /**
