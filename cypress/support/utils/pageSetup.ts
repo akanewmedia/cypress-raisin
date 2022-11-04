@@ -104,8 +104,8 @@ export class PageSetup {
   }
 
   setEnvironment() {
-    //let envFromOctopus = Cypress.env('environment')
-    let envFromOctopus = 'AKA_UAT'
+    let envFromOctopus = Cypress.env('environment')
+    //let envFromOctopus = 'AKA_UAT'
     this.currentEnvironment = envFromOctopus;
   }
 

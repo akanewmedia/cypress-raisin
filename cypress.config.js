@@ -1,4 +1,6 @@
-module.exports = {
+const { defineConfig } = require('cypress')
+
+module.exports = defineConfig({
   projectId: 'cayihf',
   viewportWidth: 1920,
   viewportHeight: 1080,
@@ -11,5 +13,14 @@ module.exports = {
     },
     //baseUrl: 'https://org359.int.akaraisin.com/ui',
     specPattern: 'cypress/e2e/**/*.{js,jsx,ts,tsx}',
-  }
-}
+  },
+  reporter: 'mochawesome',
+    reporterOptions: {
+      charts: true,
+      overwrite: false,
+      html: true,
+      json: false,
+      reportDir: "cypress/results"
+    }
+ 
+})
