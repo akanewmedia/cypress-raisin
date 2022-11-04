@@ -11,9 +11,8 @@ import './MultiPledge/Register/Volunteer/3012-MultiPledgeRegisterVolunteerAllFie
 import './MultiPledge/Store/3017-MultiPledgeStoreMultiplePurchasesOnly.spec'
 
 import './Donations/InHonour/7115-InHonourOneTimeDonation.spec'
-//import './Donations/InHonour/7152-InHonourMonthlyDonation.spec'
-//import './Donations/InMemory/7147-InMemoryMonthlyDonationWithECard.spec'
+import './Donations/InHonour/7152-InHonourMonthlyDonation.spec'
+import './Donations/InMemory/7147-InMemoryMonthlyDonationWithECard.spec'
 
 import './Ticketing/2358-RegisterVolunteerAllFields.spec'
 import './Ticketing/22-BuyTicketsAndLoginToManageAttendee.spec'
-

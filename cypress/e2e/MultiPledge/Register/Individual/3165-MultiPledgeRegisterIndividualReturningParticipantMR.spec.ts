@@ -10,7 +10,6 @@ import { generateUniqueName, generateUniqueUsername } from "../../../../support/
 import { AdditionalParticipantsPage } from "../../../../support/pages/Pledge/addParticipants";
 import { V3LoginPage } from "../../../../support/pages/Pledge/V3LoginPage";
 import { inV3 } from "../../../../support/utils/customTesting";
-import using from "jasmine-data-provider";
 import * as specificData from '../../../../data/Pledge/MultiPledgeRegisterIndividualReturningParticipantMR.json'
 
 
@@ -49,7 +48,7 @@ describe('TR(3165) Scenario -> Multi Pledge Individual Registration with Additio
                     
                 });
                 after(() => {
-                    pageSetup.goToEvent(event);
+                    //pageSetup.goToEvent(event);
                     // pageSetup.logoutIfLoggedIn();
                     pageSetup.cleanupPage();
                 });
@@ -138,9 +137,9 @@ describe('TR(3165) Scenario -> Multi Pledge Individual Registration with Additio
                     thankYouPO.verifyTransactionNumber(data);
                     thankYouPO.verifySuccessfulTransaction(data);
                 });
-                it('Should press the login button at the top', () => {
-                    navbarCO.login();
-                });
+                // it('Should press the login button at the top', () => {
+                //     navbarCO.login();
+                // });
                 // inV3('Should log in to using the V3 login page', () => {
                 //     v3LoginPage.doLogin(data.additionalParticipants[0]);
                 //     expect(browser.driver.getCurrentUrl()).toContain('/Common/');

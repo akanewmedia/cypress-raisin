@@ -1,9 +1,9 @@
 import { PageSetup } from "../../../support/utils/pageSetup";
 import { DonationsPage } from "../../../support/pages/Donations/donations.po";
-import using from "jasmine-data-provider";
 import * as specificData from '../../../data/Donations/InHonourOneTimeDonation.json'
 
 //The information regarding the Library
+const using = require('jasmine-data-provider');
 let pageSetup: PageSetup = new PageSetup();
 const donationsPO = new DonationsPage();
 

@@ -6,11 +6,11 @@ import { FlowPage } from "../../../support/pages/flow";
 import { PaymentPage } from "../../../support/pages/Pledge/payment";
 import { StorePage } from "../../../support/pages/Pledge/store";
 import { ThankYouPage } from "../../../support/pages/Pledge/ThankYouPage";
-import using from "jasmine-data-provider";
 import * as specificData from '../../../data/Pledge/MultiPledgeStoreMultiplePurchasesOnly.json'
 
 
 //The information regarding the Library
+const using = require('jasmine-data-provider');
 let pageSetup: PageSetup = new PageSetup();
 
 const data = pageSetup.getData('Pledge', specificData);

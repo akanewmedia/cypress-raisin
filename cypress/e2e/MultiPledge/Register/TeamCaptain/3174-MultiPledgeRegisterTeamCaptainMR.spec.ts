@@ -12,7 +12,6 @@ import { ReviewPage } from "../../../../support/pages/Ticketing/ReviewPage";
 
 import { PageSetup } from "../../../../support/utils/pageSetup";
 import { generateUniqueName } from "../../../../support/utils/actions";
-import using from "jasmine-data-provider";
 import * as specificData from '../../../../data/Pledge/MultiPledgeRegisterTeamCaptainMR.json'
 
 

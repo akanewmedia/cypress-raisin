@@ -7,7 +7,6 @@ import { PaymentPage } from "../../../support/pages/Pledge/payment";
 import { RegisterPage } from "../../../support/pages/Pledge/register";
 import { ThankYouPage } from "../../../support/pages/Pledge/ThankYouPage";
 import { ReviewPage } from "../../../support/pages/Ticketing/ReviewPage";
-import using from "jasmine-data-provider";
 import * as specificData from '../../../data/Pledge/MultiPledgeDonationToParticipant.json'
 
 

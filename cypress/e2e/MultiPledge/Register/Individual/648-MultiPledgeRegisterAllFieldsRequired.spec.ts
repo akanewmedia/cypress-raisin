@@ -9,7 +9,6 @@ import { SurveyComponent } from "../../../../support/components/survey.co";
 import { ReturningParticipant } from "../../../../support/components/returningParticipant.co";
 import { ThankYouPage } from "../../../../support/pages/Pledge/ThankYouPage";
 import { generateUniqueName, getLocalDateTime, pressEsc, scrollToElement, setCustomAttribute, setFocus, waitForElementToBeVisible } from "../../../../support/utils/actions";
-import using from "jasmine-data-provider";
 import * as specificData from '../../../../data/Pledge/MultiPledgeRegisterAllFieldsRequired.json'
 
 //The information regarding the Library

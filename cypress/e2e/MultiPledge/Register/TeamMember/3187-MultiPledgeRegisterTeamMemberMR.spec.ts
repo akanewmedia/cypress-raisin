@@ -10,7 +10,6 @@ import { FlowPage } from "../../../../support/pages/flow";
 import { ReviewPage } from "../../../../support/pages/Ticketing/ReviewPage";
 import { ThankYouPage } from "../../../../support/pages/Pledge/ThankYouPage";
 import { AdditionalParticipantsPage } from "../../../../support/pages/Pledge/addParticipants";
-import using from "jasmine-data-provider";
 import * as specificData from '../../../../data/Pledge/MultiPledgeRegisterTeamMemberMR.json'
 
 

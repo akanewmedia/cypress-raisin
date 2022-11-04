@@ -1,12 +1,12 @@
 import { DonationsPage } from "../../../support/pages/Donations/donations.po";
 import { PageSetup } from "../../../support/utils/pageSetup";
 import { concat } from "lodash";
-import using from "jasmine-data-provider";
 import * as specificData from '../../../data/Donations/InHonourMonthlyDonation.json'
 
 
 
 //The information regarding the Library
+const using = require('jasmine-data-provider');
 let pageSetup: PageSetup = new PageSetup();
 const donationsPO = new DonationsPage();
 

@@ -6,12 +6,12 @@ import { VolunteerThankYouPage } from "../../../../support/pages/Pledge/Voluntee
 import { PledgeRxfNavBarComponent } from "../../../../support/components/pledgeRxfNavbar.co";
 import { RegisterComponent } from "../../../../support/components/register.co";
 import { SurveyComponent } from "../../../../support/components/survey.co";
-import using from "jasmine-data-provider";
 import * as specificData from '../../../../data/Pledge/MultiPledgeRegisterVolunteerAllFieldsRequired.json'
 
 
 
 //The information regarding the Library
+const using = require('jasmine-data-provider');
 let pageSetup: PageSetup = new PageSetup();
 
 const data = pageSetup.getData('Pledge', specificData);
