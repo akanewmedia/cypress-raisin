@@ -1086,6 +1086,11 @@ punycode@^2.1.1:
   resolved "https://registry.npmjs.org/punycode/-/punycode-2.1.1.tgz"
   integrity sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==
 
+python@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/python/-/python-0.0.4.tgz#3094e898ef17a33aa9c3e973b3848a38e47d1818"
+  integrity sha512-7avKA/6XxrwcGSDes8xGn7FHAUdAUQXKHtpjDulyv5/nm7TcPblmPRvXjjwx5knWHqeRiipqH/TZR2HhmJ4CGQ==
+
 qs@~6.5.2:
   version "6.5.3"
   resolved "https://registry.npmjs.org/qs/-/qs-6.5.3.tgz"

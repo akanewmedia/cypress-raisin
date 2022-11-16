@@ -64,7 +64,7 @@ export class CreateTeamComponent {
   fillOutPageNoPassword(data) {
     enterText(this.teamNameInput, `${data.team.name}${Date.now()}`);
     enterText(this.teamGoalInput, data.team.goal);
-    this.isOpenToEveryoneRadioBtn.click();
+    cy.get(this.isOpenToEveryoneRadioBtn).click();
     // the password area should not be displayed
     // expect(this.regPasswordInput.isPresent()).toBeFalsy();
   }

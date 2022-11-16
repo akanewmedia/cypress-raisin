@@ -52,7 +52,7 @@ export class ReviewPage {
     cy.get(this.review.profileInformation.name).should('have.text', data.fullName);
     cy.get(this.review.profileInformation.email).should('have.text', data.email);
     cy.get(this.review.profileInformation.country).should('have.text', data.country);
-    cy.get(this.review.profileInformation.address).should('have.text', data.address + ' ');
+    cy.get(this.review.profileInformation.address).should('have.text', data.address);
     cy.get(this.review.profileInformation.city).should('have.text', data.city);
     cy.get(this.review.profileInformation.province).should('have.text', data.province);
     cy.get(this.review.profileInformation.postCode).should('have.text', data.postCode);

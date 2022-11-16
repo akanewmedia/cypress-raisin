@@ -28,6 +28,7 @@
   "dependencies": {
     "fs.realpath": "^1.0.0",
     "jasmine-data-provider": "^2.2.0",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "python": "^0.0.4"
   }
 }

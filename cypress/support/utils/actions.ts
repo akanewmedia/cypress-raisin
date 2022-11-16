@@ -317,13 +317,17 @@ export function selectMatDropDownOption(
   // waitForElement(dropdownElementSelector);
   //scrollToElement(dropdownElementSelector);
   cy.get(dropdownElementSelector).click();
-  const ddlContainer = cy.get('.cdk-overlay-container');
   // waitForElement(ddlContainer);
   // browser.sleep(200);
-  ddlContainer
-    .get('.mat-select-panel mat-option').contains(selectedOption)
-    .first()
-    .click();
+  if (Array.isArray(selectedOption)) {
+    selectedOption.map(option => {
+      cy.get('.mat-select-panel mat-option').contains(option).click();
+    })   
+  }
+  else {
+    cy.get('.mat-select-panel mat-option').contains(selectedOption).first().click();
+  }
+  
 }
 
 /**

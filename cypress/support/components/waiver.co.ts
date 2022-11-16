@@ -1,14 +1,14 @@
 //The information regarding the libraries
-import { elementByClass, elementById, setCheckboxChecked } from "../utils/actions";
+import { buildSelector, setCheckboxChecked } from "../utils/actions";
 
 export class Waiver {
   container: any;
   waiverText: any;
   acceptCheckbox: any;
   constructor() {
-    this.container = elementById('rx-waiver');
-    this.waiverText = elementByClass(this.container, '.waiver-content-container');
-    this.acceptCheckbox = elementByClass(this.container, '#chkWaiver');
+    this.container = buildSelector('rx-waiver');
+    this.waiverText = buildSelector(this.container, '.waiver-content-container');
+    this.acceptCheckbox = buildSelector(this.container, '#chkWaiver');
   }
 
   selectWaiverAcceptance(accepted) {
