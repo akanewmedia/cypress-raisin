@@ -1,4 +1,15 @@
-module.exports = {
+const resolvePlugin = [
+  ["module-resolver", {
+    "alias": {
+      "@": "./src",
+      "@datasets": "./tests/e2e/datasets/helpers"
+    }
+  }]
+]
+
+const { defineConfig } = require('cypress')
+
+module.exports = defineConfig({
   projectId: 'cayihf',
   viewportWidth: 1920,
   viewportHeight: 1080,
@@ -11,5 +22,15 @@ module.exports = {
     },
     //baseUrl: 'https://org359.int.akaraisin.com/ui',
     specPattern: 'cypress/e2e/**/*.{js,jsx,ts,tsx}',
-  }
-}
+  },
+  presets: ['@babel/preset-env'],
+  plugins: ['@babel/transform-runtime', ...resolvePlugin],
+  reporter: 'mochawesome',
+    reporterOptions: {
+      charts: true,
+      overwrite: false,
+      html: true,
+      json: false,
+      reportDir: "cypress/results"
+    }
+})

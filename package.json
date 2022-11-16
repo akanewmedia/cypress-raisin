@@ -23,12 +23,16 @@
     "cypress": "10.6.0",
     "cypress-plugin-tab": "^1.0.5",
     "faker": "^5.5.3",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^4.2.1",
+    "mochawesome-report-generator": "^6.2.0",
     "typescript": "^4.7.4"
   },
   "dependencies": {
     "fs.realpath": "^1.0.0",
     "jasmine-data-provider": "^2.2.0",
-    "lodash": "^4.17.21",
     "python": "^0.0.4"
+    "lodash": "^4.17.21",
+    "mocha": "^8.2.1"
   }
 }
