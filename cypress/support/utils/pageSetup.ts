@@ -80,32 +80,32 @@ export class PageSetup {
 
     switch (this.currentEnvironment) {
 
-      case 'AKA_INT':
+      case 'INT':
         return environments.AKA_INT
 
-      case 'AKA_DEV':
+      case 'DEV':
         return environments.AKA_DEV
 
-      case 'AKA_QA':
+      case 'QA':
         return environments.AKA_QA
 
-      case 'AKA_QA2':
+      case 'QA2':
         return environments.AKA_QA2
 
-      case 'AKA_UAT':
+      case 'UAT':
         return environments.AKA_UAT
 
-      case 'AKA_REL':
+      case 'REL':
         return environments.AKA_REL
 
-      case 'AKA_PROD':
+      case 'PROD':
         return environments.AKA_PROD
     }
   }
 
   setEnvironment() {    
     if(Cypress.env('environment') == null){      
-      this.currentEnvironment = 'AKA_UAT'
+      this.currentEnvironment = 'UAT'
     }  
     else {       
       this.currentEnvironment = Cypress.env('environment')
@@ -118,14 +118,15 @@ export class PageSetup {
      * @param {string} url - the event url
      * @param {number} [timeout=3000] - the max time (in ms) the test will wait for the page to load
      */
-  // goToSite(url, timeout = 300000) {
-  //   browser.waitForAngularEnabled(false);
-  //   if (!browser.params.isMobile) {
-  //     browser.manage().window().maximize();
-  //   }
-  //   browser.get(`${browser.params.baseUrl}/${url}`);
-  //   waitForElement($(basePageClass), timeout);
-  // }
+  goToSite(url, timeout = 300000) {
+    cy.visit(`${this.getEnvironment().baseUrl}/ui/${url}`) 
+    // browser.waitForAngularEnabled(false);
+    // if (!browser.params.isMobile) {
+    //   browser.manage().window().maximize();
+    // }
+    // browser.get(`${browser.params.baseUrl}/${url}`);
+    // waitForElement($(basePageClass), timeout);
+  }
 
   /**
      * Makes the browser go to an 'url' address in 'timeout' milliseconds

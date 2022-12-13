@@ -1,5 +1,5 @@
 import { DonationQuickDonateWidget } from '../../components/donationQuickDonateWidget.co';
-import { elementByClass } from '../../utils/actions';
+import { buildSelector} from '../../utils/actions';
 
 /**
  * Representation of the Donations event Home page
@@ -9,7 +9,7 @@ export class DonationsHomePage {
   quickDonateWidget: DonationQuickDonateWidget;
 
   constructor() {
-    this.container = elementByClass('.base-page');
+    this.container = buildSelector('.base-page');
     this.quickDonateWidget = new DonationQuickDonateWidget();
   }
 

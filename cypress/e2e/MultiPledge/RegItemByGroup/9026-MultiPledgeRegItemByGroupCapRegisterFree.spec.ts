@@ -39,7 +39,6 @@ describe('TR(9026) Scenario -> Multi Pledge Registration Item By Group Cap Regis
                 pageSetup.waitForPageLoad();
                 //pageSetup.logoutIfLoggedIn()
                 generateUniqueName(data);
-                pageSetup.cleanupPage();
             });
             after(() => {
                 pageSetup.goToEvent(event);

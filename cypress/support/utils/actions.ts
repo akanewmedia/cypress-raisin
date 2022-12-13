@@ -96,8 +96,8 @@ export function enterText(protractorSelector, text) {
  * @param {ElementFinder} selector - the element to be cleared
  */
 export function clearInput(protractorSelector) {
-  protractorSelector.click();
-  protractorSelector.clear();
+  cy.get(protractorSelector).click();
+  cy.get(protractorSelector).clear();
 }
 
 /**
@@ -180,17 +180,14 @@ export function enterMatInput(protractorSelector, value) {
       return this.selectDropDownOption(protractorSelector, value);
     }
     if (classString.indexOf('mat-input-element') >= 0) {
-      return cy
-        .get(protractorSelector)
-        .invoke('attr', 'ng-reflect-mat-datepicker')
-        .then((datepickerString) => {
-          if (datepickerString) {
-            // If input type is datepicker
-            return protractorSelector.type(value); // TODO: create a method in actions to manually select a date from the material datepicker
-          } // If input type is text
-          // console.log('enterMatInput => enterText', value);
-          return cy.get(protractorSelector).type(value);
-        });
+      if(classString.indexOf('mat-datepicker-input') >= 0){
+        cy.get('mat-datepicker-toggle[class=mat-datepicker-toggle]').click()
+        cy.get('.mat-calendar-body-cell-content.mat-calendar-body-today').click()
+      }
+      else {
+        return cy.get(protractorSelector).clear().type(value);
+      }
+      
     }
     if (classString.indexOf('mat-checkbox-input') >= 0) {
       // If input type is checkbox
@@ -214,9 +211,9 @@ export function findDropDownOption(protractorSelector, selectedOption) {
     return;
   }
 
-  return protractorSelector.getAttribute('class').then((classString) => {
+  return cy.get(protractorSelector).invoke('attr', 'class').then((classString) => {
     if (classString.indexOf('mat-select') >= 0) {
-      return this.findMatDropDownOption(protractorSelector, selectedOption);
+      return findMatDropDownOption(protractorSelector, selectedOption);
     }
     if (classString.indexOf('matNativeControl') >= 0) {
       return this.findNativeDropDownOption(protractorSelector, selectedOption);
@@ -296,13 +293,16 @@ export function findMatDropDownOption(
 ) {
   // waitForElement(dropdownElementSelector);
   scrollToElement(dropdownElementSelector);
-  dropdownElementSelector.click();
+  cy.get(dropdownElementSelector).click();
   const ddlContainer = cy.get('.cdk-overlay-container');
   // waitForElement(ddlContainer);
   // browser.sleep(200);
-  cy
-    .get('.mat-select-panel mat-option').contains(selectedOption)
-    .first();
+  cy.get('.mat-select-panel mat-option').each(($ele) => {
+    expect($ele).to.not.have.text(selectedOption)
+  }).click()
+  // cy
+  //   .get('.mat-select-panel mat-option').contains(selectedOption)
+  //   .first();
 }
 
 /**
@@ -327,7 +327,7 @@ export function selectMatDropDownOption(
   else {
     cy.get('.mat-select-panel mat-option').contains(selectedOption).first().click();
   }
-  
+  cy.get('body').type('{esc}');
 }
 
 /**
@@ -376,9 +376,11 @@ export function selectDropdownRegularOption(
   scrollToElement(dropdownElementSelector);
   cy.get(dropdownElementSelector).click();
   const ddlContainer = cy.get('.cdk-overlay-container');
-  ddlContainer
-    .get('mat-option .mat-option-text').contains(option)
-    .click();
+  ddlContainer.within(()=> {
+    cy.get('mat-option .mat-option-text').contains(option)
+    .click({force: true});
+  })
+   
 }
 
 export function pressEsc() {
@@ -431,7 +433,7 @@ export function wait(timeout) {
  * @param protractorSelector
  */
 export function setFocus(protractorSelector) {
-  cy.get(protractorSelector).first().focus();
+  cy.get(protractorSelector).focus();
 }
 
 export function scrollToElement(protractorSelector) {

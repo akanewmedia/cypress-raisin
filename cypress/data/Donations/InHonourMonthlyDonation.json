@@ -27,7 +27,7 @@
   "annuallyInHonourSuggestedValue": "$25.00",
   "matrixButtonSelection": "$50.00",
   "donateButtonFrequencyLabel": "/month",
-  "frequencyButtonSelection": " Monthly ",
-  "typeTabSelection": "Tribute – In Honour ",
-  "defaultFrequencyAfterTypeTabSelection": " Monthly "
+  "frequencyButtonSelection": "Monthly",
+  "typeTabSelection": "Tribute – In Honour",
+  "defaultFrequencyAfterTypeTabSelection": "Monthly"
 }

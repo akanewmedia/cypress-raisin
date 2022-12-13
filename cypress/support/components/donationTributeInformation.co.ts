@@ -90,11 +90,11 @@ export class TributeInformation {
    */
   populateECardMinimumFields(tributeInfo) {
     this.loadECardMinimumFields();
-    this.populateMinimumFields(tributeInfo);
+    //this.populateMinimumFields(tributeInfo);
 
-    cy.get(this.recipientFirstName).type(tributeInfo.recipient.firstName);
-    cy.get(this.recipientLastName).type(tributeInfo.recipient.lastName);
-    cy.get(this.recipientEmail).type(tributeInfo.recipient.email);
+    cy.get(this.recipientFirstName).clear().type(tributeInfo.recipient.firstName);
+    cy.get(this.recipientLastName).clear().type(tributeInfo.recipient.lastName);
+    cy.get(this.recipientEmail).clear().type(tributeInfo.recipient.email);
     this.selectCardTemplate(tributeInfo.templateImage);
     //cy.get(this.message).type(tributeInfo.message);
   }
@@ -121,7 +121,7 @@ export class TributeInformation {
   }
 
   selectDeliveryDate() {
-    cy.get("mat-datepicker-toggle[class='mat-datepicker-toggle']").click().get('.mat-calendar-body-today').click()
+    cy.get(this.tributeContainer + " mat-datepicker-toggle[class='mat-datepicker-toggle']").click().get('.mat-calendar-body-today').click()
   }
 
   /**
@@ -132,7 +132,7 @@ export class TributeInformation {
    */
   populatePrintedCardMinimumFields(tributeInfo) {
     this.loadPrintedCardMinimumFields();
-    this.populateMinimumFields(tributeInfo);
+    //this.populateMinimumFields(tributeInfo);
 
     enterMatInput(this.recipientFirstName, tributeInfo.recipient.firstName);
     enterMatInput(this.recipientLastName, tributeInfo.recipient.lastName);

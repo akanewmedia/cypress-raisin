@@ -1,5 +1,5 @@
 {
 	"events": 0,
-	"transactionFailedMessage": "Payment declined.",
+	"transactionFailedMessage": "Payment declined. Error: 4020",
 	"donationAmount": "15.00"
 }

@@ -66,7 +66,7 @@ export class DonationStepper {
    * Presses the continue button
    */
   setFocusContinue() {
-    this.continueButton = elementByClass('.continue-button', this.container);
+    this.continueButton = (this.container+ ' .continue-button');
     // scrollToElement(this.continueButton);
     return setFocus(this.continueButton);
   }

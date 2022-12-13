@@ -93,7 +93,8 @@ export class PaymentPage {
    * @param amount
    */
   verifyRegFeeAmount(amount) {
-    expect(this.registrationFeeText.getText()).contains(amount);
+    cy.contains(this.registrationFeeText, amount)
+    //expect(this.registrationFeeText.getText()).contains(amount);
   }
 
   /**
@@ -104,7 +105,7 @@ export class PaymentPage {
     if (isEmpty(amount)) {
       cy.get(this.registrationFeeDiscountText).should('not.exist')
     } else {
-      expect(this.registrationFeeDiscountText.getText()).toBe(amount);
+      cy.get(this.registrationFeeDiscountText).should('have.text', amount)
     }
   }
 

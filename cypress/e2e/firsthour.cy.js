@@ -16,3 +16,7 @@ import './Donations/InMemory/7147-InMemoryMonthlyDonationWithECard.spec'
 
 import './Ticketing/2358-RegisterVolunteerAllFields.spec'
 import './Ticketing/22-BuyTicketsAndLoginToManageAttendee.spec'
+
+import './MultiPledge/RegItemByGroup/9025-MultiPledgeRegItemByGroupIndRegisterFree.spec'
+import './MultiPledge/RegItemByGroup/9026-MultiPledgeRegItemByGroupCapRegisterFree.spec'
+import './MultiPledge/RegItemByGroup/9027-MultiPledgeRegItemByGroupTeamRegisterFree.spec'

@@ -33,8 +33,9 @@ export class DonationMatrix {
     //return this.selectedAmount.getText();
   }
 
-  getSelectedMatrixValue() {
-    return elementByClass(this.container, '.donation-matrix-button.selected').text();
+  getSelectedMatrixValue(data) {
+    cy.get(this.container + ' .donation-matrix-button.selected').should('have.text' ,data)
+    //return elementByClass(this.container, '.donation-matrix-button.selected').text();
   }
 
   clickOtherAmount() {
@@ -88,8 +89,8 @@ export class DonationMatrix {
    * @param {*} data - the data that contains .donationAmount
    */
   enterOtherAmount(data) {
-    clickElement(this.otherAmount);
-    cy.get(this.otherAmount).type(data.donationAmount)
+    //clickElement(this.otherAmount);
+    cy.get(this.otherAmount).clear().type(data.donationAmount)
   }
 
   /**
@@ -98,6 +99,10 @@ export class DonationMatrix {
   clearCustomAmount() {
     setFocus(this.otherAmount);
     clearInput(this.otherAmount);
+  }
+
+  setOtherAmountManually(amount) {
+    cy.get(this.otherAmount).clear().type(amount)
   }
 }
 
@@ -138,7 +143,8 @@ export class DonationDetails {
    * @param value - the type that is expected to be selected
    */
   verifySelectedDonationType(value) {
-    cy.get(this.selectedDonationType).should('have.text', value)
+    cy.get(this.selectedDonationType).should($el => expect($el.text().trim()).to.equal(value));
+    //cy.get(this.selectedDonationType).should('have.text', value)
   }
 
   /*
@@ -156,7 +162,8 @@ export class DonationDetails {
    */
   verifySelectedDonationFrequency(value) {
     const button = cy.get(this.donationFrequencyGroup).contains('button',value);
-    button.should('have.text', value)
+    button.should($el => expect($el.text().trim()).to.equal(value));
+    //button.should('have.text', value)
   }
 
   /**
@@ -236,8 +243,8 @@ export class DonationDetails {
    */
   verifyStartDateMessageNextMonthDate(message, lang, startDay) {
     console.log(startDay);
-    expect(this.startDateFooter.getText()).contains(message);
-    expect(this.startDateFooter.getText()).contains(getNextMonthDate(lang, startDay));
+    cy.get(this.startDateFooter).should('contain', message)
+    cy.get(this.startDateFooter).should('contain', getNextMonthDate(lang, startDay))
   }
 
   /**
@@ -247,8 +254,8 @@ export class DonationDetails {
    * @param {number[]} startDays - the first payment day of the month
    */
   verifyStartDateMessageNextAvailableDate(message, lang, startDays) {
-    expect(this.startDateFooter.getText()).contains(message);
-    expect(this.startDateFooter.getText()).contains(`${getNextAvailableDate(lang, startDays)}`);
+    cy.get(this.startDateFooter).should('contain', message)
+    cy.get(this.startDateFooter).should('contain', `${getNextAvailableDate(lang, startDays)}`)
   }
 
   /**
@@ -257,8 +264,8 @@ export class DonationDetails {
    * @param {string} lang - the BCP 47 language code
    */
   verifyStartDateMessageNextDate(message, lang) {
-    expect(this.startDateFooter.getText()).contains(message);
-    expect(this.startDateFooter.getText()).contains(getNextDate(lang));
+    cy.get(this.startDateFooter).should('contain', message)
+    cy.get(this.startDateFooter).should('contain', getNextDate(lang))
   }
 }
 

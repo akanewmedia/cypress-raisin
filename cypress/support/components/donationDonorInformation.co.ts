@@ -115,7 +115,7 @@ export class DonationDonorInformation {
     enterMatInput(this.postalCode, data.postCode);
     setMatCheckboxChecked(this.optOut, data.optOut);
     setMatCheckboxChecked(this.optOutToShare, data.optOutToShare);
-    enterMatInput(this.attribute1, data.attribute1);
+    selectDropDownOption(this.attribute1, data.attribute1);
     enterMatInput(this.attribute2, data.attribute2);
     enterMatInput(this.attribute3, data.attribute3);
     enterMatInput(this.attribute4, data.attribute4);

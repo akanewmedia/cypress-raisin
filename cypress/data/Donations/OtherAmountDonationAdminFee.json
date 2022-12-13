@@ -1,7 +1,7 @@
 {
 	"events": 2,
 	"donationAmount": "1000",
-	"matrixButtonSelection": "$50.00",
+	"matrixButtonSelection": "50.00",
 	"fullNameWithMiddleName": "Bobby John Smith",
 	"title": "Mr.",
 	"firstName": "Bobby",
@@ -63,7 +63,7 @@
 	],
 	"requiredFieldsPaymentValidationMessages": [
 		"Credit Card Number is required",
-		"Card Holder Name is required",
+		"Cardholder's Name is required.",
 		"Expiration Month is required",
 		"Expiration Year is required",
 		"CVV is required"

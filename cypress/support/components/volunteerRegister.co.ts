@@ -1,4 +1,4 @@
-import { elementByClass, elementById, selectMatDropDownOption } from "../utils/actions";
+import { buildSelector, selectMatDropDownOption } from "../utils/actions";
 /**
  * Represents the volunteer registration component
  */
@@ -8,9 +8,9 @@ export class VolunteerRegister {
   subEventGroupSelector: any;
 
   constructor() {
-    this.container = elementById('#userDetails');
-    this.subEventGroupSelectionContainer = elementById(this.container, 'rx-subevent-group-selector');
-    this.subEventGroupSelector = elementByClass(this.subEventGroupSelectionContainer, '.mat-select');
+    this.container = buildSelector('#userDetails');
+    this.subEventGroupSelectionContainer = buildSelector(this.container, 'rx-subevent-group-selector');
+    this.subEventGroupSelector = buildSelector(this.subEventGroupSelectionContainer, '.mat-select');
   }
 
   selectSubEventGroup(subEventGroup) {

@@ -50,7 +50,7 @@ export class Review {
     this.cardHolderName = buildSelector(this.paymentInformation, '.review-cardHolderName');
     this.expiryDate = buildSelector(this.paymentInformation, '.review-cardExpirationDate');
     this.payPalText = buildSelector(this.paymentInformation, '.review-paypal');
-    this.editPaymentInformationButton = buildSelector('.btn-flow--reverse');
+    this.editPaymentInformationButton = buildSelector(this.paymentInformation, '.btn-flow--reverse');
     this.amountInformation = buildSelector(this.container, 'rx-amount-info');
     this.totalAmount = buildSelector(this.amountInformation, '.review-totalAmount');
     this.editAmountButton = buildSelector(this.amountInformation, 'div.edit-link a.btn-flow--reverse');

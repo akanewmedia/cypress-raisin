@@ -29,8 +29,9 @@ const doSetup = event => {
 // TODO: This file needs to be broken apart
 describe('Scenario -> Multi Pledge group navigation: ', () => {
     using(events, event => {
+        doSetup(event);
         describe('Navigating to an inactive group (Team Member page)', () => {
-            doSetup(event);
+            //doSetup(event);
             it('Should click on the location link, but stay on the same page (Team Member page)', () => {
                 const url = `/participant/${data.teamMemberInInactiveGroup.userId}`;
                 pageSetup.goToEvent(`${event}${url}`);
@@ -50,7 +51,7 @@ describe('Scenario -> Multi Pledge group navigation: ', () => {
         });
 
         describe('Navigating to an inactive group (Team Captain page)', () => {
-            doSetup(event);
+            //doSetup(event);
             it('Should click on the location link, but stay on the same page (Team Captain page)', () => {
                 const url = `/participant/${data.teamCaptainInInactiveGroup.userId}`;
                 pageSetup.goToEvent(`${event}${url}`);
@@ -70,7 +71,7 @@ describe('Scenario -> Multi Pledge group navigation: ', () => {
         });
 
         describe('Navigating directly to an inactive group', () => {
-            doSetup(event);
+            //doSetup(event);
             it('Should display page not found navigating to an inactive group', () => {
                 const url = `/g/${data.inactiveLocation.id}`;
                 pageSetup.goToEvent(`${event}${url}`);
@@ -79,7 +80,7 @@ describe('Scenario -> Multi Pledge group navigation: ', () => {
         });
 
         describe('Joining a team in an inactive group from team captains page', () => {
-            doSetup(event);
+            //doSetup(event);
             it('Should not be able to press the Join Team button because its group is inactive', () => {
                 const url = `/participant/${data.teamCaptainInInactiveGroup.userId}`;
                 pageSetup.goToEvent(`${event}${url}`);
@@ -91,7 +92,7 @@ describe('Scenario -> Multi Pledge group navigation: ', () => {
         });
 
         describe('Joining a team in an inactive group from team members page', () => {
-            doSetup(event);
+            //doSetup(event);
             it('Should not be able to press the Join Team button because its group is inactive', () => {
                 const url = `/participant/${data.teamMemberInInactiveGroup.userId}`;
                 pageSetup.goToEvent(`${event}${url}`);

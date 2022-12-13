@@ -42,6 +42,7 @@ describe('TR(7147) Donations > In Memory > Monthly > eCard > Card Preview > Chan
 
             it('should populate the second step "Tribute Details"', () => {
                 donationsPO.tributeInformation.selectCardType(data.tributeInfo.cardType);
+                donationsPO.tributeInformation.populateMinimumFields(data)
                 donationsPO.tributeInformation.populateECardMinimumFields(data.tributeInfo);
             });
 

@@ -32,16 +32,16 @@ export class DonationsPage {
   }
 
   waitForDonationsContainerToBeLoaded() {
-    return this.waitForDonationsElementToBeLoaded('.donations-container');
+    return waitForElementToBeVisible('.donations-container');
   }
 
   waitForDonationsHomeWidgetToBeLoaded() {
-    return this.waitForDonationsElementToBeLoaded('.quick-donate-widget-container');
+    return waitForElementToBeVisible('.quick-donate-widget-container');
   }
 
-  private waitForDonationsElementToBeLoaded(cssClass: string) {
-    return waitForElementToBeVisible(elementByClass(cssClass));
-  }
+  // private waitForDonationsElementToBeLoaded(cssClass: string) {
+  //   return waitForElementToBeVisible(elementByClass(cssClass));
+  // }
 
 
   /**
@@ -97,7 +97,7 @@ export class DonationsPage {
    * @param {string} value - the amount
    */
   selectDonationAmount(value) {
-    this.donationDetails.selectDonationAmount(value);
+    this.donationDetails.enterOtherAmount(value);
   }
 
   /**
@@ -211,8 +211,7 @@ export class DonationsPage {
     // });
   }
   verifyDonationAmountError() {
-    const validationMessage = this.container.$('.donation-amount-error');
-    // expect(validationMessage.isPresent).true;
+     cy.get(this.container+ ' .donation-amount-error').should('exist')    
   }
   /**
    * Verifies if all required field error messages are present using rx-errors
@@ -230,7 +229,7 @@ export class DonationsPage {
    * Verifies there are no required field error messages present
    */
   verifyNoValidationMessages() {
-    const validationMessages = this.container.$$('.raisin-errors .error-message');
+    const validationMessages = cy.get(this.container+ ' .raisin-errors .error-message');
     expect(validationMessages).eq([]);
   }
 
@@ -241,7 +240,7 @@ export class DonationsPage {
   verifyTransactionFailed(errorMessage) {
     // expect(this.paymentInformation.transactionFailed.isDisplayed()).true;
     if (errorMessage) {
-      expect(this.paymentInformation.transactionFailedMessage.getText()).contains(errorMessage);
+      cy.get(this.paymentInformation.transactionFailedMessage).should('have.text', errorMessage);
     }
   }
 

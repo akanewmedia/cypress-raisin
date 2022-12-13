@@ -84,12 +84,14 @@
     "verification": {
       "type": "Visa",
       "number": "xxxxxxxxxxxx1111",
-      "expiryDate": "12/2028"
+      "expiryDate": "12/2028",
+      "cvv": "123"
     },
     "number": "4111111111111111",
     "cardHolderName": "Akaka",
     "expiryMonth": "12",
-    "expiryYear": "2028"
+    "expiryYear": "2028",
+    "cvv": "123"
   },
   "honourRoleOption": "Name Only",
   "honourRoleOptionIndex": 1,

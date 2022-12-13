@@ -37,12 +37,14 @@
     "verification": {
       "type": "Visa",
       "number": "xxxxxxxxxxxx1111",
-      "expiryDate": "12/2028"
+      "expiryDate": "12/2028",
+      "cvv": "123"
     },
     "number": "4111111111111111",
     "cardHolderName": "Akaka",
     "expiryMonth": "12",
-    "expiryYear": "2028"
+    "expiryYear": "2028",
+    "cvv": "123"
   },
   "honourRoleOption": "Name Only",
   "allowAkaCommunication": true,
@@ -105,7 +107,7 @@
   ],
   "requiredFieldsPaymentValidationMessages": [
     "Credit Card Number is required",
-    "Card Holder Name is required",
+    "Cardholder's Name is required.",
     "Expiration Month is required",
     "Expiration Year is required",
     "CVV is required"

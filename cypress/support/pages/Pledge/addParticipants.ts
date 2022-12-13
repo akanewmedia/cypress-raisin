@@ -294,19 +294,19 @@ export class AdditionalParticipantsPage {
 
   verifyCustomFieldsHaveValues(customFieldsData) {
     if (customFieldsData.customField1) {
-      expect(this.additionalInformation.attribute1.getAttribute('value')).eq(customFieldsData.customField1);
+      cy.get(this.additionalInformation.attribute1).should('have.value', customFieldsData.customField1)
     }
     if (customFieldsData.customField2) {
-      expect(this.additionalInformation.attribute2.getAttribute('value')).eq(customFieldsData.customField2);
+      cy.get(this.additionalInformation.attribute2).should('have.value', customFieldsData.customField2)
     }
     if (customFieldsData.customField3) {
-      expect(this.additionalInformation.attribute3.getAttribute('value')).eq(customFieldsData.customField3);
+      cy.get(this.additionalInformation.attribute3).should('have.value', customFieldsData.customField3)
     }
     if (customFieldsData.customField4) {
-      expect(this.additionalInformation.attribute4.getAttribute('value')).eq(customFieldsData.customField4);
+      cy.get(this.additionalInformation.attribute4).should('have.value', customFieldsData.customField4)
     }
     if (customFieldsData.customField5) {
-      expect(this.additionalInformation.attribute5.getAttribute('value')).eq(customFieldsData.customField5);
+      cy.get(this.additionalInformation.attribute5).should('have.value', customFieldsData.customField5)
     }
   }
 }

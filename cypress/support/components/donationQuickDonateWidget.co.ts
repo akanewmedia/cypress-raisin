@@ -1,4 +1,4 @@
-import { clearInput, clickElement, elementByClass, enterText, setFocus } from "../utils/actions";
+import { buildSelector, clearInput, clickElement, enterText, setFocus } from "../utils/actions";
 
 /**
  * Represents the Quick Donate widget
@@ -13,14 +13,14 @@ export class DonationQuickDonateWidget {
   donateButton: any;
 
   constructor() {
-    this.container = elementByClass('.quick-donate-widget-container');
+    this.container = buildSelector('.quick-donate-widget-container');
 
-    this.frequency = elementByClass(this.container, '.donate-widget-type');
-    this.selectedFrequency = elementByClass(this.frequency, 'input[checked="checked"]');
-    this.frequencyOneTimeLabel = elementByClass(this.frequency, '.btn-primary[for="it_1"]');
-    this.frequencyMonthlyLabel = elementByClass(this.frequency, '.btn-primary[for="it_4"]');
-    this.amount = elementByClass(this.container, '.donate-widget-amount input');
-    this.donateButton = elementByClass(this.container, '.donate-widget-button');
+    this.frequency = buildSelector(this.container, '.donate-widget-type');
+    this.selectedFrequency = buildSelector(this.frequency, 'input[checked="checked"]');
+    this.frequencyOneTimeLabel = buildSelector(this.frequency, '.btn-primary[for="it_1"]');
+    this.frequencyMonthlyLabel = buildSelector(this.frequency, '.btn-primary[for="it_4"]');
+    this.amount = buildSelector(this.container, '.donate-widget-amount input');
+    this.donateButton = buildSelector(this.container, '.donate-widget-button');
   }
 
   /**
@@ -28,8 +28,8 @@ export class DonationQuickDonateWidget {
    * @param defaultValues - the values expected to be selected by default
    */
   verifyDefaultValues(defaultValues) {
-    expect(this.selectedFrequency.getAttribute('value')).eq(defaultValues.frequency);
-    expect(this.amount.getAttribute('value')).eq(defaultValues.amount);
+    cy.get(this.selectedFrequency).invoke('attr', 'value').should('eq',defaultValues.frequency);
+    cy.get(this.amount).invoke('attr', 'value').should('eq',defaultValues.amount);
   }
 
   /**
@@ -39,10 +39,10 @@ export class DonationQuickDonateWidget {
   populateFrequencyAndAmount(values) {
     switch (values.frequency) {
       case "1":
-        clickElement(this.frequencyOneTimeLabel);
+        cy.get(this.frequencyOneTimeLabel).click();
         break;
       case "4":
-        clickElement(this.frequencyMonthlyLabel);
+        cy.get(this.frequencyMonthlyLabel).click();
         break;
       default:
         break;

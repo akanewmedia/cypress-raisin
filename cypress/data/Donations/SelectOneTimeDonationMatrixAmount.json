@@ -9,5 +9,6 @@
       "$100.00"
     ]
   },
-  "matrixButtonSelection": "$75.00"
+  "matrixButtonSelection": "$75.00",
+  "donationAmount": "-1"
 }

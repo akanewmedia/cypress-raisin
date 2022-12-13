@@ -54,6 +54,7 @@ describe('TR(3174) Scenario -> Multi Pledge Team Captain Registration with Addit
             it('Should press the register button at the top, then select the location and reg item', () => {
                 navbarCO.register();
                 cy.get(registerCO.container).should('be.visible')
+                cy.wait(3000)
                 registerCO.selectSubEventGroup(data.location);
                 registerCO.register(2);
             });

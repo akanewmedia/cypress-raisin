@@ -1,5 +1,5 @@
 //The information regarding the libraries
-import { clickElement, elementByClass, elementById } from '../../utils/actions';
+import { buildSelector, clickElement } from '../../utils/actions';
 
 export class TransactionFailed {
   container: any;
@@ -8,18 +8,18 @@ export class TransactionFailed {
   transactionNumber: any;
   backToReview: any;
   constructor() {
-    this.container = elementById('#base-page-top');
-    this.messageContainer = elementById(this.container, 'rx-page-content.page-content-20000');
-    this.failedTitle = elementById(this.messageContainer, 'h1');
-    this.transactionNumber = elementById(this.messageContainer, 'b');
-    this.backToReview = elementByClass(this.container, '.btn-review-transaction');
+    this.container = buildSelector('#base-page-top');
+    this.messageContainer = buildSelector(this.container, 'rx-page-content.page-content-20000');
+    this.failedTitle = buildSelector(this.messageContainer, 'h1');
+    this.transactionNumber = buildSelector(this.messageContainer, 'b');
+    this.backToReview = buildSelector(this.container, '.btn-review-transaction');
   }
 
   verifyTransactionFailed() {
-    expect(this.failedTitle.getText()).contains('Unsuccessful');
+    cy.contains(this.failedTitle, 'Unsuccessful')
   }
   verifyTransactionNumber(data) {
-    expect(this.transactionNumber.getText()).contains(data.transactionNumberStartsWith);
+    cy.contains(this.transactionNumber, data.transactionNumberStartsWith)
   }
   goBackToReview() {
     clickElement(this.backToReview);

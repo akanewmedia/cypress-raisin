@@ -1,4 +1,4 @@
-import { elementByClass, elementById } from "../utils/actions";
+import { buildSelector } from "../utils/actions";
 
 /**
 * Repesents the top groups widget on the scoreboard page
@@ -6,7 +6,7 @@ import { elementByClass, elementById } from "../utils/actions";
 export class TopGroupsWidget {
   container: any;
   constructor(container) {
-    this.container = elementById(container, '#top-groups [widget-topgroups-list]');
+    this.container = buildSelector(container, '#top-groups [widget-topgroups-list]');
   }
 
   /**
@@ -15,7 +15,8 @@ export class TopGroupsWidget {
    * @returns {promise.Promise<boolean>} - Promise that resolves true if the provided group name is found in the widget
    */
   exists(groupName) {
-    return elementByClass(this.container, 'table').get('.location a').contains(groupName).isPresent();
+    return cy.get(this.container + ' table .location a').contains(groupName)
+    //return elementByClass(this.container, 'table').get('.location a').contains(groupName).isPresent();
   }
 }
 

@@ -71,7 +71,7 @@
 	],
 	"requiredFieldsPaymentValidationMessages": [
 		"Credit Card Number is required",
-		"Card Holder Name is required",
+		"Cardholder's Name is required.",
 		"Expiration Month is required",
 		"Expiration Year is required",
 		"CVV is required"
