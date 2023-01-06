@@ -98,7 +98,10 @@ export class PageSetup {
       case 'REL':
         return environments.AKA_REL
 
-      case 'RAISIN-PROD':
+      case 'RAISIN-PROD': // to be used by Octopus
+        return environments.AKA_PROD
+      
+      case 'PROD':
         return environments.AKA_PROD
     }
   }
