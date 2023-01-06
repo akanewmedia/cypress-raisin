@@ -98,7 +98,7 @@ export class PageSetup {
       case 'REL':
         return environments.AKA_REL
 
-      case 'PROD':
+      case 'RAISIN-PROD':
         return environments.AKA_PROD
     }
   }
