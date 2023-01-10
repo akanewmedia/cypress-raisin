@@ -39,6 +39,7 @@ describe('TR(3017) Scenario -> Multi Pledge registration, volunteer - purchase o
                 pageSetup.cleanupPage();
             });
             it('should add store item', () => {
+                cy.wait(5000)
                 storePO.buyItem(1);
                 storePO.buyItem(2);
                 storePO.buyItem(2);
