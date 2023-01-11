@@ -1,9 +1,9 @@
+import './MultiPledge/Store/3017-MultiPledgeStoreMultiplePurchasesOnly.spec'
 import './MultiPledge/Register/Individual/3165-MultiPledgeRegisterIndividualReturningParticipantMR.spec'
 import './MultiPledge/Register/Individual/648-MultiPledgeRegisterAllFieldsRequired.spec'
 import './MultiPledge/Register/TeamCaptain/3174-MultiPledgeRegisterTeamCaptainMR.spec'
 import './MultiPledge/Register/TeamMember/3187-MultiPledgeRegisterTeamMemberMR.spec'
 import './MultiPledge/Register/Volunteer/3012-MultiPledgeRegisterVolunteerAllFieldsRequired.spec'
-import './MultiPledge/Store/3017-MultiPledgeStoreMultiplePurchasesOnly.spec'
 
 import './MultiPledge/Sponsor/658-MultiPledgeDonationToGroup.spec'
 import './MultiPledge/Sponsor/656-MultiPledgeDonationToEvent.spec'
