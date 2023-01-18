@@ -57,7 +57,7 @@ describe('TR(22) Scenario -> Buy Tickets And Login To Manage Attendee : ', () =>
 				buyTicketsPO.clickOnPlusButtonForSingleItem();
 				buyTicketsPO.clickOnPlusButtonForGroupItem();
 				buyTicketsPO.clickOnAddToCartInBuyItemsPage();
-				cy.wait(2000)
+				cy.wait(5000)
 				buyTicketsPO.verifyAmountInCart(data.enteredTotalAmount);
 				buyTicketsPO.clickOnCheckOutButtonInPopUp();
 				cy.get(createAccountCO.username).should('be.visible')
