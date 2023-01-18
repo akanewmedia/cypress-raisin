@@ -27,7 +27,7 @@ export class BuyItemsPage {
     //return elementsByClass(this.items.get(index), 'h2').text();
   }
   clickOnAddToCartButton() {
-    this.addToCartButton.click();
+    cy.get(this.addToCartButton).click();
   }
   clickOnKeepShoppingButton() {
     this.shoppingCart.clickOnKeepShoppingButton();
@@ -62,7 +62,10 @@ export class BuyItemsPage {
   }
   verifyItemsText(expectedText, itemTypeQuantity) {
     for (let i = 0; i < itemTypeQuantity; i++) {
-      expect(this.getItemText(i)).eq(expectedText[i]);
+      cy.get(this.items).eq(i).within(()=> {
+        cy.get('h2').should('have.text', expectedText[i])
+      })      
+      //expect(this.getItemText(i)).equal(expectedText[i]);
     }
   }
   verifyEmptyCartText(expectedText) {

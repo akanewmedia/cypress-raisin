@@ -21,7 +21,7 @@ export class ShoppingCart {
     this.emptyCartText = buildSelector(this.container, '#empty-cart');
     this.cartButtons = buildSelector(this.container, '.shopping-cart-footer');
     this.verifyAmount = buildSelector(this.container, '.price-row .cart-label-right');
-    this.keepShoppingButton = buildSelector(this.cartButtons, '.btn-keep-shopping span:nth-child(2)');
+    this.keepShoppingButton = buildSelector(this.cartButtons, '.btn-keep-shopping');
     this.checkOutButtonInPopUp = buildSelector(this.cartButtons, '.btn-confirm-checkout-cart span:first-child');
     this.itemsContainer = buildSelector(this.container, '#shoppingCart');
     this.cartItems = buildSelector(this.itemsContainer, '.shoppingCart');

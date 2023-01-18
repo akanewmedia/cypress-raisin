@@ -21,7 +21,7 @@ export class Profile {
   acceptWaiverOnBehalf: any;
   constructor(private container: any) {
 
-    this.sameAsPurchaserCheckbox = buildSelector(this.container, '#chkUseConstituentAddress');
+    this.sameAsPurchaserCheckbox = buildSelector('#chkUseConstituentAddress');
     this.organisationButton = buildSelector(this.container, '#contact-type .mat-checkbox');
     this.title = buildSelector(this.container, '#title');
     this.firstName = buildSelector(this.container, '#firstName');

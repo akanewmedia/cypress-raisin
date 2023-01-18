@@ -89,13 +89,13 @@ export class ReviewProfile {
   taxReceipt: any;
   constructor(container) {
     this.container = container;
-    this.name = buildSelector(this.container, '.review-participantName');
-    this.email = buildSelector(this.container, '.review-email');
-    this.country = buildSelector(this.container, '.review-country');
-    this.address = buildSelector(this.container, '.review-address');
-    this.city = buildSelector(this.container, '.review-city');
-    this.province = buildSelector(this.container, '.review-province');
-    this.postCode = buildSelector(this.container, '.review-postalCode');
+    this.name = buildSelector('.review-participantName');
+    this.email = buildSelector('.review-email');
+    this.country = buildSelector('.review-country');
+    this.address = buildSelector('.review-address');
+    this.city = buildSelector('.review-city');
+    this.province = buildSelector('.review-province');
+    this.postCode = buildSelector('.review-postalCode');
     this.phone = buildSelector(this.container, '.review-phone');
     this.fundraisingGoal = buildSelector(this.container, '.review-fundraisingGoal');
     this.username = buildSelector(this.container, '.review-username');

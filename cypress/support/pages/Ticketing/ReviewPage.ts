@@ -49,13 +49,13 @@ export class ReviewPage {
     //expect(this.review.ticketsTableRows.last().getText()).contains(amount, message);
   }
   verifyProfileInformation(data) {
-    cy.get(this.review.profileInformation.name).should('have.text', data.fullName);
-    cy.get(this.review.profileInformation.email).should('have.text', data.email);
-    cy.get(this.review.profileInformation.country).should('have.text', data.country);
-    cy.get(this.review.profileInformation.address).should('have.text', data.address);
-    cy.get(this.review.profileInformation.city).should('have.text', data.city);
-    cy.get(this.review.profileInformation.province).should('have.text', data.province);
-    cy.get(this.review.profileInformation.postCode).should('have.text', data.postCode);
+    cy.get(this.review.profileInformation.name).first().should('have.text', data.fullName);
+    cy.get(this.review.profileInformation.email).first().should('have.text', data.email);
+    cy.get(this.review.profileInformation.country).first().should('have.text', data.country);
+    cy.get(this.review.profileInformation.address).first().should('have.text', data.address);
+    cy.get(this.review.profileInformation.city).first().should('have.text', data.city);
+    cy.get(this.review.profileInformation.province).first().should('have.text', data.province);
+    cy.get(this.review.profileInformation.postCode).first().should('have.text', data.postCode);
 
     // expect(this.review.profileInformation.name.getText()).eq(data.fullName);
     // expect(this.review.profileInformation.email.getText()).eq(data.email);
@@ -127,13 +127,16 @@ export class ReviewPage {
   }
 
   verifyBillingInformation(billingContact) {
-    expect(this.review.billingInformation.name.getText()).eq(billingContact.fullName);
-    expect(this.review.billingInformation.email.getText()).eq(billingContact.email);
-    expect(this.review.billingInformation.country.getText()).eq(billingContact.country);
-    expect(this.review.billingInformation.address.getText()).eq(billingContact.address);
-    expect(this.review.billingInformation.city.getText()).eq(billingContact.city);
-    expect(this.review.billingInformation.province.getText()).eq(billingContact.province);
-    expect(this.review.billingInformation.postCode.getText()).eq(billingContact.postCode);
+    cy.contains('#reviewParticipantInfo-title', 'Billing Contact Information').parent().within(()=> {
+      cy.get(this.review.billingInformation.name).should('have.text', billingContact.fullName)
+      cy.get(this.review.billingInformation.email).should('have.text', billingContact.email)
+      cy.get(this.review.billingInformation.country).should('have.text', billingContact.country)
+      cy.get(this.review.billingInformation.address).should('have.text', billingContact.address)
+      cy.get(this.review.billingInformation.city).should('have.text', billingContact.city)
+      cy.get(this.review.billingInformation.province).should('have.text', billingContact.province)
+      cy.get(this.review.billingInformation.postCode).should('have.text', billingContact.postCode)    
+    })
+    
   }
 
   verifyTeamInfo(team) {
