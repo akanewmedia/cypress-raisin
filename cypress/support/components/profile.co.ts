@@ -43,6 +43,11 @@ export class Profile {
     setCheckboxChecked(this.sameAsPurchaserCheckbox, sameAsPurchaser);
   }
 
+  unselectSameAsPurchaser() {
+    cy.get(this.sameAsPurchaserCheckbox).uncheck()
+  }
+
+
   selectTitle(title) {
     selectMatDropDownOption(this.title, title);
   }

@@ -22,7 +22,7 @@ export class PaymentPage {
     this.paypalButton = buildSelector(this.container, '#paypal + label.payment-title');
     this.visaCheckoutButton = buildSelector(this.container, '#visa-checkout + label.payment-title');
     this.invoiceButton = buildSelector('#invoice + label.payment-title');
-    this.invoice = buildSelector(this.container, 'rx-invoice');
+    this.invoice = buildSelector('rx-invoice');
     this.cardInformation = new CardInformation();
     this.profileInformation = new Profile(this.invoice);
     this.addressInformation = new Address(this.invoice);
@@ -43,6 +43,11 @@ export class PaymentPage {
   selectSameAsPurchaser(checked) {
     this.profileInformation.selectSameAsPurchaser(checked);
   }
+
+  unselectSameAsPurchaser() {
+    this.profileInformation.unselectSameAsPurchaser();
+  }
+
 
   verifyTheBillingInfoFieldsDisplayed() {
     cy.get(this.profileInformation.firstName).should('be.visible')
