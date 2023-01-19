@@ -27,13 +27,14 @@ describe('TR(551) Scenario -> Register Volunteer (required fields only): ', func
 			before(function () {
 				pageSetup = new PageSetup();
 				pageSetup.goToEvent(event);
+				pageSetup.waitForPageLoad()
 				//pageSetup.logoutIfLoggedIn();
 				//pageSetup.clearCart();
 			});
 
 			after(() => {
 				pageSetup.goToEvent(event);
-				pageSetup.logoutIfLoggedIn();
+				//pageSetup.logoutIfLoggedIn();
 				pageSetup.cleanupPage()
 			});
 

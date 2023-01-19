@@ -21,7 +21,10 @@ export class ReviewPage {
     this.shoppingCart.getCartItemXButton("Registration Fee, Group")
   }
   editBillingInformation() {
-    clickElement(this.review.editBillingInformationButton, true);
+    cy.contains('#reviewParticipantInfo-title', 'Billing Contact Information').parent().within(()=>{
+      cy.get(this.review.editBillingInformationButton).click()
+    })
+    //clickElement(this.review.editBillingInformationButton, true);
   }
   editPaymentInfo() {
     clickElement(this.review.editPaymentInformationButton, true);

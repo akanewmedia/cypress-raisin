@@ -57,7 +57,7 @@ export class Review {
     this.teamName = buildSelector(this.teamInformation, '.review-teamName');
     this.ticketingInformation = new ReviewProfile(buildSelector(this.container, 'rx-ticketing-info'));
     this.billingInformation = new ReviewProfile(buildSelector(this.container, 'rx-participant-info[ng-reflect-is-billing="true"]'));
-    this.editBillingInformationButton = buildSelector(this.billingInformation.container, '.edit-link .btn-flow--reverse');
+    this.editBillingInformationButton = buildSelector('.edit-link a');
     this.registrationInformation = buildSelector(this.container, 'rx-registration-info');
     this.additionalParticipants = buildSelector(this.registrationInformation, 'div[ng-repeat="ap in .additionalParticipants"]');
     this.additionalParticipantsContainer = buildSelector(this.container, '.additional-participants-review-container');
