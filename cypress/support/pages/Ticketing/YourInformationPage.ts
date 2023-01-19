@@ -181,8 +181,11 @@ export class YourInformationPage {
    
   }
 
-  verifyRequiredFieldErrors(requiredFieldsValidationMessages) {
-    expect(this.requiredValidationErrors.getText()).eq(requiredFieldsValidationMessages);
+  verifyRequiredFieldErrors(requiredFieldsValidationMessages) {    
+    const getTexts = ($errors) => {
+      return Cypress._.map($errors, 'innerText')
+    }
+    cy.get(this.container + ' .mat-form-field-subscript-wrapper .error-message').should('exist').then(getTexts).should('deep.equal', requiredFieldsValidationMessages)
   }
 
 }

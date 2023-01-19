@@ -143,7 +143,7 @@ export class ReviewPage {
     expect(this.review.teamName.getText()).eq(team.teamName);
   }
   verifyReviewPage() {
-    expect(this.review.profileInformation.name.isDisplayed()).true;
+    cy.get(this.review.profileInformation.name).should('be.visible')
   }
   verifyTicketingAmount(index, amount) {       
     //expect(this.review.getTicketingItem(index).getText()).contains(amount);
