@@ -13,15 +13,13 @@ export class AttendeesPage {
   }
 
   verifyManageAttendeesDisplayed() {
-    expect(this.attendees.container.isDisplayed()).true;
+    cy.get(this.attendees.container).should('be.visible')
   }
   verifySkipThisStepButtonDisplayed() {
-    expect(this.attendees.skipStepButton.isDisplayed()).true;
+    cy.get(this.attendees.skipStepButton).should('be.visible')
   }
   verifyNumberOfAttendees(numberOfAttendees) {
-    this.attendees.attendeeAccordians.count().then(count => {
-      expect(count).eq(numberOfAttendees);
-    });
+    cy.get(this.attendees.attendeeAccordians).should('have.length', numberOfAttendees)
   }
   skipStepClick() {
     this.attendees.skipStepClick();
@@ -33,7 +31,7 @@ export class AttendeesPage {
     this.attendees.clickUpdate();
   }
   verifySuccessMessage(successMessage) {
-    expect(this.attendees.updateSuccessMessage.getText()).eq(successMessage);
+    cy.get(this.attendees.updateSuccessMessage).should('have.text', successMessage)
   }
   editInformation() {
     this.review.editProfileInformationButton.click();

@@ -48,6 +48,25 @@ export class BuyItemsPage {
       cy.get(this.plusButton).click()
     })
   }
+
+  clickOnPlusButtonForSponsorshipSingleItem() {
+    cy.contains('h2', 'Sponsorship Item').parent().within(()=> {
+      cy.get(this.plusButton).click()
+    })
+    //this.plusButton.first.click();
+  }
+  clickOnPlusButtonForSponsorshipGroupItem() {
+    cy.contains('h2', 'Sponsorship Item, Group').parent().within(()=> {
+      cy.get(this.plusButton).click()
+    })
+  }
+  clickOnPlusButtonForSponsorshipNonTicketedItem() {
+    cy.contains('h2', 'Non-Ticketed Item').parent().within(()=> {
+      cy.get(this.plusButton).click()
+    })
+  }
+
+  
   clickOnAddToCartInBuyItemsPage() {
     cy.get(this.addToCartButton).click();
   }

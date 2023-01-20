@@ -34,22 +34,43 @@ export class PayPal {
    * @param data
    */
   loginAndPay(data) {
-    this.container = elementById("#login");
-    this.btnNext = elementById(this.container, '#btnNext');
-    this.btnNext.isPresent().then((btnNextIsPresent) => {
-      if (btnNextIsPresent) {
-        return this.enterEmailAndClickNextButton(data);
-      } else {
-        this.btnLogin = elementById(this.container, '#btnLogin');
-        return this.btnLogin.isPresent().then((btnLoginIsPresent) => {
-          if (btnLoginIsPresent) {
-            return this.enterPasswordAndClickLogin(data);
-          } else {
-            console.log('Unexpected use case. Neither #btnNext nor #btnLogin were found');
-          }
-        });
-      }
-    });
+
+    const sentArgs = { username: "PayPalTest@akanewmedia.com", password: "paypaltest" }        
+    cy.origin(
+      'www.sandbox.paypal.com',
+      // Send the args here...
+      { args: sentArgs },
+      // ...and receive them at the other end here!
+      ({ username, password }) => {  
+      cy.get('#login').type(username)
+      cy.get('#btnNext').click()
+      cy.get('#password').type(password)  
+    })
+
+
+    // this.container = ("#login");
+    // this.btnNext = (this.container, '#btnNext');
+    // this.enterEmailAndClickNextButton(data)
+    // cy.wait(2000)
+    // this.enterPasswordAndClickLogin(data)
+
+
+   
+
+    // this.btnNext.isPresent().then((btnNextIsPresent) => {
+    //   if (btnNextIsPresent) {
+    //     return this.enterEmailAndClickNextButton(data);
+    //   } else {
+    //     this.btnLogin = elementById(this.container, '#btnLogin');
+    //     return this.btnLogin.isPresent().then((btnLoginIsPresent) => {
+    //       if (btnLoginIsPresent) {
+    //         return this.enterPasswordAndClickLogin(data);
+    //       } else {
+    //         console.log('Unexpected use case. Neither #btnNext nor #btnLogin were found');
+    //       }
+    //     });
+    //   }
+    // });
   }
 
   /**
@@ -57,12 +78,12 @@ export class PayPal {
    * @param data
    */
   enterEmailAndClickNextButton(data) {
-    this.email = elementById(this.container, '#email');
-    this.btnNext = elementById(this.container, '#btnNext');
-    enterText(this.email, data.paypal.email);
-    return clickElement(this.btnNext, true).then(() => {
-      return this.enterPasswordAndClickLogin(data);
-    });
+    this.email = (this.container, '#email');
+    this.btnNext = (this.container, '#btnNext');
+    this.btnLoginBottom = (this.container, '#btnLogin');
+
+    enterText(this.email, data.paypal.email);    
+    clickElement(this.btnNext)
   }
 
   /**
@@ -70,7 +91,7 @@ export class PayPal {
    * @param data
    */
   enterPasswordAndClickLogin(data) {
-    this.password = elementById(this.container, '#password');
+    this.password = (this.container, '#password');
     enterText(this.password, data.paypal.password);
     return this.pressLoginBtnBottom();
   }
@@ -80,15 +101,18 @@ export class PayPal {
    */
   pressLoginBtnBottom() {
     this.btnLoginBottom = elementById(this.container, '#btnLogin');
-    return this.btnLoginBottom.isPresent().then((btnLoginBottomIsPresent) => {
-      if (btnLoginBottomIsPresent) {
-        return clickElement(this.btnLoginBottom, true).then(() => {
-          return this.chooseCreditCardOption();
-        });
-      } else {
-        console.log('Unexpected use case. #btnLogin was not found');
-      }
-    });
+    cy.get(this.btnLoginBottom).click()
+
+
+    // return this.btnLoginBottom.isPresent().then((btnLoginBottomIsPresent) => {
+    //   if (btnLoginBottomIsPresent) {
+    //     return clickElement(this.btnLoginBottom, true).then(() => {
+    //       return this.chooseCreditCardOption();
+    //     });
+    //   } else {
+    //     console.log('Unexpected use case. #btnLogin was not found');
+    //   }
+    // });
   }
 
   /**

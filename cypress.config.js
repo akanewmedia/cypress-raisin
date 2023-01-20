@@ -14,6 +14,7 @@ module.exports = defineConfig({
   viewportWidth: 1920,
   viewportHeight: 1080,
   defaultCommandTimeout: 60000,
+  chromeWebSecurity: false,  
   modifyObstructiveCode: false,
   e2e: {
     // We've imported your old cypress plugins here.
@@ -23,6 +24,7 @@ module.exports = defineConfig({
     },
     //baseUrl: 'https://org359.int.akaraisin.com/ui',
     specPattern: 'cypress/e2e/**/*.{js,jsx,ts,tsx}',
+    testIsolation: false,
   },
   presets: ['@babel/preset-env'],
   plugins: ['@babel/transform-runtime', ...resolvePlugin],

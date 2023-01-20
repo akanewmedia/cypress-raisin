@@ -92,23 +92,24 @@ export class TicketingNavBar {
   }
 
   enterUsername(username) {
-    expect(this.username.isDisplayed()).true;
+    cy.get(this.username).should('exist')
     enterText(this.username, username);
   }
 
   enterPassword(password) {
-    expect(this.password.isDisplayed()).true;
+    cy.get(this.password).should('be.visible')
     enterText(this.password, password);
   }
 
   enterUsernameAndPassword(username, password) {
+    this.openLoginButtonDropdown()
     this.enterUsername(username);
     this.enterPassword(password);
   }
 
   clickOnLogin() {
-    expect(this.loginButtonFromDialog.isDisplayed()).true;
-    this.loginButtonFromDialog.click();
+    cy.get(this.loginButtonFromDialog).should('be.visible')
+    cy.get(this.loginButtonFromDialog).click();
   }
 
   clickOnVolunteerMenuItem() {

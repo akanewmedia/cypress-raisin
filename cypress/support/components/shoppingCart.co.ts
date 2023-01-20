@@ -60,7 +60,7 @@ export class ShoppingCart {
   }
   setAndApplyPromoCode(code) {
     enterText(this.promoCodeInputText, code);
-    this.promoCodeApplyButton.click();
+    cy.get(this.promoCodeApplyButton).click();
   }
   clickOnPlusButtonForSingleItem() {
     this.getCartItemPlusButton(0).click();

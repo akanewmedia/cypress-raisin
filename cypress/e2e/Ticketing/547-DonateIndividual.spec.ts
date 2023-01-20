@@ -34,11 +34,9 @@ describe('TR(547) Scenario -> Ticketing Donate : ', () => {
     describe(`${event}`, () => {
       //Could maybe be put in first test but probably slightly more correct in a setup function like this
       before(() => {
-        pageSetup = new PageSetup();
         pageSetup.goToEvent(event);
         pageSetup.waitForPageLoad()
-        //pageSetup.logoutIfLoggedIn();
-        //pageSetup.clearCart();
+        pageSetup.cleanupPage();
       });
 
       after(() => {

@@ -18,9 +18,9 @@ export class PaymentPage {
 
   constructor() {
     this.container = buildSelector('form.system-content');
-    this.creditCardButton = buildSelector(this.container, '#credit-card-payment + label.payment-title');
-    this.paypalButton = buildSelector(this.container, '#paypal + label.payment-title');
-    this.visaCheckoutButton = buildSelector(this.container, '#visa-checkout + label.payment-title');
+    this.creditCardButton = buildSelector('#credit-card-payment + label.payment-title');
+    this.paypalButton = buildSelector('#paypal + label.payment-title');
+    this.visaCheckoutButton = buildSelector('#visa-checkout + label.payment-title');
     this.invoiceButton = buildSelector('#invoice + label.payment-title');
     this.invoice = buildSelector('rx-invoice');
     this.cardInformation = new CardInformation();
@@ -29,7 +29,7 @@ export class PaymentPage {
   }
 
   clickPayPalButton() {
-    this.paypalButton.click();
+    cy.get(this.paypalButton).click();
   }
 
   clickInvoiceButton() {

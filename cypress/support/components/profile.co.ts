@@ -1,5 +1,5 @@
 
-import { buildSelector, clickElement, elementByClass, elementById, enterText, selectMatDropDownOption, setCheckboxChecked, waitForElementToBeVisible } from "../utils/actions";
+import { buildSelector, enterText, selectMatDropDownOption, setCheckboxChecked } from "../utils/actions";
 
 export class Profile {
   sameAsPurchaserCheckbox: any;
