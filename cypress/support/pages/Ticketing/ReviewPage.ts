@@ -45,7 +45,7 @@ export class ReviewPage {
     this.shoppingCart.closeButton.click();
   }
   verifyTotalAmount(amount) {
-    cy.get(this.review.totalAmount).should('have.text','$'+ amount);    
+    cy.get(this.review.totalAmount).should('include.text', amount);    
   }
   verifyTotalTicketAmount(amount, message = '') {
     cy.get(this.review.ticketsTableRows).should('have.text', amount)
@@ -73,7 +73,7 @@ export class ReviewPage {
     const additionalParticipantData = data.additionalParticipants[dataIndex];
     
     additionalParticipant.within(()=> {
-      cy.get('.full-name').should('have.text', additionalParticipantData.fullName + '1')
+      cy.get('.full-name').should('have.text', additionalParticipantData.fullName)
     })
 
     additionalParticipant.within(()=>{

@@ -85,7 +85,8 @@ export class PaymentPage {
   }
 
   verifyTotalAmount(amount) {
-    expect(new Store(this.store).total.getText()).contains(amount);
+    cy.get(new Store(this.store).total).should('include.text', amount)
+    //expect(new Store(this.store).total.getText()).contains(amount);
   }
 
   /**

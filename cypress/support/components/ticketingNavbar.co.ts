@@ -102,7 +102,6 @@ export class TicketingNavBar {
   }
 
   enterUsernameAndPassword(username, password) {
-    this.openLoginButtonDropdown()
     this.enterUsername(username);
     this.enterPassword(password);
   }

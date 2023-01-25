@@ -104,7 +104,7 @@ export class AdditionalParticipantsPage {
    */
   fillInProfileInformationNoWaiver(data) {
     this.profileInformationCO.enterFirstName(data.firstName);
-    this.profileInformationCO.enterLastName(data.lastName + '1');
+    this.profileInformationCO.enterLastName(data.lastName);
     this.profileInformationCO.enterEmail(data.email);
     this.profileInformationCO.selectRegistrationType(data.registrationType);
   }
@@ -274,18 +274,18 @@ export class AdditionalParticipantsPage {
   }
 
   verifyParticipantAlreadyRegisteredError(participantAlreadyRegisteredMessage) {
-    expect(this.participantAlreadyRegisteredError.getText()).contains(participantAlreadyRegisteredMessage);
+    cy.get(this.participantAlreadyRegisteredError).should('have.text', participantAlreadyRegisteredMessage)
   }
 
   verifyMaxTeamMembersReachedError(maxTeamMembersReachedMessage) {
     this.assignErrorContainer()
-    expect(this.maxTeamMembersReachedError.getText()).contains(maxTeamMembersReachedMessage);
+    cy.get(this.maxTeamMembersReachedError).should('have.text', maxTeamMembersReachedMessage)
   }
 
   verifyMaxEventParticipantsReachedError(maxEventParticipantsReachedMessage) {
     this.assignErrorContainer();
-    expect(this.maxEventParticipantsReachedError.isPresent()).true;
-    expect(this.maxEventParticipantsReachedError.getText()).contains(maxEventParticipantsReachedMessage);
+    cy.get(this.maxEventParticipantsReachedError).should('exist')
+    cy.get(this.maxEventParticipantsReachedError).should('have.text', maxEventParticipantsReachedMessage)
   }
 
   clickRemoveLastAdditionalParticipant() {
