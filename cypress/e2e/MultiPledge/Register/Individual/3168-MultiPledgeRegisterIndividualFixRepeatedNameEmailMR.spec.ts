@@ -35,7 +35,6 @@ describe('TR(3169) Scenario -> Multi Pledge Individual Registration with Additio
                 pageSetup.goToEvent(event);                
                 pageSetup.waitForPageLoad();
                 generateUniqueName(data);
-                pageSetup.cleanupPage()
             });
             after(() => {
                 pageSetup.goToEvent(event);
