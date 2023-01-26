@@ -235,8 +235,9 @@ export class AdditionalParticipantsPage {
    * toggle tab of the first participant
    */
   openAdditionParticipant(index = 0) {
-    const accordion = elementsByClass('.mat-expansion-panel').get(index);
-    scrollToElement(accordion);
+    const accordion = cy.get('.mat-expansion-panel').eq(index)
+    //const accordion = elementsByClass('.mat-expansion-panel').get(index);
+    //scrollToElement(accordion);
     accordion.click();
   }
 
@@ -244,21 +245,31 @@ export class AdditionalParticipantsPage {
   * remove second added participants
   */
   removeParticipant(index = 0) {
-    const removeBtn = elementsByClass('.mat-expansion-panel').get(index).get('.btn-remove');
-    scrollToElement(removeBtn);
-    removeBtn.click();
+    cy.get('.mat-expansion-panel').eq(index).within(()=>{
+      cy.get('.btn-remove').click()
+    })
+    //scrollToElement(removeBtn);    
   }
 
   /**
   * Cancel deletion in modal dialogue
   */
-  confirmDelete() {
+  confirmDelete(index) {
+    // cy.on("window:confirm", () => {      
+    //   return true 
+    // });
+    this.removeParticipant(index)
     elementById('#btn-confirm').click();
   }
   /**
   * Confirm deletion in modal dialogue
   */
-  cancelDelete() {
+  cancelDelete(index) {
+    // cy.on("window:confirm", (str) => {  
+    //   expect(str).to.eq('Are you sure you want to delete the selected participant?')    
+    //   return false;
+    // });
+    this.removeParticipant(index)
     elementById('#btn-cancel').click();
   }
 

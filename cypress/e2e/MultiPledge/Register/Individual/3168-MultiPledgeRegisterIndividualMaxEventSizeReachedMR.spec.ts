@@ -1,15 +1,14 @@
 import { PageSetup } from "../../../../support/utils/pageSetup";
 import { RegisterComponent } from "../../../../support/components/register.co";
-import { ReviewPage } from "../../../../support/pages/Ticketing/ReviewPage";
 import { FlowPage } from "../../../../support/pages/flow";
 import { PledgeNavBarComponent } from "../../../../support/components/pledgeNavbar.co";
 import { RegisterPage } from "../../../../support/pages/Pledge/register";
 import { ReturningParticipant } from "../../../../support/components/returningParticipant.co";
-import { ThankYouPage } from "../../../../support/pages/Pledge/ThankYouPage";
 import { generateUniqueName, setFocus} from "../../../../support/utils/actions";
 import { AdditionalParticipantsPage } from "../../../../support/pages/Pledge/addParticipants";
+import { Waiver } from "../../../../support/components/waiver.co";
 import using from "jasmine-data-provider";
-import * as specificData from '../../../../data/Pledge/MultiPledgeRegisterIndividualFixRepeatedNameEmailMR.json'
+import * as specificData from '../../../../data/Pledge/MultiPledgeRegisterIndividualMaxEventSizeReachedMR.json'
 
 //The information regarding the Library
 const using = require('jasmine-data-provider');
@@ -18,23 +17,21 @@ let pageSetup: PageSetup = new PageSetup();
 const data = pageSetup.getData('Pledge', specificData);
 const events = pageSetup.getEvents(pageSetup.getEnvironment().multipledge, data.events);
 const registerPO = new RegisterPage();
-const reviewPO = new ReviewPage();
-const thankYouPO = new ThankYouPage();
+const waiverCO = new Waiver()
 const flowPO = new FlowPage();
 
 const navbarCO = new PledgeNavBarComponent();
 const registerCO = new RegisterComponent();
 const returningParticipantCO = new ReturningParticipant();
 const addParticipantsPO = new AdditionalParticipantsPage();
-
-/* use event (MR) */
-describe('TR(3169) Scenario -> Multi Pledge Individual Registration with Additional Participant (fixing name/email already registered): ', () => {
+/* use event (MR - event size limit) */
+describe('TR(3168) Scenario -> Multi Pledge Individual Registration with Additional Participant when event size limit reached: ', () => {
     using(events, event => {
         describe(`${event}`, () => {
             before(() => {
-                pageSetup.goToEvent(event);                
-                pageSetup.waitForPageLoad();
+                pageSetup.goToEvent(event);
                 generateUniqueName(data);
+                generateUniqueName(data.additionalParticipants[0]);
             });
             after(() => {
                 pageSetup.goToEvent(event);
@@ -49,37 +46,27 @@ describe('TR(3169) Scenario -> Multi Pledge Individual Registration with Additio
             it('Should press the create new account button', () => {
                 returningParticipantCO.createAccount();
             });
+            it('should accept the waiver and advance', () => {
+                waiverCO.selectWaiverAcceptance(true);
+                flowPO.continue();
+            });
             it('should enter the participant details', () => {
                 cy.wait(2000)
-                flowPO.continue();
                 registerPO.fillInAccountInformation(data);
-                registerPO.fillInProfileAndAddressInformation(data);
-                //surveyCO.fill(data);
+                registerPO.fillInProfileAddressAndAdditionalInformation(data);
+                   
             });
-            it('should enter the additional participant details', () => {
+            it('should enter the additional participant details, and see the max event size reached message', () => {
                 flowPO.continue();
-                addParticipantsPO.clickAddParticipantButton();
-                addParticipantsPO.fillInProfileInformationNoWaiver(data.additionalParticipants[0]);
-                addParticipantsPO.clickAddParticipantButton();
-             
-                addParticipantsPO.verifyParticipantAlreadyRegisteredError(data.participantAlreadyRegisteredMessage);
-                generateUniqueName(data.additionalParticipants[0]);
-                addParticipantsPO.fillInProfileInformationNoWaiver(data.additionalParticipants[0]);
+                // Reaching max will hide the fields and add buttons so there is only verifying the error message on this step            
+                addParticipantsPO.verifyMaxEventParticipantsReachedError(data.maxEventParticipantsReachedMessage);
             });
             it('should go past the payment screen (free reg)', () => {
                 flowPO.continue();
             });
-            it('Should verify the profile, payment and additional participants info on the review page', () => {
-                flowPO.continue();
-                reviewPO.verifyProfileInformation(data);
-                reviewPO.verifyNoPaymentInformation(data.zero);
-                reviewPO.verifyAdditionalParticipantsInformation(data);
-            });
-            it('should submit and then verify the Transaction code', () => {
-                flowPO.continue();
-                thankYouPO.verifyTransactionNumber(data);
-                thankYouPO.verifySuccessfulTransaction(data);
-            });
+            // In this test case, we don't submit the transaction not to include participants in this event.
+            // By not completing the transaction, this event size limit will never be reached, and this test
+            // can be reused without the need of editing the event on Admin
         });
     });
 });
