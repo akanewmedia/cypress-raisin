@@ -29,6 +29,8 @@ describe('TR(3017) Scenario -> Multi Pledge registration, volunteer - purchase o
     using(events, event => {
         describe(`${event}`, () => {
             before(() => {
+                pageSetup.goToEvent(event);
+                cy.wait(5000)
                 pageSetup.goToEvent(`${event}/${data.URL}`);
                 pageSetup.waitForPageLoad()
                 //pageSetup.logoutIfLoggedIn();
