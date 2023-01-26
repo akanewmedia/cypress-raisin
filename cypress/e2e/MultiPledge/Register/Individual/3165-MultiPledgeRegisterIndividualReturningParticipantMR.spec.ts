@@ -6,7 +6,7 @@ import { PledgeNavBarComponent } from "../../../../support/components/pledgeNavb
 import { RegisterPage } from "../../../../support/pages/Pledge/register";
 import { ReturningParticipant } from "../../../../support/components/returningParticipant.co";
 import { ThankYouPage } from "../../../../support/pages/Pledge/ThankYouPage";
-import { generateUniqueName, generateUniqueUsername } from "../../../../support/utils/actions";
+import { generateUniqueAdditionalParticipant, generateUniqueName, generateUniqueUsername } from "../../../../support/utils/actions";
 import { AdditionalParticipantsPage } from "../../../../support/pages/Pledge/addParticipants";
 import { V3LoginPage } from "../../../../support/pages/Pledge/V3LoginPage";
 import { inV3 } from "../../../../support/utils/customTesting";
@@ -37,8 +37,8 @@ describe('TR(3165) Scenario -> Multi Pledge Individual Registration with Additio
     /**
      * Registers a participant in the first event just to be registered as a returning participant in the second event
      */
-     let iniqueName = generateUniqueName(data.additionalParticipants[0]);
-     let uniqueUserName = generateUniqueUsername(data.additionalParticipants[0]);
+      let iniqueName = generateUniqueName(data.participant[0]);
+      let uniqueUserName = generateUniqueUsername(data.participant[0]);
     context('Registers a participant in the first event just to be registered as a returning participant in the second event', () => {
         using([events[0]], event => {
             describe(`${event}`, () => {
@@ -65,8 +65,8 @@ describe('TR(3165) Scenario -> Multi Pledge Individual Registration with Additio
                 it('should enter the participant details', () => {
                     cy.wait(2000)
                     flowPO.continue();
-                    registerPO.fillInExactAccountInformation(data.additionalParticipants[0]);
-                    registerPO.fillInProfileAndAddressInformation(data.additionalParticipants[0]);
+                    registerPO.fillInExactAccountInformation(data.participant[0]);
+                    registerPO.fillInProfileAndAddressInformation(data.participant[0]);
                     registerPO.fillInReferredUser(data);
                 });
                 it('should auto skip the additional participant', () => {
@@ -77,7 +77,7 @@ describe('TR(3165) Scenario -> Multi Pledge Individual Registration with Additio
                 });
                 it('Should verify the profile, payment and additional participants info on the review page', () => {
                     flowPO.continue();
-                    reviewPO.verifyProfileInformation(data.additionalParticipants[0]);
+                    reviewPO.verifyProfileInformation(data.participant[0]);
                     reviewPO.verifyNoPaymentInformation(data.zero);
                 });
                 it('should submit and then verify the Transaction code', () => {
@@ -122,6 +122,7 @@ describe('TR(3165) Scenario -> Multi Pledge Individual Registration with Additio
                 it('should enter the additional participant details', () => {
                     flowPO.continue();
                     addParticipantsPO.clickAddParticipantButton();
+                    generateUniqueAdditionalParticipant(data.additionalParticipants[0])
                     addParticipantsPO.fillInProfileInformationNoWaiver(data.additionalParticipants[0]);
                 });
                 it('should go past the payment screen (free reg)', () => {
@@ -129,7 +130,7 @@ describe('TR(3165) Scenario -> Multi Pledge Individual Registration with Additio
                 });
                 it('Should verify the profile, payment and additional participants info on the review page', () => {
                     flowPO.continue();
-                    reviewPO.verifyProfileInformation(data.additionalParticipants[0]);
+                    reviewPO.verifyProfileInformation(data.participant[0]);
                     reviewPO.verifyNoPaymentInformation(data.zero);
                     reviewPO.verifyAdditionalParticipantsInformation(data);
                 });

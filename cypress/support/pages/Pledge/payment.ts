@@ -59,6 +59,7 @@ export class PaymentPage {
   clearDonation() {
     //scrollToElement(this.donationAmount);
     cy.get(this.donationAmount).clear()
+    
     // enterText(this.donationAmount, ' ');
     // clickElement(this.donationContainer);
   }

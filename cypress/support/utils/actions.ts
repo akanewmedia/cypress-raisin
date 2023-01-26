@@ -473,6 +473,16 @@ export function generateUniqueName(data) {
   }
 }
 
+export function generateUniqueAdditionalParticipant(data) {
+  const val = Date.now();
+  if (data.lastName) {
+    data.lastName += val;
+  }
+  if (data.fullName) {
+    data.fullName += val;
+  }
+}
+
 /**
  * Tacks on the date in milliseconds to the account.username field
  * to allow the creation of different accounts
