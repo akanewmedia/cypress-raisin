@@ -59,7 +59,7 @@ describe('TR(538) Scenario -> Guest Purchase With Invoice And Different Billing 
 				cy.wait(4000)
 				buyTicketsPO.verifyAmountInCart(data.enteredTotalAmount);
 			});
-			//Tests should always end with a verification. Any setup for other tests should be done at the start of those tests or in a beforeEach/beforeAll
+			//Tests should always end with a verification. Any setup for other tests should be done at the start of those tests or in a beforeEach/before
 
 			it('Proceed as Guest and review info', () => {
 				buyTicketsPO.clickOnCheckOutButtonInPopUp();

@@ -44,7 +44,7 @@ export class CreateTeamComponent {
     // expect(this.regPasswordInput.isPresent()).toBeFalsy();
 
     if (data.team.password) {
-      this.isPasswordProtectedRadioBtn.click();
+      cy.get(this.isPasswordProtectedRadioBtn).click();
       // expect(this.regPasswordInput.isPresent()).true;
       enterText(this.regPasswordInput, data.team.password);
       enterText(this.repPasswordInput, data.team.password);

@@ -15,7 +15,7 @@ export class EnitytDetails {
     this.container = buildSelector('.base-page');
     this.participantTop = buildSelector(this.container, '.rs-preview__header');
     this.teamPageButton = buildSelector(this.participantTop, 'a[rx-team-link][isjointeam="false"]');
-    this.joinTeamButton = buildSelector(this.participantTop, '.info-buttons a.join');
+    this.joinTeamButton = buildSelector(this.participantTop, '.btn-join');
     this.sideDonateNowButton = buildSelector(this.participantTop, 'a.btn-donate');
     this.honourRoll = buildSelector(this.container, '.honour-roll');
     this.thermometerContainer = buildSelector(this.container, '.thermometer-container');

@@ -87,7 +87,7 @@ export class RegisterPage {
   }
 
   fillInProfileAndAddressInformation(data) {
-    cy.wait(2500)
+    cy.wait(1500)
     this.fillInProfileInformation(data);
     this.fillInAddressInformation(data);
   }

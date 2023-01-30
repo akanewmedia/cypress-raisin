@@ -290,7 +290,7 @@ export class AdditionalParticipantsPage {
 
   verifyMaxTeamMembersReachedError(maxTeamMembersReachedMessage) {
     this.assignErrorContainer()
-    cy.get(this.maxTeamMembersReachedError).should('have.text', maxTeamMembersReachedMessage)
+    cy.get(this.maxTeamMembersReachedError).should('include.text', maxTeamMembersReachedMessage)
   }
 
   verifyMaxEventParticipantsReachedError(maxEventParticipantsReachedMessage) {

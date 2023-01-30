@@ -52,7 +52,7 @@ describe('TR(547) Scenario -> Ticketing Donate : ', () => {
         donateNowPO.clickAddAndCheckout(); //clicks the Add and Checkout button
         yourInformationPO.verifyFieldPresence(); //checks next page loaded
       });
-      //Tests should always end with a verification. Any setup for other tests should be done at the start of those tests or in a beforeEach/beforeAll
+      //Tests should always end with a verification. Any setup for other tests should be done at the start of those tests or in a beforeEach/before
 
       it('Enter the participant details', () => {
         yourInformationPO.fillInMandatoryFields(data); //fills the mandatory fields (Personal and Address Information)

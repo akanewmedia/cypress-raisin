@@ -1,5 +1,5 @@
 {
-    "events": [3], 
+    "events": [2], 
     "surveyResponses": [
         {"question": "Question 1 - Choice One Option", "answer": "Yes"},
         {"question": "Question 2 - Short answer", "answer": "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla malesuada dictum purus quis luctus. Morbi aliquet tellus ut orci pretium, at vehicula felis malesuada."},
@@ -80,5 +80,5 @@
     "maxTeamMembersReachedMessage": "The maximum number of allowed participants for this team has been reached.",
     "total": "$150.00",
     "transactionNumberStartsWith": "N/A",
-    "location": "active group"
+    "location": "City1a"
 }

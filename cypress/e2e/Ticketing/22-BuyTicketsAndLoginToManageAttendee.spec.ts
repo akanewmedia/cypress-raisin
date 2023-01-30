@@ -63,7 +63,7 @@ describe('TR(22) Scenario -> Buy Tickets And Login To Manage Attendee : ', () =>
 				cy.get(createAccountCO.password).should('be.visible')
 				cy.get(createAccountCO.createAccountButton).should('be.visible')
 			});
-			//Tests should always end with a verification. Any setup for other tests should be done at the start of those tests or in a beforeEach/beforeAll
+			//Tests should always end with a verification. Any setup for other tests should be done at the start of those tests or in a beforeEach/before
 
 			it('Create a New Account', () => {
 				createAccountCO.enterUsernameAndPassword(data.username + getLocalDateTime(), data.password);

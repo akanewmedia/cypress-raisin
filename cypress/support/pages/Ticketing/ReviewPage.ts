@@ -143,7 +143,7 @@ export class ReviewPage {
   }
 
   verifyTeamInfo(team) {
-    expect(this.review.teamName.getText()).eq(team.teamName);
+    cy.get(this.review.teamName).should('have.text', team.teamName)
   }
   verifyReviewPage() {
     cy.get(this.review.profileInformation.name).should('be.visible')
