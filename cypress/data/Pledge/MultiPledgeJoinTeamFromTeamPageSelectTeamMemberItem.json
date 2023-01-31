@@ -1,10 +1,14 @@
 {
-    "URL": "team/189872",
+    "URL": "team/170309",
     "totalAmount": 100,
     "account": {
         "username": "TMReg",
         "fundraisingGoal": "2000",
         "password": "Akaaka1!"
     },
-    "transactionNumberStartsWith": "N/A" 
+    "transactionNumberStartsWith": "N/A" ,
+    "team": {
+        "teamName": "English Team One",
+        "subEventGroupName": "City1a"
+    }
 }

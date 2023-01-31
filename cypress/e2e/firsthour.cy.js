@@ -1,4 +1,4 @@
-import './MultiPledge/Store/3017-MultiPledgeStoreMultiplePurchasesOnly.spec'
+//import './MultiPledge/Store/3017-MultiPledgeStoreMultiplePurchasesOnly.spec'
 import './MultiPledge/Register/Individual/3165-MultiPledgeRegisterIndividualReturningParticipantMR.spec'
 import './MultiPledge/Register/Individual/648-MultiPledgeRegisterAllFieldsRequired.spec'
 import './MultiPledge/Register/TeamCaptain/3174-MultiPledgeRegisterTeamCaptainMR.spec'

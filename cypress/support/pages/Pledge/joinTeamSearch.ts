@@ -15,6 +15,10 @@ export class JoinTeamPage {
     this.searchComponent.searchAndSelect(searchValue, index);
   }
 
+  searchFullTeam(searchValue = '') {
+    this.searchComponent.search(searchValue);
+  }
+
   searchAndNavigateFirstOption(searchValue) {
     this.searchComponent.searchAndNavigateFirstOption(searchValue);
   }

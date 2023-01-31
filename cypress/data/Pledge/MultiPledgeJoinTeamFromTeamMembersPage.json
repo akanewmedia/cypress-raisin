@@ -1,13 +1,13 @@
 {
     "totalAmount": "20.00",
-    "donationName": "Dave Captain",
+    "donationName": "FirstCaptain Caplname",
     "account": {
         "username": "bruce",
         "fundraisingGoal": "20",
         "password": "Akaaka1!"
     },
     "team": {
-        "teamName": "Auto Test Team",
+        "teamName": "English Team One",
         "subEventGroupName": "City1a"
     }
 }
