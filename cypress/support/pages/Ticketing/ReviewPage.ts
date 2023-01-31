@@ -47,6 +47,11 @@ export class ReviewPage {
   verifyTotalAmount(amount) {
     cy.get(this.review.totalAmount).should('include.text', amount);    
   }
+
+  verifyDonationAmount(amount){
+    cy.get(this.review.donationAmount).should('include.text', amount); 
+  }
+
   verifyTotalTicketAmount(amount, message = '') {
     cy.get(this.review.ticketsTableRows).should('have.text', amount)
     //expect(this.review.ticketsTableRows.last().getText()).contains(amount, message);

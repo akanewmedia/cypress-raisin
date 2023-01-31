@@ -62,6 +62,7 @@ describe('TR(2998) Scenario -> Multi Pledge donation to participant - submit bla
                 cy.get(registerPO.container).should('exist');
                 registerPO.fillInProfileAddressAndAdditionalInformation(data);
                 surveyCO.fill(data.surveyResponses);
+                cy.wait(1000)
                 cy.get('body').trigger('keydown', { keyCode: 27});
                 cy.wait(500);
                 cy.get('body').trigger('keyup', { keyCode: 27});  
@@ -81,7 +82,7 @@ describe('TR(2998) Scenario -> Multi Pledge donation to participant - submit bla
                 reviewPO.verifyPaymentInformation(data.card);
             });
             it('Should verify the donation amount', () => {
-                reviewPO.verifyTotalAmount(data.totalAmount);
+                reviewPO.verifyDonationAmount(data.totalAmount);
             });
             it('should verify the Transaction code', () => {
                 flowPO.continue();

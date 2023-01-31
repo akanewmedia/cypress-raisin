@@ -74,7 +74,7 @@ describe('TR(24) Scenario -> Multi Pledge donation to participant from page link
           reviewPO.verifyPaymentInformation(data.card);
       });
       it('Should verify the donation amount', () => {
-          reviewPO.verifyTotalAmount(data.totalAmount);
+          reviewPO.verifyDonationAmount(data.totalAmount);
       });
       it('should verify the Transaction code', () => {
           flowPO.continue();

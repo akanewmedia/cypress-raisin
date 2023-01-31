@@ -28,6 +28,7 @@ export class Review {
   editPaymentInformationButton: any;
   amountInformation: any;
   totalAmount: any;
+  donationAmount: any;
   editAmountButton: any;
   teamName: any;
   billingInformation: ReviewProfile;
@@ -53,6 +54,7 @@ export class Review {
     this.editPaymentInformationButton = buildSelector(this.paymentInformation, '.btn-flow--reverse');
     this.amountInformation = buildSelector(this.container, 'rx-amount-info');
     this.totalAmount = buildSelector(this.amountInformation, '.review-totalAmount');
+    this.donationAmount = buildSelector('.amount-info > .panel > .panel-collapse > .panel-body > :nth-child(2) > :nth-child(2) > div')
     this.editAmountButton = buildSelector(this.amountInformation, 'div.edit-link a.btn-flow--reverse');
     this.teamName = buildSelector(this.teamInformation, '.review-teamName');
     this.ticketingInformation = new ReviewProfile(buildSelector(this.container, 'rx-ticketing-info'));
