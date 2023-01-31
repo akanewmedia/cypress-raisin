@@ -55,6 +55,7 @@ describe('TR(656) Scenario -> Multi Pledge donation to event : ', () => {
 
     it('should verify and enter the credit card information', () => {
       flowPO.continue();
+      cy.wait(2000)
       paymentPO.verifyPaymentFieldsPresent();
       paymentPO.verifyCreditCardIsDisplayed();
       paymentPO.enterCardDetails(data.card);
