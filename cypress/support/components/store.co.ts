@@ -41,7 +41,7 @@ export class Store {
   }
 
   removeItem(index) {
-    cy.get(this.items).eq(index).find('.btnMinus').click() 
+    cy.get(this.items).eq(index).find('.btnMinus').click()
   }
 
   enterPromoCode(code) {

@@ -108,7 +108,7 @@ export class PageSetup {
 
   setEnvironment() {    
     if(Cypress.env('environment') == null){      
-      this.currentEnvironment = 'QA2'
+      this.currentEnvironment = 'UAT'
     }  
     else {       
       this.currentEnvironment = Cypress.env('environment')

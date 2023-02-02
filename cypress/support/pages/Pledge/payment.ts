@@ -82,8 +82,7 @@ export class PaymentPage {
    * @param storeItemIndex
    */
   removeStoreItem(storeItemIndex) {
-    new Store(this.store).removeItem(storeItemIndex);
-    clickElement(this.donationContainer);
+    new Store(this.store).removeItem(storeItemIndex);    
   }
 
   /**
