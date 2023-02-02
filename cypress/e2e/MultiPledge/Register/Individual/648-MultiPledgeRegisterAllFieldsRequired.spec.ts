@@ -186,15 +186,15 @@ describe('TR(648) Scenario -> Multi Pledge free registration - all fields requir
             it('should Add store item then remove it', () => {
                 cy.wait(2000)                
                 paymentPO.buyItem(0);
-                flowPO.continue();
+                cy.wait(1000)
+                //flowPO.continue();
                 // remove store item
                 paymentPO.removeStoreItem(0);
                 // add a different store item
                 paymentPO.buyItem(1);
+                cy.wait(1000)
                 // remove store item
-                paymentPO.removeStoreItem(1);  
-                // pressTab()   
-                // cy.wait(1500)       
+                paymentPO.removeStoreItem(1);                        
             });
             // it('should add credit card info', () => {                
             //     paymentPO.verifyPaymentFieldsPresent();
