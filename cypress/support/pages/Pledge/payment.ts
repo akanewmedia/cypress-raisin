@@ -1,6 +1,6 @@
 import { CardInformation } from '../../components/cardInformation.co'
 import { Store } from '../../components/store.co';
-import { enterText, clickElement, elementByClass, elementById, buildSelector } from '../../utils/actions'
+import { enterText, clickElement, elementByClass, elementById, buildSelector, pressTab } from '../../utils/actions'
 import { isEmpty } from 'lodash';
 
 export class PaymentPage {
@@ -22,6 +22,7 @@ export class PaymentPage {
   total: any;
   storePromoCodeLabel: any;
   cardInformationCO: CardInformation;
+  coverAdminFee: any;
 
   constructor() {
     this.container = buildSelector('.flow-step');
@@ -38,6 +39,7 @@ export class PaymentPage {
     this.registrationFeePromoCodeContainer = buildSelector(this.registrationFeeContainer, '.registration-promo-code');
     this.registrationFeePromoCode = buildSelector(this.registrationFeePromoCodeContainer, '.promoCodeToApply');
     this.registrationFeePromoCodeApplyButton = buildSelector(this.registrationFeePromoCodeContainer, '.btn-promoCodeApply');
+    this.coverAdminFee = buildSelector(this.container, '#coverAdminFeeForIndividualAndTeam')
     this.store = buildSelector(this.container, 'section.store');
     this.storePromoCode = buildSelector(this.store, '#promoCode');
     this.storePromoCodeApplyButton = buildSelector(this.store, '.btn-flow[key="m_btn_PromoCodeApply"]');
@@ -50,7 +52,8 @@ export class PaymentPage {
   donate(amount) {
     //scrollToElement(this.donationAmount);
     enterText(this.donationAmount, amount);
-    clickElement(this.donationContainer);
+    pressTab()
+    //clickElement(this.donationContainer);
   }
 
   /**
@@ -59,6 +62,7 @@ export class PaymentPage {
   clearDonation() {
     //scrollToElement(this.donationAmount);
     cy.get(this.donationAmount).clear()
+    pressTab()
     
     // enterText(this.donationAmount, ' ');
     // clickElement(this.donationContainer);
@@ -69,12 +73,17 @@ export class PaymentPage {
     new Store(this.store).addItem(index);
   }
 
+  checkCoverAdminFee() {
+    cy.get(this.coverAdminFee).check()
+  }
+
   /**
    * Removes a store item from the payment
    * @param storeItemIndex
    */
   removeStoreItem(storeItemIndex) {
     new Store(this.store).removeItem(storeItemIndex);
+    clickElement(this.donationContainer);
   }
 
   /**
