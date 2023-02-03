@@ -74,7 +74,8 @@ export class PaymentPage {
   }
 
   checkCoverAdminFee() {
-    cy.get(this.coverAdminFee).check()
+    cy.get(this.coverAdminFee).click()
+    cy.wait(1000)
   }
 
   /**

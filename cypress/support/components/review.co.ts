@@ -27,6 +27,7 @@ export class Review {
   payPalText: any;
   editPaymentInformationButton: any;
   amountInformation: any;
+  adminFee: any;
   totalAmount: any;
   donationAmount: any;
   editAmountButton: any;
@@ -53,6 +54,7 @@ export class Review {
     this.payPalText = buildSelector(this.paymentInformation, '.review-paypal');
     this.editPaymentInformationButton = buildSelector(this.paymentInformation, '.btn-flow--reverse');
     this.amountInformation = buildSelector(this.container, 'rx-amount-info');
+    this.adminFee = buildSelector(this.amountInformation, '#amountinfo-adminfee')
     this.totalAmount = buildSelector(this.amountInformation, '.review-totalAmount');
     this.donationAmount = buildSelector('.amount-info > .panel > .panel-collapse > .panel-body > :nth-child(2) > :nth-child(2) > div')
     this.editAmountButton = buildSelector(this.amountInformation, 'div.edit-link a.btn-flow--reverse');

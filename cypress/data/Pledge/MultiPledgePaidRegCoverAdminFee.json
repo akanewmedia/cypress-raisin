@@ -1,0 +1,30 @@
+{
+    "donationAmount": "10",
+    "total": "$71.40",
+    "totalStore": "$25.00",
+    "adminFee": "$1.40",
+    "verifyInfoSection": [
+        "First Name Last Name",
+        "Test Organization",
+        "Canada",
+        "Address Line",
+        "Test City",
+        "Ontario",
+        "L7J 0A5"
+    ],
+    "verifyRegistrationInfoSection": [
+        "Registration Fee, Individual: $35.00"
+    ],
+    "amountSection": [
+        "$35.00",
+        "$50.00",
+        "-$50.00",
+        "$10.00"
+    ],
+    "paymentSection": [
+        "Visa",
+        "xxxxxxxxxxxx4242",
+        "AkaAka",
+        "04/2021"
+    ]
+}

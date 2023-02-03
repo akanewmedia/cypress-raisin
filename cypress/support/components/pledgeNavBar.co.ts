@@ -13,11 +13,11 @@ export class PledgeNavBarComponent {
   constructor() {
     this.container = buildSelector('.navbar-default');
     this.pcNavbarButton = buildSelector('.nav li[data-pgid="3"]');
-    this.navbarActions = buildSelector(this.container, '.login-actions');
-    this.registerButton = buildSelector(this.navbarActions, 'li[data-pgid="2"]');
-    this.donateButton = buildSelector(this.navbarActions, 'li[data-pgid="3"]');
-    this.loginButton = buildSelector(this.navbarActions, 'li a[href*="login.aspx"]');
-    this.logoutButton = buildSelector(this.navbarActions, 'li a[href*="logout.aspx"]');
+    //this.container = buildSelector(this.container, '.login-actions');
+    this.registerButton = buildSelector(this.container, 'li[data-pgid="2"]');
+    this.donateButton = buildSelector(this.container, 'li[data-pgid="3"]');
+    this.loginButton = buildSelector(this.container, 'li a[href*="login.aspx"]');
+    this.logoutButton = buildSelector(this.container, 'li a[href*="logout.aspx"]');
     this.menu = buildSelector(this.container, '#nav');
   }
 

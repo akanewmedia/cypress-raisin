@@ -15,7 +15,7 @@ import { RegisterPage } from "../../../../support/pages/Pledge/register";
 import { PaymentPage } from "../../../../support/pages/Pledge/payment";
 import { ReviewPage } from "../../../../support/pages/Ticketing/ReviewPage";
 import { ThankYouPage } from "../../../../support/pages/Pledge/ThankYouPage";
-import * as specificData from '../../../../data/Pledge/MultiPledgeRegisterAndDonateToSelf.json'
+import * as specificData from '../../../../data/Pledge/MultiPledgePaidRegCoverAdminFee.json'
 
 //The information regarding the Library
 const using = require('jasmine-data-provider');
@@ -55,7 +55,7 @@ describe('C10523 Scenario -> Registration > Cover Admin Fee > Paid Reg + Self Do
 				navbarCO.register();					
 				cy.get(registerCO.container).should('be.visible')
 				registerCO.selectSubEventGroup(data.location);
-				registerCO.register(0);
+				registerCO.register(0,1);
 				cy.get(returningParticipantCO.username).should('be.visible')
 				cy.get(returningParticipantCO.password).should('be.visible')
 				cy.get(returningParticipantCO.createAccountButton).should('be.visible')
@@ -74,30 +74,33 @@ describe('C10523 Scenario -> Registration > Cover Admin Fee > Paid Reg + Self Do
 
                 
 				paymentPO.donate(data.donationAmount);
+				cy.wait(1000)
                 paymentPO.checkCoverAdminFee()
 				paymentPO.verifyPaymentFieldsPresent();
 				paymentPO.verifyCreditCardIsDisplayed();
-				// no store items should be selected, the amount should be zero
-				paymentPO.verifyTotalAmount(data.zero);
+				// Add Store Items and verify Total
+				paymentPO.buyItem(0)				
+				paymentPO.verifyTotalAmount(data.totalStore);
 			});
 
-			// it('should display participant details on review page', function () {
-			// 	//verify total and message
-			// 	paymentPO.enterCardDetails(data.card);
-			// 	flowPO.continue();
+			it('should display participant details on review page', function () {
+				//verify total and message
+				paymentPO.enterCardDetails(data.card);
+				flowPO.continue();
 
-			// 	//Verification for Your Information Section
-			// 	reviewPO.verifyProfileInformation(data);
-			// 	//Verification For Payment details section
-			// 	reviewPO.verifyPaymentInformation(data.card);
-			// 	//Verification for Amount Section
-			// 	reviewPO.verifyTotalAmount(data.total);
-			// });
+				//Verification for Your Information Section
+				reviewPO.verifyProfileInformation(data);
+				//Verification For Payment details section
+				reviewPO.verifyPaymentInformation(data.card);
+				reviewPO.verifyAdminFee(data.adminFee)
+				//Verification for Amount Section
+				reviewPO.verifyTotalAmount(data.total);
+			});
 
-			// it('should display thank you page and the participant centre', function () {
-			// 	flowPO.continue();
-			// 	thankYouPO.verifyTransactionNumber(data);
-			// });
+			it('should display thank you page and the participant centre', function () {
+				flowPO.continue();
+				thankYouPO.verifyTransactionNumber(data);
+			});
 
 			// it('should go to participant center', function () {
 			// 	thankYouPO.startFundraising();

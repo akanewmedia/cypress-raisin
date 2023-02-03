@@ -44,6 +44,11 @@ export class ReviewPage {
   closeCart() {
     this.shoppingCart.closeButton.click();
   }
+
+  verifyAdminFee(amount){
+    cy.get(this.review.adminFee).should('include.text', amount);
+  }
+  
   verifyTotalAmount(amount) {
     cy.get(this.review.totalAmount).should('include.text', amount);    
   }
