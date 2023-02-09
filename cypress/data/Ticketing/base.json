@@ -29,9 +29,9 @@
   "surveyResponses": [
       {"question": "List", "answer": "b"},
       {"question": "Radio", "answer": "No"},
-      {"question": "Multi-Line Text", "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam leo enim, eleifend vehicula cursus a, sollicitudin vel leo. Donec cursus elit eget dolor efficitur venenatis. Aenean ipsum nisl, semper ac faucibus quis, laoreet a elit. Mauris auctor tellus sapien, sit amet facilisis mauris sollicitudin sit amet. Nunc sed elit justo. Donec viverra sed ligula non maximus. Pellentesque in massa in tellus vulputate efficitur. Curabitur convallis id erat sed pulvinar. Aenean libero dolor, consectetur facilisis vulputate in, elementum id erat."},
+      {"question": "Multi-Line Text", "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing."},
       {"question": "Multiple Choice", "answer": "Item 3"},
-      {"question": "Single Line Text", "answer": "Aliquam ultricies fermentum dapibus. Nullam sodales tempus nulla a mollis"}
+      {"question": "Single Line Text", "answer": "Aliquam ultricies fermentum dapibus."}
   ],
   "volunteerThankYouMessage": "Thank you for Registering as a Volunteer",
   "firstName": "Sammy",

@@ -27,7 +27,7 @@
     "password": "akaaka"
   },
   "location": "City1a",
-  "mandatoryfields": [
+"mandatoryfields": [
     "First Name Last Name",
     "Test Organization",
     "Address Line",
@@ -108,7 +108,7 @@
   "surveyResponses": [
     {
       "question": "Single Line Text",
-      "answer": "Aliquam ultricies fermentum dapibus. Nullam sodales tempus nulla a mollis"
+      "answer": "Aliquam ultricies fermentum dapibus. Nullam sodale"
     },
     {
       "question": "Single Choice",
@@ -116,7 +116,7 @@
     },
     {
       "question": "Text Box",
-      "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam leo enim, eleifend vehicula cursus a, sollicitudin vel leo. Donec cursus elit eget dolor efficitur venenatis."
+      "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing."
     },
     {
       "question": "Radio Choice",
