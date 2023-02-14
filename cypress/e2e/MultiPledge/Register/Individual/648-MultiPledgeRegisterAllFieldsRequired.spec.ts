@@ -202,6 +202,7 @@ describe('TR(648) Scenario -> Multi Pledge free registration - all fields requir
 			// 	paymentPO.enterCardDetails(data.card);              
             // });
             it('Should verify the profile and payment info on the review page', () => {
+                cy.wait(2000)
                 flowPO.continue();
                 reviewPO.verifyProfileInformation(data);
             });
