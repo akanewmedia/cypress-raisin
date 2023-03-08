@@ -1,0 +1,10 @@
+//Ticketing
+import 'cypress\e2e\Ticketing\5-GuestPurchaseWithInvoiceAndDownload.spec.ts'
+import 'cypress\e2e\Ticketing\22-BuyTicketsAndLoginToManageAttendee.spec.ts'
+import 'cypress\e2e\Ticketing\453-GuestBuySponsorDonatePromocodePayPal.spec.ts'
+import 'cypress\e2e\Ticketing\538-GuestPurchaseWithInvoiceDifferentBillingContact.spec.ts'
+import 'cypress\e2e\Ticketing\547-DonateIndividual.spec.ts'
+import 'cypress\e2e\Ticketing\551-RegisterVolunteerRequiredFieldsOnly.spec.ts'
+import 'cypress\e2e\Ticketing\2355-GuestPurchaseAllFieldsRequired.spec.ts'
+import 'cypress\e2e\Ticketing\2356-GuestPurchaseMostFieldsHidden.spec.ts'
+import 'cypress\e2e\Ticketing\2358-RegisterVolunteerAllFields.spec.ts'
