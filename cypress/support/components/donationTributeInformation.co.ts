@@ -78,8 +78,8 @@ export class TributeInformation {
    * @memberof TributeInformation
    */
   populateMinimumFields(tributeInfo) {
-    cy.get(this.firstName).type(tributeInfo.firstName);
-    cy.get(this.lastName).type(tributeInfo.lastName);
+    cy.get(this.firstName).clear().type(tributeInfo.firstName);
+    cy.get(this.lastName).clear().type(tributeInfo.lastName);
   }
 
   /**
@@ -90,7 +90,7 @@ export class TributeInformation {
    */
   populateECardMinimumFields(tributeInfo) {
     this.loadECardMinimumFields();
-    //this.populateMinimumFields(tributeInfo);
+    this.populateMinimumFields(tributeInfo);
 
     cy.get(this.recipientFirstName).clear().type(tributeInfo.recipient.firstName);
     cy.get(this.recipientLastName).clear().type(tributeInfo.recipient.lastName);
