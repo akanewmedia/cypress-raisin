@@ -234,6 +234,7 @@ export function selectDropDownOption(protractorSelector, selectedOption) {
 
   return cy.get(protractorSelector).invoke('attr', 'class').then((classString) => {
     if (classString.indexOf('mat-select') >= 0) {
+      scrollToElement(protractorSelector)
       selectMatDropDownOption(protractorSelector, selectedOption);
     }
     if (classString.indexOf('matNativeControl') >= 0) {
