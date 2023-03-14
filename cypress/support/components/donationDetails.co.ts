@@ -1,5 +1,5 @@
 import { type } from "cypress/types/jquery";
-import { buildSelector, clearInput, clickElement, elementByClass, enterMatInput, enterText, scrollToElement, setFocus } from "../utils/actions";
+import { buildSelector, clearInput, clickElement, elementByClass, enterMatInput, enterText, pressTab, scrollToElement, setFocus } from "../utils/actions";
 import { getNextAvailableDate, getNextDate, getNextMonthDate } from "../utils/dateUtils";
 
 export class DonationMatrix {
@@ -91,6 +91,7 @@ export class DonationMatrix {
   enterOtherAmount(data) {
     //clickElement(this.otherAmount);
     cy.get(this.otherAmount).clear().type(data.donationAmount)
+    pressTab()
   }
 
   /**
