@@ -16,7 +16,7 @@
             "registrationType": "Registration Fee, Individual"
         }
     ],
-    "participantAlreadyRegisteredMessage": "A user with the same name and email address already exists for this event. Please login if you've already registered. If you're not able to complete your registration, please contact the event manager.",
+    "participantAlreadyRegisteredMessage": "A user with the same name and email address already exists for this event. Please login if you already registered. If you have not registered, enter a different name and email address.",
     "transactionNumberStartsWith": "N/A",
     "location": "active group"
 }
