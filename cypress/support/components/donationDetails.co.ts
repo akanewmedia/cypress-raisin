@@ -103,8 +103,9 @@ export class DonationMatrix {
   }
 
   setOtherAmountManually(amount) {
-    cy.get(this.otherAmount).clear().type(amount)
     cy.wait(2000)
+    cy.get(this.otherAmount).clear().type(amount)
+    cy.wait(1500)
   }
 }
 
