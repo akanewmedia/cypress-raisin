@@ -112,6 +112,7 @@ export class DonationsPage {
    */
   clearOtherAmount() {
     this.donationDetails.clearCustomAmount();
+    cy.wait(2000)
   }
 
   /*

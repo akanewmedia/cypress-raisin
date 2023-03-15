@@ -233,7 +233,7 @@ export function selectDropDownOption(protractorSelector, selectedOption) {
   if (isNil(selectedOption)) {
     return;
   }
-  scrollToElement(protractorSelector)
+  scrollToElement('.rx-matrix-container .donation-matrix-other-amount .globalized-number-input input')
 
   return cy.get(protractorSelector).invoke('attr', 'class').then((classString) => {    
     if (classString.indexOf('mat-select') >= 0) {      
@@ -324,7 +324,7 @@ export function selectMatDropDownOption(
   // browser.sleep(200);
   if (Array.isArray(selectedOption)) {
     selectedOption.map(option => {
-      cy.get('.mat-select-panel mat-option').contains(option).click();
+      cy.get('.mat-select-panel mat-option').contains(option).click({force: true});
     })   
   }
   else {
@@ -440,7 +440,7 @@ export function setFocus(protractorSelector) {
 }
 
 export function scrollToElement(protractorSelector) {
-  cy.get(protractorSelector).scrollIntoView({ easing:'linear', offset: { top: -100, left: 0 } } );
+  cy.get(protractorSelector).scrollIntoView({ offset: { top: -100, left: 0 } } );
 }
 
 export function scrollToTop() {
