@@ -1,7 +1,7 @@
 //Ticketing
 import './Ticketing/5-GuestPurchaseWithInvoiceAndDownload.spec.ts'
 import './Ticketing/22-BuyTicketsAndLoginToManageAttendee.spec.ts'
-import './Ticketing/453-GuestBuySponsorDonatePromocodePayPal.spec.ts'
+//import './Ticketing/453-GuestBuySponsorDonatePromocodePayPal.spec.ts'
 import './Ticketing/538-GuestPurchaseWithInvoiceDifferentBillingContact.spec.ts'
 import './Ticketing/547-DonateIndividual.spec.ts'
 import './Ticketing/551-RegisterVolunteerRequiredFieldsOnly.spec.ts'

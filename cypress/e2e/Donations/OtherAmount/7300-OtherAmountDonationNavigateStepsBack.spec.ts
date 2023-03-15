@@ -18,6 +18,7 @@ describe('TR(7300) Donations > Give Now > One Time > Custom Amount > Show all fi
             before(() => {
                 pageSetup.goToEvent(`${event}/${data.URL}`);
                 pageSetup.waitForPageLoad()
+                //pageSetup.cleanupPage();
             });
 
             after(() => {
@@ -61,7 +62,7 @@ describe('TR(7300) Donations > Give Now > One Time > Custom Amount > Show all fi
             });
 
             it('should go back to step "Choose Your Donation"', () => {
-                donationsPO.scrollToTop();
+                //donationsPO.scrollToTop();
                 donationsPO.donorInformation.populateAllFields(data);
             });
 

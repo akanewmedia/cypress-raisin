@@ -16,8 +16,7 @@ describe('TR(7296) Donations > Give Now > One Time > Custom Amount > All fields 
         describe(`${event}`, () => {
             before(() => {
                 pageSetup.goToEvent(`${event}/${data.URL}`);
-                pageSetup.waitForPageLoad()
-                pageSetup.cleanupPage();
+                pageSetup.waitForPageLoad()               
 
             });
 

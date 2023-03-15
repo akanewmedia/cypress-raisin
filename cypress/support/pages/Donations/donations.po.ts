@@ -211,7 +211,8 @@ export class DonationsPage {
     // });
   }
   verifyDonationAmountError() {
-     cy.get(this.container+ ' .donation-amount-error').should('exist')    
+    cy.wait(1000)
+    cy.get(this.container+ ' .donation-amount-error').should('exist')    
   }
   /**
    * Verifies if all required field error messages are present using rx-errors

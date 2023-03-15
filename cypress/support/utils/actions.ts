@@ -1,5 +1,6 @@
 import { isNil, isString } from 'lodash';
 import 'cypress-plugin-tab';
+import { easing } from 'cypress/types/jquery';
 
 export function buildSelector(selector1, selector2 = null, selector3 = null) {
 
@@ -228,13 +229,13 @@ export function findDropDownOption(protractorSelector, selectedOption) {
  * @param {string} selectedOption - the option to select
  */
 export function selectDropDownOption(protractorSelector, selectedOption) {
+  scrollToElement(protractorSelector)
   if (isNil(selectedOption)) {
     return;
   }
 
-  return cy.get(protractorSelector).invoke('attr', 'class').then((classString) => {
-    if (classString.indexOf('mat-select') >= 0) {
-      scrollToElement(protractorSelector)
+  return cy.get(protractorSelector).invoke('attr', 'class').then((classString) => {    
+    if (classString.indexOf('mat-select') >= 0) {      
       selectMatDropDownOption(protractorSelector, selectedOption);
     }
     if (classString.indexOf('matNativeControl') >= 0) {
@@ -438,7 +439,7 @@ export function setFocus(protractorSelector) {
 }
 
 export function scrollToElement(protractorSelector) {
-  cy.get(protractorSelector).scrollIntoView({ offset: { top: 200, left: 0 } });
+  cy.get(protractorSelector).scrollIntoView({ easing:'linear', offset: { top: -100, left: 0 } } );
 }
 
 export function scrollToTop() {

@@ -15,8 +15,7 @@ describe('TR(9024) Donations > Give Now > One Time > Custom Amount > Admin Fee >
         describe(`${event}`, () => {
             before(() => {
                 pageSetup.goToEvent(`${event}/${data.URL}`);
-                pageSetup.waitForPageLoad()
-                pageSetup.cleanupPage();
+                pageSetup.waitForPageLoad()            
 
             });
 

@@ -31,6 +31,7 @@ describe('TR(7304) Donations > Give Now > One Time > Donation Matrix > Matrix Va
             it('should show error message when negative amount is entered', () => {
                 donationsPO.selectDonationAmount(data);
                 donationsPO.setFocusContinue();
+                cy.wait(1500)
                 donationsPO.verifyDonationAmountError();
                 donationsPO.continue();
                 cy.get(donationsPO.container).should('be.visible')
