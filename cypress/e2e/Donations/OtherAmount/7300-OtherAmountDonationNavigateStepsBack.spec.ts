@@ -18,7 +18,7 @@ describe('TR(7300) Donations > Give Now > One Time > Custom Amount > Show all fi
             before(() => {
                 pageSetup.goToEvent(`${event}/${data.URL}`);
                 pageSetup.waitForPageLoad()
-                //pageSetup.cleanupPage();
+                pageSetup.cleanupPage();
             });
 
             after(() => {

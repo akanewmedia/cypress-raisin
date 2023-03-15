@@ -229,10 +229,11 @@ export function findDropDownOption(protractorSelector, selectedOption) {
  * @param {string} selectedOption - the option to select
  */
 export function selectDropDownOption(protractorSelector, selectedOption) {
-  scrollToElement(protractorSelector)
+  
   if (isNil(selectedOption)) {
     return;
   }
+  scrollToElement(protractorSelector)
 
   return cy.get(protractorSelector).invoke('attr', 'class').then((classString) => {    
     if (classString.indexOf('mat-select') >= 0) {      
