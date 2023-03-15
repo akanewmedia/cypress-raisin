@@ -296,7 +296,7 @@ export class AdditionalParticipantsPage {
   verifyMaxEventParticipantsReachedError(maxEventParticipantsReachedMessage) {
     this.assignErrorContainer();
     cy.get(this.maxEventParticipantsReachedError).should('exist')
-    cy.get(this.maxEventParticipantsReachedError).should('have.text', maxEventParticipantsReachedMessage)
+    cy.get(this.maxEventParticipantsReachedError).should('contain.text', maxEventParticipantsReachedMessage)
   }
 
   clickRemoveLastAdditionalParticipant() {

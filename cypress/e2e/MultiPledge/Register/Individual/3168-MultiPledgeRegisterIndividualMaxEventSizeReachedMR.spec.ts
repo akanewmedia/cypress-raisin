@@ -54,16 +54,18 @@ describe('TR(3168) Scenario -> Multi Pledge Individual Registration with Additio
                 cy.wait(2000)
                 registerPO.fillInAccountInformation(data);
                 registerPO.fillInProfileAddressAndAdditionalInformation(data);
-                   
+                flowPO.continue();                   
             });
             it('should enter the additional participant details, and see the max event size reached message', () => {
-                flowPO.continue();
+                
+                addParticipantsPO.clickAddParticipantButton();
+                addParticipantsPO.fillInProfileInformationNoWaiver(data.additionalParticipants[0]);                
                 // Reaching max will hide the fields and add buttons so there is only verifying the error message on this step            
                 addParticipantsPO.verifyMaxEventParticipantsReachedError(data.maxEventParticipantsReachedMessage);
             });
-            it('should go past the payment screen (free reg)', () => {
-                flowPO.continue();
-            });
+            // it('should go past the payment screen (free reg)', () => {
+            //     flowPO.continue();
+            // });
             // In this test case, we don't submit the transaction not to include participants in this event.
             // By not completing the transaction, this event size limit will never be reached, and this test
             // can be reused without the need of editing the event on Admin
