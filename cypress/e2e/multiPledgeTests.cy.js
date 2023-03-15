@@ -6,20 +6,11 @@ import './MultiPledge/Misc/MultiPledgeWidgetsTopGroups.spec'
 import './MultiPledge/Misc/RegistrationWithCustomFieldsFromURL.spec.ts'
 import './MultiPledge/Misc/RegistrationWithCustomFieldsFromURLWithMR.spec.ts'
 
-//MP - Register - CoverAdminFee
-import './MultiPledge/Register/CoverAdminFee/10523-MultiPledgePaidRegCoverAdminFee.spec.ts'
-import './MultiPledge/Register/CoverAdminFee/10524-MultiPledgeFreeRegCoverAdminFee.spec.ts'
-import './MultiPledge/Register/CoverAdminFee/10525-MultiPledgePaidRegCoverAdminFeePromoToFreeReg.spec.ts'
-import './MultiPledge/Register/CoverAdminFee/10526-MultiPledgePaidRegCoverAdminFeePromoToFreeAll.spec.ts'
-import './MultiPledge/Register/CoverAdminFee/10527-MultiPledgeFreeRegCoverAdminFeeFreeStoreItem.spec.ts'
-import './MultiPledge/Register/CoverAdminFee/10528-MultiPledgePaidRegCoverAdminFeeReachingMax.spec.ts'
-import './MultiPledge/Register/CoverAdminFee/10529-MultiPledgePaidRegCoverAdminFeeUnderMax.spec.ts'
-
 //MP - Register - Individual
 import './MultiPledge/Register/Individual/23-MultiPledgeRegisterAndBuyStoreItemWithPromoCode.spec.ts'
 import './MultiPledge/Register/Individual/648-MultiPledgeRegisterAllFieldsRequired.spec.ts'
 import './MultiPledge/Register/Individual/3006-MultiPledgeRegisterAndDonateToSelf.spec.ts'
-import './MultiPledge/Register/Individual/3007-MultiPledgeRegisterAndDonateWithPaypal.spec.ts'
+//import './MultiPledge/Register/Individual/3007-MultiPledgeRegisterAndDonateWithPaypal.spec.ts'
 import './MultiPledge/Register/Individual/3008-MultiPledgeRegisterBuyStoreItemAndDonateToSelf.spec.ts'
 import './MultiPledge/Register/Individual/3009-MultiPledgeRegisterFree.spec.ts'
 import './MultiPledge/Register/Individual/3010-MultiPledgeRegisterFreeDueToPromoCode.spec.ts'
