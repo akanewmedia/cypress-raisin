@@ -17,7 +17,7 @@ import './MultiPledge/Register/Individual/3010-MultiPledgeRegisterFreeDueToPromo
 import './MultiPledge/Register/Individual/3013-MultiPledgeRegistrationFailedTransactionFollowedBySuccess.spec.ts'
 import './MultiPledge/Register/Individual/3156-MultiPledgeRegisterIndividualMR.spec.ts'
 import './MultiPledge/Register/Individual/3165-MultiPledgeRegisterIndividualReturningParticipantMR.spec.ts'
-import './MultiPledge/Register/Individual/3168-MultiPledgeRegisterIndividualFixRepeatedNameEmailMR.spec.ts'
+import './MultiPledge/Register/Individual/3169-MultiPledgeRegisterIndividualFixRepeatedNameEmailMR.spec.ts'
 import './MultiPledge/Register/Individual/3168-MultiPledgeRegisterIndividualMaxEventSizeReachedMR.spec.ts'
 import './MultiPledge/Register/Individual/3248-MultiPledgeRegisterIndividualAllFieldsRequiredMR.spec.ts'
 import './MultiPledge/Register/Individual/3250-MultiPledgeRegisterIndividualDonationPromoCodeMR.spec.ts'
