@@ -40,7 +40,7 @@
   "teamCaptainSurveyResponses": [
     {
       "question": "Single Line Text",
-      "answer": "Aliquam ultricies fermentum dapibus. Nullam sodales tempus nulla a mollis"
+      "answer": "Aliquam ultricies fermentum dapibus. Nullam soda"
     },
     {
       "question": "Single Choice List",
@@ -52,7 +52,7 @@
     },
     {
       "question": "Multi-Line Text",
-      "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam leo enim, eleifend vehicula cursus a, sollicitudin vel leo. Donec cursus elit eget dolor efficitur venenatis. Aenean ipsum nisl, semper ac faucibus quis, laoreet a elit. Mauris auctor tellus sapien, sit amet facilisis mauris sollicitudin sit amet. Nunc sed elit justo. Donec viverra sed ligula non maximus. Pellentesque in massa in tellus vulputate efficitur. Curabitur convallis id erat sed pulvinar. Aenean libero dolor, consectetur facilisis vulputate in, elementum id erat."
+      "answer": "Aliquam ultricies fermentum dapibus. Nullam soda"
     },
     {
       "question": "Multiple Choice",
