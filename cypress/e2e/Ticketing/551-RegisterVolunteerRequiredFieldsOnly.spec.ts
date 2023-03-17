@@ -43,6 +43,7 @@ describe('TR(551) Scenario -> Register Volunteer (required fields only): ', func
 			});
 
 			it('Should see validation errors when trying to continue before filling the required fields', () => {
+				cy.wait(2000)
 				flowPO.continue();
 				cy.wait(1000)
 				cy.get(registerPO.container).should('be.visible')
