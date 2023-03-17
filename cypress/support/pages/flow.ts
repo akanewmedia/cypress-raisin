@@ -10,6 +10,7 @@ export class FlowPage {
   }
   continue() {
     clickElement(this.continueButton, true);
+    cy.wait(1000)
   }
   goBack() {
     clickElement(this.backButton);
