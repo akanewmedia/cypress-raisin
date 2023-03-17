@@ -328,7 +328,7 @@ export function selectMatDropDownOption(
     })   
   }
   else {
-    cy.get('.mat-select-panel mat-option').contains(selectedOption).first().click();
+    cy.get('.mat-select-panel mat-option').contains(selectedOption).first().click({force: true});
   }
   cy.get('body').type('{esc}');
 }
