@@ -1,7 +1,7 @@
-import { buildSelector, elementByClass, elementsByClass, pressEsc, pressTab, scrollToTop, waitForElementToBeVisible } from '../../utils/actions';
+import { buildSelector, elementByClass, elementsByClass, pressEsc, pressTab, scrollToTop, selectDropDownOption, waitForElementToBeVisible } from '../../utils/actions';
 import { DonationStepper } from '../../components/donationStepper.co'
 import { DonationSuccessComponent } from '../../components/donationSuccess.co'
-import { DonationDetails } from '../../components/donationDetails.co';
+import { DonationDetails, DonationMatrix } from '../../components/donationDetails.co';
 import { TributeInformation } from '../../components/donationTributeInformation.co';
 import { DonationDonorInformation } from '../../components/donationDonorInformation.co';
 import { DonationPaymentInformation } from '../../components/donationPaymentInformation.co';
@@ -15,6 +15,7 @@ export class DonationsPage {
   container: any;
   stepper: DonationStepper;
   donationDetails: DonationDetails;
+  donationMatrix: DonationMatrix;
   tributeInformation: TributeInformation;
   donorInformation: DonationDonorInformation;
   paymentInformation: DonationPaymentInformation;
@@ -188,6 +189,7 @@ export class DonationsPage {
    */
   continue() {
     return this.stepper.clickContinue();
+    cy.wait(1000)
   }
 
   setFocusContinue() {
@@ -211,6 +213,20 @@ export class DonationsPage {
     //   cy.get(errors).should('have.text', requiredFieldsValidationMessages);
     // });
   }
+
+  verifyOtherAmount(requiredFieldMessage){
+    cy.get('.donation-amount-error').should('contain.text', requiredFieldMessage)
+  }
+  
+
+  verifyFund(requiredFieldMessage){
+    cy.get('.mat-error .error-message').should('contain.text', requiredFieldMessage)
+  }
+
+  selectFund(selectedOption){
+    selectDropDownOption(this.donationMatrix.fundSelector, selectedOption)
+  }
+
   verifyDonationAmountError() {
     cy.wait(1000)
     cy.get(this.container+ ' .donation-amount-error').should('exist')    

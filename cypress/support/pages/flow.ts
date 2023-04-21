@@ -1,4 +1,7 @@
 import { buildSelector, clickElement, elementByClass, elementById } from "../utils/actions";
+import { VolunteerThankYouPage } from "./Pledge/VolunteerThankYouPage";
+
+const thankYouPO = new VolunteerThankYouPage();
 
 export class FlowPage {
   continueButton: any;
@@ -9,6 +12,7 @@ export class FlowPage {
 
   }
   continue() {
+    thankYouPO.getConstituent()
     clickElement(this.continueButton, true);
     cy.wait(1000)
   }

@@ -1,5 +1,4 @@
-import { type } from "cypress/types/jquery";
-import { buildSelector, clearInput, clickElement, elementByClass, enterMatInput, enterText, pressTab, scrollToElement, setFocus } from "../utils/actions";
+import { buildSelector, clearInput, clickElement, elementByClass, enterMatInput, enterText, pressTab, scrollToElement, selectDropDownOption, setFocus } from "../utils/actions";
 import { getNextAvailableDate, getNextDate, getNextMonthDate } from "../utils/dateUtils";
 
 export class DonationMatrix {
@@ -11,12 +10,13 @@ export class DonationMatrix {
   donationAmountButtons: any;
   errorMessage: any;
   otherAmount: any;
+  fundSelector: any;
 
   constructor() {
     this.container = buildSelector('.rx-matrix-container');
     this.title = buildSelector(this.container, 'h3');
     this.donationAmountsContainer = buildSelector(this.container, '.donation-matrix-other-amount');
-
+    this.fundSelector = buildSelector('#fund-selection-input')
     this.otherAmount = buildSelector(this.donationAmountsContainer, '.globalized-number-input input');
     this.amountField = buildSelector(this.donationAmountsContainer, '.globalized-number input');
     this.selectedAmount = buildSelector(this.container , '.mat-button-toggle-checked');
@@ -36,6 +36,14 @@ export class DonationMatrix {
   getSelectedMatrixValue(data) {
     cy.get(this.container + ' .donation-matrix-button.selected').should('have.text' ,data)
     //return elementByClass(this.container, '.donation-matrix-button.selected').text();
+  }
+
+  selectFund(data){
+    selectDropDownOption(this.fundSelector, data.fund);
+  }
+
+  typeFund(){
+    cy.get(this.fundSelector).type('Test')
   }
 
   clickOtherAmount() {
@@ -97,16 +105,18 @@ export class DonationMatrix {
    * Clears the other amount textbox
    */
   clearCustomAmount() {
-    setFocus(this.otherAmount);
-    clearInput(this.otherAmount);
+    cy.get(this.otherAmount).clear()
   }
 
+  
   setOtherAmountManually(amount) {
     cy.wait(2000)
     cy.get(this.otherAmount).clear().type(amount)
     cy.wait(1500)
-  }
+  } 
 }
+
+ 
 
 /**
  * Represents the "Choose Your Donation" step

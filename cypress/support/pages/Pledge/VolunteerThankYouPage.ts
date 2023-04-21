@@ -19,5 +19,23 @@ export class VolunteerThankYouPage {
    */
   checkSuccessful(data) {
     cy.get(this.thankYouMessageHeader).should('contain', data.successfulVolunteerText)
+    this.checkConstituent()
+  }
+
+
+  getConstituent(){
+    cy.intercept('POST', '/v2/constituent').as('getConstituent')
+  //   cy.window().then( win => {
+
+  //     var data = JSON.parse(sessionStorage.getItem("constituent_rxfmpaee"))
+  //     data.profile.firstName = null
+  //     sessionStorage.setItem("constituent_rxfmpaee", JSON.stringify(data))
+  //     cy.wait(20000)
+  // })
+  }
+
+
+  checkConstituent() {  
+    cy.wait('@getConstituent').its('response.statusCode').should('eq', 200)
   }
 }

@@ -1,7 +1,7 @@
 import { AdditionalInformation } from "../../components/additionalInformation.co";
 import { Address } from "../../components/address.co";
 import { Profile } from "../../components/profile.co";
-import { buildSelector } from "../../utils/actions";
+import { buildSelector, scrollToElement } from "../../utils/actions";
 
 export class YourInformationPage {
   container: any;

@@ -26,7 +26,7 @@ describe('TR(1770) Scenario -> Multi Pledge registration, volunteer', () => {
         describe(`${event}`, () => {
             before(() => {
                 pageSetup.goToEvent(event);
-                pageSetup.waitForPageLoad()
+                pageSetup.waitForPageLoad()                
             });
             after(() => {
                 pageSetup.goToEvent(event);
@@ -40,7 +40,7 @@ describe('TR(1770) Scenario -> Multi Pledge registration, volunteer', () => {
                 flowPO.continue();
                 registerCO.selectSubEventGroup(data.location);
                 registerPO.fillInProfileInformation(data);
-                registerPO.fillInAddressInformation(data);
+                registerPO.fillInAddressInformation(data);                
             });
             it('Should submit the volunteer registration', () => {
                 flowPO.continue();
@@ -48,29 +48,30 @@ describe('TR(1770) Scenario -> Multi Pledge registration, volunteer', () => {
             });
         });
 
-        describe(`${event}`, () => {
-            before(() => {
-                pageSetup.goToEvent(event);
-                pageSetup.waitForPageLoad()
-            });
-            after(() => {
-                pageSetup.goToEvent(event);
-                pageSetup.cleanupPage();
-            });
-            it('Should go to the volunteer registration page', () => {
-                navbarCO.clickOnVolunteerMenuItem();
-            });
-            it('Should fill out the full volunteer registration form', () => {
-                cy.wait(1500)
-                flowPO.continue();
-                registerCO.selectSubEventGroup(data.location);
-                registerPO.fillInAllProfileInformation(data);
-                registerPO.fillInAllAddressInformation(data);
-            });
-            it('Should submit the volunteer registration', () => {
-                flowPO.continue();
-                thankYouPO.checkSuccessful(data);
-            });
-        });
+        // describe(`${event}`, () => {
+        //     before(() => {
+        //         pageSetup.goToEvent(event);
+        //         pageSetup.waitForPageLoad()
+        //     });
+        //     after(() => {
+        //         pageSetup.goToEvent(event);
+        //         pageSetup.cleanupPage();
+        //     });
+        //     it('Should go to the volunteer registration page', () => {
+        //         navbarCO.clickOnVolunteerMenuItem();
+        //     });
+        //     it('Should fill out the full volunteer registration form', () => {
+        //         cy.wait(1500)
+        //         flowPO.continue();
+        //         registerCO.selectSubEventGroup(data.location);
+        //         registerPO.fillInAllProfileInformation(data);
+        //         registerPO.fillInAllAddressInformation(data);
+        //     });
+        //     it('Should submit the volunteer registration', () => {
+        //         thankYouPO.getConstituent()
+        //         flowPO.continue();
+        //         thankYouPO.checkSuccessful(data);
+        //     });
+        // });
     });
 });

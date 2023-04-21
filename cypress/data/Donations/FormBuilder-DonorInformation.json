@@ -1,0 +1,58 @@
+{
+  "events": [7],
+  "matrixValues": {
+    "oneTimeGeneralDonation": [
+      "$15.00",
+      "$25.00",
+      "$50.00",
+      "$75.00",
+      "$100.00"
+    ],
+    "oneTimeInHonour": [
+      "$25.00",
+      "$35.00",
+      "$50.00",
+      "$75.00",
+      "$100.00"
+    ]
+  },
+  "monthlyInHonourSuggestedValue": "$20.00",
+  "annuallyInHonourSuggestedValue": "$25.00",
+  "matrixButtonSelection": "$50.00",
+  "frequencyButtonSelection": "One-Time",
+  "typeTabSelection": "Give Now",
+  "defaultFrequencyAfterTypeTabSelection": "Monthly",
+  "tributeInfo": {
+    "firstName": "Michael",
+    "lastName": "Corleone",
+    "cardType": "eCard",
+    "templateImage": "1",
+    "templateImageAltText": "In-Honour eCard Template 2",
+    "message": "I would like you to support The Vito Andolini Corleone Foundation.",
+    "recipient": {
+      "firstName": "Fredo",
+      "lastName": "Corleone",
+      "email": "fredo@recipient.ca"
+    },
+    "deliveryDate": "10/16/2020"
+  },
+  "requiredFieldsTributeInfoValidationMessages": [
+    "First Name is required",
+    "Last Name is required",
+    "First Name is required",
+    "Last Name is required",
+    "E-mail is required"
+  ],
+  "otherAmount": {
+    "otherAmountBlank": "Donation Amount is required.",
+    "otherAmountNegative": "Please enter a valid format (e.g. 10.00, not $10.00)",
+    "otherAmountBetween":"Donation Amount must be between 5 and 10000000."
+  },
+  "fundAllocation": {
+    "fundBlank": "Fund is required",
+    "fundInvalid": "Fund is invalid",
+    "otherFundsBlank": "Other Fund Name is required."
+  },
+  "fund": "Fund 1",
+  "totalAmountWithAdminFee": "51"
+}

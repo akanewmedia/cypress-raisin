@@ -260,6 +260,7 @@ export class AdditionalParticipantsPage {
     // });
     this.removeParticipant(index)
     elementById('#btn-confirm').click();
+    cy.wait(1500)
   }
   /**
   * Confirm deletion in modal dialogue
@@ -271,6 +272,7 @@ export class AdditionalParticipantsPage {
     // });
     this.removeParticipant(index)
     elementById('#btn-cancel').click();
+    cy.wait(1500)
   }
 
   verifyMandatoryFieldsHaveValues() {

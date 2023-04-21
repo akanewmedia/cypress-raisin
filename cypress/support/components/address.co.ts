@@ -1,5 +1,5 @@
 //The information regarding the libraries
-import { selectMatDropDownOption, enterText, setCheckboxChecked, elementById, buildSelector } from "../utils/actions";
+import { selectMatDropDownOption, enterText, setCheckboxChecked, elementById, buildSelector, scrollToElement } from "../utils/actions";
 
 export class Address {
   addressType: any;
