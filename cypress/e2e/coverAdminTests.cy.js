@@ -6,3 +6,4 @@ import './MultiPledge/Register/CoverAdminFee/10526-MultiPledgePaidRegCoverAdminF
 import './MultiPledge/Register/CoverAdminFee/10527-MultiPledgeFreeRegCoverAdminFeeFreeStoreItem.spec.ts'
 import './MultiPledge/Register/CoverAdminFee/10528-MultiPledgePaidRegCoverAdminFeeReachingMax.spec.ts'
 import './MultiPledge/Register/CoverAdminFee/10529-MultiPledgePaidRegCoverAdminFeeUnderMax.spec.ts'
+import './MultiPledge/Register/CoverAdminFee/10530-MultiPledgePaidRegCoverAdminFeeEditReview.spec.ts'

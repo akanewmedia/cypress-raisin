@@ -1,9 +1,3 @@
-// -Register with Paid Reg Item
-// -Make Self Donation
-// -Purchase Store Item
-// -Select Cover Admin Fee
-// -Apply Promo Code to make store item free
-
 //The information regarding the Library
 import { PageSetup } from "../../../../support/utils/pageSetup";
 import { generateUniqueName } from "../../../../support/utils/actions";
@@ -81,10 +75,6 @@ describe('C10527 - Registration > Cover Admin Fee > Free Reg + Self Donation + F
                 paymentPO.checkCoverAdminFee()
 				paymentPO.enterCardDetails(data.card);
 				flowPO.continue();
-
-				// Add Store Items and verify Total
-                
-				
 			});
 
 			it('should display participant details on review page', function () {
