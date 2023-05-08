@@ -113,11 +113,16 @@ export class AdditionalParticipantsPage {
     if (data.useMainParticipantAddress) {
       this.addressInformationCO.setUseMyAddress(data.useMainParticipantAddress);
     } else {
-      data.addressType && this.addressInformationCO.selectAddressType(data.addressType);
-      this.addressInformationCO.enterAddress(data.address);
-      this.addressInformationCO.enterCity(data.city);
-      this.addressInformationCO.selectProvince(data.province);
-      this.addressInformationCO.enterPostCode(data.postCode);
+      //data.addressType && this.addressInformationCO.selectAddressType(data.addressType);
+      // this.addressInformationCO.enterAddress(data.address);
+      // this.addressInformationCO.enterCity(data.city);
+      if(data.country){        
+        this.addressInformationCO.selectCountry(data.country);
+      }
+      if(data.province){
+        this.addressInformationCO.selectProvince(data.province);        
+      }
+      //this.addressInformationCO.enterPostCode(data.postCode);
     }
   }
 

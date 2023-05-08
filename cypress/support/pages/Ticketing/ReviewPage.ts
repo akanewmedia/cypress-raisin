@@ -67,7 +67,9 @@ export class ReviewPage {
     cy.get(this.review.profileInformation.country).first().should('have.text', data.country);
     cy.get(this.review.profileInformation.address).first().should('have.text', data.address);
     cy.get(this.review.profileInformation.city).first().should('have.text', data.city);
-    cy.get(this.review.profileInformation.province).first().should('have.text', data.province);
+    if (data.province) {
+      cy.get(this.review.profileInformation.province).first().should('have.text', data.province);
+    }    
     cy.get(this.review.profileInformation.postCode).first().should('have.text', data.postCode);
 
     // expect(this.review.profileInformation.name.getText()).eq(data.fullName);

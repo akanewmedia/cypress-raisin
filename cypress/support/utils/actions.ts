@@ -474,6 +474,9 @@ export function generateUniqueName(data) {
   if (data.fullName) {
     data.fullName += val;
   }
+  // if(data.additionalParticipants){
+  //   data.additionalParticipants[0].lastName += val;
+  // }
 }
 
 export function generateUniqueAdditionalParticipant(data) {

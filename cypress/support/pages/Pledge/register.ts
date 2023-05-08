@@ -102,6 +102,12 @@ export class RegisterPage {
     this.fillInAdditionalInformation(data);
   }
 
+  fillInAllFields(data) {
+    this.fillInAllProfileInformation(data);
+    this.fillInAllAddressInformation(data);
+    this.fillInAdditionalInformation(data);
+  }
+
   /**
    * Fills in all fields in the profile information section. To promote reuse, each data field is checked prior
    * to setting them in the UI, otherwise if any field is not in your data file it would be read as undefined,

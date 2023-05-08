@@ -1,0 +1,12 @@
+{
+    "transactionNumberStartsWith": "N/A",
+    "surveyResponses": [
+        {"question": "Question 1 - Choice One Option", "answer": "Yes"},
+        {"question": "Question 2 - Short answer", "answer": "Vestibulum ante ipsum primis in faucibus orci luct"},
+        {"question": "Question 3 - Choose 1 from the List", "answer": "Yes"},
+        {"question": "Question 4 - Choose which ones apply", "answer": "Item 4"}
+    ],
+    "fullName": "Dr. Bobby Ricky Smith",
+    "country": "Albania",
+    "province": null
+}
