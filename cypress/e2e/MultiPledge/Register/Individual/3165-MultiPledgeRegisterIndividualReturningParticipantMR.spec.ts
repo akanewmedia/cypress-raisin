@@ -63,7 +63,7 @@ describe('TR(3165) Scenario -> Multi Pledge Individual Registration with Additio
                     returningParticipantCO.createAccount();
                 });
                 it('should enter the participant details', () => {
-                    cy.wait(5000)
+                    cy.wait(15000)
                     flowPO.continue();
                     registerPO.fillInExactAccountInformation(data.participant[0]);
                     registerPO.fillInProfileAndAddressInformation(data.participant[0]);
