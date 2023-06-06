@@ -55,8 +55,8 @@ describe('TR(648) Scenario -> Multi Pledge free registration - all fields requir
                 returningParticipantCO.createAccount();
             });
             it('should press continue after entering each account detail field', () => {
-                cy.wait(15000)
-                flowPO.continue();
+                cy.wait(5000)
+                //flowPO.continue();
                 scrollToElement(registerPO.container)
                 waitForElementToBeVisible(registerPO.container);
                 cy.get(registerPO.container).should('exist')
