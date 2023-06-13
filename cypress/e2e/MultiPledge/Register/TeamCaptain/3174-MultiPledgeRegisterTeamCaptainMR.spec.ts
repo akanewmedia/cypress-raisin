@@ -63,7 +63,7 @@ describe('TR(3174) Scenario -> Multi Pledge Team Captain Registration with Addit
             });
             it('should enter the participant details', () => {
                 cy.wait(2000)
-                flowPO.continue();
+                //flowPO.continue();
                 registerPO.fillInAccountInformation(data);
                 registerPO.fillInProfileAndAddressInformation(data);
                 // surveyCO.fill(data);
