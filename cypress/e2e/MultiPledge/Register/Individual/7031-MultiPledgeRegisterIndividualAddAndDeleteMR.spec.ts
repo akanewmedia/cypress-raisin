@@ -58,7 +58,7 @@ describe('TR(7031) Scenario -> Multi Pledge Individual Registration with Additio
 
             it('should enter the participant details', () => {
                 cy.wait(3000)
-                flowPO.continue();
+                //flowPO.continue();
                 registerPO.fillInAccountInformation(data);
                 registerPO.fillInProfileAndAddressInformation(data);
             });

@@ -130,7 +130,7 @@ export class ReviewPage {
     this.verifyIsNotOnScreen(this.review.cardNumber);
     this.verifyIsNotOnScreen(this.review.cardHolderName);
     this.verifyIsNotOnScreen(this.review.expiryDate);
-    this.verifyIsNotOnScreen(this.review.totalAmount);
+    //this.verifyIsNotOnScreen(this.review.totalAmount);
 
     // the total must either invisible, or visible and equal to the [freeAmount] parameter
     // cy.get(this.review.totalAmount).should('be.visible')

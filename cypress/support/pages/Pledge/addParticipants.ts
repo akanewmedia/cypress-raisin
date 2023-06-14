@@ -250,7 +250,7 @@ export class AdditionalParticipantsPage {
   * remove second added participants
   */
   removeParticipant(index = 0) {
-    cy.get('.mat-expansion-panel').eq(index).within(()=>{
+    cy.get('.mat-expansion-panel').eq(index).click().within(()=>{
       cy.get('.btn-remove').click()
     })
     //scrollToElement(removeBtn);    

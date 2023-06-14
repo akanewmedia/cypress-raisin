@@ -59,7 +59,7 @@ describe('TR(2994) Scenario -> Multi Pledge donation to event (cover admin fee) 
                 reviewPO.verifyPaymentInformation(data.card);
             });
             it('Should verify the donation amount + cover admin fee', () => {
-                reviewPO.verifyDonationAmount(data.totalAmount);
+                reviewPO.verifyTotalAmount(data.totalAmount);
                 flowPO.continue();
             });
             it('should verify the Transaction code', () => {

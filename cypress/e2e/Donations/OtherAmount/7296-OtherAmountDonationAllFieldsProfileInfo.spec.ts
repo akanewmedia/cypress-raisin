@@ -53,6 +53,7 @@ describe('TR(7296) Donations > Give Now > One Time > Custom Amount > All fields 
             it('should see validation errors when trying to proceed without filling donor info required fields', () => {
                 donationsPO.stepper.verifyDonationAmount(data.donationAmount);
                 donationsPO.stepper.clickDonate();
+                cy.wait(1000)
                 donationsPO.verifyRequiredFieldErrors(concat(data.requiredFieldsDonorInfoValidationMessages, data.requiredFieldsPaymentValidationMessages));
             });
 
