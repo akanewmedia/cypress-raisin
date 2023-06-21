@@ -93,8 +93,8 @@
     "Donation Amount must be between 5 and 10000000."
   ],
   "requiredFieldsTributeInfoValidationMessages": [
-    "First Name is required",
-    "Last Name is required"
+    "Tributee First Name is required",
+    "Tributee Last Name is required"
   ],
   "requiredFieldsDonorInfoValidationMessages": [
     "First Name is required",
