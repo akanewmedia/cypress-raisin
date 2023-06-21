@@ -9,6 +9,7 @@ import { FlowPage } from "../../../support/pages/flow";
 import { PaymentPage } from "../../../support/pages/Pledge/payment";
 import { DonationSearchPage } from "../../../support/pages/Pledge/donationSearch";
 import * as specificData from '../../../data/Pledge/MultiPledgeDonationToGroup.json'
+import { logConstituent } from "../../../support/utils/actions";
 
 
 //The information regarding the Library
@@ -68,6 +69,7 @@ describe('TR(658) Scenario -> Multi Pledge donation to group : ', () => {
             });
             it('should verify the Transaction code', () => {
                 flowPO.continue();
+                logConstituent()
                 thankYouPO.verifyTransactionNumber(data);
             });
         });

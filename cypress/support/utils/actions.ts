@@ -534,3 +534,12 @@ export function setUserReferral(container, referee) {
     cy.get('span[class="mat-option-text"]').eq(0).click()
   })
 }
+
+export function logConstituent(){
+  cy.intercept('POST', '/v2/constituent').as('getConstituent')
+
+
+  cy.wait('@getConstituent').then((xhr) => {
+    cy.log(JSON.stringify(xhr.response.body))
+  })
+}
