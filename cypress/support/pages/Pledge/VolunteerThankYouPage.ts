@@ -24,16 +24,21 @@ export class VolunteerThankYouPage {
 
 
   getConstituent(){
-    cy.intercept('POST', '/v2/constituent').as('getConstituent')
-  //   cy.window().then( win => {
+    cy.intercept('POST', '**/constituent', (req) => {
+      if (req.url.includes('constituent')) {   
+        req.alias = 'getConstituent'
+      }      
+    })
 
-  //     var data = JSON.parse(sessionStorage.getItem("constituent_rxfmpaee"))
-  //     data.profile.firstName = null
-  //     sessionStorage.setItem("constituent_rxfmpaee", JSON.stringify(data))
-  //     cy.wait(20000)
-  // })
+    cy.intercept('POST', '**/constituent/**', (req) => {
+      if (req.url.includes('additional')) {   
+        req.alias = 'getConstituent'
+      }      
+    })
+
+    
+ 
   }
-
 
   checkConstituent() {  
     cy.wait('@getConstituent').its('response.statusCode').should('eq', 200)

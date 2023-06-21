@@ -536,10 +536,7 @@ export function setUserReferral(container, referee) {
 }
 
 export function logConstituent(){
-  cy.intercept('POST', '/v2/constituent').as('getConstituent')
-
-
-  cy.wait('@getConstituent').then((xhr) => {
+  cy.wait('@getConstituent', {timeout: 5000}).then((xhr) => {
     cy.log(JSON.stringify(xhr.response.body))
   })
 }

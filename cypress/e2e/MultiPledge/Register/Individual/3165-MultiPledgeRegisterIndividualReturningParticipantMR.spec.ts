@@ -9,7 +9,6 @@ import { ThankYouPage } from "../../../../support/pages/Pledge/ThankYouPage";
 import { generateUniqueAdditionalParticipant, generateUniqueName, generateUniqueUsername } from "../../../../support/utils/actions";
 import { AdditionalParticipantsPage } from "../../../../support/pages/Pledge/addParticipants";
 import { V3LoginPage } from "../../../../support/pages/Pledge/V3LoginPage";
-import { inV3 } from "../../../../support/utils/customTesting";
 import * as specificData from '../../../../data/Pledge/MultiPledgeRegisterIndividualReturningParticipantMR.json'
 
 

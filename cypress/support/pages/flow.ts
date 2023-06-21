@@ -1,4 +1,4 @@
-import { buildSelector, clickElement, elementByClass, elementById } from "../utils/actions";
+import { buildSelector, clickElement } from "../utils/actions";
 import { VolunteerThankYouPage } from "./Pledge/VolunteerThankYouPage";
 
 const thankYouPO = new VolunteerThankYouPage();
