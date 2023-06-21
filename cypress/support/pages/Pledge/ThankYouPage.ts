@@ -1,4 +1,4 @@
-import { buildSelector, clickElement, elementByClass, elementById } from '../../utils/actions';
+import { buildSelector, clickElement, elementByClass, elementById, logConstituent } from '../../utils/actions';
 
 export class ThankYouPage {
   container: any;
@@ -18,7 +18,7 @@ export class ThankYouPage {
   }
   verifyTransactionNumber(data) {
     //Transaction submission may take long, so we delay then we check if container is displayed
-    
+    logConstituent()
     cy.contains(this.transactionNumber, data.transactionNumberStartsWith, {timeout:90000})
     //expect(this.transactionNumber.getText()).contains(data.transactionNumberStartsWith);
   }
