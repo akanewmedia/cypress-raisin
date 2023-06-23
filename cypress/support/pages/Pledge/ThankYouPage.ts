@@ -7,11 +7,13 @@ export class ThankYouPage {
   systemContentContainer: any;
   startFundraisingButton: any;
   goToProfileButton: any;
+  transactionMessage:any;
+
   constructor() {
     this.container = buildSelector('#base-page-top');
     this.thankYouMessageContainer = buildSelector(this.container, 'rx-base-page');
     this.transactionNumber = buildSelector(this.thankYouMessageContainer, '.page-content-20000');
-
+    this.transactionMessage = buildSelector(this.thankYouMessageContainer, '.page-content-20000 h1')
     this.systemContentContainer = buildSelector('.system-content');
     this.startFundraisingButton = buildSelector(this.systemContentContainer, '.start-fundraising-btn');
     this.goToProfileButton = buildSelector(this.systemContentContainer, '.sponsor-finish-btn');
@@ -27,7 +29,7 @@ export class ThankYouPage {
     //expect(this.transactionNumber.getText()).contains(code);
   }
   verifySuccessfulTransaction(data) {
-    cy.get(this.transactionNumber).should('not.have.text', data.unsuccessfulTransactionMessage)
+    cy.get(this.transactionMessage).should('not.contain.text', data.unsuccessfulTransactionMessage)
     //expect(this.transactionNumber.getText()).not.contains(data.unsuccessfulTransactionMessage);
   }
   startFundraising() {

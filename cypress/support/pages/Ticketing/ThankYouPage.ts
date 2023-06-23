@@ -1,5 +1,5 @@
 import { TicketSuccess } from "../../components/ticketSuccess.co";
-import { buildSelector} from "../../utils/actions";
+import { buildSelector, logConstituent} from "../../utils/actions";
 
 export class ThankYouPage {
   thankYouMessageContainer: any;
@@ -13,6 +13,7 @@ export class ThankYouPage {
   }
 
   verifyTransactionNumber(data) {
+    logConstituent()
     cy.contains(this.transactionNumber, data.transactionNumberStartsWith)
   }
   clickOnDownloadInvoiceButton() {
