@@ -1,0 +1,52 @@
+{
+  "emailTemplate": [
+    {
+      "id": 1,
+      "name": "Saved Custom Template 1",
+      "kind": "CUSTOM",
+      "languageId": 1,
+      "emailTemplateTypeId": 6,
+      "__typename": "EmailTemplateType"
+    },
+    {
+      "id": 2,
+      "name": "Saved Custom Template 2",
+      "kind": "CUSTOM",
+      "languageId": 1,
+      "emailTemplateTypeId": 7,
+      "__typename": "EmailTemplateType"
+    },
+    {
+      "id": 3,
+      "name": "Saved Custom Template 3",
+      "kind": "CUSTOM",
+      "languageId": 1,
+      "emailTemplateTypeId": 8,
+      "__typename": "EmailTemplateType"
+    },
+    {
+      "id": 4,
+      "name": "Saved Custom Template 4",
+      "kind": "CUSTOM",
+      "languageId": 1,
+      "emailTemplateTypeId": 11,
+      "__typename": "EmailTemplateType"
+    },
+    {
+      "id": 5,
+      "name": "Saved Custom Template 5",
+      "kind": "CUSTOM",
+      "languageId": 1,
+      "emailTemplateTypeId": 12,
+      "__typename": "EmailTemplateType"
+    },
+    {
+      "id": 6,
+      "name": "Saved Custom Template 6",
+      "kind": "CUSTOM",
+      "languageId": 1,
+      "emailTemplateTypeId": 13,
+      "__typename": "EmailTemplateType"
+    }
+  ]
+}

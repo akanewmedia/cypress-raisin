@@ -1,0 +1,46 @@
+{
+  "donations": {
+    "participant": [
+      {
+        "id": 1,
+        "firstName": "20234 user",
+        "lastName": "Anderson",
+        "email": "aa@loremipsum.com",
+        "amount": 99.25,
+        "date": "2018-08-01T00:00:00",
+        "thanked": true,
+        "receiptIssued": false,
+        "message": "Testing through graph QL",
+        "donorUserId": 41,
+        "__typename": "DonationType"
+      },
+      {
+        "id": 2,
+        "firstName": "20234 user",
+        "lastName": "Bryne",
+        "email": "bb@loremipsum.com",
+        "amount": 29.25,
+        "date": "2018-08-02T00:00:00",
+        "thanked": true,
+        "receiptIssued": true,
+        "message": "Testing through graph QL",
+        "donorUserId": 42,
+        "__typename": "DonationType"
+      },
+      {
+        "id": 3,
+        "firstName": "20234 user",
+        "lastName": "Cage",
+        "email": "cc@loremipsum.com",
+        "amount": 30.25,
+        "date": "2018-08-03T00:00:00",
+        "thanked": true,
+        "receiptIssued": true,
+        "message": "Testing through graph QL",
+        "donorUserId": 43,
+        "__typename": "DonationType"
+      }
+    ],
+    "__typename": "DonationsType"
+  }
+}

@@ -1,0 +1,28 @@
+{
+    "events": [
+    1
+],
+    "user": {
+        "username": "1532536978770IndyNam",
+        "password": "Akaaka1!"
+    },
+    "requiredFieldsValidationMessages": [
+		"First Name is required",
+		"Middle Name is required",
+		"Last Name is required",
+		"E-mail is required",
+		"Phone is required",
+		"Phone Extension is required",
+		"Organization Name is required",
+		"Address is required",
+		"City is required",
+		"Postal Code / ZIP is required",
+		"Custom Field 1 is required",
+		"Custom Field 2 is required",
+		"Custom Field 3 is required",
+		"Custom Field 4 is required",
+		"Custom Field 5 is required",
+        "Question 2 - Short answer is required",
+        "Tell me your story is required"
+	]
+}

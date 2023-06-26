@@ -1,0 +1,574 @@
+{
+  "teams": [
+    {
+      "id": 1,
+      "name": "The Rebel Alliance",
+      "captain": {
+        "id": 1,
+        "firstName": "Poe",
+        "lastName": "Dameron",
+        "__typename": "TeamCaptainType"
+      },
+      "passwordRequired": false,
+      "isFull": false,
+      "teamUserId": 1,
+      "url": {
+        "customPart": "testCP",
+        "baseUrl": "https://testOrg2.test.com/testSECP",
+        "__typename": "CustomUrlType"
+      },
+      "__typename": "TeamType"
+    },
+    {
+      "id": 2,
+      "name": "The Galactic Empire",
+      "captain": {
+        "id": 2,
+        "firstName": "Sheev",
+        "lastName": "Palpatine",
+        "__typename": "TeamCaptainType"
+      },
+      "isFull": true,
+      "passwordRequired": true,
+      "teamUserId": 2,
+      "url": {
+        "customPart": "testCP",
+        "baseUrl": "https://testOrg2.test.com/testSECP",
+        "__typename": "CustomUrlType"
+      },
+      "__typename": "TeamType"
+    },
+    {
+      "id": 3,
+      "name": "Reds",
+      "captain": {
+        "id": 3,
+        "firstName": "Sarge",
+        "lastName": "",
+        "__typename": "TeamCaptainType"
+      },
+      "isFull": true,
+      "passwordRequired": true,
+      "teamUserId": 3,
+      "url": {
+        "customPart": "testCP",
+        "baseUrl": "https://testOrg2.test.com/testSECP",
+        "__typename": "CustomUrlType"
+      },
+      "__typename": "TeamType"
+    },
+    {
+      "id": 4,
+      "name": "Blues",
+      "captain": {
+        "id": 4,
+        "firstName": "Lavernius",
+        "lastName": "Tucker",
+        "__typename": "TeamCaptainType"
+      },
+      "isFull": true,
+      "passwordRequired": true,
+      "teamUserId": 4,
+      "url": {
+        "customPart": "testCP",
+        "baseUrl": "https://testOrg2.test.com/testSECP",
+        "__typename": "CustomUrlType"
+      },
+      "__typename": "TeamType"
+    },
+    {
+      "id": 5,
+      "name": "Death Eaters",
+      "captain": {
+        "id": 5,
+        "firstName": "Tom",
+        "lastName": "Riddle",
+        "__typename": "TeamCaptainType"
+      },
+      "isFull": true,
+      "passwordRequired": true,
+      "teamUserId": 5,
+      "url": {
+        "customPart": "testCP",
+        "baseUrl": "https://testOrg2.test.com/testSECP",
+        "__typename": "CustomUrlType"
+      },
+      "__typename": "TeamType"
+    },
+    {
+      "id": 6,
+      "name": "Order of the phoenix",
+      "captain": {
+        "id": 6,
+        "firstName": "Albus",
+        "lastName": "Percival Wulfric Brian Dumbledore",
+        "__typename": "TeamCaptainType"
+      },
+      "isFull": true,
+      "passwordRequired": true,
+      "teamUserId": 6,
+      "url": {
+        "customPart": "testCP",
+        "baseUrl": "https://testOrg2.test.com/testSECP",
+        "__typename": "CustomUrlType"
+      },
+      "__typename": "TeamType"
+    },
+    {
+      "id": 7,
+      "name": "The Horde",
+      "captain": {
+        "id": 7,
+        "firstName": "Sylvanas",
+        "lastName": "Windrunner",
+        "__typename": "TeamCaptainType"
+      },
+      "passwordRequired": true,
+      "isFull": false,
+      "teamUserId": 7,
+      "url": {
+        "customPart": "testCP",
+        "baseUrl": "https://testOrg2.test.com/testSECP",
+        "__typename": "CustomUrlType"
+      },
+      "__typename": "TeamType"
+    },
+    {
+      "id": 8,
+      "name": "The Alliance",
+      "captain": {
+        "id": 8,
+        "firstName": "Alduin",
+        "lastName": "Wrynn",
+        "__typename": "TeamCaptainType"
+      },
+      "passwordRequired": true,
+      "isFull": false,
+      "teamUserId": 8,
+      "url": {
+        "customPart": "testCP",
+        "baseUrl": "https://testOrg2.test.com/testSECP",
+        "__typename": "CustomUrlType"
+      },
+      "__typename": "TeamType"
+    },
+    {
+      "id": 9,
+      "name": "The Klingon Empire",
+      "captain": {
+        "id": 9,
+        "firstName": "Gowron",
+        "lastName": "",
+        "__typename": "TeamCaptainType"
+      },
+      "isFull": true,
+      "passwordRequired": true,
+      "teamUserId": 9,
+      "url": {
+        "customPart": "testCP",
+        "baseUrl": "https://testOrg2.test.com/testSECP",
+        "__typename": "CustomUrlType"
+      },
+      "__typename": "TeamType"
+    },
+    {
+      "id": 10,
+      "name": "The United Federation of Planets",
+      "captain": {
+        "id": 10,
+        "firstName": "Johnathon",
+        "lastName": "Archer",
+        "__typename": "TeamCaptainType"
+      },
+      "passwordRequired": true,
+      "isFull": false,
+      "teamUserId": 10,
+      "url": {
+        "customPart": "testCP",
+        "baseUrl": "https://testOrg2.test.com/testSECP",
+        "__typename": "CustomUrlType"
+      },
+      "__typename": "TeamType"
+    },
+    {
+      "id": 11,
+      "name": "The Rebel Alliance Reserves",
+      "captain": {
+        "id": 11,
+        "firstName": "Poe",
+        "lastName": "Dameron",
+        "__typename": "TeamCaptainType"
+      },
+      "isFull": true,
+      "passwordRequired": false,
+      "teamUserId": 11,
+      "url": {
+        "customPart": "testCP",
+        "baseUrl": "https://testOrg2.test.com/testSECP",
+        "__typename": "CustomUrlType"
+      },
+      "__typename": "TeamType"
+    },
+    {
+      "id": 12,
+      "name": "The Galactic Empire Reserves",
+      "captain": {
+        "id": 12,
+        "firstName": "Sheev",
+        "lastName": "Palpatine",
+        "__typename": "TeamCaptainType"
+      },
+      "isFull": false,
+      "passwordRequired": true,
+      "teamUserId": 12,
+      "url": {
+        "customPart": "testCP",
+        "baseUrl": "https://testOrg2.test.com/testSECP",
+        "__typename": "CustomUrlType"
+      },
+      "__typename": "TeamType"
+    },
+    {
+      "id": 13,
+      "name": "Reds Reserves",
+      "captain": {
+        "id": 13,
+        "firstName": "Sarge",
+        "lastName": "",
+        "__typename": "TeamCaptainType"
+      },
+      "isFull": false,
+      "passwordRequired": true,
+      "teamUserId": 13,
+      "url": {
+        "customPart": "testCP",
+        "baseUrl": "https://testOrg2.test.com/testSECP",
+        "__typename": "CustomUrlType"
+      },
+      "__typename": "TeamType"
+    },
+    {
+      "id": 14,
+      "name": "Blues Reserves",
+      "captain": {
+        "id": 14,
+        "firstName": "Lavernius",
+        "lastName": "Tucker",
+        "__typename": "TeamCaptainType"
+      },
+      "isFull": false,
+      "passwordRequired": true,
+      "teamUserId": 14,
+      "url": {
+        "customPart": "testCP",
+        "baseUrl": "https://testOrg2.test.com/testSECP",
+        "__typename": "CustomUrlType"
+      },
+      "__typename": "TeamType"
+    },
+    {
+      "id": 15,
+      "name": "Death Eaters Reserves",
+      "captain": {
+        "id": 15,
+        "firstName": "Tom",
+        "lastName": "Riddle",
+        "__typename": "TeamCaptainType"
+      },
+      "isFull": false,
+      "passwordRequired": true,
+      "teamUserId": 15,
+      "url": {
+        "customPart": "testCP",
+        "baseUrl": "https://testOrg2.test.com/testSECP",
+        "__typename": "CustomUrlType"
+      },
+      "__typename": "TeamType"
+    },
+    {
+      "id": 16,
+      "name": "Order of the phoenix Reserves",
+      "captain": {
+        "id": 16,
+        "firstName": "Albus",
+        "lastName": "Percival Wulfric Brian Dumbledore",
+        "__typename": "TeamCaptainType"
+      },
+      "isFull": false,
+      "passwordRequired": true,
+      "teamUserId": 16,
+      "url": {
+        "customPart": "testCP",
+        "baseUrl": "https://testOrg2.test.com/testSECP",
+        "__typename": "CustomUrlType"
+      },
+      "__typename": "TeamType"
+    },
+    {
+      "id": 17,
+      "name": "The Horde Reserves",
+      "captain": {
+        "id": 17,
+        "firstName": "Sylvanas",
+        "lastName": "Windrunner",
+        "__typename": "TeamCaptainType"
+      },
+      "isFull": true,
+      "passwordRequired": true,
+      "teamUserId": 17,
+      "url": {
+        "customPart": "testCP",
+        "baseUrl": "https://testOrg2.test.com/testSECP",
+        "__typename": "CustomUrlType"
+      },
+      "__typename": "TeamType"
+    },
+    {
+      "id": 18,
+      "name": "The Alliance Reserves",
+      "captain": {
+        "id": 18,
+        "firstName": "Alduin",
+        "lastName": "Wrynn",
+        "__typename": "TeamCaptainType"
+      },
+      "isFull": true,
+      "passwordRequired": true,
+      "teamUserId": 18,
+      "url": {
+        "customPart": "testCP",
+        "baseUrl": "https://testOrg2.test.com/testSECP",
+        "__typename": "CustomUrlType"
+      },
+      "__typename": "TeamType"
+    },
+    {
+      "id": 19,
+      "name": "The Klingon Empire Reserves",
+      "captain": {
+        "id": 19,
+        "firstName": "Gowron",
+        "lastName": "",
+        "__typename": "TeamCaptainType"
+      },
+      "isFull": true,
+      "passwordRequired": true,
+      "teamUserId": 19,
+      "url": {
+        "customPart": "testCP",
+        "baseUrl": "https://testOrg2.test.com/testSECP",
+        "__typename": "CustomUrlType"
+      },
+      "__typename": "TeamType"
+    },
+    {
+      "id": 20,
+      "name": "The United Federation of Planets Reserves",
+      "captain": {
+        "id": 20,
+        "firstName": "Johnathon",
+        "lastName": "Archer",
+        "__typename": "TeamCaptainType"
+      },
+      "isFull": true,
+      "passwordRequired": true,
+      "teamUserId": 20,
+      "url": {
+        "customPart": "testCP",
+        "baseUrl": "https://testOrg2.test.com/testSECP",
+        "__typename": "CustomUrlType"
+      },
+      "__typename": "TeamType"
+    },
+    {
+      "id": 21,
+      "name": "The Rebel Alliance Scouts",
+      "captain": {
+        "id": 21,
+        "firstName": "Poe",
+        "lastName": "Dameron",
+        "__typename": "TeamCaptainType"
+      },
+      "isFull": false,
+      "passwordRequired": false,
+      "teamUserId": 21,
+      "url": {
+        "customPart": "testCP",
+        "baseUrl": "https://testOrg2.test.com/testSECP",
+        "__typename": "CustomUrlType"
+      },
+      "__typename": "TeamType"
+    },
+    {
+      "id": 22,
+      "name": "The Galactic Empire Scouts",
+      "captain": {
+        "id": 22,
+        "firstName": "Sheev",
+        "lastName": "Palpatine",
+        "__typename": "TeamCaptainType"
+      },
+      "isFull": false,
+      "passwordRequired": true,
+      "teamUserId": 22,
+      "url": {
+        "customPart": "testCP",
+        "baseUrl": "https://testOrg2.test.com/testSECP",
+        "__typename": "CustomUrlType"
+      },
+      "__typename": "TeamType"
+    },
+    {
+      "id": 23,
+      "name": "Reds Scouts",
+      "captain": {
+        "id": 23,
+        "firstName": "Sarge",
+        "lastName": "",
+        "__typename": "TeamCaptainType"
+      },
+      "isFull": false,
+      "passwordRequired": true,
+      "teamUserId": 23,
+      "url": {
+        "customPart": "testCP",
+        "baseUrl": "https://testOrg2.test.com/testSECP",
+        "__typename": "CustomUrlType"
+      },
+      "__typename": "TeamType"
+    },
+    {
+      "id": 24,
+      "name": "Blues Scouts",
+      "captain": {
+        "id": 24,
+        "firstName": "Lavernius",
+        "lastName": "Tucker",
+        "__typename": "TeamCaptainType"
+      },
+      "isFull": false,
+      "passwordRequired": true,
+      "teamUserId": 24,
+      "url": {
+        "customPart": "testCP",
+        "baseUrl": "https://testOrg2.test.com/testSECP",
+        "__typename": "CustomUrlType"
+      },
+      "__typename": "TeamType"
+    },
+    {
+      "id": 25,
+      "name": "Death Eaters Scouts",
+      "captain": {
+        "id": 25,
+        "firstName": "Tom",
+        "lastName": "Riddle",
+        "__typename": "TeamCaptainType"
+      },
+      "isFull": false,
+      "passwordRequired": true,
+      "teamUserId": 25,
+      "url": {
+        "customPart": "testCP",
+        "baseUrl": "https://testOrg2.test.com/testSECP",
+        "__typename": "CustomUrlType"
+      },
+      "__typename": "TeamType"
+    },
+    {
+      "id": 26,
+      "name": "Order of the phoenix Scouts",
+      "captain": {
+        "id": 26,
+        "firstName": "Albus",
+        "lastName": "Percival Wulfric Brian Dumbledore",
+        "__typename": "TeamCaptainType"
+      },
+      "isFull": false,
+      "passwordRequired": true,
+      "teamUserId": 26,
+      "url": {
+        "customPart": "testCP",
+        "baseUrl": "https://testOrg2.test.com/testSECP",
+        "__typename": "CustomUrlType"
+      },
+      "__typename": "TeamType"
+    },
+    {
+      "id": 27,
+      "name": "The Horde Scouts",
+      "captain": {
+        "id": 27,
+        "firstName": "Sylvanas",
+        "lastName": "Windrunner",
+        "__typename": "TeamCaptainType"
+      },
+      "isFull": false,
+      "passwordRequired": true,
+      "teamUserId": 27,
+      "url": {
+        "customPart": "testCP",
+        "baseUrl": "https://testOrg2.test.com/testSECP",
+        "__typename": "CustomUrlType"
+      },
+      "__typename": "TeamType"
+    },
+    {
+      "id": 28,
+      "name": "The Alliance Scouts",
+      "captain": {
+        "id": 28,
+        "firstName": "Alduin",
+        "lastName": "Wrynn",
+        "__typename": "TeamCaptainType"
+      },
+      "isFull": false,
+      "passwordRequired": true,
+      "teamUserId": 28,
+      "url": {
+        "customPart": "testCP",
+        "baseUrl": "https://testOrg2.test.com/testSECP",
+        "__typename": "CustomUrlType"
+      },
+      "__typename": "TeamType"
+    },
+    {
+      "id": 29,
+      "name": "The Klingon Empire Scouts",
+      "captain": {
+        "id": 29,
+        "firstName": "Gowron",
+        "lastName": "",
+        "__typename": "TeamCaptainType"
+      },
+      "isFull": false,
+      "passwordRequired": true,
+      "teamUserId": 29,
+      "url": {
+        "customPart": "testCP",
+        "baseUrl": "https://testOrg2.test.com/testSECP",
+        "__typename": "CustomUrlType"
+      },
+      "__typename": "TeamType"
+    },
+    {
+      "id": 30,
+      "name": "The United Federation of Planets Scouts",
+      "captain": {
+        "id": 30,
+        "firstName": "Johnathon",
+        "lastName": "Archer",
+        "__typename": "TeamCaptainType"
+      },
+      "isFull": false,
+      "passwordRequired": true,
+      "teamUserId": 30,
+      "url": {
+        "customPart": "testCP",
+        "baseUrl": "https://testOrg2.test.com/testSECP",
+        "__typename": "CustomUrlType"
+      },
+      "__typename": "TeamType"
+    }
+  ]
+}

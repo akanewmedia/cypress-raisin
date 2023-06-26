@@ -1,0 +1,16 @@
+{
+  "participantProfile": {
+    "userId": 123,
+    "firstName": "First",
+    "lastName": "Last",
+    "goal": 10,
+    "userId": 15212,
+    "subEventId": 889844,
+    "url": {
+      "customPart": "testCP",
+      "baseUrl": "https://testOrg2.test.com/testSECP",
+      "__typename": "CustomUrlType"
+    },
+    "__typename": "ParticipantType"
+  }
+}

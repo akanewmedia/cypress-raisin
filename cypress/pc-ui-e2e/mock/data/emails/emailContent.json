@@ -1,0 +1,102 @@
+{
+  "emails": [
+    {
+      "name": "Saved E-Mail Template 1",
+      "subject": "Test Subject 1",
+      "body": "<b> THis is a test body Numero <u>1</u></b>",
+      "id": 1,
+      "emailTemplateId": 10,
+      "__typename": "EmailContentType",
+      "message": "<b> THis is a test org message <u>1</u></b>"
+    },
+    {
+      "name": "Follow-up 2",
+      "subject": "Test Subject 2",
+      "body": "<b> THis is a test body Numero <u>2</u></b>",
+      "id": 2,
+      "emailTemplateId": 20,
+      "__typename": "EmailContentType",
+      "message": "<b> THis is a test org message <u>2</u></b>"
+    },
+    {
+      "name": "Saved Team Mail",
+      "subject": "Test Subject 3",
+      "body": "<b> THis is a test body Numero <u>3</u></b>",
+      "id": 3,
+      "emailTemplateId": 30,
+      "__typename": "EmailContentType",
+      "message": "<b> THis is a test org message <u>3</u></b>"
+    },
+    {
+      "name": "Thank You Custom 1",
+      "subject": "Test Subject 4",
+      "body": "<b> THis is a test body Numero <u>4</u></b>",
+      "id": 4,
+      "emailTemplateId": 40,
+      "__typename": "EmailContentType",
+      "message": "<b> THis is a test org message <u>4</u></b>"
+    },
+    {
+      "name": "Thank You Custom 2",
+      "subject": "Test Subject 5",
+      "body": "<b> THis is a test body Numero <u>5</u></b>",
+      "id": 5,
+      "emailTemplateId": 50,
+      "__typename": "EmailContentType"
+    },
+    {
+      "name": "Saved Custom Template 1",
+      "subject": "Test Subject Custmo 6",
+      "body": "<b> THis is a test body</b> Numero <u>6</u> though it is the first custom one",
+      "id": 6,
+      "emailTemplateId": 10,
+      "__typename": "EmailContentType",
+      "message": "<b> THis is a test org message Custom Template <u>1</u></b>"
+    },
+    {
+      "name": "Saved Custom Template 2",
+      "subject": "Test Subject Custom 7",
+      "body": "<b> THis is a test custom body Numero <u>7</u></b>",
+      "id": 7,
+      "emailTemplateId": 20,
+      "__typename": "EmailContentType",
+      "message": "<b> THis is a test org message Custom Template <u>2</u></b>"
+    },
+    {
+      "name": "Saved Custom Template 3",
+      "subject": "Test Subject 8",
+      "body": "<b> THis is a test custom body Numero <u>8</u></b>",
+      "id": 8,
+      "emailTemplateId": 30,
+      "__typename": "EmailContentType",
+      "message": "<b> THis is a test org message Custom Template <u>3</u></b>"
+    },
+    {
+      "name": "Thank you Team",
+      "subject": "Thank you Team",
+      "body": "<b> THis is a test custom body Numero <u>8</u></b>",
+      "id": 9,
+      "emailTemplateId": 147,
+      "__typename": "EmailContentType",
+      "message": "<b> THis is a test org message Thank you Team Template <u>3</u></b>"
+    },
+    {
+      "name": "Join Team",
+      "subject": "Join Team",
+      "body": "<b> THis is a test custom body Numero <u>8</u></b>",
+      "id": 10,
+      "emailTemplateId": 72,
+      "__typename": "EmailContentType",
+      "message": "<b> THis is a test org message Join Team Template <u>3</u></b>"
+    },
+    {
+      "name": "Email Team",
+      "subject": "Email Team",
+      "body": "<b> THis is a test custom body Numero <u>8</u></b>",
+      "id": 11,
+      "emailTemplateId": 73,
+      "__typename": "EmailContentType",
+      "message": "<b> THis is a test org message Email Team Template <u>3</u></b>"
+    }
+  ]
+}

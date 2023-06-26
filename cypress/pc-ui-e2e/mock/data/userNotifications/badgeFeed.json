@@ -1,0 +1,22 @@
+{
+  "badgeFeed": [
+    {
+      "id": 11,
+      "processed": false,
+      "date": "2020-04-06T16:24:09.220",
+      "parameters": "{\"BadgeId\":1}",
+      "userNotificationTypeId": 3,
+      "triggeringEventType": 0,
+      "__typename": "UserNotificationType"
+    },
+    {
+      "id": 22,
+      "processed": false,
+      "date": "2020-04-06T16:24:09.220",
+      "parameters": "{\"BadgeId\":2}",
+      "userNotificationTypeId": 3,
+      "triggeringEventType": 0,
+      "__typename": "UserNotificationType"
+    }    
+  ]
+}

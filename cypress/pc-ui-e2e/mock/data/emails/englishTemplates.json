@@ -1,0 +1,52 @@
+{
+  "emailTemplate": [
+    {
+      "id": 1,
+      "name": "English 1",
+      "kind": "SAMPLE",
+      "languageId": 1,
+      "emailTemplateTypeId": 1,
+      "__typename": "EmailTemplateType"
+    },
+    {
+      "id": 2,
+      "name": "English 2",
+      "kind": "SAMPLE",
+      "languageId": 1,
+      "emailTemplateTypeId": 2,
+      "__typename": "EmailTemplateType"
+    },
+    {
+      "id": 3,
+      "name": "SPONSOR_ME",
+      "kind": "SAMPLE",
+      "languageId": 1,
+      "emailTemplateTypeId": 70,
+      "__typename": "EmailTemplateType"
+    },
+    {
+      "id": 4,
+      "name": "THANK_YOU",
+      "kind": "SAMPLE",
+      "languageId": 1,
+      "emailTemplateTypeId": 74,
+      "__typename": "EmailTemplateType"
+    },
+    {
+      "id": 5,
+      "name": "FOLLOW_UP",
+      "kind": "SAMPLE",
+      "languageId": 1,
+      "emailTemplateTypeId": 76,
+      "__typename": "EmailTemplateType"
+    },
+    {
+      "id": 6,
+      "name": "Blank",
+      "kind": "SAMPLE",
+      "languageId": 1,
+      "emailTemplateTypeId": 75,
+      "__typename": "EmailTemplateType"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "data": {
+    "previousSubEvents": [
+      {
+        "id": 0,
+        "languageId": 1,
+        "subEventName": "currentEvent",
+        "__typename": "PreviousSubEventType"
+      },
+      {
+        "id": 20234,
+        "languageId": 1,
+        "subEventName": "copiedeventgrptest",
+        "__typename": "PreviousSubEventType"
+      },
+      {
+        "id": 20203,
+        "languageId": 1,
+        "subEventName": "rxfmptest",
+        "__typename": "PreviousSubEventType"
+      }
+    ]
+  }
+}

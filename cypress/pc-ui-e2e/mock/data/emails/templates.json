@@ -1,0 +1,24 @@
+{
+  "templates": [
+    {
+      "id": 1,
+      "name": "Saved E-Mail Template 1"
+    },
+    {
+      "id": 2,
+      "name": "Follow-up 2"
+    },
+    {
+      "id": 3,
+      "name": "Saved Team Mail"
+    },
+    {
+      "id": 4,
+      "name": "Thank You Custom 1"
+    },
+    {
+      "id": 5,
+      "name": "Thank You Custom 2"
+    }
+  ]
+}

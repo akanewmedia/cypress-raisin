@@ -1,0 +1,39 @@
+{
+  "participantPage": {
+    "title": "Welcome to First Last's page from 20234",
+    "story": "<p class=\"SubTitle\">20234 - Support My Journey</p>I am participating in this event to raise money for a great cause. Please sponsor me and help make a difference. Together, with your support, we can reach our fundraising goal.",
+    "bgImage": "images/little_missy.jpg",
+    "media": [
+      {
+        "isImage": true,
+        "url": "https://d3axljp74ph2gi.cloudfront.net/Org_2/EventLocation_20203/picture_20203_637116740162499969.png",
+        "id": 1,
+        "__typename": "PageMediaType"
+      }
+    ],
+    "cssUrl": "https://d3qjg8t6l2mv8e.cloudfront.net/clients/org_2/css/se_20234.css",
+    "dynamicData": {
+      "baseAPIUrl": "https://api-qa2.raisinlocal.com/v2",
+      "organizationId": 2,
+      "subEventId": 20234,
+      "subEventGroupId": 22269,
+      "participantId": 5423534,
+      "teamId": null,
+      "languageId": 1,
+      "subEventGroup": {
+        "subEventGroupId": 22269,
+        "name": "Toronto",
+        "singularLabel": "City",
+        "__typename": "SubEventGroupType"
+      },
+      "team": null,
+      "__typename": "DynamicDataType"
+    },
+    "stream": {
+      "streamingType": 1,
+      "streamingParams": "{\"channel\":\"monstercat\"}",
+      "__typename": "StreamingFeedType"
+    },
+    "__typename": "PageType"
+  }
+}

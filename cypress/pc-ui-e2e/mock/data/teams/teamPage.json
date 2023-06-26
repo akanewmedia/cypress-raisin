@@ -1,0 +1,42 @@
+{
+  "teamPage": {
+    "title": "Welcome to [team:name]'s page",
+    "story": "<p class=\"SubTitle\">Support Our Team</p>We are participating in this event to raise money for a great cause. You can make a difference by donating generously to any of our team members. Together, with your support, we can reach our fundraising goal.",
+    "cssUrl": "https://childrenswish.akaraisin.com/sharedimages/bootstrap/css/content.min.css",
+    "bgImage": "https://dev2.raisinlocal.com/sharedimages/pledge-4/banner-group.jpg",
+    "media": [
+      {
+        "isImage": true,
+        "url": "https://d3jh3sytalcwnl.cloudfront.net/raisin/images/im_team_default.jpg",
+        "id": 6,
+        "__typename": "PageMediaType"
+      }
+    ],
+    "dynamicData": {
+      "baseAPIUrl": "https://api-d.raisinlocal.com/v2",
+      "organizationId": 2,
+      "subEventId": 20203,
+      "subEventGroupId": 22269,
+      "participantId": 5424529,
+      "teamId": 254719,
+      "languageId": 1,
+      "subEventGroup": {
+        "subEventGroupId": 22269,
+        "name": "Trono",
+        "singularLabel": "City",
+        "__typename": "SubEventGroupType"
+      },
+      "team": {
+        "captain": {
+          "captainId": 5424529,
+          "name": "Testusners2capt Test33",
+          "label": "Captain",
+          "__typename": "CaptainType"
+        },
+        "__typename": "TeamType"
+      },
+      "__typename": "DynamicDataType"
+    },
+    "__typename": "PageType"
+  }
+}

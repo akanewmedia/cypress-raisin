@@ -1,0 +1,39 @@
+{
+  "participantPage": {
+    "title": "Welcome to First Last's page from DEFAULT DATA",
+    "story": "<p class=\"SubTitle\">DEFAULT DATA- Support My Journey</p>I am participating in this event to raise money for a great cause. Please sponsor me and help make a difference. Together, with your support, we can reach our fundraising goal.",
+    "bgImage": "images/little_missy.jpg",
+    "cssUrl": "https://d3qjg8t6l2mv8e.cloudfront.net/clients/org_2/css/se_20203.css",
+    "media": [
+      {
+        "isImage": true,
+        "url": "https://d3jh3sytalcwnl.cloudfront.net/raisin/images/im_participant_default.jpg",
+        "id": 1,
+        "__typename": "PageMediaType"
+      }
+    ],
+    "dynamicData": {
+      "baseAPIUrl": "https://api-qa2.raisinlocal.com/v2",
+      "organizationId": 2,
+      "subEventId": 20203,
+      "subEventGroupId": 22269,
+      "participantId": 5423534,
+      "teamId": null,
+      "languageId": 1,
+      "subEventGroup": {
+        "subEventGroupId": 22269,
+        "name": "Toronto",
+        "singularLabel": "City",
+        "__typename": "SubEventGroupType"
+      },
+      "team": null,
+      "__typename": "DynamicDataType"
+    },
+    "stream": {
+      "streamingType": 1,
+      "streamingParams": "{\"channel\":\"monstercat\"}",
+      "__typename": "StreamingFeedType"
+    },
+    "__typename": "PageType"
+  }
+}

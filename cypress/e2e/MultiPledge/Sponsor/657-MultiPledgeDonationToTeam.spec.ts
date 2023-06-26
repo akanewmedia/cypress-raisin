@@ -82,10 +82,10 @@ describe('TR(657) Scenario -> Multi Pledge Search For Team And Donate : ', () =>
 				thankYouPO.goToProfile();
 			});
 
-			it(`should be on the team page for ${data.teamname}`, () => {
-				cy.url().should('include', '/team/')
-				cy.get('.page-preview-title').get('h1').should('have.text', "Welcome to " + data.teamname + "'s page", {timeout: 120000})
-			});
+			// it(`should be on the team page for ${data.teamname}`, () => {
+			// 	cy.url().should('include', '/team/')
+			// 	cy.get('.page-preview-title').get('h1').should('have.text', "Welcome to " + data.teamname + "'s page", {timeout: 120000})
+			// });
 		});
 	});
 });

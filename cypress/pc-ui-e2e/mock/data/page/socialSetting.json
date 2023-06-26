@@ -1,0 +1,10 @@
+{
+  "socialSetting": {
+    "title": "First Last",
+    "description": "First Last",
+    "image": "https://d3jh3sytalcwnl.cloudfront.net/raisin/images/im_participant_default.jpg",
+    "emailNote": "I’m writing to tell you about this important event. Register to participate or get involved and help support this worthwhile cause. Your generosity can make a difference! [%Contextual-Link%]",
+    "accountId": "ra-50997dea10d56dee",
+    "__typename": "SocialSettingType"
+  }
+}

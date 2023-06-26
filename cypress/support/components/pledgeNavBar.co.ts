@@ -16,7 +16,7 @@ export class PledgeNavBarComponent {
     //this.container = buildSelector(this.container, '.login-actions');
     this.registerButton = buildSelector(this.container, 'li[data-pgid="2"]');
     this.donateButton = buildSelector(this.container, 'li[data-pgid="3"]');
-    this.loginButton = buildSelector(this.container, 'li a[href*="login.aspx"]');
+    this.loginButton = buildSelector(this.container, 'li .login-btn');
     this.logoutButton = buildSelector(this.container, 'li a[href*="logout.aspx"]');
     this.menu = buildSelector(this.container, '#nav');
   }

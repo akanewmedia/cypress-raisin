@@ -1,0 +1,6 @@
+{
+  "subEventConfig": {
+    "disableFitnessGoal": true,
+    "__typename": "SubEventConfigType"
+  }
+}

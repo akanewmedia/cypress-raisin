@@ -1,0 +1,44 @@
+{
+  "emailTemplate": [
+    {
+      "id": 6,
+      "name": "French 1",
+      "kind": "SAMPLE",
+      "languageId": 2,
+      "emailTemplateTypeId": 1,
+      "__typename": "EmailTemplateType"
+    },
+    {
+      "id": 7,
+      "name": "French 2",
+      "kind": "SAMPLE",
+      "languageId": 2,
+      "emailTemplateTypeId": 2,
+      "__typename": "EmailTemplateType"
+    },
+    {
+      "id": 8,
+      "name": "French 3",
+      "kind": "SAMPLE",
+      "languageId": 2,
+      "emailTemplateTypeId": 3,
+      "__typename": "EmailTemplateType"
+    },
+    {
+      "id": 9,
+      "name": "French 4",
+      "kind": "SAMPLE",
+      "languageId": 2,
+      "emailTemplateTypeId": 4,
+      "__typename": "EmailTemplateType"
+    },
+    {
+      "id": 10,
+      "name": "French 5",
+      "kind": "SAMPLE",
+      "languageId": 2,
+      "emailTemplateTypeId": 5,
+      "__typename": "EmailTemplateType"
+    }
+  ]
+}

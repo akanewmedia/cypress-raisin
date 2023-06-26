@@ -1,0 +1,7 @@
+{
+  "emailBadge": {
+    "enabled": true,
+    "imageUrl": "https://via.placeholder.com/400x400",
+    "__typename": "emailBadgeType"
+  }
+}

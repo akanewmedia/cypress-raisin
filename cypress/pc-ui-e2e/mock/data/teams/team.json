@@ -1,0 +1,18 @@
+{
+  "team": {
+    "name": "The Rebel Alliance",
+    "goal": 10000,
+    "passwordRequired": false,
+    "teamUserId": 1,
+    "subEventId": 520123,
+    "id": 2000,
+    "url": {
+      "customPart": "testCP",
+      "baseUrl": "https://testOrg2.test.com/testSECP",
+      "__typename": "CustomUrlType"
+    },
+    "password": "Test",
+    "passwordProtectionConfiguration": "CAPTAIN_DECIDES",
+    "__typename": "TeamType"
+  }
+}

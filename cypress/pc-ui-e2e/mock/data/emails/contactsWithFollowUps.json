@@ -1,0 +1,319 @@
+{
+  "contacts": [
+    {
+      "id": 1,
+      "firstName": "Peter",
+      "lastName": "Parker",
+      "email": "pp@loremipsum.com",
+      "phone": "647-456-7894",
+      "type": "Donor",
+      "followUp": {
+        "date": "2019-08-21",
+        "donationAmount": "16366913.45",
+        "status": "PAGE_VISITED",
+        "__typename": "FollowUpType"
+      },
+      "__typename": "ContactType"
+    },
+    {
+      "id": 2,
+      "firstName": "Queenie",
+      "lastName": "Quinn",
+      "email": "qq@loremipsum.com",
+      "phone": "647-456-7894",
+      "type": "Donor",
+      "followUp": {
+        "date": "",
+        "donationAmount": "",
+        "status": "NOT_SENT",
+        "__typename": "FollowUpType"
+      },
+      "__typename": "ContactType"
+    },
+    {
+      "id": 3,
+      "firstName": "Rosie",
+      "lastName": "Reynolds",
+      "email": "rr@loremipsum.com",
+      "phone": "647-456-7894",
+      "type": "Donor",
+      "followUp": {
+        "date": "2019-08-21",
+        "donationAmount": "16366913.45",
+        "status": "OPENED",
+        "__typename": "FollowUpType"
+      },
+      "__typename": "ContactType"
+    },
+    {
+      "id": 4,
+      "firstName": "Stephen",
+      "lastName": "Stone",
+      "email": "ss@loremipsum.com",
+      "phone": "647-456-7894",
+      "type": "Donor",
+      "followUp": {
+        "date": "2019-08-21",
+        "donationAmount": "16366913.45",
+        "status": "DONATED",
+        "__typename": "FollowUpType"
+      },
+      "__typename": "ContactType"
+    },
+    {
+      "id": 5,
+      "firstName": "Triona",
+      "lastName": "Tithe",
+      "email": "tt@loremipsum.com",
+      "phone": "647-456-7894",
+      "type": "Donor",
+      "followUp": {
+        "date": "",
+        "donationAmount": "0",
+        "status": "NOT_SENT",
+        "__typename": "FollowUpType"
+      },
+      "__typename": "ContactType"
+    },
+    {
+      "id": 6,
+      "firstName": "Uriel",
+      "lastName": "Ulysses",
+      "email": "uu@loremipsum.com",
+      "phone": "647-456-7894",
+      "type": "Donor",
+      "followUp": {
+        "date": "2019-08-21",
+        "donationAmount": "16366913.45",
+        "status": "PAGE_VISITED",
+        "__typename": "FollowUpType"
+      },
+      "__typename": "ContactType"
+    },
+    {
+      "id": 7,
+      "firstName": "Valentine",
+      "lastName": "Venier",
+      "email": "vv@loremipsum.com",
+      "phone": "647-456-7894",
+      "type": "Donor",
+      "followUp": {
+        "date": "2019-08-21",
+        "donationAmount": "16366913.45",
+        "status": "OPENED",
+        "__typename": "FollowUpType"
+      },
+      "__typename": "ContactType"
+    },
+    {
+      "id": 8,
+      "firstName": "Winnie",
+      "lastName": "White",
+      "email": "ww@loremipsum.com",
+      "phone": "647-456-7894",
+      "type": "Donor",
+      "followUp": {
+        "date": "2019-08-21",
+        "donationAmount": "16366913.45",
+        "status": "SENT",
+        "__typename": "FollowUpType"
+      },
+      "__typename": "ContactType"
+    },
+    {
+      "id": 9,
+      "firstName": "Xander",
+      "lastName": "Xaverson",
+      "email": "xx@loremipsum.com",
+      "phone": "647-456-7894",
+      "type": "Donor",
+      "followUp": {
+        "date": "2019-08-21",
+        "donationAmount": "16366913.45",
+        "status": "DONATED",
+        "__typename": "FollowUpType"
+      },
+      "__typename": "ContactType"
+    },
+    {
+      "id": 10,
+      "firstName": "Yandel",
+      "lastName": "Yanny",
+      "email": "yy@loremipsum.com",
+      "phone": "647-456-7894",
+      "type": "Donor",
+      "followUp": {
+        "date": "2019-08-21",
+        "donationAmount": "16366913.45",
+        "status": "THANKED",
+        "__typename": "FollowUpType"
+      },
+      "__typename": "ContactType"
+    },
+    {
+      "id": 11,
+      "firstName": "Zeke",
+      "lastName": "Zanthum",
+      "email": "zz@loremipsum.com",
+      "phone": "647-456-7894",
+      "type": "Contact",
+      "followUp": {
+        "date": "2019-08-21",
+        "donationAmount": "16366913.45",
+        "status": "DONATED",
+        "__typename": "FollowUpType"
+      },
+      "__typename": "ContactType"
+    },
+    {
+      "id": 12,
+      "firstName": "Andrew",
+      "lastName": "Anthony",
+      "email": "aa@loremipsum.com",
+      "phone": "647-456-7894",
+      "type": "Donor",
+      "followUp": {
+        "date": "",
+        "donationAmount": "",
+        "status": "NOT_SENT",
+        "__typename": "FollowUpType"
+      },
+      "__typename": "ContactType"
+    },
+    {
+      "id": 13,
+      "firstName": "Barry",
+      "lastName": "Blinkerton",
+      "email": "bb@loremipsum.com",
+      "phone": "647-456-7894",
+      "type": "Contact",
+      "followUp": {
+        "date": "2019-08-21",
+        "donationAmount": "16366913.45",
+        "status": "DONATED",
+        "__typename": "FollowUpType"
+      },
+      "__typename": "ContactType"
+    },
+    {
+      "id": 14,
+      "firstName": "Carla",
+      "lastName": "Clave",
+      "email": "cc@loremipsum.com",
+      "phone": "647-456-7894",
+      "type": "Donor",
+      "followUp": {
+        "date": "2019-08-21",
+        "donationAmount": "16366913.45",
+        "status": "SENT",
+        "__typename": "FollowUpType"
+      },
+      "__typename": "ContactType"
+    },
+    {
+      "id": 15,
+      "firstName": "Domhnaill",
+      "lastName": "Donaghue",
+      "email": "dd@loremipsum.com",
+      "phone": "647-456-7894",
+      "type": "Donor",
+      "followUp": {
+        "date": "",
+        "donationAmount": "0",
+        "status": "NOT_SENT",
+        "__typename": "FollowUpType"
+      },
+      "__typename": "ContactType"
+    },
+    {
+      "id": 16,
+      "firstName": "Enya",
+      "lastName": "Ethers",
+      "email": "ee@loremipsum.com",
+      "phone": "647-456-7894",
+      "type": "Contact",
+      "followUp": {
+        "date": "2019-08-21",
+        "donationAmount": "16366913.45",
+        "status": "THANKED",
+        "__typename": "FollowUpType"
+      },
+      "__typename": "ContactType"
+    },
+    {
+      "id": 17,
+      "firstName": "Fabien",
+      "lastName": "Fabrice",
+      "email": "ff@loremipsum.com",
+      "phone": "647-456-7894",
+      "type": "Donor",
+      "followUp": {
+        "date": "2019-08-21",
+        "donationAmount": "16366913.45",
+        "status": "OPENED",
+        "__typename": "FollowUpType"
+      },
+      "__typename": "ContactType"
+    },
+    {
+      "id": 18,
+      "firstName": "Gertrude",
+      "lastName": "Genie",
+      "email": "gg@loremipsum.com",
+      "phone": "647-456-7894",
+      "type": "Donor",
+      "followUp": {
+        "date": "2019-08-21",
+        "donationAmount": "16366913.45",
+        "status": "DONATED",
+        "__typename": "FollowUpType"
+      },
+      "__typename": "ContactType"
+    },
+    {
+      "id": 19,
+      "firstName": "Aruna1",
+      "lastName": "Avula1",
+      "email": "aa1@loremipsum.com",
+      "phone": "647-456-7894",
+      "type": "Donor",
+      "followUp": {
+        "date": "2019-08-21",
+        "donationAmount": "16366913.45",
+        "status": "DONATED",
+        "__typename": "FollowUpType"
+      },
+      "__typename": "ContactType"
+    },
+    {
+      "id": 20,
+      "firstName": "Aruna2",
+      "lastName": "Avula2",
+      "email": "aa2@loremipsum.com",
+      "phone": "647-456-7894",
+      "type": "Donor",
+      "followUp": {
+        "date": "2019-08-21",
+        "donationAmount": "16366913.45",
+        "status": "DONATED",
+        "__typename": "FollowUpType"
+      },
+      "__typename": "ContactType"
+    },
+    {
+      "id": 21,
+      "firstName": "Aruna3",
+      "lastName": "Avula3",
+      "email": "aa3@loremipsum.com",
+      "phone": "647-456-7894",
+      "type": "Donor",
+      "followUp": {
+        "date": "2019-08-21",
+        "donationAmount": "16366913.45",
+        "status": "DONATED",
+        "__typename": "FollowUpType"
+      },
+      "__typename": "ContactType"
+    }
+  ]
+}
