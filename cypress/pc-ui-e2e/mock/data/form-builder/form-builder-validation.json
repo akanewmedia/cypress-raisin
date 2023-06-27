@@ -6,7 +6,7 @@
         "username": "1532536978770IndyNam",
         "password": "Akaaka1!"
     },
-    "requiredFieldsValidationMessages": [
+    "personalInfoValidationMessages": [
 		"First Name is required",
 		"Middle Name is required",
 		"Last Name is required",
@@ -16,7 +16,9 @@
 		"Organization Name is required",
 		"Address is required",
 		"City is required",
-		"Postal Code / ZIP is required",
+		"Postal Code / ZIP is required"	
+	],
+	"additionalInfoValidationMessages":[
 		"Custom Field 1 is required",
 		"Custom Field 2 is required",
 		"Custom Field 3 is required",
@@ -24,5 +26,29 @@
 		"Custom Field 5 is required",
         "Question 2 - Short answer is required",
         "Tell me your story is required"
-	]
+	],
+	"firstName": "Diane",
+	"middleName": "AKA",
+	"lastName": "Klich",
+	"companyName": "Test Organization",
+	"emailType": "Business",
+	"email": "aka@aka.com",
+	"addressType": "Business",
+	"addressLine1": "123 Main St",
+	"addressLine2": "Suite 1000",
+	"city": "Test City",
+	"province": "Ontario",
+	"postalCode": "L7J 0A5",
+	"phoneType": "Business",
+	"phoneNumber": "555-555-5555",
+	"phoneExtension": "555",
+	"attribute1": "A1",
+	"attribute2": "A2",
+	"attribute3": "A3",
+	"attribute4": "A4",
+	"attribute5": "A5",
+	"shortAnswer": "Vestibulum ante ipsum primis in faucis",
+	"tellMeYourStory": "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla malesuada dictum purus quis luctus. Morbi aliquet tellus ut orci pretium, at vehicula felis malesuada",
+	"personalInfoSnackMessage": "Personal Information has been updated",
+	"additionalInfoSnackMessage": "Personal Information has been updated"
 }

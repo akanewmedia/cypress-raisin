@@ -16,6 +16,10 @@ export class SnackbarCO {
     //return element(by.css('.snack-bar-button-close')).click();
   }
 
+  validateSnackBarMessage(data){
+    cy.get(this.messageContainer).should('contain.text', data )
+  }
+
   // async waitforSnackBar(timeout: number = 1000): Promise<void> {
   //   return browser.wait(
   //     ExpectedConditions.elementToBeClickable(element(by.css('.snack-bar-button-close'))),

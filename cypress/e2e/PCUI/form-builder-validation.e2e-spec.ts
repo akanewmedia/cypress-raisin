@@ -39,17 +39,29 @@ describe('User Profile Validation:', () => {
       });
     
 
-    it('should clear all input fields', () => {
-        userProfile.clearInputFields()        
+    it('should clear all Personal Information fields, validate the error messages, re-fill input fields and re-submit form', () => {
+        userProfile.clearPersonalInformation()        
+        userProfile.verifyPersonalInfoRequiredFieldErrors(data.personalInfoValidationMessages)
+        userProfile.fillPersonalInformation(data)
+        userProfile.clickPersonalInfoSubmit()
+        snackbarCO.validateSnackBarMessage(data.personalInfoSnackMessage)
     });
 
-    it('should verify all error messages', () =>{
-        userProfile.verifyRequiredFieldErrors(data.requiredFieldsValidationMessages)
-    })
+    it('should clear all Additional Information fields, validate the error messages, re-fill input fields and re-submit form', () => {
+      userProfile.clearAdditionalInformation()        
+      userProfile.verifyAdditionalInfoRequiredFieldErrors(data.additionalInfoValidationMessages)
+      userProfile.fillAdditionalInformation(data)
+      userProfile.clickAdditionalInfoSubmit()
+      //snackbarCO.validateSnackBarMessage(data.personalInfoSnackMessage)
+  });
+
+    // it('should verify all error messages', () =>{
+    //     userProfile.verifyRequiredFieldErrors(data.requiredFieldsValidationMessages)
+    // })
     
-    it('should go to Offline Donations and click on Add Donation', () =>{
-        userProfile.verifyRequiredFieldErrors(data.requiredFieldsValidationMessages)
-    })
+    // it('should fill all input fields and re-submit form', () =>{
+    //     userProfile.fillInputFields(data)
+    // })
 
   })
 });
