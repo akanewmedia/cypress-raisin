@@ -119,14 +119,14 @@ export function selectDropDownOption(protractorSelector, selectedOption) {
   if (isNil(selectedOption)) {
     return;
   }
-  scrollToElement('.rx-matrix-container .donation-matrix-other-amount .globalized-number-input input')
+  //scrollToElement('.rx-matrix-container .donation-matrix-other-amount .globalized-number-input input')
 
-  return cy.get(protractorSelector).invoke('attr', 'class').then((classString) => {    
+  cy.get(protractorSelector).invoke('attr', 'class').then((classString) => {    
     if (classString.indexOf('mat-select') >= 0) {      
       selectMatDropDownOption(protractorSelector, selectedOption);
     }
     if (classString.indexOf('matNativeControl') >= 0) {
-      return this.selectNativeDropDownOption(
+      this.selectNativeDropDownOption(
         protractorSelector,
         selectedOption
       );
@@ -157,7 +157,7 @@ export function selectMatDropDownOption(
   else {
     cy.get('.mat-select-panel mat-option').contains(selectedOption).first().click({force: true});
   }
-  cy.get('body').type('{esc}');
+  //cy.get('body').type('{esc}');
 }
 
 /**
