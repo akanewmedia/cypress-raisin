@@ -78,6 +78,7 @@ describe('TR(3174) Scenario -> Multi Pledge Team Captain Registration with Addit
                 addParticipantsPO.fillInProfileInformationNoWaiver(data.additionalParticipants[0]);
             });
             it('should go past the payment screen (free reg)', () => {
+                cy.wait(2000)
                 flowPO.continue();
             });
             it('Should verify the profile, payment and additional participants info on the review page', () => {

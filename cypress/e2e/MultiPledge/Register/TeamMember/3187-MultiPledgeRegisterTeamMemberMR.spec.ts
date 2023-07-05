@@ -82,7 +82,6 @@ describe('TR(3187) Scenario -> Multi Pledge Team Member Registration with Additi
                 }
             });
             it('should submit and then verify the Transaction code', () => {
-                cy.wait(1000)
                 flowPO.continue();
                 thankYouPO.verifyTransactionNumber(data);
                 thankYouPO.verifySuccessfulTransaction(data);
