@@ -6,7 +6,8 @@
     "account": {
         "username": "User",
         "fundraisingGoal": "500",
-        "password": "Akaaka1!"
+        "password": "Akaaka1!",
+        "fund": "Fund 1"
     },
     "hideMeFromSearch": true,
     "surveyResponses": [

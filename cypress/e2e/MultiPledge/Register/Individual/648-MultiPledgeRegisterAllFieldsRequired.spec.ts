@@ -59,14 +59,17 @@ describe('TR(648) Scenario -> Multi Pledge free registration - all fields requir
                 //flowPO.continue();
                 scrollToElement(registerPO.container)
                 waitForElementToBeVisible(registerPO.container);
-                cy.get(registerPO.container).should('exist')
-                registerPO.accountInformationCO.enterUsername(data.account.username + getLocalDateTime());
-                flowPO.continue();
-                cy.get(registerPO.container).should('exist')
-                registerPO.accountInformationCO.enterPassword(data.account.password);
-                flowPO.continue();
-                cy.get(registerPO.container).should('exist')
-                registerPO.accountInformationCO.enterGoal(data.account.fundraisingGoal);
+                registerPO.accountInformationCO.enterDetails(data.account.username + getLocalDateTime(), data.account.password, data.account.fundraisingGoal, data.account.fund)
+                // cy.get(registerPO.container).should('exist')
+                // registerPO.accountInformationCO.enterUsername(data.account.username + getLocalDateTime());
+                // flowPO.continue();
+                // cy.get(registerPO.container).should('exist')
+                // registerPO.accountInformationCO.enterPassword(data.account.password);
+                // flowPO.continue();
+                // cy.get(registerPO.container).should('exist')
+                // registerPO.accountInformationCO.enterGoal(data.account.fundraisingGoal);
+                // cy.get(registerPO.accountInformationCO.fund).should('be.visible')
+                // registerPO.accountInformationCO.selectFund(data.account.fund)
             });
             it('should press continue after entering each profile info field', () => {
                 flowPO.continue();
