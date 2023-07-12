@@ -61,7 +61,7 @@ describe('TR(3021) Scenario -> Multi Pledge Team Member Registration - fundraisi
 			it('should enter fill out the profile with a fundraising goal below the min, then fix it', () => {
 				returningParticipantCO.createAccount();
 
-				registerPO.fillInAccountInformation(data);
+				registerPO.fillInAccountInformationAndFund(data);
 				registerPO.fillInProfileAddressAndAdditionalInformation(data);
 				surveyCO.fill(data.surveyResponses);
 

@@ -34,6 +34,7 @@ describe('Scenario -> Multi Pledge group navigation: ', () => {
             //doSetup(event);
             it('Should click on the location link, but stay on the same page (Team Member page)', () => {
                 const url = `/participant/${data.teamMemberInInactiveGroup.userId}`;
+                let changedURL = '/p/cb90789acba74f04ac461cdf2a978cf8'
                 pageSetup.goToEvent(`${event}${url}`);
                 navbarCO.donate();
                 cy.get(donationSearchPO.container).should('be.visible')
@@ -46,7 +47,7 @@ describe('Scenario -> Multi Pledge group navigation: ', () => {
                 }
                 // should not navigate to the group page because it is inactive
                 // so we check if we are still on the same page
-                cy.url().should('include', url)
+                cy.url().should('include', changedURL)
             });
         });
 
@@ -54,6 +55,7 @@ describe('Scenario -> Multi Pledge group navigation: ', () => {
             //doSetup(event);
             it('Should click on the location link, but stay on the same page (Team Captain page)', () => {
                 const url = `/participant/${data.teamCaptainInInactiveGroup.userId}`;
+                let changedURL = '/p/fbcd0882368e4b2cb8ffe07f515b2b3a'
                 pageSetup.goToEvent(`${event}${url}`);
                 navbarCO.donate();
                 cy.get(donationSearchPO.container).should('be.visible')
@@ -66,7 +68,7 @@ describe('Scenario -> Multi Pledge group navigation: ', () => {
                 }
                 // should not navigate to the group page because it is inactive
                 // so we check if we are still on the same page
-                cy.url().should('include', url)
+                cy.url().should('include', changedURL)
             });
         });
 

@@ -12,7 +12,8 @@
     "username": "User",
     "fundraisingGoal": "100",
     "fundraisingGoal2": "700",
-    "password": "Akaaka1!"
+    "password": "Akaaka1!",
+    "fund": "Fund 1"
   },
   "hideMeFromSearch": true,
   "surveyResponses": [

@@ -64,6 +64,10 @@ export class RegisterPage {
     this.accountInformationCO.enterDetails(getLocalDateTime() + data.account.username, data.account.password, data.account.fundraisingGoal);
   }
 
+  fillInAccountInformationAndFund(data) {
+    this.accountInformationCO.enterDetails(getLocalDateTime() + data.account.username, data.account.password, data.account.fundraisingGoal, data.account.fund);
+  }
+
   fillInFundraisingGoal(data){
     cy.get('#goal').type(data.account.fundraisingGoal)
   }
