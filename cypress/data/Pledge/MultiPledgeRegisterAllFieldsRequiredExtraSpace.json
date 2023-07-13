@@ -1,0 +1,66 @@
+{
+    "events": [
+        1
+    ],
+    "donationAmount": 20.00 ,
+    "account": {
+        "username": "User",
+        "fundraisingGoal": "500 ",
+        "password": "Akaaka1!",
+        "fund": "Fund 1"
+    },
+    "extraSpace" :{
+        "title": "Dr.",
+        "fullName": "Bobby Smith",
+        "fullNameWithMiddleName": "Bobby Ricky Smith",
+        "firstName": "Bobby ",
+        "middleName": "Ricky ",
+        "lastName": "Smith",
+        "companyName": "Test Organization ",
+        "emailType": "Business",
+        "email": "aka@aka.com ",
+        "addressType": "Business",
+        "address": "123 Main St ",
+        "city": "Test City ",
+        "province": "Ontario",
+        "postCode": "L7J 0A5 ",
+        "phoneType": "Business",
+        "phoneNumber": "555-555-5555 ",
+        "phoneExtension": "555 ",
+        "gender": "Female",
+        "dayOfBirth": "1",
+        "monthOfBirth": "4",
+        "yearOfBirth": "1980 ",
+        "country": "Canada",
+        "attribute1": "A1 ",
+        "attribute2": "A2 ",
+        "attribute3": "A3 ",
+        "attribute4": "A4 ",
+        "attribute5": "A5 "
+    },
+    "hideMeFromSearch": true,
+    "surveyResponses": [
+        {
+            "question": "Question 1 - Choice One Option",
+            "answer": "Yes"
+        },
+        {
+            "question": "Question 2 - Short answer",
+            "answer": "Vestibulum ante ipsum primis in"
+        },
+        {
+            "question": "Question 3 - Choose 1 option",
+            "answer": "Yes"
+        },
+        {
+            "question": "Question 4 - Choose which ones apply",
+            "answer": "Item 4"
+        },
+        {
+            "question": "Tell me your story",
+            "answer": "Vestibulum ante ipsum primis in"
+        }
+    ],
+    "fullName": "Dr. Bobby Ricky Smith",
+    "transactionNumberStartsWith": "N/A"
+}

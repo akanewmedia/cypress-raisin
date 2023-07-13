@@ -53,9 +53,5 @@ describe('Offline Donations Validation:', () => {
       donationsComponent.clickSubmitAddDonation()
       snackbarCO.validateSnackBarMessage(data.offlineDonationSnackMessage)
     });
-
-    it('should verify if user was created and verify information', () => {
-      
-    });
   })
 });

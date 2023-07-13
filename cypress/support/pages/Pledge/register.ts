@@ -60,6 +60,11 @@ export class RegisterPage {
     this.fillInProfileAndAddressInformation(data);
   }
 
+  verifyGoogleAutofill(data){
+    this.addressInformationCO.enterAddress(data.address);
+    cy.get('.pac-container').should('be.visible')
+  }
+
   fillInAccountInformation(data) {
     this.accountInformationCO.enterDetails(getLocalDateTime() + data.account.username, data.account.password, data.account.fundraisingGoal);
   }

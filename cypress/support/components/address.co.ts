@@ -32,6 +32,7 @@ export class Address {
   }
 
   enterAddress(text) {
+    cy.get(this.address).should('be.visible')
     enterText(this.address, text);
   }
 

@@ -66,7 +66,6 @@ export class Profile {
 
   selectDateOfBirth(day, month, year) {
     enterText(this.dateOfBirth, `${month}\\${day}\\${year}`);
-
   }
 
   selectUserTypeIndividual() {

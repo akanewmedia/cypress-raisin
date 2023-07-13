@@ -473,10 +473,21 @@ export function generateUniqueName(data) {
   }
   if (data.fullName) {
     data.fullName += val;
-  }
+  }  
   // if(data.additionalParticipants){
   //   data.additionalParticipants[0].lastName += val;
   // }
+}
+
+export function generateUniqueNameWithSpaces(data){
+  const val = Date.now();
+  if (data.extraSpace.lastName) {
+    data.extraSpace.lastName += val + " ";
+  }
+  if (data.extraSpace.fullName) {
+    data.extraSpace.fullName += val + " ";
+    data.fullName += val;
+  }
 }
 
 export function generateUniqueAdditionalParticipant(data) {
