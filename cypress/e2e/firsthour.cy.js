@@ -22,5 +22,5 @@ import './MultiPledge/RegItemByGroup/9026-MultiPledgeRegItemByGroupCapRegisterFr
 import './MultiPledge/RegItemByGroup/9027-MultiPledgeRegItemByGroupTeamRegisterFree.spec'
 
 ///Delete After Rapini.Standalone deployment
-//import './MultiPledge/Misc/PledgeVerifyGoogleAutofill.spec'
+import './MultiPledge/Misc/PledgeVerifyGoogleAutofill.spec'
 import './MultiPledge/Register/Individual/648.2-MultiPledgeRegisterAllFieldsRequiredExtraSpace.spec'
