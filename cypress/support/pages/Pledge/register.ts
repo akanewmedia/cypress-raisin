@@ -62,6 +62,7 @@ export class RegisterPage {
 
   verifyGoogleAutofill(data){
     this.addressInformationCO.enterAddress(data.address);
+    cy.wait(1500)
     cy.get('.pac-container').should('be.visible')
   }
 
