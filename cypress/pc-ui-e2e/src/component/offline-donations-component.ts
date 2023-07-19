@@ -10,7 +10,7 @@ export class OfflineDonationsComponent {
 
   constructor() {
     this.addDonationDialog = ('.add-donation.mat-dialog-content ')
-    this.confirmationDialog = ('pc-confirmation-dialog')
+    this.confirmationDialog = ('pc-confirmation-dialog ')
     this.container = buildSelector('.offline-donations-container ');
     this.rows = buildSelector('tbody tr.mat-row');
     this.addDonationButton = buildSelector(this.container + '.page-header button');  //NEEDS FIX, WON'T WORK
@@ -25,6 +25,10 @@ export class OfflineDonationsComponent {
     cy.contains('.add-donation__actions button', "Add donation").click()
   }
 
+  clickUpdateDonation(){
+    cy.contains('.add-donation__actions button', "Update donation").click()
+  }
+
   verifyOfflineDonationRequiredFieldErrors(data) {
     const getTexts = ($errors) => {
       return Cypress._.map($errors, 'innerText')
@@ -32,28 +36,29 @@ export class OfflineDonationsComponent {
     cy.get(this.offlineDonationForm + ' .mat-form-field-subscript-wrapper .error-message').should('exist').then(getTexts).should('deep.equal', data)
   }
 
-  async getRowNameValue(row: any) {
-    cy.get(row + '.mat-column-name.mat-cell');
+  getRowNameValue(value:string) {
+    cy.get(this.rows).eq(0).within(() =>{
+      cy.get('.mat-column-name.mat-cell').should('contain.text', value)
+    })
   }
 
-  async getRowAmountValue(row: any){
-    cy.get(row+'.mat-column-amount.mat-cell')
-    // return row.$('.mat-column-amount.mat-cell').getText();
+  getRowAmountValue(value:string){
+    cy.get(this.rows).eq(0).within(() =>{
+      cy.get('.mat-column-amount.mat-cell').should('contain.text', value)
+    })
   }
 
-  async clickRowUpdateButton(row: any): Promise<void> {
-    cy.get(row + 'button.mat-icon-button[aria-label="Edit"]').click()
-    // return row
-    //   .$('button.mat-icon-button[aria-label="Edit"]')
-    //   .click();
+  async clickRowUpdateButton(): Promise<void> {
+    cy.get(this.rows).eq(0).within(() =>{
+      cy.get('button.mat-icon-button[aria-label="Edit"]').click()
+    })
   }
+  
 
-  async clickRowDeleteButton(row: any): Promise<void> {
-    cy.get(row + 'button.mat-icon-button[aria-label="Remove"]').click()
-
-    // return row
-    //   .$('button.mat-icon-button[aria-label="Remove"]')
-    //   .click();
+  async clickRowDeleteButton(): Promise<void> {
+    cy.get(this.rows).eq(0).within(() =>{
+      cy.get('button.mat-icon-button[aria-label="Remove"]').click()
+    })
   }
 
   // async waitForAddDonationDialogElement(): Promise<void> {
@@ -110,11 +115,11 @@ export class OfflineDonationsComponent {
     this.populateFormField((this.addDonationDialog + `#companyName`), values.companyName);
     //this.populateFormField((this.addDonationDialog + `#addressType`), values.addressType, 'dropdown');
     this.populateFormField((this.addDonationDialog + `#city`), values.city);
-    this.populateFormField((this.addDonationDialog + `#attribute1`), values.attribute1);
-    this.populateFormField((this.addDonationDialog + `#attribute2`), values.attribute2);
-    this.populateFormField((this.addDonationDialog + `#attribute3`), values.attribute3);
-    this.populateFormField((this.addDonationDialog + `#attribute4`), values.attribute4);
-    this.populateFormField((this.addDonationDialog + `#attribute5`), values.attribute5);
+    // this.populateFormField((this.addDonationDialog + `#attribute1`), values.attribute1);
+    // this.populateFormField((this.addDonationDialog + `#attribute2`), values.attribute2);
+    // this.populateFormField((this.addDonationDialog + `#attribute3`), values.attribute3);
+    // this.populateFormField((this.addDonationDialog + `#attribute4`), values.attribute4);
+    // this.populateFormField((this.addDonationDialog + `#attribute5`), values.attribute5);
     this.populateFormField((this.addDonationDialog + `#province`), values.province, 'dropdown');
     this.populateFormField((this.addDonationDialog + `#postalCode`), values.postalCode);
     this.populateFormField((this.addDonationDialog + `#correspondenceLanguage`), values.correspondenceLanguage, 'dropdown');
@@ -122,6 +127,27 @@ export class OfflineDonationsComponent {
     this.clickCheckbox((this.addDonationDialog + `#optOut mat-checkbox`));
     this.clickCheckbox((this.addDonationDialog + `#optOutToShare mat-checkbox`));    
   }
+
+  // updateOfflineDonation(
+  //   values: {
+  //     amount: string;
+  //     firstName: string;
+  //     lastName: string;
+  //     email: string;
+  //     phoneNumber: string;
+  //     addressLine1: string;
+  //     city: string;
+  //     postalCode: string;
+  //   }) {
+  //   this.populateFormField((this.addDonationDialog + '#amount'), values.amount);
+  //   this.populateFormField((this.addDonationDialog + '#firstName'), values.firstName);
+  //   this.populateFormField((this.addDonationDialog + '#lastName'), values.lastName);
+  //   this.populateFormField((this.addDonationDialog + '#email'), values.email);
+  //   this.populateFormField((this.addDonationDialog + '#phone'), values.phoneNumber);
+  //   this.populateFormField((this.addDonationDialog + `#addressLine1`), values.addressLine1);
+  //   this.populateFormField((this.addDonationDialog + `#city`), values.city);
+  //   this.populateFormField((this.addDonationDialog + `#postalCode`), values.postalCode);
+  // }
 
   selectDate(element: any){
     cy.get(element).click().then(()=>{
@@ -140,7 +166,7 @@ export class OfflineDonationsComponent {
       selectDropDownOption(element, `${value}`);
     } else if (fieldType === 'textbox') {
       ///clearInputWithBackspace(element);
-      cy.get(element).type(`${value}`);
+      cy.get(element).clear().type(`${value}`);
     }
   }
 

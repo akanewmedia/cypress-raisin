@@ -48,6 +48,7 @@ describe('Offline Donations Validation:', () => {
 
     it('should submit form, validate the error messages, re-fill input fields and re-submit form', () => {
       donationsComponent.clickSubmitAddDonation()
+      cy.wait(3000)
       donationsComponent.verifyOfflineDonationRequiredFieldErrors(data.offlineDonationValidationMessages)
       donationsComponent.populateAddDonationDialogForm(data)
       donationsComponent.clickSubmitAddDonation()

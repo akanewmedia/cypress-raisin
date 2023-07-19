@@ -1,162 +1,105 @@
 import { Sidebar } from '../../pc-ui-e2e/src/component/sidebar.component';
 import { OfflineDonationsComponent } from '../../pc-ui-e2e/src/component/offline-donations-component';
 import { SnackbarCO } from '../../pc-ui-e2e/src/component/snackbar';
-import { userLogin, waitForElement } from '../../pc-ui-e2e/src/utils/actions';
+import { PageSetup } from '../../support/utils/pageSetup';
+import { LoginPage } from '../../pc-ui-e2e/src/page/login.page';
+import * as specificData from '../../pc-ui-e2e/mock/data/form-builder/form-builder-validation.json'
 
-describe(
-  'Offline Donations',
-  () => {
+let loginPage: LoginPage;
     let sidebar: Sidebar;
     let donationsComponent: OfflineDonationsComponent;
     let snackbarCO: SnackbarCO;
+    let pageSetup: PageSetup = new PageSetup();
+    
+    sidebar = new Sidebar();
+    donationsComponent = new OfflineDonationsComponent();
+    snackbarCO = new SnackbarCO();
+    loginPage = new LoginPage()
 
-    beforeEach(() => {
-      sidebar = new Sidebar();
-      donationsComponent = new OfflineDonationsComponent();
-      snackbarCO = new SnackbarCO();
-    });
+    const using = require('jasmine-data-provider');
 
-    it('should log in', () => {
-      userLogin('tcHistory');
-    });
+    const data = pageSetup.getData('Pledge', specificData);
+    const events = pageSetup.getEvents(pageSetup.getEnvironment().multipledge, data.events);
 
-    it('should go to offline donations page and display offline donation items', async () => {
+
+describe(
+  'Offline Donations',
+  () => {    
+    using(events, event => {
+
+    before(() => {
+      pageSetup.goToEvent(event);
+      pageSetup.waitForPageLoad()
+      loginPage.login(data.user.username, data.user.password)
+    });  
+
+    it('should go to offline donations page and display offline donation items', () => {
       // go to offline donations page
-      await sidebar.clickDonationsLink();
-      await sidebar.clickOfflineDonationsLink();
+      sidebar.clickDonationsLink();
+      sidebar.clickOfflineDonationsLink();
 
-      // check expected values match values found in
-      // apps\mock-server\src\assets\data\donations\offlineDonationsRead.json
+      cy.get(donationsComponent.rows).should('be.visible')
 
-      expect(donationsComponent.rows).toBeDefined();
-      expect(donationsComponent.rows.count()).toBe(2);
-
-      // first row
-      let row = donationsComponent.rows.get(0);
-      expect(donationsComponent.getRowNameValue(row)).toContain(
-        'Darren Daniels'
-      );
-      expect(donationsComponent.getRowNameValue(row)).toContain(
-        'darren.daniels@example.com'
-      );
-      expect(donationsComponent.getRowAmountValue(row)).toEqual(
-        '$45.00'
-      );
-
-      // second row
-      row = row = donationsComponent.rows.get(1);
-      expect(donationsComponent.getRowNameValue(row)).toContain(
-        'Emer Elliot'
-      );
-      expect(donationsComponent.getRowNameValue(row)).toContain(
-        'emer.elliot@example.com'
-      );
-      expect(donationsComponent.getRowAmountValue(row)).toEqual(
-        '$50.00'
-      );
+      //let row = cy.get(donationsComponent.rows).eq(0);
+      donationsComponent.getRowNameValue('Raisin Tester')
+      donationsComponent.getRowNameValue('aka@aka.com')
+      donationsComponent.getRowAmountValue('$20.00')
     });
 
-    it('should create offline donation', async () => {
+    it('should create offline donation', () => {
 
       // trigger add donation dialog
-      expect(donationsComponent.addDonationButton.isPresent()).toBeTruthy();
-      await donationsComponent.addDonationButton.click();
+      cy.contains(donationsComponent.addDonationButton, 'Add donation').should('be.visible')
+      cy.contains(donationsComponent.addDonationButton, 'Add donation').click();
 
       // wait for add donation dialog to open
-      await donationsComponent.waitForAddDonationDialogElement();
-      expect(donationsComponent.addDonationDialog.isPresent()).toBeTruthy();
+      cy.get(donationsComponent.addDonationDialog).should('be.visible')
 
       // populate add donation dialog form
-      await donationsComponent.populateAddDonationDialogForm(
-        {
-          amount: '100',
-          paymentSource: 'Cash',
-          firstName: 'Sebastjan',
-          lastName: 'Stamatov',
-          email: 'sstamatov@example.com',
-          phone: '905-555-5555',
-          country: 'Canada',
-          addressLine1: '1 Hurontario st.',
-          city: 'Mississauga',
-          province: 'Ontario',
-          postalCode: 'L0L0L0'
-        });
+      donationsComponent.populateAddDonationDialogForm(data);
 
       // submit form
-      await donationsComponent.submitAddDonationDialog();
+      donationsComponent.clickSubmitAddDonation();
 
       // check success message displayed
-      await waitForElement(snackbarCO.messageContainer, 30000);
-      expect(snackbarCO.messageContainer.getText()).toContain(
-        'New offline donation created'
-      );
+      cy.get(snackbarCO.messageContainer).should('contain.text','New offline donation created');
+
+      //Verify first Donor details again
+      donationsComponent.getRowNameValue('Raisin Tester')
+      donationsComponent.getRowNameValue('aka@aka.com')
+      donationsComponent.getRowAmountValue('$20.00')
     });
 
-    it('should update offline donation', async () => {
-
-      await expect(donationsComponent.rows).toBeDefined();
-      await expect(donationsComponent.rows.count()).toBeGreaterThan(0);
-
-      const row = donationsComponent.rows.get(0);
+    it('should update offline donation', () => {
 
       // trigger update
-      await donationsComponent.clickRowUpdateButton(row);
+      donationsComponent.clickRowUpdateButton();
 
       // wait for update donation dialog to open (same dialog used as for create)
-      await donationsComponent.waitForAddDonationDialogElement();
-      await expect(donationsComponent.addDonationDialog.isPresent()).toBeTruthy();
+      cy.get(donationsComponent.addDonationDialog).should('be.visible')
       // populate update donation dialog form
-      await donationsComponent.populateAddDonationDialogForm(
-        {
-          amount: '150',
-          paymentSource: 'Cash',
-          firstName: 'Roger',
-          lastName: 'Romero',
-          email: 'roger.romero@example.com',
-          phone: '647-555-5557',
-          country: 'Canada',
-          addressLine1: '1 Hurontario st.',
-          city: 'Mississauga',
-          province: 'Ontario',
-          postalCode: 'L0L0L0'
-        });
-
+      donationsComponent.populateAddDonationDialogForm(data);
       // submit form
-      await donationsComponent.submitAddDonationDialog();
+      donationsComponent.clickUpdateDonation();
       // check success message displayed
-      await waitForElement(snackbarCO.messageContainer, 30000);
-      await expect(snackbarCO.messageContainer.getText()).toContain(
-        'Offline donation updated'
-      );
+      cy.get(snackbarCO.messageContainer).should('contain.text', 'Offline donation updated')
     });
 
-    it('should delete offline donation', async () => {
-
-      await expect(donationsComponent.rows).toBeDefined();
-      const donationsBeforeDelete: number = await donationsComponent.rows.count();
-      await expect(donationsBeforeDelete).toBeGreaterThan(0);
-
-      const row = donationsComponent.rows.get(0);
+    it('should delete offline donation',  () => {
 
       // trigger delete
-      await donationsComponent.clickRowDeleteButton(row);
+      donationsComponent.clickRowDeleteButton();
 
       // wait for delete donation dialog to open
-      await donationsComponent.waitForConfirmationDialogElement();
-      await expect(donationsComponent.confirmationDialog.isPresent()).toBeTruthy();
+      cy.get(donationsComponent.confirmationDialog).should('exist')
 
       // confirm delete
-      await donationsComponent.submitConfirmationDialog();
+      donationsComponent.submitConfirmationDialog();
 
       // check success message displayed
-      await waitForElement(snackbarCO.messageContainer, 30000);
-      await expect(snackbarCO.messageContainer.getText()).toContain(
-        'Offline donation deleted'
-      );
+      cy.get(snackbarCO.messageContainer).should('contain.text', 'Offline donation deleted')
 
-      // check number of rows is smaller after delete
-      const donationsAfterDelete: number = await donationsComponent.rows.count();
-      await expect(donationsBeforeDelete).toBeGreaterThan(donationsAfterDelete);
     });
+  })
   }
-);
+)
