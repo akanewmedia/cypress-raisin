@@ -149,7 +149,6 @@ describe('edit my page', () => {
     it('should click on View Live page and verify new URL', ()=> {
       cy.get('.external-page-bar .page-view').invoke('removeAttr', 'target').click()
       cy.url().should('include', url)
-      pageSetup.clearSessionStorage()
     })
 
   })
