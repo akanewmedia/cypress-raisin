@@ -32,7 +32,7 @@ export class Sidebar {
     this.dashboardPanel = buildSelector(this.container,'.dashboard-panel');
     this.dashboardLink = buildSelector(this.container,'.dashboard-link');
     this.myPagePanel = buildSelector(this.container, '.my-page-panel');
-    this.myPageLink = buildSelector(this.container, '.my-page-link');
+    this.myPageLink = buildSelector(this.container, '[data-target="sidenav-item-my-page-desktop"]');
     this.teamPanel = buildSelector(this.container, '.team-panel');
     this.teamLink = buildSelector(this.container,'.team-link');
     this.teamExpandLink = buildSelector(this.teamPanel, '.mat-icon.expand-icon');

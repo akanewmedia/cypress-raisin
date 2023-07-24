@@ -2,10 +2,10 @@ import { Sidebar } from '../../pc-ui-e2e/src/component/sidebar.component';
 import { SnackbarCO } from '../../pc-ui-e2e/src/component/snackbar';
 import { PageSetup } from "../../support/utils/pageSetup";
 import { LoginPage } from '../../pc-ui-e2e/src/page/login.page'
-import * as specificData from '../../pc-ui-e2e/mock/data/form-builder/form-builder-validation.json'
 import { MainToolbar } from '../../pc-ui-e2e/src/component/main-toolbar';
 import { UserProfile } from '../../pc-ui-e2e/src/component/user-profile';
 import { OfflineDonationsComponent } from '../../pc-ui-e2e/src/component/offline-donations-component';
+import * as specificData from '../../pc-ui-e2e/mock/data/form-builder/form-builder-validation.json'
 
 
 let userProfile = new UserProfile()

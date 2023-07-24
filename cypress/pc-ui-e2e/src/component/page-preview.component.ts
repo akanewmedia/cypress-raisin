@@ -30,8 +30,8 @@ export class PagePreview {
     cy.get(this.myStory);
   }
 
-  async getPageTitle() {
+  async getPageTitle(value) {
     // scrollElemFinderIntoView(this.pageTitle);
-    cy.get(this.pageTitle)
+    cy.get(this.pageTitle).should('contain.text', value)  
   }
 }

@@ -29,7 +29,7 @@ const returningParticipantCO = new ReturningParticipant();
 const surveyCO = new SurveyComponent();
 
 /* use event 17560 */
-describe('TR(648) Scenario -> Multi Pledge free registration - all fields required: ', () => {
+describe('TR(648-2) Scenario -> Multi Pledge free registration - all fields required: PLUS EXTRA SPACES ', () => {
 
     Cypress.on('uncaught:exception', (err, runnable) => {
         return false;

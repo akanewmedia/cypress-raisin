@@ -1,0 +1,31 @@
+{
+    "events": [
+    1
+],
+    "user": {
+        "username": "1532536978770IndyNam",
+        "password": "Akaaka1!"
+    },
+	"tributeValidationMessages":[
+		"Tributee First Name is required for this event",
+		"Tributee Last Name is required for this event"		
+	],
+	"title": "new title",
+	"goal": "1234",
+	"url": "newUrl",
+    "story": "Story Test ",
+    "tributeFirstName": "Tributee",
+    "tributeLastName": "Test",
+    "fund": "Fund 1",
+    "date": "7212028",
+    "thermometer":{
+        "goalAndRaised": "Thermometer with goal & raised amount",
+        "goalAndRaisedTitle": "Achieved",
+        "goalOnly": "Fundraising goal only",
+        "goalTitle": "Goal",
+        "raisedOnly": "Raised amount only",
+        "raisedTitle": "Raised",
+        "hideWidget": "Hide fundraising widget"
+    }   
+
+}

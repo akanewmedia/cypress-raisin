@@ -1,6 +1,6 @@
 import { EditPanel } from '../component/edit-panel.component';
 import { PagePreview } from '../component/page-preview.component';
-import {  selectDropDownOption, elementByClass, elementById,} from '../utils/actions';
+import {  selectDropDownOption, buildSelector,} from '../utils/actions';
 
 export class MyPage {
   container: any;
@@ -13,18 +13,32 @@ export class MyPage {
   customizeContainer: any;
   editpanel: EditPanel;
   pagePreview: PagePreview;
+  previewTitle:any
+  previewGoal:any
+  previewStory:any
+  editContainer:any
+  tributeFirstName:any
+  tributeLastName:any
+  widgetTitle:any
 
   constructor() {
-    this.container = elementByClass('.my-page');
-    this.header = this.container.$('.page-header');
-    this.importSection = this.container.$('.my-page__import');
-    this.importDropDown = this.importSection.$('.mat-select');
-    this.saveButton = elementByClass('.btn-save');
-    this.cancelButton = this.importSection.$('.cancel');
-    this.customizeContainer = this.container.$('.my-page__customize');
-    this.editButton = this.container.$('.my-page-edit-overlay');
+    this.container = buildSelector('.my-page');
+    this.editContainer = ('.edit-panel ')
+    this.header = buildSelector(this.container , '.page-header');
+    this.importSection = buildSelector(this.container, '.my-page__import');
+    this.importDropDown = buildSelector(this.importSection, '.mat-select');
+    this.saveButton = buildSelector('.btn-save');
+    this.cancelButton = buildSelector(this.importSection, '.cancel');
+    this.customizeContainer = buildSelector(this.container, '.my-page__customize');
+    this.editButton = buildSelector(this.container, '.my-page-edit-overlay');
     this.editpanel = new EditPanel();
     this.pagePreview = new PagePreview();
+    this.previewTitle = '.page-preview-title'
+    this.previewGoal = '.rs-preview__header .info .value'
+    this.previewStory = '.container .user-content'
+    this.tributeFirstName = '#tributeFirstName'
+    this.tributeLastName = '#tributeLastName'
+    this.widgetTitle = '.thermometer-container--animated .title'
   }
 
   async clickSaveButton(): Promise<void> {
@@ -47,6 +61,119 @@ export class MyPage {
     //   .click().perform();
   }
 
+  selectWidgetSettings(value){
+    this.populateFormField('#customThermometerTemplate', value, 'dropdown')
+  }
+
+  getKendoEditor(){
+    const getIframeDocument = () => {
+      return cy
+      .get('iframe[class="k-content"]')       
+      .its('0.contentDocument').should('exist')
+    }
+
+    const getIframeBody = () => {
+      return getIframeDocument()
+      .its('body').should('not.be.undefined')
+      .then(cy.wrap)
+    }
+
+    return getIframeBody();
+  }
+
+  getPreviewIFrame() {
+    const getIframeDocument = () => {
+      return cy
+      .get('iframe[id="participant-page-preview"]')       
+      .its('0.contentDocument').should('exist')
+    }
+
+    const getIframeBody = () => {
+      return getIframeDocument()
+      .its('body').should('not.be.undefined')
+      .then(cy.wrap)
+    }
+
+    return getIframeBody();
+  }
+
+  verifyPreviewTitle(value){
+    this.getPreviewIFrame().within(() => {
+      cy.get(this.previewTitle).should('contain.text', value)
+    })    
+  }
+
+  verifyPreviewGoal(value){
+    this.getPreviewIFrame().within(() => {
+      cy.get(this.previewGoal).invoke('text').then(value => value.replace(/\$|\.\d{2}|,/g, ''))
+      .then(t => expect(t).to.eq(value))
+    }) 
+  }
+
+  verifyWidget(title){
+    this.getPreviewIFrame().within(() => {
+      if(title == 'hide'){
+        cy.get(this.widgetTitle).should('not.exist')
+      }
+      else {
+        cy.get(this.widgetTitle).first().should('have.text', title)
+      }
+    })    
+  }
+
+  verifyWidgetAttrGoal(title){
+    this.getPreviewIFrame().within(() => {
+      if(title == 'hide'){
+        cy.get(this.widgetTitle).should('not.exist')
+      }
+      else {
+        cy.get('[widget-thermometer]').first().invoke('attr', 'data-param-ttl_goal').should('contain', title)
+      }
+    })    
+  }
+
+  verifyWidgetAttrRaised(title){
+    this.getPreviewIFrame().within(() => {
+      if(title == 'hide'){
+        cy.get(this.widgetTitle).should('not.exist')
+      }
+      else {
+        cy.get('[widget-thermometer]').first().invoke('attr', 'data-param-ttl_achieved').should('contain', title)
+      }
+    })    
+  }
+
+  populateFormField(element: any, value: any, fieldType: string = 'textbox') {
+    // waitForElement(element);
+    // scrollElemFinderIntoView(element);
+    if (fieldType === 'dropdown') {
+      selectDropDownOption(element, `${value}`);
+    } else if (fieldType === 'textbox') {
+      ///clearInputWithBackspace(element);
+      cy.get(element).clear().type(`${value}`);
+    }
+  }
+
+  verifyTributeRequiredFieldErrors(data) {
+    const getTexts = ($errors) => {
+      return Cypress._.map($errors, 'innerText')
+    }
+    cy.get(this.editContainer + '.mat-error').should('exist').then(getTexts).should('deep.equal', data)
+  }
+
+  selectDate(element: any){
+    cy.get(element).click().then(()=>{
+      cy.get('.mat-calendar-table .mat-calendar-body-today').click()
+    })
+  }
+
+
+  verifyPreviewStory(value){
+    this.getPreviewIFrame().within(() => {
+      cy.get(this.previewStory).should('contain.text', value)
+    }) 
+  }
+
   async selectEvent(type: string): Promise<void> {
     // scrollElemFinderIntoView(this.importDropDown);
     selectDropDownOption(this.importDropDown, type);
@@ -60,7 +187,7 @@ export class MyPage {
 
   async switchToPreview(): Promise<void> {
     // scrollElemFinderIntoView(elementById('participant-page-preview'));
-    cy.get('participant-page-preview')
+    cy.get('#participant-page-preview')
     // await switchToIFrame(elementById('participant-page-preview'));
   }
 
@@ -68,9 +195,9 @@ export class MyPage {
   //   return switchToMainWindow();
   // }
 
-  async enterMyStory(input: string): Promise<void> {
+  enterMyStory(input: string) {
     // scrollElemFinderIntoView(this.editpanel.container);
-    cy.get(this.editpanel.myStory).type(input)
+    cy.get(this.editpanel.myStory).click().type(input)
     // return await typeIntoKendoEditor(this.editpanel.myStory, input);
   }
 
@@ -94,18 +221,18 @@ export class MyPage {
     this.editpanel.getMyStory();
   }
 
-  async getPageTitle() {
+  async getPageTitle(value) {
     // scrollElemFinderIntoView(this.editpanel.pageTitle);
-    this.editpanel.getPageTitle();
+    this.editpanel.getPageTitle(value);
   }
 
-  async getPageUrl() {
+  async getPageUrl(value) {
     // scrollElemFinderIntoView(this.editpanel.pageUrl);
-    this.editpanel.getPageUrl();
+    this.editpanel.getPageUrl(value);
   }
 
-  async getPageFundraisingGoal() {
+  async getPageFundraisingGoal(value) {
     // scrollElemFinderIntoView(this.editpanel.pageFundraisingGoal);
-    this.editpanel.getPageFundraisingGoal();
+    this.editpanel.getPageFundraisingGoal(value);
   }
 }
