@@ -11,6 +11,9 @@ export class EditPanel {
   readonly saveButton: any;
   readonly cancelButton: any;
   readonly myStory: any;
+  previewTitle: any
+  previewGoal: any
+  previewStory: any
 
   constructor() {
     this.container = buildSelector('.edit-panel');
@@ -23,14 +26,71 @@ export class EditPanel {
     this.saveButton = buildSelector(this.editPanelActionsContainer,'#save');
     this.cancelButton = buildSelector(this.editPanelActionsContainer,'#cancel');
     this.myStory = buildSelector(this.container, '.text-editor .k-editable-area .k-content:nth-child(1)') ;
+    this.previewTitle = '.page-preview-title'
+    this.previewGoal = '.rs-preview__header .info .value'
+    this.previewStory = '.container .user-content'
   }
-  async clickSaveButton(): Promise<void> {
+
+
+  getKendoEditor(){
+    const getIframeDocument = () => {
+      return cy
+      .get('iframe[class="k-content"]')       
+      .its('0.contentDocument').should('exist')
+    }
+
+    const getIframeBody = () => {
+      return getIframeDocument()
+      .its('body').should('not.be.undefined')
+      .then(cy.wrap)
+    }
+
+    return getIframeBody();
+  }
+
+  getPreviewIFrame() {
+    const getIframeDocument = () => {
+      return cy
+      .get('iframe[class="preview-team__preview"]')       
+      .its('0.contentDocument').should('exist')
+    }
+
+    const getIframeBody = () => {
+      return getIframeDocument()
+      .its('body').should('not.be.undefined')
+      .then(cy.wrap)
+    }
+
+    return getIframeBody();
+  }
+
+  verifyPreviewTitle(value){
+    this.getPreviewIFrame().within(() => {
+      cy.get(this.previewTitle).should('contain.text', value)
+    })    
+  }
+
+  verifyPreviewGoal(value){
+    this.getPreviewIFrame().within(() => {
+      cy.get(this.previewGoal).invoke('text').then(value => value.replace(/\$|\.\d{2}|,/g, ''))
+      .then(t => expect(t).to.eq(value))
+    }) 
+  }
+
+  verifyPreviewStory(value){
+    this.getPreviewIFrame().within(() => {
+      cy.get(this.previewStory).should('contain.text', value)
+    }) 
+  }
+
+  
+  clickSaveButton() {
     cy.get(this.saveButton).click()
     // return browser.actions().mouseMove(this.saveButton)
     //   .click().perform();
   }
 
-  async clickCancelButton(): Promise<void> {
+  clickCancelButton(){
     cy.get(this.cancelButton).click()
     // return browser.actions().mouseMove(this.cancelButton)
     //   .click().perform();
@@ -79,25 +139,5 @@ export class EditPanel {
 
     // return await typeIntoKendoEditor(this.myStory, input);
   }
-
-  async getMyStory() {
-    cy.get(this.myStory)
-
-    //return await getKendoEditorContent(this.myStory);
-  }
-
-  async getPageFundraisingGoal(value) {
-    cy.get(this.pageFundraisingGoal).should('contain.text', value)
-    // return this.pageFundraisingGoal.getAttribute('value');
-  }
-  async getPageUrl(value) {
-    cy.get(this.pageUrl).should('contain.text', value)
-
-    // return this.pageUrl.getAttribute('value');
-  }
-  async getPageTitle(value) {
-    cy.get(this.pageTitle).should('contain.text', value)
-
-    // return this.pageTitle.getAttribute('value');
-  }
+  
 }

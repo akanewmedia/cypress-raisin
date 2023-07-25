@@ -30,7 +30,7 @@ export class MyPage {
     this.saveButton = buildSelector('.btn-save');
     this.cancelButton = buildSelector(this.importSection, '.cancel');
     this.customizeContainer = buildSelector(this.container, '.my-page__customize');
-    this.editButton = buildSelector(this.container, '.my-page-edit-overlay');
+    this.editButton = buildSelector('.preview-team__customize button');
     this.editpanel = new EditPanel();
     this.pagePreview = new PagePreview();
     this.previewTitle = '.page-preview-title'
@@ -41,10 +41,8 @@ export class MyPage {
     this.widgetTitle = '.thermometer-container--animated .title'
   }
 
-  async clickSaveButton(): Promise<void> {
+  clickSaveButton() {
     cy.get(this.saveButton).click()
-    //  return browser.actions().mouseMove(this.saveButton)
-    //  .click().perform();
   }
   
   async clickCancelButton(): Promise<void> {
@@ -55,7 +53,7 @@ export class MyPage {
   }
 
   async clickEditButton(): Promise<void> {
-    cy.get(this.editButton).click()
+    cy.contains(this.editButton, "Edit Page").click()
 
     // return browser.actions().mouseMove(this.editButton)
     //   .click().perform();
@@ -107,6 +105,12 @@ export class MyPage {
     this.getPreviewIFrame().within(() => {
       cy.get(this.previewGoal).invoke('text').then(value => value.replace(/\$|\.\d{2}|,/g, ''))
       .then(t => expect(t).to.eq(value))
+    }) 
+  }
+
+  verifyPreviewStory(value){
+    this.getPreviewIFrame().within(() => {
+      cy.get(this.previewStory).should('contain.text', value)
     }) 
   }
 
@@ -168,11 +172,7 @@ export class MyPage {
   }
 
 
-  verifyPreviewStory(value){
-    this.getPreviewIFrame().within(() => {
-      cy.get(this.previewStory).should('contain.text', value)
-    }) 
-  }
+  
 
   async selectEvent(type: string): Promise<void> {
     // scrollElemFinderIntoView(this.importDropDown);
@@ -214,25 +214,5 @@ export class MyPage {
   async enterPageFundraisingGoal(input: string): Promise<void> {
     // scrollElemFinderIntoView(this.editpanel.pageFundraisingGoal);
     this.editpanel.enterPageFundraisingGoal(input);
-  }
-
-  async getMyStory() {
-    // scrollElemFinderIntoView(this.editpanel.myStory);
-    this.editpanel.getMyStory();
-  }
-
-  async getPageTitle(value) {
-    // scrollElemFinderIntoView(this.editpanel.pageTitle);
-    this.editpanel.getPageTitle(value);
-  }
-
-  async getPageUrl(value) {
-    // scrollElemFinderIntoView(this.editpanel.pageUrl);
-    this.editpanel.getPageUrl(value);
-  }
-
-  async getPageFundraisingGoal(value) {
-    // scrollElemFinderIntoView(this.editpanel.pageFundraisingGoal);
-    this.editpanel.getPageFundraisingGoal(value);
-  }
+  }  
 }
