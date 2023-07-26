@@ -104,6 +104,13 @@ export class ReviewPage {
     //expect(this.review.profileInformation.phone.getText()).eq(data.phoneNumber);
     // TODO: add survey once it is implemented
   }
+  
+
+  verifyTributeInformation(data){
+    cy.get('.review-tributee-page-type').should('contain.text', data.tributeType)
+    cy.get('.review-tributee-first-name').should('contain.text', data.tributeFirstName)
+    cy.get('.review-tributee-last-name').should('contain.text', data.tributeLastName)
+  }
 
   verifyPaymentInformation(card) {
     cy.get(this.review.cardType).should('have.text', ' ' + card.verification.type + ' ');

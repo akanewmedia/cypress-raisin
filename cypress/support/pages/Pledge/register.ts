@@ -3,7 +3,7 @@ import { Address } from '../../components/address.co';
 import { AccountInformation } from '../../components/accountInformation.co';
 import { TaxReceipts } from '../../components/taxReceipts.co';
 import { AdditionalInformation } from '../../components/additionalInformation.co';
-import { buildSelector, elementByClass, elementById, elementsByClass, getLocalDateTime, pressEsc, scrollToElement, setMatCheckboxChecked, setUserReferral } from '../../utils/actions';
+import { buildSelector, getLocalDateTime, selectDropDownOption, setUserReferral } from '../../utils/actions';
 
 export class RegisterPage {
   container: any;
@@ -16,6 +16,11 @@ export class RegisterPage {
   taxReceiptsCO: TaxReceipts;
   referralInformation: any;
   requiredValidationErrors: any;
+  tributeDropDown:any
+  tributeFirstName:any
+  tributeLastName:any
+
+
   constructor() {
     this.container = buildSelector('.userDetails');
     this.organizationUserType = buildSelector(this.container, ".mat-checkbox-label");
@@ -26,8 +31,23 @@ export class RegisterPage {
     this.taxReceiptsCO = new TaxReceipts();
     this.referralInformation = buildSelector(this.container, '#refCode');
     this.requiredValidationErrors = buildSelector(this.container, 'small[ng-message="required"]');
+    this.tributeDropDown = '#tributeePageType'
+    this.tributeFirstName = '#tributeeFirstName'
+    this.tributeLastName = '#tributeeLastName'
   }
 
+  populateFormField(element: any, value: any, fieldType: string = 'textbox') {
+    // waitForElement(element);
+    // scrollElemFinderIntoView(element);
+    if (fieldType === 'dropdown') {
+      selectDropDownOption(element, `${value}`);
+    } else if (fieldType === 'textbox') {
+      ///clearInputWithBackspace(element);
+      cy.get(element).clear().type(`${value}`);
+    }
+  }
+
+  
   /**
    * Presses the individual user type button at the top of the user profile
    */
@@ -67,6 +87,14 @@ export class RegisterPage {
     cy.get('.pac-container').should('be.visible')
   }
 
+  fillInCustomFields(data){
+    cy.get(this.additionalInformation.attribute1).type(data.attribute1);
+    cy.get(this.additionalInformation.attribute2).type(data.attribute2);
+    cy.get(this.additionalInformation.attribute3).type(data.attribute3);
+    cy.get(this.additionalInformation.attribute4).type(data.attribute4);
+    cy.get(this.additionalInformation.attribute5).type(data.attribute5);
+  }
+
   fillInAccountInformation(data) {
     this.accountInformationCO.enterDetails(getLocalDateTime() + data.account.username, data.account.password, data.account.fundraisingGoal);
   }
@@ -97,6 +125,12 @@ export class RegisterPage {
     this.addressInformationCO.enterPostCode(data.postCode);
   }
 
+  fillInTributeInformation(data){
+    this.populateFormField(this.tributeDropDown, 'In Honour', 'dropdown')
+    cy.get(this.tributeFirstName).clear().type(data.tributeFirstName)
+    cy.get(this.tributeLastName).clear().type(data.tributeLastName)
+  }
+
   fillInProfileAndAddressInformation(data) {
     cy.wait(1500)
     this.fillInProfileInformation(data);
@@ -118,6 +152,8 @@ export class RegisterPage {
     this.fillInAllAddressInformation(data);
     this.fillInAdditionalInformation(data);
   }
+
+  
 
   /**
    * Fills in all fields in the profile information section. To promote reuse, each data field is checked prior
@@ -207,7 +243,6 @@ export class RegisterPage {
     if (data.allowScreenedCompanies) {
       this.additionalInformation.setScreenedCompaniesCheckboxChecked(data.allowScreenedCompanies);
     }
-    this.additionalInformation.setAttributes(data);
   }
 
   verifyMandatoryFieldsHaveValues() {

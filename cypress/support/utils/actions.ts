@@ -233,7 +233,7 @@ export function selectDropDownOption(protractorSelector, selectedOption) {
   if (isNil(selectedOption)) {
     return;
   }
-  scrollToElement('.rx-matrix-container .donation-matrix-other-amount .globalized-number-input input')
+  //scrollToElement('.rx-matrix-container .donation-matrix-other-amount .globalized-number-input input')
 
   return cy.get(protractorSelector).invoke('attr', 'class').then((classString) => {    
     if (classString.indexOf('mat-select') >= 0) {      

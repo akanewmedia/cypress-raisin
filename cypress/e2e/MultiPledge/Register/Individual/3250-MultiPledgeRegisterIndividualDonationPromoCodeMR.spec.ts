@@ -74,7 +74,7 @@ describe('TR(3250) Scenario -> Multi Pledge Individual Registration with Additio
                 addParticipantsPO.clickAddParticipantButton();
                 addParticipantsPO.acceptRegistrationWaiver(data);
                 addParticipantsPO.fillInProfileInformation(data.additionalParticipants[0]);
-             
+                cy.wait(1500)             
             });
             it('should enter donation amount, promo code and add store items in the payment screen', () => {
                 flowPO.continue();

@@ -50,11 +50,9 @@ describe('TR(648-2) Scenario -> Multi Pledge free registration - all fields requ
             it('Should press the create new account button', () => {
                 returningParticipantCO.createAccount();
             });
-            it('should press continue after entering each account detail field', () => {
+            it('should fill account details', () => {
                 cy.wait(5000)
-                //flowPO.continue();
                 scrollToElement(registerPO.container)
-                waitForElementToBeVisible(registerPO.container);
                 cy.get(registerPO.container).should('exist')
                 cy.get(registerPO.accountInformationCO.fund).should('be.visible')
                 registerPO.accountInformationCO.enterDetails(data.account.username + getLocalDateTime(), data.account.password, data.account.fundraisingGoal, data.account.fund)

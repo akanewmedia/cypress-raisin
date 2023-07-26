@@ -33,7 +33,7 @@ describe('TR(648) Scenario -> Multi Pledge free registration - all fields requir
 
     Cypress.on('uncaught:exception', (err, runnable) => {
         return false;
-      });
+    });
 
     using(events, (event) => {
         describe(`${event}`, () => {
@@ -42,10 +42,7 @@ describe('TR(648) Scenario -> Multi Pledge free registration - all fields requir
                 pageSetup.waitForPageLoad()
                 generateUniqueName(data);
             });
-            // after(() => {
-            //     pageSetup.goToEvent(event);
-            //     pageSetup.cleanupPage();
-            // });
+
             it('Should press the register button at the top, then select the location and reg item', () => {
                 navbarCO.register();
                 registerCO.selectSubEventGroup(data.location);
@@ -54,160 +51,66 @@ describe('TR(648) Scenario -> Multi Pledge free registration - all fields requir
             it('Should press the create new account button', () => {
                 returningParticipantCO.createAccount();
             });
-            it('should press continue after entering each account detail field', () => {
+            it('should fill account details', () => {
                 cy.wait(5000)
-                //flowPO.continue();
                 scrollToElement(registerPO.container)
-                waitForElementToBeVisible(registerPO.container);
                 registerPO.accountInformationCO.enterDetails(data.account.username + getLocalDateTime(), data.account.password, data.account.fundraisingGoal, data.account.fund)
-                // cy.get(registerPO.container).should('exist')
-                // registerPO.accountInformationCO.enterUsername(data.account.username + getLocalDateTime());
-                // flowPO.continue();
-                // cy.get(registerPO.container).should('exist')
-                // registerPO.accountInformationCO.enterPassword(data.account.password);
-                // flowPO.continue();
-                // cy.get(registerPO.container).should('exist')
-                // registerPO.accountInformationCO.enterGoal(data.account.fundraisingGoal);
-                // cy.get(registerPO.accountInformationCO.fund).should('be.visible')
-                // registerPO.accountInformationCO.selectFund(data.account.fund)
             });
-            it('should press continue after entering each profile info field', () => {
-                flowPO.continue();
-                cy.get(registerPO.container).should('exist')
-                registerPO.profileInformationCO.selectTitle(data.title);
-                // flowPO.continue();
-                cy.get(registerPO.container).should('exist')
-                registerPO.profileInformationCO.enterFirstName(data.firstName);
-                //flowPO.continue();
-                cy.get(registerPO.container).should('exist')
-                registerPO.profileInformationCO.enterMiddleName(data.middleName);
-                //flowPO.continue();
-                cy.get(registerPO.container).should('exist')
-                registerPO.profileInformationCO.enterLastName(data.lastName);
-                //flowPO.continue();
-                cy.get(registerPO.container).should('exist')
-                registerPO.profileInformationCO.selectEmailType(data.emailType);
-                //flowPO.continue();
-                cy.get(registerPO.container).should('exist')
-                registerPO.profileInformationCO.enterEmail(data.email);
-                //flowPO.continue();
-                cy.get(registerPO.container).should('exist')
-                registerPO.profileInformationCO.enterOrgName(data.companyName);
-                //flowPO.continue();
-                cy.get(registerPO.container).should('exist')
-                registerPO.profileInformationCO.selectPhoneType(data.phoneType);
-                //flowPO.continue();
-                cy.get(registerPO.container).should('exist')
-                registerPO.profileInformationCO.enterPhoneNumber(data.phoneNumber);
-                //flowPO.continue();
-                cy.get(registerPO.container).should('exist')
-                registerPO.profileInformationCO.enterPhoneExtension(data.phoneExtension);
-                //flowPO.continue();
-                cy.get(registerPO.container).should('exist')
-                registerPO.profileInformationCO.selectGender(data.gender);
-                //flowPO.continue();
-                cy.get(registerPO.container).should('exist')
-                registerPO.profileInformationCO.selectDateOfBirth(data.dayOfBirth, data.monthOfBirth, data.yearOfBirth);
+            it('should fill Profile Information', () => {
+                registerPO.fillInAllProfileInformation(data)
             });
-            it('should press continue after entering each address field', () => {
-                flowPO.continue();
-                cy.get(registerPO.container).should('exist')
-                registerPO.addressInformationCO.selectAddressType(data.addressType);
-                //flowPO.continue();
-                cy.get(registerPO.container).should('exist')
-                registerPO.addressInformationCO.selectCountry(data.country);
-                //flowPO.continue();
-                cy.get(registerPO.container).should('exist')
-                registerPO.addressInformationCO.enterAddress(data.address);
-                //flowPO.continue();
-                cy.get(registerPO.container).should('exist')
-                registerPO.addressInformationCO.enterCity(data.city);
-                //flowPO.continue();
-                cy.get(registerPO.container).should('exist')
-                registerPO.addressInformationCO.selectProvince(data.province);
-                //flowPO.continue();
-                cy.get(registerPO.container).should('exist')
-                registerPO.addressInformationCO.enterPostCode(data.postCode);
-
+            it('should fill Address and Tribute Information', () => {
+                registerPO.fillInAllAddressInformation(data)
+                registerPO.fillInTributeInformation(data)
             });
-            it('should press continue after entering each additional field', () => {
-                flowPO.continue();
-                cy.get(registerPO.container).should('exist')
-                registerPO.additionalInformation.setHideMeFromSearch(data.hideMeFromSearch);
-                //flowPO.continue();
-                cy.get(registerPO.container).should('exist')
-                registerPO.additionalInformation.setScreenedCompaniesCheckboxChecked(data.allowScreenedCompanies);
-                //flowPO.continue();
-                cy.get(registerPO.container).should('exist')
-                registerPO.additionalInformation.setAkaCommunicationCheckboxChecked(data.allowAkaCommunication);
-                //flowPO.continue();
-                cy.get(registerPO.container).should('exist')
+            it('should fill Additional Information', () => {
+                registerPO.fillInAdditionalInformation(data)
             });
-            it('should press continue after filling the custom fields', () => {
-                flowPO.continue();
+            it('should fill Custom Fields', () => {
                 cy.get(registerPO.container).should('exist')
-                setFocus(registerPO.additionalInformation.attribute1);
-                setCustomAttribute(registerPO.additionalInformation.attribute1, data.attribute1);
-                //flowPO.continue();
-                cy.get(registerPO.container).should('exist')
-                setFocus(registerPO.additionalInformation.attribute2);
-                setCustomAttribute(registerPO.additionalInformation.attribute2, data.attribute2);
-
-                // ** There is a very very weird error checking attribute3, 4 and 5, so I'm commenting out for now
-                //flowPO.continue();
-                //cy.get(registerPO.container).should('exist')
-                setFocus(registerPO.additionalInformation.attribute3);
-                setCustomAttribute(registerPO.additionalInformation.attribute3, data.attribute3);
-                //flowPO.continue();
-                cy.get(registerPO.container).should('exist')
-                setFocus(registerPO.additionalInformation.attribute4);
-                setCustomAttribute(registerPO.additionalInformation.attribute4, data.attribute4);
-                //flowPO.continue();
-                cy.get(registerPO.container).should('exist')
-                setFocus(registerPO.additionalInformation.attribute5);
-                setCustomAttribute(registerPO.additionalInformation.attribute5, data.attribute5);
+                registerPO.fillInCustomFields(data)
             });
-            it('should press continue after entering each survey field', () => {
+            it('should fill Surveys', () => {
                 // we go through each survey response and fill it out
                 data.surveyResponses.forEach(({ question, answer }) => {
                     flowPO.continue();
                     cy.get(registerPO.container).should('exist')
                     surveyCO.setAnswer({ question, answer });
                     pressEsc();
-                });       
-                flowPO.continue();         
+                });
+                flowPO.continue();
             });
             it('should enter amount then clear amount', () => {
                 cy.wait(2000)
                 // skip additional participants
-                flowPO.continue();                
+                flowPO.continue();
                 // enter donation amount
                 paymentPO.donate(data.donationAmount);
                 // then clear the donation amount
-                paymentPO.clearDonation();                
+                paymentPO.clearDonation();
             });
             it('should Add store item then remove it', () => {
-                cy.wait(2000)                
+                cy.wait(2000)
                 paymentPO.buyItem(0);
                 cy.wait(1000)
-                //flowPO.continue();
                 // remove store item
                 paymentPO.removeStoreItem(0);
                 // add a different store item
                 paymentPO.buyItem(1);
                 cy.wait(1000)
                 // remove store item
-                paymentPO.removeStoreItem(1);                        
+                paymentPO.removeStoreItem(1);
             });
             // it('should add credit card info', () => {                
             //     paymentPO.verifyPaymentFieldsPresent();
-			// 	paymentPO.verifyCreditCardIsDisplayed();
-			// 	paymentPO.enterCardDetails(data.card);              
+            // 	paymentPO.verifyCreditCardIsDisplayed();
+            // 	paymentPO.enterCardDetails(data.card);              
             // });
             it('Should verify the profile and payment info on the review page', () => {
                 cy.wait(2000)
                 flowPO.continue();
                 reviewPO.verifyProfileInformation(data);
+                reviewPO.verifyTributeInformation(data)
             });
             it('should submit and then verify the Transaction code', () => {
                 flowPO.continue();
