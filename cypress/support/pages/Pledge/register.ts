@@ -243,6 +243,7 @@ export class RegisterPage {
     if (data.allowScreenedCompanies) {
       this.additionalInformation.setScreenedCompaniesCheckboxChecked(data.allowScreenedCompanies);
     }
+    this.additionalInformation.setAttributes(data)
   }
 
   verifyMandatoryFieldsHaveValues() {

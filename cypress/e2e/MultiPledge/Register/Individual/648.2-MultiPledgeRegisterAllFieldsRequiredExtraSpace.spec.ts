@@ -114,6 +114,7 @@ describe('TR(648-2) Scenario -> Multi Pledge free registration - all fields requ
                 //flowPO.continue();
                 cy.get(registerPO.container).should('exist')
                 registerPO.addressInformationCO.enterPostCode(data.extraSpace.postCode);
+                registerPO.fillInTributeInformation(data)
 
             });
             it('should press continue after entering each additional field', () => {

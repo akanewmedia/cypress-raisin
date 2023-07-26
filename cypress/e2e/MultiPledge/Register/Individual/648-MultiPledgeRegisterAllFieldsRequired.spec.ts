@@ -63,13 +63,13 @@ describe('TR(648) Scenario -> Multi Pledge free registration - all fields requir
                 registerPO.fillInAllAddressInformation(data)
                 registerPO.fillInTributeInformation(data)
             });
-            it('should fill Additional Information', () => {
+            it('should fill Additional Information and Custom Fields', () => {
                 registerPO.fillInAdditionalInformation(data)
             });
-            it('should fill Custom Fields', () => {
-                cy.get(registerPO.container).should('exist')
-                registerPO.fillInCustomFields(data)
-            });
+            // it('should fill Custom Fields', () => {
+            //     cy.get(registerPO.container).should('exist')
+            //     registerPO.fillInCustomFields(data)
+            // });
             it('should fill Surveys', () => {
                 // we go through each survey response and fill it out
                 data.surveyResponses.forEach(({ question, answer }) => {
