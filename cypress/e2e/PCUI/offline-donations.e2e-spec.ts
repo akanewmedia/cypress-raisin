@@ -5,21 +5,21 @@ import { PageSetup } from '../../support/utils/pageSetup';
 import { LoginPage } from '../../pc-ui-e2e/src/page/login.page';
 import * as specificData from '../../pc-ui-e2e/mock/data/form-builder/form-builder-validation.json'
 
-let loginPage: LoginPage;
-    let sidebar: Sidebar;
-    let donationsComponent: OfflineDonationsComponent;
-    let snackbarCO: SnackbarCO;
-    let pageSetup: PageSetup = new PageSetup();
-    
-    sidebar = new Sidebar();
-    donationsComponent = new OfflineDonationsComponent();
-    snackbarCO = new SnackbarCO();
-    loginPage = new LoginPage()
+  let loginPage: LoginPage;
+  let sidebar: Sidebar;
+  let donationsComponent: OfflineDonationsComponent;
+  let snackbarCO: SnackbarCO;
+  let pageSetup: PageSetup = new PageSetup();
+  
+  sidebar = new Sidebar();
+  donationsComponent = new OfflineDonationsComponent();
+  snackbarCO = new SnackbarCO();
+  loginPage = new LoginPage()
 
-    const using = require('jasmine-data-provider');
+  const using = require('jasmine-data-provider');
 
-    const data = pageSetup.getData('Pledge', specificData);
-    const events = pageSetup.getEvents(pageSetup.getEnvironment().multipledge, data.events);
+  const data = pageSetup.getData('Pledge', specificData);
+  const events = pageSetup.getEvents(pageSetup.getEnvironment().multipledge, data.events);
 
 
 describe(

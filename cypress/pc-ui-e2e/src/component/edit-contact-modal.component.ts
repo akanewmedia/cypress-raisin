@@ -23,71 +23,71 @@ export class EditContactModal {
     this.saveModalButton = buildSelector(this.container,'.mat-flat-button');
   }
 
-  async isPresent() {
+  isPresent() {
     cy.get(this.container).should('exist')
     // return this.container.isPresent();
   }
 
-  // async waitForModalToClose(timeout: number = 1000): Promise<any> {
+  // waitForModalToClose(timeout: number = 1000): Promise<any> {
   //   return browser.wait(
   //     ExpectedConditions.stalenessOf(this.container),
   //     timeout
   //   );
   // }
 
-  async isVisible() {
+  isVisible() {
     cy.get(this.container).should('be.visible')
     //return this.container.isDisplayed();
   }
 
-  async enterContactInfo(
+  enterContactInfo(
     first: string,
     last: string,
     email: string,
     phone: string
-  ): Promise<void> {
+  ) {
     this.enterFirstName(first);
     this.enterLastName(last);
     this.enterEmailAddress(email);
     return this.enterPhoneNumber(phone);
   }
 
-  async enterFirstName(input: string): Promise<void> {
+  enterFirstName(input: string) {
     cy.get(this.firstName).clear().type(input)
     // await this.firstName.clear();
     // return this.firstName.sendKeys(input);
   }
 
-  async enterLastName(input: string): Promise<void> {
+  enterLastName(input: string) {
     cy.get(this.lastName).clear().type(input)
 
     // await this.lastName.clear();
     // return this.lastName.sendKeys(input);
   }
 
-  async enterEmailAddress(input: string): Promise<void> {
+  enterEmailAddress(input: string) {
     cy.get(this.emailAddress).clear().type(input)
 
     // await this.emailAddress.clear();
     // return this.emailAddress.sendKeys(input);
   }
 
-  async enterPhoneNumber(input: string): Promise<void> {
+  enterPhoneNumber(input: string) {
     cy.get(this.phoneNumber).clear().type(input)
 
     // await this.phoneNumber.clear();
     // return this.phoneNumber.sendKeys(input);
   }
 
-  async clickCloseModalButton(): Promise<void> {
+  clickCloseModalButton() {
     cy.get(this.closeModalButton).click();
   }
 
-  async clickCancelModalButton(): Promise<void> {
+  clickCancelModalButton() {
     cy.get(this.cancelModalButton).click();
   }
 
-  async clickSaveModalButton(): Promise<void> {
+  clickSaveModalButton() {
     cy.get(this.saveModalButton).click();
   }
 }

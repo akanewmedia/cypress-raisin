@@ -26,7 +26,7 @@ export class ContactsListComponent {
     this.emailSelectedButton = buildSelector(this.container,'.email-selected-button');
     this.emailThankButton = buildSelector(this.container,'.email-thank-button');
     this.newEmailButton = buildSelector(this.container,'.new-email-button');
-    this.confirmDeleteBox = ('.mat-dialog-container');
+    this.confirmDeleteBox = ('.mat-dialog-container ');
     this.contactsTable = new ContactsTable();
     this.editContactModal = new EditContactModal();
   }

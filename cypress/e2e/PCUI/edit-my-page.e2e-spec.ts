@@ -6,9 +6,9 @@ import { getLocalDateTime, pressTab } from '../../support/utils/actions';
 import * as specificData from '../../pc-ui-e2e/mock/data/edit-page/edit-my-page.json'
 
 let loginPage: LoginPage = new LoginPage()
+let pageSetup: PageSetup = new PageSetup();
 let sidebar: Sidebar = new Sidebar();
 let myPagePO: MyPage = new MyPage();
-let pageSetup: PageSetup = new PageSetup();
 
 const using = require('jasmine-data-provider');
 

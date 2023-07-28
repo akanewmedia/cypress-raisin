@@ -8,7 +8,7 @@ import { RegisterPage } from "../../../../support/pages/Pledge/register";
 import { SurveyComponent } from "../../../../support/components/survey.co";
 import { ReturningParticipant } from "../../../../support/components/returningParticipant.co";
 import { ThankYouPage } from "../../../../support/pages/Pledge/ThankYouPage";
-import { generateUniqueName, generateUniqueNameWithSpaces, getLocalDateTime, pressEsc, pressTab, scrollToElement, setCustomAttribute, setFocus, waitForElementToBeVisible } from "../../../../support/utils/actions";
+import { generateUniqueNameWithSpaces, getLocalDateTime, pressEsc, scrollToElement, setCustomAttribute, setFocus } from "../../../../support/utils/actions";
 import * as specificData from '../../../../data/Pledge/MultiPledgeRegisterAllFieldsRequiredExtraSpace.json'
 
 //The information regarding the Library

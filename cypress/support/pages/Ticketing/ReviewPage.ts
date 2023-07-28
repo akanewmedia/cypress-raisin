@@ -103,8 +103,7 @@ export class ReviewPage {
     ///cy.get(this.review.profileInformation.phone).should('have.text', data.phoneNumber)
     //expect(this.review.profileInformation.phone.getText()).eq(data.phoneNumber);
     // TODO: add survey once it is implemented
-  }
-  
+  }  
 
   verifyTributeInformation(data){
     cy.get('.review-tributee-page-type').should('contain.text', data.tributeType)

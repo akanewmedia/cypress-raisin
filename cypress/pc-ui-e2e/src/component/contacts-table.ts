@@ -3,58 +3,67 @@ import { buildSelector } from '../utils/actions';
 export class ContactsTable {
   constructor() {
     this.container = buildSelector('.list-container');
-    this.selectionHeader = buildSelector(this.container,'.mat-header-row');
-    this.nameHeader = buildSelector('.table-column', this.selectionHeader);
+    this.selectionHeader = buildSelector('.mat-sort-header-content');
+    this.nameHeader = buildSelector(this.container, '.table-column', this.selectionHeader);
     this.rows = buildSelector(this.container,'tbody tr.mat-row');
+    this.nameRow = ('.identity .identity__name')
   }
+  //.list-container .table-column .mat-sort-header-content
   readonly container: any;
   readonly selectionHeader: any;
   readonly nameHeader: any;
-
+  readonly nameRow:any
   readonly rows: any;
 
   getContacts(): any {
     cy.get(this.rows);
   }
 
-  async sortByName(): Promise<void> {
-    cy.get(this.nameHeader).click();
+  verifyFirstRow(name){
+    cy.get(this.rows).eq(0).within(()=>{
+      cy.get(this.nameRow).first().should('contains.text', name)
+    })
   }
 
-  async getRowNameValue(row: any) {
+  verifyLastAdded(name){
+    cy.get(this.rows).eq(0).within(()=>{
+      cy.get(this.nameRow).last().should('contains.text', name)
+    })
+  }
+  
+
+   sortByName() {
+    cy.contains(this.nameHeader, "Name").click();
+  }
+
+   getRowNameValue(row: any) {
     cy.get(row + '.mat-column-name.mat-cell')
     //return row.$('.mat-column-name.mat-cell').getText();
   }
 
-  async clickRowSelectCheckButton(row: any): Promise<void> {
+   clickRowSelectCheckButton(row: any) {
     cy.get(row + '.mat-column-select' + '.mat-checkbox' ).click()
     //return row.$('.mat-column-select').$('.mat-checkbox').click();
   }
 
-  async clickRowEditButton(row: any): Promise<void> {
-    cy.get(row+ '.mat-column-action.mat-cell' + '.action-icon-button.edit-button').click()
-    // return row
-    //   .$('.mat-column-action.mat-cell')
-    //   .$('.action-icon-button.edit-button')
-    //   .click();
+   clickRowEditButton() {
+    cy.get(this.rows).eq(0).within(()=>{
+      cy.get('.mat-column-action.mat-cell ' + '.edit-button').click()
+    })    
   }
 
-  async clickRowDeleteButton(row: any): Promise<void> {
-    cy.get(row + '.mat-column-action.mat-cell' + '.action-icon-button.delete-button').click()
-    // return browser.actions().mouseMove(row
-    //   .$('.mat-column-action.mat-cell')
-    //   .$('.action-icon-button.delete-button'))
-    //   .click().perform();;
+   clickRowDeleteButton() {
+    cy.get('.mat-column-action' + ' .delete-button').first().click()
   }
 
-  async clickEmailButton(row: any): Promise<void> {
+   clickEmailButton(row: any) {
     cy.get(row + '.mat-column-action.mat-cell' + '.action-icon-button.email-button').click()
     // return browser.actions().mouseMove(row
     //       .$('.mat-column-action.mat-cell')
     //       .$('.action-icon-button.email-button')).click().perform();
   }
 
-  async isRowPresentByName(search: string) {
+   isRowPresentByName(search: string) {
     cy.get('.mat-column-name.mat-cell' + search).should('exist')
     // element(
     //   by.cssContainingText('.mat-column-name.mat-cell', search)
@@ -62,7 +71,7 @@ export class ContactsTable {
     // return searchItem.isPresent();
   }
 
-  async clickRowCaptainToggleButton(row: any): Promise<void> {
+   clickRowCaptainToggleButton(row: any) {
     cy.get(row + '.mat-column-captain' + '.mat-slide-toggle').click()
     // return browser.actions().mouseMove(row
     //   .$('.mat-column-captain')
@@ -70,7 +79,7 @@ export class ContactsTable {
     //   .click().perform();
   }
 
-  async getRowCaptainToggleValue(row: any) {
+   getRowCaptainToggleValue(row: any) {
     cy.get(row + '.mat-column-captain .mat-slide-toggle-input' + 'aria-checked')
     //return row.$('.mat-column-captain .mat-slide-toggle-input').getAttribute("aria-checked");
   }

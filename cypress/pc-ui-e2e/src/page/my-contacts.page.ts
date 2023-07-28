@@ -14,18 +14,18 @@ export class MyContactsPage {
     this.addNewContact = buildSelector(this.header,'.add-contact-btn');
   }
 
-  async clickAddNewContact(): Promise<void> {
+  clickAddNewContact() {
     cy.get(this.addNewContact).click();
   }
-  async sortTableByName(): Promise<void> {
+  sortTableByName() {
     return this.contactsListComponent.contactsTable.sortByName();
   }
 
-  async clickButtonSearchClear(): Promise<void> {
+  clickButtonSearchClear() {
     return this.contactsListComponent.clickButtonSearchClear();
   }
 
-  async enterSearch(contact: string): Promise<void> {
+  enterSearch(contact: string) {
     return this.contactsListComponent.enterSearch(contact);
   }
 }
