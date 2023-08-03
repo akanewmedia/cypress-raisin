@@ -144,5 +144,8 @@
     "Show My Name and Amount",
     "Show My Name Only",
     "Show My Name as Anonymous (amount will show)"
-  ]
+  ],
+  "tributeFirstName": "Tributee",
+  "tributeLastName": "Test",
+  "tributeType": "In Honour"
 }

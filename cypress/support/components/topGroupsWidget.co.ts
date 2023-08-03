@@ -15,8 +15,9 @@ export class TopGroupsWidget {
    * @returns {promise.Promise<boolean>} - Promise that resolves true if the provided group name is found in the widget
    */
   exists(groupName) {
-    return cy.get(this.container + ' table .location a').contains(groupName)
-    //return elementByClass(this.container, 'table').get('.location a').contains(groupName).isPresent();
+    return cy.get(this.container + ' table').within(()=>{
+      cy.contains('.location a', groupName).should('not.exist')
+    })
   }
 }
 

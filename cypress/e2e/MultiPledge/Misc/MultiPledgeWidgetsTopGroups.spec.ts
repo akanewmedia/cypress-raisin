@@ -29,7 +29,7 @@ describe('Scenario -> Multi Pledge top groups widget: ', () => {
             it('Should ensure inactive groups are not displayed in the widget', () => {
                 navbarCO.clickOnScoreboardMenuItem();
                 cy.get(scoreboardPO.container).should('exist')
-                scoreboardPO.topGroups.exists(data.inactiveLocation.name).should('not.exist')
+                scoreboardPO.topGroups.exists(data.inactiveLocation.name)
             });
         });
     });

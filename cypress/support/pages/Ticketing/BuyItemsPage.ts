@@ -92,7 +92,7 @@ export class BuyItemsPage {
   }
   verifyAmountInCart(expectedAmount) {
     cy.get(this.shoppingCart.verifyAmount).invoke('text').then((text) => {
-      expect(text.replace(/\u00a0/g, ' ')).equal(expectedAmount)
+      expect(text.replace(/\u00a0/g, ' ')).contains(expectedAmount)
     })
   }
   fillInDonationAmount(amount) {

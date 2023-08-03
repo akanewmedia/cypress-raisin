@@ -65,5 +65,9 @@
     }
   ],
   "location": "City2b",
-  "fullName": "Dr. Bobby Ricky Smith"
+  "fullName": "Dr. Bobby Ricky Smith",
+  "tributeFirstName": "Tributee",
+  "tributeLastName": "Test",
+  "tributeType": "In Honour"
+
 }

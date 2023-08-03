@@ -62,6 +62,7 @@ describe('TR(3021) Scenario -> Multi Pledge Team Member Registration - fundraisi
 				returningParticipantCO.createAccount();
 
 				registerPO.fillInAccountInformationAndFund(data);
+				registerPO.fillInTributeInformation(data)
 				registerPO.fillInProfileAddressAndAdditionalInformation(data);
 				surveyCO.fill(data.surveyResponses);
 

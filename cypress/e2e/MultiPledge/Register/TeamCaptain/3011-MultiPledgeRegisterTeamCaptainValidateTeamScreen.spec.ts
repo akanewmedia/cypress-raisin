@@ -60,6 +60,7 @@ describe('TR(3011) Scenario -> Multi Pledge registration, create team - validate
             it('Should enter the participant details', () => {
                 cy.wait(2000)
                 registerPO.fillInAccountInformationAndFund(data);
+                registerPO.fillInTributeInformation(data)
                 registerPO.fillInProfileAddressAndAdditionalInformation(data);
                 surveyCO.fill(data.surveyResponses);
             });
