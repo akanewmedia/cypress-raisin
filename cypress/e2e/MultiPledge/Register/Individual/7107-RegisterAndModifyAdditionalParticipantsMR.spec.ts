@@ -6,7 +6,7 @@ import { PledgeNavBarComponent } from "../../../../support/components/pledgeNavb
 import { RegisterPage } from "../../../../support/pages/Pledge/register";
 import { ReturningParticipant } from "../../../../support/components/returningParticipant.co";
 import { ThankYouPage } from "../../../../support/pages/Pledge/ThankYouPage";
-import { generateUniqueName } from "../../../../support/utils/actions";
+import { generateUniqueName, pressTab } from "../../../../support/utils/actions";
 import { AdditionalParticipantsPage } from "../../../../support/pages/Pledge/addParticipants";
 import using from "jasmine-data-provider";
 import * as specificData from '../../../../data/Pledge/RegisterAndModifyAdditionalParticipantsMR.json'
@@ -65,16 +65,19 @@ describe('TR(7107) Scenario -> Multi Pledge Modify additional participants: ', (
                 addParticipantsPO.clickAddParticipantButton();
                 cy.wait(1500)
                 addParticipantsPO.fillInProfileInformationNoWaiver(data.additionalParticipants[0]);
+                cy.wait(1500)
             });
             it('should enter the second additional participant details', () => {
                 addParticipantsPO.clickAddParticipantButton();
                 cy.wait(1500)
                 addParticipantsPO.fillInProfileInformationNoWaiver(data.additionalParticipants[1]);
+                cy.wait(1500)
             });
             it('should enter the third additional participant details', () => {
                 addParticipantsPO.clickAddParticipantButton();
                 cy.wait(1500)
                 addParticipantsPO.fillInProfileInformationNoWaiver(data.additionalParticipants[2]);
+                cy.wait(1500)
             });
             it('should go past the payment screen (free reg)', () => {
                 flowPO.continue();
@@ -96,6 +99,8 @@ describe('TR(7107) Scenario -> Multi Pledge Modify additional participants: ', (
             
               addParticipantsPO.openAdditionParticipant(1);
               addParticipantsPO.fillInProfileInformationNoWaiver(data.editedData.additionalParticipants[1]);
+              addParticipantsPO.openAdditionParticipant();
+                cy.wait(1500)
          
               flowPO.continue();
               cy.get(reviewPO.review.container).should('exist')
