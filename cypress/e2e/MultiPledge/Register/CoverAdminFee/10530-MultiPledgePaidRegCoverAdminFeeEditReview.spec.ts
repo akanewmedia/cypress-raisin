@@ -42,7 +42,7 @@ const thankYouPO = new ThankYouPage();
 
 
 //The calling of functions created in respective Function Pages
-describe('C10523 Scenario -> Registration > Cover Admin Fee > Paid Reg + Self Donation + Store Item : ', function () {
+describe('C10530 Scenario -> Registration > Cover Admin Fee > Edit Review : ', function () {
 	using(events, function (event) {
 		describe(`${event}`, function () {
 			before(() => {

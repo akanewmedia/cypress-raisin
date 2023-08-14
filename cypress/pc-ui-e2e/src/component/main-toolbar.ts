@@ -23,4 +23,8 @@ export class MainToolbar {
     cy.contains(this.container + " button", "My Account").click()
     cy.contains(this.accountSettings, 'Account Settings').click()
   }
+
+  clickOnBadge(){
+    cy.get(this.badgeButton).click()
+  }
 }

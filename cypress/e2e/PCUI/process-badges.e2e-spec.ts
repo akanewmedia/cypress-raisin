@@ -1,28 +1,43 @@
 import { MainToolbar } from '../../pc-ui-e2e/src/component/main-toolbar';
-import { userLogin } from '../../pc-ui-e2e/src/utils/actions';
+import { LoginPage } from '../../pc-ui-e2e/src/page/login.page';
+import { PageSetup } from '../../support/utils/pageSetup';
+import * as specificData from '../../pc-ui-e2e/mock/data/edit-page/edit-my-page.json'
 
-describe('process badges:', () => {
-  let mainToolbar: MainToolbar;
 
-  beforeEach(() => {
-    mainToolbar = new MainToolbar();
-  });
+let mainToolbar: MainToolbar = new MainToolbar()
+let loginPage: LoginPage = new LoginPage()
+let pageSetup: PageSetup = new PageSetup();
 
-  it('should log in', () => {
-    userLogin('DaveHeaderOneTestOne');
-  });
+const using = require('jasmine-data-provider');
 
-  it('should render toolbar', () => {
-    expect(mainToolbar.container.isPresent()).toBeTruthy();
-  });
+const data = pageSetup.getData('Pledge', specificData);
+const events = pageSetup.getEvents(pageSetup.getEnvironment().multipledge, data.events);
 
-  it('should have badgeCount greater than zero', () => {
-    expect(mainToolbar.getBadgeCount()).toBeGreaterThan(0);
-  });
+describe('Verify Badges:', () => {
+  using(events, event => {
 
-  it('should remove badgeCount on click', () => {
-    mainToolbar.badgeButton.click();
-    mainToolbar.closeBadgeDialog();
-    expect(mainToolbar.getBadgeCount()).toBe(0);
-  });
+    before(() => {
+      pageSetup.cleanupPage()
+      pageSetup.goToEvent(event);
+      pageSetup.waitForPageLoad()
+      loginPage.login(data.user.username, data.user.password)
+    });
+
+    it('should render toolbar', () => {
+      cy.get(mainToolbar.container).should('be.visible')
+    });
+
+    it('should click on Badge Icon and verify if badges exist', () => {
+      mainToolbar.clickOnBadge();
+      cy.get('pc-badge-overview').should('be.visible')
+      //Verifies amount of badges earned
+      cy.get('div.badge-modal-body').should('contain.text', "1 of 4 earned")
+      //Makes sure all badges are visible
+      cy.get('div .badge-modal-card').its('length').should('eq', 4)
+      //Verifies if Team Captain badge has an earning date
+      cy.get('div.date').first().should('contain.text', '2023-07-25')
+    });    
+
+    
+  })
 });
