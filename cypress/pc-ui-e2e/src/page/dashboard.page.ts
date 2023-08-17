@@ -29,7 +29,7 @@ export class DashboardPage {
     // this.personalProgressButton = elementsByClass('.mat-tab-label', this.progressTabHeader).get(0);
     // this.teamProgressButton = elementsByClass('.mat-tab-label', this.progressTabHeader).get(1);
     this.progressGoal = buildSelector(this.progressTabs, '.goal-title');
-    this.topTeamMembersWidget = buildSelector(this.container, '.top-team-members',).first();
+    this.topTeamMembersWidget = buildSelector(this.container, '.top-team-members');
     this.topTeamMembersTeamProgressButton = buildSelector(this.topTeamMembersWidget,'.mat-flat-button');
   }
 
