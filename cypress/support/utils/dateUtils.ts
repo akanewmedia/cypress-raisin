@@ -22,10 +22,10 @@ export function getNextMonthDate(lang, startDay = 1) {
  * @returns {string} Language representation of the next available payment date
  */
 export function getNextAvailableDate(lang, startDays) {
-    startDays = sortBy(startDays); // garantees the days are in order
-    let paymentDay = filter(startDays, (d) => { return d > now.getDay() });
+    startDays = sortBy(startDays); // garantees the days are in order   
+    let paymentDay = filter(startDays, (d) => { return d > now.getDate() });
     if (isEmpty(paymentDay)) {
-        return this.getNextMonthDate(lang, startDays[0]);
+        return getNextMonthDate(lang, startDays[0]);
     }
     let paymentDate = new Date(now.getFullYear(), now.getMonth(), paymentDay[0]);
     return new Intl.DateTimeFormat(lang, { day: 'numeric', month: 'long', year: 'numeric' }).format(paymentDate);
