@@ -14,6 +14,9 @@ export class DonationsHistoryTable {
   readonly tableHeader: any;
   readonly myDonationsButton: any;
   readonly teamDonationsButton: any;
+  readonly nameRow:any;
+  readonly amountRow: any;
+  readonly dateRow: any;
 
   constructor() {
     this.container = ('.donation-history');
@@ -29,9 +32,12 @@ export class DonationsHistoryTable {
     this.receiptIssuedHeader = buildSelector(this.container,'.mat-column-receiptIssued.mat-header-cell');
     this.messageHeader = buildSelector(this.container,'.mat-column-message.mat-header-cell');
     this.rows = buildSelector(this.container, 'tbody tr.mat-row');
+    this.nameRow = buildSelector('.mat-column-name.mat-cell')
+    this.amountRow = buildSelector('.mat-column-amount.mat-cell')
+    this.dateRow = buildSelector('td.mat-column-date')
   }
 
-  async selectEvent(type: string): Promise<void> {
+  selectEvent(type: string){
     selectDropDownOption(this.eventDropDown, type);
   }
 
@@ -39,68 +45,86 @@ export class DonationsHistoryTable {
     cy.get(this.rows);
   }
 
-  async sortByName(): Promise<void> {
+  sortByName(){
     cy.get(this.nameHeader).click();
   }
 
-  async sortByAmount(): Promise<void> {
+  sortByAmount(){
     cy.get(this.amountHeader).click();
   }
 
-  async sortByDate(): Promise<void> {
+  sortByDate(){
     cy.get(this.dateHeader).click();
   }
 
-  async sortByThanked(): Promise<void> {
+  sortByThanked(){
     cy.get(this.thankedHeader).click();
   }
 
-  async sortByReceiptIssued(): Promise<void> {
+  sortByReceiptIssued(){
     cy.get(this.receiptIssuedHeader).click();
   }
 
-  async sortByMessage(): Promise<void> {
+  sortByMessage(){
     cy.get(this.messageHeader).click();
   }
 
-  async getRowNameValue(row: any) {
+  verifyNameAndEmailFirstRow(name){
+    cy.get(this.rows).eq(0).within(()=>{
+      cy.get(this.nameRow).first().should('contains.text', name)
+    })
+  }
+
+  verifyAmountFirstRow(name){
+    cy.get(this.rows).eq(0).within(()=>{
+      cy.get(this.amountRow).first().should('contains.text', name)
+    })
+  }
+
+  verifyDateFirstRow(name){
+    cy.get(this.rows).eq(0).within(()=>{
+      cy.get(this.dateRow).first().should('contains.text', name)
+    })
+  }
+
+  getRowNameValue(row: any) {
     cy.get(row + '.mat-column-name.mat-cell')
     // return row.$('.mat-column-name.mat-cell').getText();
   }
 
-  async getRowAmountValue(row: any) {
+  getRowAmountValue(row: any) {
     cy.get(row + '.mat-column-amount.mat-cell')
     //return row.$('.mat-column-amount.mat-cell').getText();
   }
 
-  async getRowDateValue(row: any) {
+  getRowDateValue(row: any) {
     cy.get(row + '.mat-column-date.mat-cell')
     //return row.$('.mat-column-date.mat-cell').getText();
   }
 
-  async clickReissueTaxReceiptButton(row: any): Promise<void> {
-    cy.get(row + '.mat-column-receiptIssued.mat-cell button.action-btn').click()
+  clickReissueTaxReceiptButton(){
+    cy.get('.mat-column-receiptIssued.mat-cell button.action-btn').first().click()
     // return row
     //   .$('.mat-column-receiptIssued.mat-cell button.action-btn')
     //   .click();
   }
 
-  async isRowReissueTaxReceiptButtonVisible(row: any) {
-    cy.get(row + '.mat-column-receiptIssued .action-btn').should('be.visible')
+  isRowReissueTaxReceiptButtonVisible() {
+    cy.get('.mat-column-receiptIssued .action-btn').should('be.visible')
     //return row.$('.mat-column-receiptIssued .action-btn').isDisplayed();
   }
 
-  async isRowReissueTaxReceiptButtonPresent(row: any) {
+  isRowReissueTaxReceiptButtonPresent(row: any) {
     cy.get(row + '.mat-column-receiptIssued .action-btn').should('be.visible')
     //return row.$('.mat-column-receiptIssued .action-btn').isPresent();
   }
 
-  async clickMyDonationsButton(): Promise<void> {
+  clickMyDonationsButton(){
     cy.get(this.myDonationsButton).click();
     //return this.myDonationsButton.click();
   }
 
-  async clickTeamDonationsButton(): Promise<void> {
+  clickTeamDonationsButton(){
     cy.get(this.teamDonationsButton).click();
     //return this.teamDonationsButton.click();
   }
