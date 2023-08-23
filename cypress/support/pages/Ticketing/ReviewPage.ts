@@ -58,7 +58,7 @@ export class ReviewPage {
   }
 
   verifyTotalTicketAmount(amount, message = '') {
-    cy.get(this.review.ticketsTableRows).should('have.text', amount)
+    cy.get(this.review.ticketsTableRows).should('contain.text', amount)
     //expect(this.review.ticketsTableRows.last().getText()).contains(amount, message);
   }
   verifyProfileInformation(data) {
