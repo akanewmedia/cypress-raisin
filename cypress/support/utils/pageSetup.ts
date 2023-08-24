@@ -66,7 +66,7 @@ export class PageSetup {
      * @param {number} [timeout=3000] - the max time (in ms) the test will wait for the page to load
      */
    goToEvent(url) {  
-    cy.visit(`${this.getEnvironment().baseUrl}/ui/${url}`) 
+    cy.visit(`${this.getEnvironment().baseUrl}/ui/${url}`, {onBeforeLoad: (win) => { win.sessionStorage.clear()}}) 
   }
 
   waitForPageLoad(){

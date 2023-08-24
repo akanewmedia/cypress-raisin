@@ -32,6 +32,8 @@ describe('User Profile Validation:', () => {
       loginPage.login(data.user.username, data.user.password)
     });
 
+     
+
 
     it('should go to User Profile', () => {
       mainToolbar.clickOnProfile();
@@ -40,6 +42,7 @@ describe('User Profile Validation:', () => {
 
     it('should clear all Personal Information fields, validate the error messages, re-fill input fields and re-submit form', () => {
       userProfile.clearPersonalInformation()
+      cy.wait(1500)
       userProfile.verifyPersonalInfoRequiredFieldErrors(data.personalInfoValidationMessages)
       userProfile.fillPersonalInformation(data)
       userProfile.clickPersonalInfoSubmit()
@@ -48,6 +51,7 @@ describe('User Profile Validation:', () => {
 
     it('should clear all Additional Information fields, validate the error messages, re-fill input fields and re-submit form', () => {
       userProfile.clearAdditionalInformation()
+      cy.wait(1500)
       userProfile.verifyAdditionalInfoRequiredFieldErrors(data.additionalInfoValidationMessages)
       userProfile.fillAdditionalInformation(data)
       userProfile.clickAdditionalInfoSubmit()

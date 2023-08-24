@@ -115,11 +115,11 @@ export class OfflineDonationsComponent {
     this.populateFormField((this.addDonationDialog + `#companyName`), values.companyName);
     //this.populateFormField((this.addDonationDialog + `#addressType`), values.addressType, 'dropdown');
     this.populateFormField((this.addDonationDialog + `#city`), values.city);
-    // this.populateFormField((this.addDonationDialog + `#attribute1`), values.attribute1);
-    // this.populateFormField((this.addDonationDialog + `#attribute2`), values.attribute2);
-    // this.populateFormField((this.addDonationDialog + `#attribute3`), values.attribute3);
-    // this.populateFormField((this.addDonationDialog + `#attribute4`), values.attribute4);
-    // this.populateFormField((this.addDonationDialog + `#attribute5`), values.attribute5);
+    this.populateFormField((this.addDonationDialog + `#attribute1`), values.attribute1);
+    this.populateFormField((this.addDonationDialog + `#attribute2`), values.attribute2);
+    this.populateFormField((this.addDonationDialog + `#attribute3`), values.attribute3);
+    this.populateFormField((this.addDonationDialog + `#attribute4`), values.attribute4);
+    this.populateFormField((this.addDonationDialog + `#attribute5`), values.attribute5);
     this.populateFormField((this.addDonationDialog + `#province`), values.province, 'dropdown');
     this.populateFormField((this.addDonationDialog + `#postalCode`), values.postalCode);
     this.populateFormField((this.addDonationDialog + `#correspondenceLanguage`), values.correspondenceLanguage, 'dropdown');

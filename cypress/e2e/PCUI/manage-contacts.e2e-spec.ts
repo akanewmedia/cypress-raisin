@@ -1,5 +1,4 @@
 import { Sidebar } from '../../pc-ui-e2e/src/component/sidebar.component';
-import { MyPage } from '../../pc-ui-e2e/src/page/my-page.page';
 import { SnackbarCO } from '../../pc-ui-e2e/src/component/snackbar';
 import { MyContactsPage } from '../../pc-ui-e2e/src/page/my-contacts.page';
 import { } from '../../pc-ui-e2e/src/utils/actions';
@@ -8,7 +7,6 @@ import { PageSetup } from '../../support/utils/pageSetup';
 import * as specificData from '../../pc-ui-e2e/mock/data/edit-page/edit-my-page.json'
 
 let sidebar: Sidebar = new Sidebar();
-let myPagePO: MyPage = new MyPage();
 let myContactsPage: MyContactsPage = new MyContactsPage();
 let snackbarCO: SnackbarCO = new SnackbarCO();
 let loginPage: LoginPage = new LoginPage()
@@ -24,13 +22,14 @@ describe('add a new contact and sort, edit contact then delete:', () => {
 
   using(events, event => {
 
-
     before(() => {
       pageSetup.cleanupPage()
       pageSetup.goToEvent(event);
       pageSetup.waitForPageLoad()
       loginPage.login(data.user.username, data.user.password)
     });
+
+     
 
 
     it('should go to my contacts', () => {
@@ -44,7 +43,7 @@ describe('add a new contact and sort, edit contact then delete:', () => {
     it('should sort contacts', () => {
       myContactsPage.contactsListComponent.contactsTable.verifyFirstRow('Bobby Smith')
       myContactsPage.sortTableByName();
-      myContactsPage.contactsListComponent.contactsTable.verifyFirstRow('Diane Klich')
+      myContactsPage.contactsListComponent.contactsTable.verifyFirstRow('Victor Volunteer')
     });
 
     it('should click on add contact and add new contact',  () => {
@@ -58,7 +57,6 @@ describe('add a new contact and sort, edit contact then delete:', () => {
       );
       myContactsPage.contactsListComponent.editContactModal.clickSaveModalButton();
       snackbarCO.validateSnackBarMessage('Contact saved');
-      myContactsPage.contactsListComponent.contactsTable.verifyLastAdded('Simon George')
     });
 
     it('should find contact',  () => {

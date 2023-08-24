@@ -31,7 +31,9 @@ describe(
       pageSetup.goToEvent(event);
       pageSetup.waitForPageLoad()
       loginPage.login(data.user.username, data.user.password)
-    });  
+    }); 
+    
+     
 
     it('should go to offline donations page and display offline donation items', () => {
       // go to offline donations page

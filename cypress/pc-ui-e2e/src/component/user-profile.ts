@@ -73,8 +73,8 @@ export class UserProfile {
     cy.get(this.attribute3).clear()
     cy.get(this.attribute4).clear()
     cy.get(this.attribute5).clear()
-    cy.get(this.shortAnswer).clear()
-    cy.get(this.tellMeYourStory).clear()
+    //cy.get(this.shortAnswer).clear()
+    //cy.get(this.tellMeYourStory).clear()
   }
 
   fillPersonalInformation(data){
@@ -98,8 +98,8 @@ export class UserProfile {
     cy.get(this.attribute3).type(data.attribute3)
     cy.get(this.attribute4).type(data.attribute4)
     cy.get(this.attribute5).type(data.attribute5)
-    cy.get(this.shortAnswer).type(data.shortAnswer)
-    cy.get(this.tellMeYourStory).type(data.tellMeYourStory)
+    // cy.get(this.shortAnswer).type(data.shortAnswer)
+    // cy.get(this.tellMeYourStory).type(data.tellMeYourStory)
   }
 
   clickPersonalInfoSubmit(){

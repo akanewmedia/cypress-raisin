@@ -34,9 +34,7 @@ describe('Offline Donations Validation:', () => {
       loginPage.login(data.user.username, data.user.password)
     });
 
-    after(()=>{
-      pageSetup.cleanupPage()
-    })
+     
 
 
     it('should go to Offline Donations and add offline donation', () => {

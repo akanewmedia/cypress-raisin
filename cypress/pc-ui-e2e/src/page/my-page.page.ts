@@ -10,6 +10,7 @@ export class MyPage {
   saveButton: any;
   cancelButton: any;
   editButton: any;
+  teamEditButton:any;
   customizeContainer: any;
   editpanel: EditPanel;
   pagePreview: PagePreview;
@@ -30,7 +31,8 @@ export class MyPage {
     this.saveButton = buildSelector('.btn-save');
     this.cancelButton = buildSelector(this.importSection, '.cancel');
     this.customizeContainer = buildSelector(this.container, '.my-page__customize');
-    this.editButton = buildSelector('.preview-team__customize button');
+    this.editButton = buildSelector(this.container, '.my-page-edit-overlay');
+    this.teamEditButton = buildSelector('.preview-team__customize button');
     this.editpanel = new EditPanel();
     this.pagePreview = new PagePreview();
     this.previewTitle = '.page-preview-title'
@@ -53,7 +55,14 @@ export class MyPage {
   }
 
   async clickEditButton(): Promise<void> {
-    cy.contains(this.editButton, "Edit Page").click()
+    cy.contains(this.editButton, "Edit page").click()
+
+    // return browser.actions().mouseMove(this.editButton)
+    //   .click().perform();
+  }
+
+  async clickTeamEditButton(): Promise<void> {
+    cy.contains(this.teamEditButton, "Edit page").click()
 
     // return browser.actions().mouseMove(this.editButton)
     //   .click().perform();

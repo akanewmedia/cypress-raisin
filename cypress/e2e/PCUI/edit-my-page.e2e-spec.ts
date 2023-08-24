@@ -17,12 +17,6 @@ const events = pageSetup.getEvents(pageSetup.getEnvironment().multipledge, data.
 
 describe('edit my page', () => {
 
-  let title = data.title + getLocalDateTime()
-  let url = data.url + getLocalDateTime()
-  let goal = (Math.floor(Math.random() * 9000 + 1000)).toString();
-  let story = 'Story Test ' + getLocalDateTime()
-
-
   using(events, event => {
 
     before(() => {
@@ -32,12 +26,29 @@ describe('edit my page', () => {
       loginPage.login(data.user.username, data.user.password)
     });
 
+     
+
+    let title = data.title + getLocalDateTime()
+    let url = data.url + getLocalDateTime()
+    let goal = (Math.floor(Math.random() * 9000 + 1000)).toString();
+    let story = 'Story Test ' + getLocalDateTime()
 
     it('should go to my page', () => {
       sidebar.clickMyPageLink();
       cy.get(myPagePO.container).should('be.visible');
       cy.get(myPagePO.header).should('contain.text','My Page');
     });
+
+    it('Should test Page End Date', ()=> {
+      myPagePO.clickEditButton();
+      cy.wait(2000)
+
+      myPagePO.selectDate('.mat-datepicker-toggle')
+      cy.wait(1000)
+      //cy.get('.mat-datepicker-input').should('contain.text', data.date)
+      myPagePO.clickSaveButton();
+      cy.wait(3000)
+    })
 
     it('should open edit panel and edit Title, Url, Goal and Story', () => {
       myPagePO.clickEditButton();
@@ -89,16 +100,7 @@ describe('edit my page', () => {
       cy.wait(3000)
     })
 
-    it('Should test Page End Date', ()=> {
-      myPagePO.clickEditButton();
-      cy.wait(2000)
-
-      myPagePO.selectDate('.mat-datepicker-toggle')
-      cy.wait(1000)
-      //cy.get('.mat-datepicker-input').should('contain.text', data.date)
-      myPagePO.clickSaveButton();
-      cy.wait(3000)
-    })
+    
 
     it('Should test Widget Settings', ()=> {
       myPagePO.clickEditButton();
