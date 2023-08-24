@@ -10,7 +10,7 @@ export class MyContactsPage {
   constructor() {
     this.container = buildSelector('.my-contacts');
     this.contactsListComponent = new ContactsListComponent(this.container);
-    this.header = buildSelector(this.container,'.page-header');
+    this.header = buildSelector(this.container,'.page-header h1');
     this.addNewContact = buildSelector(this.header,'.add-contact-btn');
   }
 

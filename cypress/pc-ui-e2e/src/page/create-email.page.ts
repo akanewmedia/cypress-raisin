@@ -35,26 +35,26 @@ export class CreateEmailPage {
     this.subjectField = buildSelector('.subject .mat-input-element');
     this.messageField = buildSelector('.message');
     this.saveTemplateOverlay = buildSelector('.cdk-overlay-container');
-    this.saveTemplateNameField = buildSelector('.input-wrap .mat-input-element');
+    this.saveTemplateNameField = buildSelector('pc-save-template .input-wrap .mat-input-element');
     this.saveTemplateSaveButton = buildSelector('Save');
     this.addRecipientsPopup = new AddRecipientsPopup();
   }
 
-  async isVisible() {
+  isVisible() {
     scrollToElement(this.container);
     cy.get(this.container).should('be.visible');
   }
 
-  async clickSaveButton(): Promise<void> {
+  clickSaveButton() {
     scrollToElement(this.saveButton);
     cy.get(this.saveButton).click();
   }
 
-  async clickAddReceipentsButton(): Promise<void> {
+  clickAddReceipentsButton() {
     cy.get(this.addReceipientsButton).click();
   }
 
-  async clickSaveAsButton(): Promise<void> {
+  clickSaveAsButton() {
     scrollToElement(this.saveAsButton);
     cy.get(this.saveAsButton).click();
   }
@@ -66,22 +66,22 @@ export class CreateEmailPage {
   /**
    * Presses the "Escape" (Esc) keyboard button
    */
-  async pressEsc() {
+  pressEsc() {
       cy.get('body').trigger('keydown', { keyCode: 27 });
       cy.wait(500);
       cy.get('body').trigger('keyup', { keyCode: 27 });
     }  
 
-  async clickSaveTemplateSaveButton(): Promise<void> {
+  clickSaveTemplateSaveButton() {
     scrollToElement(this.saveTemplateSaveButton);
     cy.get(this.saveTemplateSaveButton).click();
   }
 
-  async scrollToSendEmailButton() {
+  scrollToSendEmailButton() {
     return scrollToElement(this.sendButton);
   }
 
-  async clickSendEmailButton(): Promise<void> {
+  clickSendEmailButton() {
     scrollToElement(this.sendButton);
     cy.get(this.sendButton).click();
   }
@@ -91,22 +91,22 @@ export class CreateEmailPage {
     selectMatDropDownOption(this.templateTypeDropDown, type);
   }
 
-  async enterSubject(input: string) {
-    clearInputWithBackspace(this.subjectField);
-    cy.get(this.subjectField).type(input);
+  enterSubject(input: string) {
+    cy.get(this.subjectField).clear().type(input);
   }
 
-  async enterSendTo(input: string): Promise<void> {
-    cy.get(this.sendToField).type(input);
-    cy.get(this.sendToField).type('Cypress.io{enter}')
+  enterSendTo(input: string) {
+    cy.get(this.sendToField).clear().type(input);
   }
 
-  async enterTemplateName(input: string): Promise<void> {
-    scrollToElement(this.saveTemplateNameField);
+  enterTemplateName(input: string) {
     cy.get(this.saveTemplateNameField).clear().type(input);
+    cy.get('pc-save-template').within(()=>{
+      cy.contains('button', "Save").click()
+    })
   }
 
-  async enterMessage(input: string): Promise<void> {
+  enterMessage(input: string) {
     cy.get(this.messageField).click();
     //return await typeIntoKendoEditor(this.messageField, input);
   }

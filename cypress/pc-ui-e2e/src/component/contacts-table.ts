@@ -41,9 +41,8 @@ export class ContactsTable {
     //return row.$('.mat-column-name.mat-cell').getText();
   }
 
-   clickRowSelectCheckButton(row: any) {
-    cy.get(row + '.mat-column-select' + '.mat-checkbox' ).click()
-    //return row.$('.mat-column-select').$('.mat-checkbox').click();
+   clickRowSelectCheckButton(row) {
+    cy.get(`tbody tr:nth-child(${row}) .mat-column-select .mat-checkbox` ).click()
   }
 
    clickRowEditButton() {

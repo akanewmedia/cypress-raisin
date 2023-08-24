@@ -20,26 +20,26 @@ export class AddRecipientsPopup {
     cy.get(this.rows);
   }
 
-  async selectType(type: string): Promise<void> {
+  selectType(type: string){
     selectDropDownOption(this.typeDropDown, type);
   }
 
-  async sortByName(): Promise<void> {
+  sortByName(){
     cy.get(this.nameHeader).click();
   }
-  async clickAddButton(): Promise<void> {
-    cy.get(this.addButton).click();
+  clickAddButton(){
+    cy.contains(this.addButton, 'Add recipients').click();
   }
 
-  async getRowNameValue(row: any) {
+  getRowNameValue(row: any) {
     cy.get('.mat-column-name.mat-cell' + row)
   }
 
-  async clickRowSelectCheckButton(row: any): Promise<void> {
-    cy.get('.mat-checkbox' + row).click();
+  clickRowSelectCheckButton(row: any){
+    cy.get(`tbody tr:nth-child(${row}) .mat-column-select .mat-checkbox` ).click();
   }
 
-  async isRowPresentByName(search: string){
+  isRowPresentByName(search: string){
     cy.get('.mat-column-name.mat-cell' + search).should('exist')
     // const searchItem = element(
     //   by.cssContainingText('.mat-column-name.mat-cell', search)
