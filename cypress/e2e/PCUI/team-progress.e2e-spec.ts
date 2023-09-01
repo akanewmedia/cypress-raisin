@@ -2,83 +2,69 @@ import { Sidebar } from '../../pc-ui-e2e/src/component/sidebar.component';
 import { SnackbarCO } from '../../pc-ui-e2e/src/component/snackbar';
 import { CreateEmailPage } from '../../pc-ui-e2e/src/page/create-email.page';
 import { TeamProgressPage } from '../../pc-ui-e2e/src/page/team-progress.page';
+import { PageSetup } from "../../support/utils/pageSetup";
+import * as specificData from '../../data/Pledge/base.json'
+import { LoginPage } from '../../pc-ui-e2e/src/page/login.page'
 
-describe('team progress functionality + send emails:', () => {
-  let sidebar: Sidebar = new Sidebar();
-  let createEmailPage: CreateEmailPage = new CreateEmailPage();
-  let snackbarCO: SnackbarCO = new SnackbarCO();
-  let teamProgressPage: TeamProgressPage = new TeamProgressPage();
+let loginPage: LoginPage;
+let sidebar: Sidebar = new Sidebar();
+let createEmailPage: CreateEmailPage = new CreateEmailPage();
+let snackbarCO: SnackbarCO = new SnackbarCO();
+let teamProgressPage: TeamProgressPage = new TeamProgressPage();
 
+loginPage = new LoginPage();
+
+const using = require('jasmine-data-provider');
+let pageSetup: PageSetup = new PageSetup();
+
+const data = pageSetup.getData('Pledge', specificData);
+const events = pageSetup.getEvents(pageSetup.getEnvironment().multipledge, data.events);
+
+describe('team progress functionality + send emails:', () => {  
+  using(events, event => {
   before(() => {
-   
+    pageSetup.cleanupPage()
+    pageSetup.goToEvent(event);
+    pageSetup.waitForPageLoad()
+    loginPage.login('DaveAutoTestCaptain', 'Akaaka1!')
   });
-
   
-  it('should go to team-progress', async () => {
+  it('should go to team-progress', () => {
     sidebar.clickTeamExpandLink();
-    sidebar.clickTeamProgressPageLink();
-    waitForElement(teamProgressPage.contactsListComponent.container);
-    expect(teamProgressPage.header.getText()).toContain('Team Progress');
+    sidebar.clickTeamProgressPageLink();        
+    cy.get(teamProgressPage.header).should('contain.text', 'Team Progress')
   });
 
-  it('select one team members and send email', async () => {
-    teamProgressPage.contactsListComponent.contactsTable.clickEmailButton(
-      teamProgressPage.contactsListComponent.contactsTable.getContacts().get(0)
-    );
-    waitForElement(createEmailPage.container);
-    expect(createEmailPage.container.isPresent()).toBeTruthy();
-    expect(createEmailPage.header.getText()).toContain('E-mail');
-    expect(createEmailPage.templateTypeDropDown.getText()).toContain('EMAIL_TO_TEAMMATES');
+  it('select one team members and send email', () => {
+    teamProgressPage.contactsListComponent.contactsTable.clickEmailButton(0);        
+    cy.get(teamProgressPage.header).should('be.visible')    
+    cy.get(createEmailPage.header).should('contain.text', 'E-mail')    
+    cy.get(createEmailPage.templateTypeDropDown).should('contain.text', 'E-mail to Teammates')
     createEmailPage.clickSendEmailButton();
-    expect(snackbarCO.messageContainer.getText()).toContain(
-      'Email sent to 1 contact(s)'
-    );
+    cy.get(snackbarCO.messageContainer).should('contain.text', 'Email queued to 1 contact(s). Status will update shortly.')
   });
 
   it('select multiple team members and send email', () => {
     sidebar.clickTeamProgressPageLink();
-    teamProgressPage.contactsListComponent.contactsTable.clickRowSelectCheckButton(
-      teamProgressPage.contactsListComponent.contactsTable.getContacts().get(0)
-    );
-    teamProgressPage.contactsListComponent.contactsTable.clickRowSelectCheckButton(
-      teamProgressPage.contactsListComponent.contactsTable.getContacts().get(1)
-    );
-    teamProgressPage.contactsListComponent.contactsTable.clickRowSelectCheckButton(
-      teamProgressPage.contactsListComponent.contactsTable.getContacts().get(2)
-    );
-    teamProgressPage.contactsListComponent.contactsTable.clickRowSelectCheckButton(
-      teamProgressPage.contactsListComponent.contactsTable.getContacts().get(3)
-    );
-    teamProgressPage.contactsListComponent.clickEmailSelectedButton();
-    browser.sleep(1000);
-    expect(createEmailPage.container.isPresent()).toBeTruthy();
-    expect(createEmailPage.header.getText()).toContain('E-mail');
-    expect(createEmailPage.templateTypeDropDown.getText()).toContain('EMAIL_TO_TEAMMATES');
+    teamProgressPage.contactsListComponent.contactsTable.clickRowSelectCheckButton(0);
+    teamProgressPage.contactsListComponent.contactsTable.clickRowSelectCheckButton(1);
+    teamProgressPage.contactsListComponent.contactsTable.clickRowSelectCheckButton(2);
+    teamProgressPage.contactsListComponent.contactsTable.clickRowSelectCheckButton(3);
+    teamProgressPage.contactsListComponent.clickEmailSelectedButton();        
+    cy.get(createEmailPage.container).should('be.visible')    
+    cy.get(createEmailPage.header).should('contain.text', 'E-mail')    
+    cy.get(createEmailPage.templateTypeDropDown).should('contain.text', 'E-mail to Teammates')
     createEmailPage.clickSendEmailButton();
-    expect(snackbarCO.messageContainer.getText()).toContain(
-      'Email sent to 4 contact(s)'
-    );
+    cy.get(snackbarCO.messageContainer).should('contain.text', 'Email queued to 4 contact(s). Status will update shortly.')
   });
 
-  it('should toggle captain slider', async () => {
-    sidebar.clickTeamProgressPageLink();
-    
-    const checkedOriginal = teamProgressPage.contactsListComponent.contactsTable.getRowCaptainToggleValue(
-      teamProgressPage.contactsListComponent.contactsTable.getContacts().get(0)
-    );
-    
-    teamProgressPage.contactsListComponent.contactsTable.clickRowCaptainToggleButton(
-      teamProgressPage.contactsListComponent.contactsTable.getContacts().get(0)
-    );
-
-    const checkedNew = teamProgressPage.contactsListComponent.contactsTable.getRowCaptainToggleValue(
-      teamProgressPage.contactsListComponent.contactsTable.getContacts().get(0)
-    );
-    
-    browser.sleep(1000);
-    
-    expect(checkedOriginal).toBeDefined();
-    expect(checkedNew).toBeDefined();
-    expect(checkedOriginal).not.toBe(checkedNew);
+  it('should toggle captain slider', () => {
+    sidebar.clickTeamProgressPageLink();      
+    teamProgressPage.contactsListComponent.contactsTable.getRowCaptainToggleValue(0,false);   
+    teamProgressPage.contactsListComponent.contactsTable.clickRowCaptainToggleButton(0);
+    teamProgressPage.contactsListComponent.contactsTable.getRowCaptainToggleValue(0,true);           
+    teamProgressPage.contactsListComponent.contactsTable.clickRowCaptainToggleButton(0);
+    teamProgressPage.contactsListComponent.contactsTable.getRowCaptainToggleValue(0,false);   
+  })
   });
 });

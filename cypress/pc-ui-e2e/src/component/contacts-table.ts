@@ -42,7 +42,9 @@ export class ContactsTable {
   }
 
    clickRowSelectCheckButton(row) {
-    cy.get(`tbody tr:nth-child(${row}) .mat-column-select .mat-checkbox` ).click()
+    cy.get(this.rows).eq(row).within(()=>{
+      cy.get('.mat-column-select .mat-checkbox').click()
+    })
   }
 
    clickRowEditButton() {
@@ -56,10 +58,9 @@ export class ContactsTable {
   }
 
    clickEmailButton(row: any) {
-    cy.get(row + '.mat-column-action.mat-cell' + '.action-icon-button.email-button').click()
-    // return browser.actions().mouseMove(row
-    //       .$('.mat-column-action.mat-cell')
-    //       .$('.action-icon-button.email-button')).click().perform();
+    cy.get(this.rows).eq(row).within(()=>{
+      cy.get('.action-icon-button.email-button').click()
+    })
   }
 
    isRowPresentByName(search: string) {
@@ -71,15 +72,22 @@ export class ContactsTable {
   }
 
    clickRowCaptainToggleButton(row: any) {
-    cy.get(row + '.mat-column-captain' + '.mat-slide-toggle').click()
+    cy.get(this.rows).eq(row).within(()=>{
+      cy.get('.mat-slide-toggle-thumb').click()
+    })
     // return browser.actions().mouseMove(row
     //   .$('.mat-column-captain')
     //   .$('.mat-slide-toggle'))
     //   .click().perform();
   }
 
-   getRowCaptainToggleValue(row: any) {
-    cy.get(row + '.mat-column-captain .mat-slide-toggle-input' + 'aria-checked')
+   getRowCaptainToggleValue(row: any, bool: boolean) {
+    cy.get(this.rows).eq(row).within(()=>{
+      if (bool)
+      cy.get('.mat-column-captain .mat-slide-toggle-input').should('be.checked');
+      else
+      cy.get('.mat-column-captain .mat-slide-toggle-input').should('not.be.checked');
+    })
     //return row.$('.mat-column-captain .mat-slide-toggle-input').getAttribute("aria-checked");
   }
 }

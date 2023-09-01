@@ -1,6 +1,6 @@
 import { assign, at, isNil } from 'lodash';
 import * as fs from 'fs';
-import { PledgeNavBarComponent } from '../components/pledgeNavbar.co';
+import { PledgeNavBarComponent } from '../components/pledgeNavBar.co';
 import { PledgeV3LoginFormComponent } from '../components/pledgeV3LoginForm.co';
 import { ShoppingCart } from '../components/shoppingCart.co';
 import { TicketingNavBar } from '../components/ticketingNavbar.co';
