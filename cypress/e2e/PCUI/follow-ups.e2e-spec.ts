@@ -1,90 +1,70 @@
-import { browser } from 'protractor';
 import { Sidebar } from '../../pc-ui-e2e/src/component/sidebar.component';
 import { SnackbarCO } from '../../pc-ui-e2e/src/component/snackbar';
 import { CreateEmailPage } from '../../pc-ui-e2e/src/page/create-email.page';
 import { FollowUpsPage } from '../../pc-ui-e2e/src/page/follow-ups.page';
-import { userLogin } from '../../pc-ui-e2e/src/utils/actions';
+import { PageSetup } from "../../support/utils/pageSetup";
+import { LoginPage } from '../../pc-ui-e2e/src/page/login.page'
+import * as specificData from '../../data/Pledge/base.json'
+
+let loginPage: LoginPage;
+let sidebar: Sidebar = new Sidebar();
+let createEmailPage: CreateEmailPage = new CreateEmailPage();
+let snackbarCO: SnackbarCO = new SnackbarCO();
+let followUpsPage: FollowUpsPage = new FollowUpsPage();
+
+loginPage = new LoginPage();
+
+const using = require('jasmine-data-provider');
+let pageSetup: PageSetup = new PageSetup();
+
+const data = pageSetup.getData('Pledge', specificData);
+const events = pageSetup.getEvents(pageSetup.getEnvironment().multipledge, data.events);
 
 describe('send email from follow ups:', () => {
-  let sidebar: Sidebar;
-  let createEmailPage: CreateEmailPage;
-  let snackbarCO: SnackbarCO;
-  let followUpsPage: FollowUpsPage;
 
-  beforeAll(() => {
-    sidebar = new Sidebar();
-    createEmailPage = new CreateEmailPage();
-    followUpsPage = new FollowUpsPage();
-    snackbarCO = new SnackbarCO();
-  });
+  using(events, event => {
+    before(() => {
+      pageSetup.cleanupPage()
+      pageSetup.goToEvent(event);
+      pageSetup.waitForPageLoad()
+      loginPage.login('DaveAutoTestCaptain', 'Akaaka1!')
+    });
 
-  it('should log in', () => {
-    userLogin('DaveHeaderOneTestOne');
-  });
+    it('should go to follow-ups', () => {
+      sidebar.clickFollowUpsLink();      
+      cy.get(followUpsPage.header).should('be.visible')          
+      cy.get(followUpsPage.header).should('contain.text', 'Follow Ups')
+    });
+  
+    it('search for smith01 and should find them thanked', () => {
+      // sidebar.clickFollowUpsLink();
+      followUpsPage.enterContactSearch('smith01');      
+      followUpsPage.getContactsTable().getRowNameValue(0).should('contain.text', 'Bobby Smith01') 
+      followUpsPage.getContactsTable().getStatus(0).should('contain.text', 'Thanked') 
+    });
+  
+    it('search for smith02 and send email, should auto populate follow up template', () => {
+      sidebar.clickFollowUpsLink();
+      followUpsPage.enterContactSearch('smith02');      
+      followUpsPage.getContactsTable().getRowNameValue(0).should('contain.text', 'Bobby Smith02')  
+      followUpsPage.getContactsTable().clickEmailButton(0);
+      cy.get(createEmailPage.header).should('be.visible')    
+      cy.get(createEmailPage.header).should('contain.text', 'E-mail')  
+      cy.get(createEmailPage.templateTypeDropDown).should('contain.text', 'Follow-Up')  
+    });
+  
+    it('search for smith03 and send email, should auto populate follow up template and send email', () => {
+      sidebar.clickFollowUpsLink();
+      followUpsPage.enterContactSearch('smith03');
+      followUpsPage.getContactsTable().getRowNameValue(0).should('contain.text', 'Bobby Smith03')  
+      followUpsPage.getContactsTable().clickEmailButton(0);
+      cy.get(createEmailPage.header).should('be.visible')    
+      cy.get(createEmailPage.header).should('contain.text', 'E-mail')  
+      cy.get(createEmailPage.templateTypeDropDown).should('contain.text', 'Follow-Up')  
+      createEmailPage.clickSendEmailButton();      
+      cy.get(snackbarCO.messageContainer).should('contain.text', 'Email queued to 1 contact(s). Status will update shortly.')      
+      snackbarCO.closeSnackBar();
+    });
 
-  it('should go to follow-ups', () => {
-    sidebar.clickFollowUpsLink();
-    expect(followUpsPage.isVisible()).toBeTruthy();
-    expect(followUpsPage.header.getText()).toContain('Follow Ups');
-  });
-
-  it('search for barry and send email, should auto populate thank you template', async () => {
-    await sidebar.clickFollowUpsLink();
-    await followUpsPage.enterContactSearch('barry');
-    await expect(
-      followUpsPage.getContactsTable().getRowNameValue(
-        followUpsPage.getContactsTable().getContacts().first()
-      )
-    ).toContain('Barry Blinkerton');
-
-    await followUpsPage.getContactsTable().clickEmailButton(
-      followUpsPage.getContactsTable().getContacts().get(0)
-    );
-    await expect(createEmailPage.isVisible()).toBeTruthy();
-    await expect(createEmailPage.header.getText()).toContain('E-mail');
-    await expect(createEmailPage.templateTypeDropDown.getText()).toContain(
-      'THANK_YOU'
-    );
-  });
-
-  it('search for Carla and send email, should auto populate follow up template', async () => {
-    await sidebar.clickFollowUpsLink();
-    await followUpsPage.enterContactSearch('carla');
-    await expect(
-      followUpsPage.getContactsTable().getRowNameValue(
-        followUpsPage.getContactsTable().getContacts().first()
-      )
-    ).toContain('Carla');
-
-    await followUpsPage.getContactsTable().clickEmailButton(
-      followUpsPage.getContactsTable().getContacts().get(0)
-    );
-    await expect(createEmailPage.isVisible()).toBeTruthy();
-    await expect(createEmailPage.header.getText()).toContain('E-mail');
-    await expect(createEmailPage.templateTypeDropDown.getText()).toContain(
-      'FOLLOW_UP'
-    );
-  });
-
-  it('search for Queenie and send email, should auto populate sponsor me template and send email', async () => {
-    await sidebar.clickFollowUpsLink();
-    await followUpsPage.enterContactSearch('queenie');
-    await expect(
-      followUpsPage.getContactsTable().getRowNameValue(
-        followUpsPage.getContactsTable().getContacts().first()
-      )
-    ).toContain('Queenie Quinn');
-    await followUpsPage.getContactsTable().clickEmailButton(
-      followUpsPage.getContactsTable().getContacts().get(0)
-    );
-    await expect(createEmailPage.isVisible()).toBeTruthy();
-    await expect(createEmailPage.header.getText()).toContain('E-mail');
-    await expect(createEmailPage.templateTypeDropDown.getText()).toContain(
-      'SPONSOR_ME'
-    );
-    await createEmailPage.clickSendEmailButton();
-    await snackbarCO.waitforSnackBar();
-    await expect(snackbarCO.messageContainer.getText()).toContain('Email sent to 1 contact(s)');
-    await snackbarCO.closeSnackBar();
   });
 });

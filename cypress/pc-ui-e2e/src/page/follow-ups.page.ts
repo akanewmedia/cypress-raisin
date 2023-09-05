@@ -13,20 +13,15 @@ export class FollowUpsPage {
     this.header = buildSelector(this.container, '.page-header');
   }
 
-  async isVisible() {
-    // scrollElemFinderIntoView(this.container);
-    cy.get(this.container).should('be.visible');
-    // return this.container.isDisplayed();
+  async isVisible() {    
+    cy.get(this.container).should('be.visible');    
   }
 
   getContactsTable(): ContactsTable {
-    // scrollElemFinderIntoView(this.contactsListComponent.contactsTable.container);
     return this.contactsListComponent.contactsTable;
   }
 
-  async enterContactSearch(input: string): Promise<void> {
-    // await scrollElemFinderIntoView(this.container);
-    clearInputWithBackspace(this.contactsListComponent.search);
-    cy.get(this.contactsListComponent.search).type(input);
+  async enterContactSearch(input: string): Promise<void> {    
+    cy.get(this.contactsListComponent.search).clear().type(input);
   }
 }

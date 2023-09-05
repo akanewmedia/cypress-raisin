@@ -36,10 +36,20 @@ export class ContactsTable {
     cy.contains(this.nameHeader, "Name").click();
   }
 
-   getRowNameValue(row: any) {
-    cy.get(row + '.mat-column-name.mat-cell')
-    //return row.$('.mat-column-name.mat-cell').getText();
+   getRowNameValue(row: any) : Cypress.Chainable{
+    cy.get(this.rows).eq(row).within(()=>{
+      return cy.get('.mat-column-name.mat-cell')
+    })    
+    return cy.get('.mat-column-name.mat-cell')    
   }
+
+  getStatus(row: any) : Cypress.Chainable{
+    cy.get(this.rows).eq(row).within(()=>{
+      return cy.get('.mat-column-status')
+    })    
+    return cy.get('.mat-column-status')    
+  }
+
 
    clickRowSelectCheckButton(row) {
     cy.get(this.rows).eq(row).within(()=>{
