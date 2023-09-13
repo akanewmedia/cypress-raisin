@@ -49,8 +49,7 @@ describe('edit my team page', () => {
     it('should open edit panel on edit my page', () => {
       cy.get(teamPagePO.editButton).click();
       cy.get(teamPagePO.editPanel.container).should('be.visible')
-
-
+      cy.wait(1000)
       teamPagePO.editPanel.enterPageTitle(title);
       teamPagePO.editPanel.enterPageUrl(url);
       teamPagePO.editPanel.enterPageFundraisingGoal(goal);

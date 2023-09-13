@@ -1,0 +1,11 @@
+{
+    "events": [8],
+    "URL": "payment-update/cf056139-fd03-4407-a736-b3ce06fec0e9",
+    "validationMessages": [	
+		"Address is required",
+		"City is required",
+		"Province / State is required",
+		"Postal Code / ZIP is required"
+	],
+	"successMessage": "Your donation has been successfully updated. If you are updating your card because of a failed transaction, we will immediately process the last failed transaction. Subsequent transactions will be processed as per the regular schedule."
+}

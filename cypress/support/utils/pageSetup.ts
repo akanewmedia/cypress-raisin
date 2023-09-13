@@ -78,7 +78,7 @@ export class PageSetup {
   getEnvironment() {
     this.setEnvironment()
 
-    switch (this.currentEnvironment) {
+    switch (this.currentEnvironment) {      
 
       case 'INT':
         return environments.AKA_INT

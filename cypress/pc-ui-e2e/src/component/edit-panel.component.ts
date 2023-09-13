@@ -96,19 +96,19 @@ export class EditPanel {
     //   .click().perform();
   }
 
-  async isPresent(){
+  isPresent(){
     cy.get(this.container).should('exist')
     // return this.container.isPresent();
   }
 
-  // async waitForDrawerToClose(timeout: number = 1000): Promise<any> {
+  // waitForDrawerToClose(timeout: number = 1000): Promise<any> {
   //   return browser.wait(
   //     ExpectedConditions.invisibilityOf(this.container),
   //     timeout
   //   );
   // }
 
-  async isVisible(){
+  isVisible(){
     cy.get(this.container).should('be.visible')
     // scrollElemFinderIntoView(this.container);
     // return this.container.isDisplayed();
@@ -134,7 +134,7 @@ export class EditPanel {
     // return this.pageFundraisingGoal.sendKeys(input);
   }
 
-  async enterMyStory(input: string): Promise<void> {
+  enterMyStory(input: string){
     cy.get(this.myStory).click().type(input)
 
     // return await typeIntoKendoEditor(this.myStory, input);
