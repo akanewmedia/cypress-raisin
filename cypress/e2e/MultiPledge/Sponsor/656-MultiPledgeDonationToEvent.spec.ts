@@ -1,4 +1,4 @@
-import { PledgeNavBarComponent } from '../../../support/components/pledgeNavbar.co';
+import { PledgeNavBarComponent } from '../../../support/components/pledgeNavBar.co';
 import { Donation } from '../../../support/components/donation.co';
 import { FlowPage } from '../../../support/pages/flow';
 import { DonationSearchPage } from '../../../support/pages/Pledge/donationSearch';

@@ -1,6 +1,6 @@
 //The information regarding the Library
 import { Donation } from "../../../support/components/donation.co";
-import { PledgeNavBarComponent } from "../../../support/components/pledgeNavbar.co";
+import { PledgeNavBarComponent } from "../../../support/components/pledgeNavBar.co";
 import { PageSetup } from "../../../support/utils/pageSetup";
 import { RegisterPage } from "../../../support/pages/Pledge/register";
 import { ThankYouPage } from "../../../support/pages/Pledge/ThankYouPage";

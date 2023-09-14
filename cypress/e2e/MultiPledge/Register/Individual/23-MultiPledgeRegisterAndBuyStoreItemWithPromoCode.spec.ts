@@ -7,7 +7,7 @@ import { PaymentPage } from "../../../../support/pages/Pledge/payment";
 import { ReviewPage } from "../../../../support/pages/Ticketing/ReviewPage";
 import { ThankYouPage } from "../../../../support/pages/Pledge/ThankYouPage";
 import { RegisterPage } from "../../../../support/pages/Pledge/register";
-import { PledgeNavBarComponent } from "../../../../support/components/pledgeNavbar.co";
+import { PledgeNavBarComponent } from "../../../../support/components/pledgeNavBar.co";
 import { RegisterComponent } from "../../../../support/components/register.co";
 import { ReturningParticipant } from "../../../../support/components/returningParticipant.co";
 import { Waiver } from "../../../../support/components/waiver.co";

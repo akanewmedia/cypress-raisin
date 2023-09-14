@@ -10,7 +10,7 @@ import { ThankYouPage } from "../../../../support/pages/Pledge/ThankYouPage";
 import { Waiver } from "../../../../support/components/waiver.co";
 import { PaymentPage } from "../../../../support/pages/Pledge/payment";
 import { JoinTeamPage } from "../../../../support/pages/Pledge/joinTeamSearch";
-import { PledgeNavBarComponent } from "../../../../support/components/pledgeNavbar.co";
+import { PledgeNavBarComponent } from "../../../../support/components/pledgeNavBar.co";
 import using from "jasmine-data-provider";
 import * as specificData from '../../../../data/Pledge/MultiPledgeTeamMemberRegistration.json'
 

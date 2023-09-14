@@ -8,7 +8,7 @@ import { ThankYouPage } from "../../../../support/pages/Pledge/ThankYouPage";
 import { ReviewPage } from "../../../../support/pages/Ticketing/ReviewPage";
 import { PaymentPage } from "../../../../support/pages/Pledge/payment";
 import { RegisterComponent } from "../../../../support/components/register.co";
-import { PledgeNavBarComponent } from "../../../../support/components/pledgeNavbar.co";
+import { PledgeNavBarComponent } from "../../../../support/components/pledgeNavBar.co";
 import { Waiver } from "../../../../support/components/waiver.co";
 import { DonationSearchPage } from "../../../../support/pages/Pledge/donationSearch";
 import { ReturningParticipant } from "../../../../support/components/returningParticipant.co";

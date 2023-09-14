@@ -3,7 +3,7 @@ import { RegisterComponent } from "../../../../support/components/register.co";
 import { PaymentPage } from "../../../../support/pages/Pledge/payment";
 import { ReviewPage } from "../../../../support/pages/Ticketing/ReviewPage";
 import { FlowPage } from "../../../../support/pages/flow";
-import { PledgeNavBarComponent } from "../../../../support/components/pledgeNavbar.co";
+import { PledgeNavBarComponent } from "../../../../support/components/pledgeNavBar.co";
 import { RegisterPage } from "../../../../support/pages/Pledge/register";
 import { SurveyComponent } from "../../../../support/components/survey.co";
 import { ReturningParticipant } from "../../../../support/components/returningParticipant.co";

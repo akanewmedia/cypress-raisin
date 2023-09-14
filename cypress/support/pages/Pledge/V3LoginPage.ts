@@ -1,4 +1,4 @@
-import { PledgeNavBarComponent } from '../../components/pledgeNavbar.co';
+import { PledgeNavBarComponent } from '../../components/pledgeNavBar.co';
 import { PledgeV3LoginFormComponent } from '../../components/pledgeV3LoginForm.co'
 
 

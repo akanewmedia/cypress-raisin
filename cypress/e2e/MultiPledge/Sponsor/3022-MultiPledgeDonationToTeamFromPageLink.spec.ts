@@ -7,7 +7,7 @@ import { DonationSearchPage } from "../../../support/pages/Pledge/donationSearch
 import { PaymentPage } from "../../../support/pages/Pledge/payment";
 import { ThankYouPage } from "../../../support/pages/Pledge/ThankYouPage";
 import { ReviewPage } from "../../../support/pages/Ticketing/ReviewPage";
-import { PledgeNavBarComponent } from "../../../support/components/pledgeNavbar.co";
+import { PledgeNavBarComponent } from "../../../support/components/pledgeNavBar.co";
 import * as specificData from '../../../data/Pledge/MultiPledgeDonationToTeamFromPageLink.json'
 
 

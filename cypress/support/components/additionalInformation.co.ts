@@ -5,6 +5,7 @@ export class AdditionalInformation {
   screenedCompaniesCheckbox: any;
   screenedCompaniesText: any;
   hideMeFromSearchCheckbox: any;
+  explicitConsentCheckbox: any;
   attribute1: any;
   attribute2: any;
   attribute3: any;
@@ -17,6 +18,7 @@ export class AdditionalInformation {
     this.screenedCompaniesCheckbox = buildSelector(this.additionalInformationContainer, '#optOutToShare');
     this.screenedCompaniesText = buildSelector(this.additionalInformationContainer, '#optOutToShare-title');
     this.hideMeFromSearchCheckbox = buildSelector(this.additionalInformationContainer, '#privacy');
+    this.explicitConsentCheckbox = buildSelector(this.additionalInformationContainer, '#personalDataUseExplicitConsent')
     this.attribute1 = buildSelector(this.additionalInformationContainer, '#attribute1');
     this.attribute2 = buildSelector(this.additionalInformationContainer, '#attribute2');
     this.attribute3 = buildSelector(this.additionalInformationContainer, '#attribute3');
@@ -34,6 +36,10 @@ export class AdditionalInformation {
 
   setScreenedCompaniesCheckboxChecked(checked) {
     setCheckboxChecked(this.screenedCompaniesCheckbox, checked);
+  }
+
+  setExplicitConsentCheckboxChecked(checked) {
+    setCheckboxChecked(this.explicitConsentCheckbox, checked);
   }
 
   /**

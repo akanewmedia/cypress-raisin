@@ -1,7 +1,7 @@
 //The information regarding the Library
 import { PageSetup } from "../../../../support/utils/pageSetup";
 import { RegisterComponent } from "../../../../support/components/register.co";
-import { PledgeNavBarComponent } from "../../../../support/components/pledgeNavbar.co";
+import { PledgeNavBarComponent } from "../../../../support/components/pledgeNavBar.co";
 import { JoinTeamPage } from "../../../../support/pages/Pledge/joinTeamSearch";
 import using from "jasmine-data-provider";
 import * as specificData from '../../../../data/Pledge/MultiPledgeJoinTeamMaxTeamMembers.json'

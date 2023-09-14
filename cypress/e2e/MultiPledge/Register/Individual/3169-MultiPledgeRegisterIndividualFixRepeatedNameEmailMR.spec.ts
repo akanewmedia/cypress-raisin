@@ -2,7 +2,7 @@ import { PageSetup } from "../../../../support/utils/pageSetup";
 import { RegisterComponent } from "../../../../support/components/register.co";
 import { ReviewPage } from "../../../../support/pages/Ticketing/ReviewPage";
 import { FlowPage } from "../../../../support/pages/flow";
-import { PledgeNavBarComponent } from "../../../../support/components/pledgeNavbar.co";
+import { PledgeNavBarComponent } from "../../../../support/components/pledgeNavBar.co";
 import { RegisterPage } from "../../../../support/pages/Pledge/register";
 import { ReturningParticipant } from "../../../../support/components/returningParticipant.co";
 import { ThankYouPage } from "../../../../support/pages/Pledge/ThankYouPage";

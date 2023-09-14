@@ -3,7 +3,7 @@ import { RegisterComponent } from "../../../../support/components/register.co";
 import { PaymentPage } from "../../../../support/pages/Pledge/payment";
 import { ReviewPage } from "../../../../support/pages/Ticketing/ReviewPage";
 import { FlowPage } from "../../../../support/pages/flow";
-import { PledgeNavBarComponent } from "../../../../support/components/pledgeNavbar.co";
+import { PledgeNavBarComponent } from "../../../../support/components/pledgeNavBar.co";
 import { RegisterPage } from "../../../../support/pages/Pledge/register";
 import { SurveyComponent } from "../../../../support/components/survey.co";
 import { ReturningParticipant } from "../../../../support/components/returningParticipant.co";
@@ -80,12 +80,18 @@ describe('TR(648) Scenario -> Multi Pledge free registration - all fields requir
                 });
                 flowPO.continue();
             });
-            it('should enter amount then clear amount', () => {
+            it('should enter amount, validate CC error messages then clear amount', () => {
                 cy.wait(2000)
                 // skip additional participants
                 flowPO.continue();
                 // enter donation amount
                 paymentPO.donate(data.donationAmount);
+
+                //Validate CC error messages
+                // flowPO.continue();
+                // paymentPO.verifyCCErrors(data.ccValidationMessages)
+                // paymentPO.enterCardDetails(data.wrongCard);
+
                 // then clear the donation amount
                 paymentPO.clearDonation();
             });

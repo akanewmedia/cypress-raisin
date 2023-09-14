@@ -2,7 +2,7 @@ import { PageSetup } from "../../../support/utils/pageSetup";
 import { Donation } from "../../../support/components/donation.co";
 import { FlowPage } from "../../../support/pages/flow";
 import { DonationSearchPage } from "../../../support/pages/Pledge/donationSearch";
-import { PledgeNavBarComponent } from "../../../support/components/pledgeNavbar.co";
+import { PledgeNavBarComponent } from "../../../support/components/pledgeNavBar.co";
 import * as specificData from '../../../data/Pledge/MultiPledgeDonationToParticipantWithExtraValidationInvalidCustomAmount.json'
 
 //The information regarding the Library

@@ -1,7 +1,7 @@
 import { PageSetup } from "../../../../support/utils/pageSetup";
 import { RegisterComponent } from "../../../../support/components/register.co";
 import { FlowPage } from "../../../../support/pages/flow";
-import { PledgeNavBarComponent } from "../../../../support/components/pledgeNavbar.co";
+import { PledgeNavBarComponent } from "../../../../support/components/pledgeNavBar.co";
 import { RegisterPage } from "../../../../support/pages/Pledge/register";
 import { ReturningParticipant } from "../../../../support/components/returningParticipant.co";
 import { generateUniqueName} from "../../../../support/utils/actions";

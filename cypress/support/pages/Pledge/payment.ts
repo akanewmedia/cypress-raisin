@@ -161,6 +161,13 @@ export class PaymentPage {
     }
   }
 
+  verifyCCErrors(data) {
+    const getTexts = ($errors) => {
+      return Cypress._.map($errors, 'innerText')
+    }
+    cy.get('.mat-form-field-subscript-wrapper .error-message').should('exist').then(getTexts).should('deep.equal', data)
+  }
+
   // TODO: Not functional
   // verifyCardDetailsEntered(cardData) {
   //     expect(this.cardInformationCO.txtCardNumber.getAttribute('value')).eq(cardData.number);

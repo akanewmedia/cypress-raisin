@@ -243,6 +243,9 @@ export class RegisterPage {
     if (data.allowScreenedCompanies) {
       this.additionalInformation.setScreenedCompaniesCheckboxChecked(data.allowScreenedCompanies);
     }
+    if(data.explicitConsent){
+      this.additionalInformation.setExplicitConsentCheckboxChecked(data.explicitConsent);
+    }
     this.additionalInformation.setAttributes(data)
   }
 

@@ -1,6 +1,6 @@
 import { LoginComponent } from '../component/login.component';
 import { TokenByPass } from '../interface/TokenByPass';
-import { PledgeNavBarComponent } from "../../../support/components/pledgeNavbar.co";
+import { PledgeNavBarComponent } from "../../../support/components/pledgeNavBar.co";
 
 const navbarCO = new PledgeNavBarComponent();
 

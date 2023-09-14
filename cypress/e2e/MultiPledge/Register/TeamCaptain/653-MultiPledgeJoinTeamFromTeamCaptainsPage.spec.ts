@@ -1,5 +1,5 @@
 //The information regarding the Library
-import { PledgeNavBarComponent } from "../../../../support/components/pledgeNavbar.co";
+import { PledgeNavBarComponent } from "../../../../support/components/pledgeNavBar.co";
 import { RegisterComponent } from "../../../../support/components/register.co";
 import { ReturningParticipant } from "../../../../support/components/returningParticipant.co";
 import { FlowPage } from "../../../../support/pages/flow";

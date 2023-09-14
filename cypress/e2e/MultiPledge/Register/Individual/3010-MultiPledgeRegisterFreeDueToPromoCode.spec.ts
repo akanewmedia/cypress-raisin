@@ -2,7 +2,7 @@
 import { PageSetup } from "../../../../support/utils/pageSetup";
 import { generateUniqueName } from "../../../../support/utils/actions";
 import using from 'jasmine-data-provider';
-import { PledgeNavBarComponent } from "../../../../support/components/pledgeNavbar.co";
+import { PledgeNavBarComponent } from "../../../../support/components/pledgeNavBar.co";
 import { RegisterComponent } from "../../../../support/components/register.co";
 import { Waiver } from "../../../../support/components/waiver.co";
 import { ReturningParticipant } from "../../../../support/components/returningParticipant.co";
