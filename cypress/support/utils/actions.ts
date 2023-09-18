@@ -173,16 +173,16 @@ export function enterMatInput(protractorSelector, value) {
   return cy.get(protractorSelector).invoke('attr','class').then((classString) => {
     // Need to verify if it is select first because a native select has the mat-input-element class
     if (
-      classString.indexOf('mat-select') >= 0 ||
+      classString.indexOf('mat-mdc-select') >= 0 ||
       classString.indexOf('matNativeControl') >= 0
     ) {
       // If input type is dropdown
       // console.log('enterMatInput => selectDropDownOption', value);
       return this.selectDropDownOption(protractorSelector, value);
     }
-    if (classString.indexOf('mat-input-element') >= 0) {
+    if (classString.indexOf('mat-mdc-input-element') >= 0) {
       if(classString.indexOf('mat-datepicker-input') >= 0){
-        cy.get('mat-datepicker-toggle[class=mat-datepicker-toggle]').click()
+        cy.get('.input-wrap--date button').click()
         cy.get('.mat-calendar-body-cell-content.mat-calendar-body-today').click()
       }
       else {
@@ -236,7 +236,7 @@ export function selectDropDownOption(protractorSelector, selectedOption) {
   //scrollToElement('.rx-matrix-container .donation-matrix-other-amount .globalized-number-input input')
 
   return cy.get(protractorSelector).invoke('attr', 'class').then((classString) => {    
-    if (classString.indexOf('mat-select') >= 0) {      
+    if (classString.indexOf('mat-mdc-select') >= 0) {      
       selectMatDropDownOption(protractorSelector, selectedOption);
     }
     if (classString.indexOf('matNativeControl') >= 0) {
@@ -278,7 +278,7 @@ export function selectAutoCompleteDropDownOption(
   // protractorSelector.sendKeys(selectedOption);
   const ddlContainer = '.cdk-overlay-container';
   return cy
-    .get(ddlContainer + ' .mat-autocomplete-panel').within(() => {
+    .get(ddlContainer + ' .mat-mdc-autocomplete-panel').within(() => {
       cy.get('mat-option').contains(selectedOption)
       .first()
       .click();
@@ -324,11 +324,11 @@ export function selectMatDropDownOption(
   // browser.sleep(200);
   if (Array.isArray(selectedOption)) {
     selectedOption.map(option => {
-      cy.get('.mat-select-panel mat-option').contains(option).click({force: true});
+      cy.get('.mat-mdc-select-panel mat-option').contains(option).click({force: true});
     })   
   }
   else {
-    cy.get('.mat-select-panel mat-option').contains(selectedOption).first().click({force: true});
+    cy.get('.mat-mdc-select-panel mat-option').contains(selectedOption).first().click({force: true});
   }
   cy.get('body').type('{esc}');
 }
@@ -380,7 +380,7 @@ export function selectDropdownRegularOption(
   cy.get(dropdownElementSelector).click();
   const ddlContainer = cy.get('.cdk-overlay-container');
   ddlContainer.within(()=> {
-    cy.get('mat-option .mat-option-text').contains(option)
+    cy.get('mat-option').contains(option)
     .click({force: true});
   })
    
@@ -542,7 +542,8 @@ export function pressTab() {
  */
 export function setUserReferral(container, referee) {
   cy.get(container).type(referee).then(() => {
-    cy.get('span[class="mat-option-text"]').eq(0).click()
+    //CHANGE THE SELECTOR TO A NEW CLASS WHEN POSSIBLE
+    cy.get('span[class="mdc-list-item__primary-text"]').eq(0).click()
   })
 }
 

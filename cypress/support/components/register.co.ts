@@ -26,7 +26,7 @@ export class RegisterComponent {
     this.container = buildSelector('.registration-start');
     this.groupSelectionContainer = buildSelector('.subevent-group-selector');
     this.registrationTypeContainer = buildSelector(this.container, '.reg-listing');
-    this.subEventGroupSelector = buildSelector(this.groupSelectionContainer, '.mat-select');
+    this.subEventGroupSelector = buildSelector(this.groupSelectionContainer, 'mat-select');
   }
 
   /**

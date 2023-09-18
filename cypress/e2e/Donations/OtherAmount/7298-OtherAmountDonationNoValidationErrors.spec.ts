@@ -18,11 +18,7 @@ describe('TR(7298) Donations > Give Now > One Time > Custom Amount > Show all fi
                 pageSetup.waitForPageLoad()
             });
 
-            after(() => {
-                pageSetup.goToEvent(event);
-                pageSetup.cleanupPage();
-            });
-
+        
             it('should populate the first step "Choose Your Donation" with a custom amount ', () => {
                 donationsPO.donationDetails.enterOtherAmount(data);
             });

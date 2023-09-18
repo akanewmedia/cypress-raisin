@@ -204,10 +204,10 @@ export class DonationsPage {
     const getTexts = ($errors) => {
       return Cypress._.map($errors, 'innerText')
     }
-    cy.get(this.container + ' .mat-form-field-subscript-wrapper .error-message').should('exist').then(getTexts).should('deep.equal', requiredFieldsValidationMessages)
+    cy.get(this.container + ' .mat-mdc-form-field-subscript-wrapper .error-message').should('exist').then(getTexts).should('deep.equal', requiredFieldsValidationMessages)
 
 
-    // const validationMessages = cy.get(this.container + ' .mat-form-field-subscript-wrapper .error-message');
+    // const validationMessages = cy.get(this.container + '.mat-mdc-form-field-subscript-wrapper .error-message');
     // return validationMessages.invoke('attr', 'innerText').then(errors => {
     //   // console.log('verifyRequiredFieldErrors', errors);
     //   cy.get(errors).should('have.text', requiredFieldsValidationMessages);

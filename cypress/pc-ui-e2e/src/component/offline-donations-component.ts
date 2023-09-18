@@ -33,7 +33,7 @@ export class OfflineDonationsComponent {
     const getTexts = ($errors) => {
       return Cypress._.map($errors, 'innerText')
     }
-    cy.get(this.offlineDonationForm + ' .mat-form-field-subscript-wrapper .error-message').should('exist').then(getTexts).should('deep.equal', data)
+    cy.get(this.offlineDonationForm + '.mat-mdc-form-field-subscript-wrapper .error-message').should('exist').then(getTexts).should('deep.equal', data)
   }
 
   getRowNameValue(value:string) {

@@ -21,7 +21,6 @@ describe('TR(7114) Donations > In Honour > OneTime > Preset Amount > Admin Fee >
             });
 
             after(() => {
-                pageSetup.goToEvent(event);
                 pageSetup.cleanupPage();
             });
 
