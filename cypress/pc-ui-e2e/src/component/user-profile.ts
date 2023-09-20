@@ -114,14 +114,14 @@ export class UserProfile {
     const getTexts = ($errors) => {
       return Cypress._.map($errors, 'innerText')
     }
-    cy.get(this.personalInfo + '.mat-mdc-form-field-subscript-wrapper .error-message').should('exist').then(getTexts).should('deep.equal', data)
+    cy.get(this.personalInfo + ' .mat-mdc-form-field-subscript-wrapper .error-message').should('exist').then(getTexts).should('deep.equal', data)
   }
 
   verifyAdditionalInfoRequiredFieldErrors(data) {
     const getTexts = ($errors) => {
       return Cypress._.map($errors, 'innerText')
     }
-    cy.get(this.additionalInfo + '.mat-mdc-form-field-subscript-wrapper .error-message').should('exist').then(getTexts).should('deep.equal', data)
+    cy.get(this.additionalInfo + ' .mat-mdc-form-field-subscript-wrapper .error-message').should('exist').then(getTexts).should('deep.equal', data)
   }
 
 

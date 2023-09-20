@@ -213,7 +213,7 @@ export function findDropDownOption(protractorSelector, selectedOption) {
   }
 
   return cy.get(protractorSelector).invoke('attr', 'class').then((classString) => {
-    if (classString.indexOf('mat-select') >= 0) {
+    if (classString.indexOf('mat-mdc-select') >= 0) {
       return findMatDropDownOption(protractorSelector, selectedOption);
     }
     if (classString.indexOf('matNativeControl') >= 0) {
@@ -300,7 +300,7 @@ export function findMatDropDownOption(
   const ddlContainer = cy.get('.cdk-overlay-container');
   // waitForElement(ddlContainer);
   // browser.sleep(200);
-  cy.get('.mat-select-panel mat-option').each(($ele) => {
+  cy.get('.mat-mdc-select-panel mat-option').each(($ele) => {
     expect($ele).to.not.have.text(selectedOption)
   }).click()
   // cy

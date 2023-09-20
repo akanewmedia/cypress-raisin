@@ -10,7 +10,7 @@ export class VolunteerRegister {
   constructor() {
     this.container = buildSelector('#userDetails');
     this.subEventGroupSelectionContainer = buildSelector(this.container, 'rx-subevent-group-selector');
-    this.subEventGroupSelector = buildSelector(this.subEventGroupSelectionContainer, '.mat-select');
+    this.subEventGroupSelector = buildSelector(this.subEventGroupSelectionContainer, '.mat-mdc-select');
   }
 
   selectSubEventGroup(subEventGroup) {

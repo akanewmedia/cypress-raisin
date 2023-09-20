@@ -27,7 +27,7 @@ const flowPO = new FlowPage();
 
 
 //The calling of functions created in respective Pages
-describe('TR(3014) Scenario -> Multi Pledge Search For Participant And Donate : ', () => {
+describe('TR(3014.2) Scenario -> Multi Pledge Search For Participant And Donate : ', () => {
 	using(events, event => {
 		describe(`Donation to participant with honor roll option -> Other amount -> Event: ${event}`, () => {
 			before(() => {
