@@ -1,4 +1,5 @@
-import { buildSelector } from '../utils/actions';
+import { pressTab } from '../../../support/utils/actions';
+import { buildSelector, pressEsc } from '../utils/actions';
 
 export class UserProfile {
     constructor() {
@@ -73,6 +74,7 @@ export class UserProfile {
     cy.get(this.attribute3).clear()
     cy.get(this.attribute4).clear()
     cy.get(this.attribute5).clear()
+    //cy.contains(this.additionalInfo + ' button', "Update").click()
     //cy.get(this.shortAnswer).clear()
     //cy.get(this.tellMeYourStory).clear()
   }
@@ -93,11 +95,11 @@ export class UserProfile {
 
   fillAdditionalInformation(data){    
     //Additional Info
-    cy.get(this.attribute1).type(data.attribute1)
-    cy.get(this.attribute2).type(data.attribute2)
-    cy.get(this.attribute3).type(data.attribute3)
-    cy.get(this.attribute4).type(data.attribute4)
-    cy.get(this.attribute5).type(data.attribute5)
+    cy.get(this.attribute1).type(data.attribute1, {force: true})
+    cy.get(this.attribute2).type(data.attribute2, {force: true})
+    cy.get(this.attribute3).type(data.attribute3, {force: true})
+    cy.get(this.attribute4).type(data.attribute4, {force: true})
+    cy.get(this.attribute5).type(data.attribute5, {force: true})
     // cy.get(this.shortAnswer).type(data.shortAnswer)
     // cy.get(this.tellMeYourStory).type(data.tellMeYourStory)
   }

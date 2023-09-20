@@ -17,11 +17,11 @@ export class EditPanel {
 
   constructor() {
     this.container = buildSelector('.edit-panel');
-    this.pageTitle = buildSelector(this.container,'.edit-page-title .mat-input-element');
-    this.teamName = buildSelector(this.container,'.edit-team-name .mat-input-element');
-    this.pageUrl = buildSelector(this.container,'.edit-page-custom-part .mat-input-element');
-    this.password = buildSelector(this.container,'.edit-team-password .mat-input-element');
-    this.pageFundraisingGoal = buildSelector(this.container,'.edit-page-fundraising-goal .mat-input-element');
+    this.pageTitle = buildSelector(this.container,'.edit-page-title .mat-mdc-input-element');
+    this.teamName = buildSelector(this.container,'.edit-team-name .mat-mdc-input-element');
+    this.pageUrl = buildSelector(this.container,'.edit-page-custom-part .mat-mdc-input-element');
+    this.password = buildSelector(this.container,'.edit-team-password .mat-mdc-input-element');
+    this.pageFundraisingGoal = buildSelector(this.container,'.edit-page-fundraising-goal .mat-mdc-input-element');
     this.editPanelActionsContainer = buildSelector(this.container,'.edit-panel__actions');
     this.saveButton = buildSelector(this.editPanelActionsContainer,'#save');
     this.cancelButton = buildSelector(this.editPanelActionsContainer,'#cancel');

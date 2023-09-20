@@ -1,4 +1,4 @@
-import { Sidebar } from '../../pc-ui-e2e/src/component/sidebar.component';
+  import { Sidebar } from '../../pc-ui-e2e/src/component/sidebar.component';
 import { DonationsHistoryTable } from '../../pc-ui-e2e/src/component/donations-history-table';
 import { SnackbarCO } from '../../pc-ui-e2e/src/component/snackbar';
 import { PageSetup } from '../../support/utils/pageSetup';
@@ -73,8 +73,8 @@ describe('PC >Log in > Donation History > Sort Thanked > Search for Donor > Vali
       historyTable.clickMyDonationsButton();
       historyTable.selectEvent(' RXF Multi Pledge Automation Event ');
       historyTable.sortByAmount();
-      historyTable.verifyNameAndEmailFirstRow('Raisin Tester')
-      historyTable.verifyNameAndEmailFirstRow('aka@aka.com')
+      historyTable.verifyNameAndEmailFirstRow('asd asd')
+      historyTable.verifyNameAndEmailFirstRow('asd@asdasda.ca')
       historyTable.verifyAmountFirstRow('50.00')
       historyTable.verifyDateFirstRow('Aug 18, 2023')
     });

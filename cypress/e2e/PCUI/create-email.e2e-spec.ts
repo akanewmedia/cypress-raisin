@@ -81,8 +81,8 @@ describe('create a new email:', () => {
     });
 
     it('it should select the first 2 rows to email', () => {
+      myContactsPage.contactsListComponent.contactsTable.clickRowSelectCheckButton(0);
       myContactsPage.contactsListComponent.contactsTable.clickRowSelectCheckButton(1);
-      myContactsPage.contactsListComponent.contactsTable.clickRowSelectCheckButton(2);
       myContactsPage.contactsListComponent.clickEmailSelectedButton();
       cy.wait(1000);
       cy.get(createEmailPage.container).should('exist')
@@ -93,8 +93,9 @@ describe('create a new email:', () => {
     it('it should click on the + email pop up and add users', () => {
       createEmailPage.clickAddReceipentsButton();
       createEmailPage.addRecipientsPopup.selectType('All');
-      createEmailPage.addRecipientsPopup.clickRowSelectCheckButton(3);
-      createEmailPage.addRecipientsPopup.clickRowSelectCheckButton(4);
+      createEmailPage.addRecipientsPopup.sortByName()
+      createEmailPage.addRecipientsPopup.clickRowSelectCheckButton(1);
+      createEmailPage.addRecipientsPopup.clickRowSelectCheckButton(2);
       createEmailPage.addRecipientsPopup.clickAddButton();
       cy.wait(2000)
       createEmailPage.clickSendEmailButton();
