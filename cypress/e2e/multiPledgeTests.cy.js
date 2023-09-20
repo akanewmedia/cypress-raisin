@@ -6,7 +6,7 @@ import './MultiPledge/Misc/MultiPledgeWidgetsTopGroups.spec'
 import './MultiPledge/Misc/RegistrationWithCustomFieldsFromURL.spec.ts'
 import './MultiPledge/Misc/RegistrationWithCustomFieldsFromURLWithMR.spec.ts'
 
-MP - Register - Individual
+//MP - Register - Individual
 import './MultiPledge/Register/Individual/23-MultiPledgeRegisterAndBuyStoreItemWithPromoCode.spec.ts'
 import './MultiPledge/Register/Individual/648-MultiPledgeRegisterAllFieldsRequired.spec.ts'
 import './MultiPledge/Register/Individual/3006-MultiPledgeRegisterAndDonateToSelf.spec.ts'
