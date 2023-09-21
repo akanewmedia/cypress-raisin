@@ -79,7 +79,7 @@ describe('Update Credit Card Test ', () => {
                 //cy.get(updateCreditCard.addressType).click()
                 //cy.get(".mat-option-text").contains("Business").click()
                 cy.get(updateCreditCard.province).click()
-                cy.get(".mat-option-text").contains("Ontario").click()
+                cy.get(".mat-mdc-option ").contains("Ontario").click()
                 cy.get(updateCreditCard.addressLine1).type(val + " Street")
                 cy.get(updateCreditCard.addressLine2).type(val + " Line 2")
                 cy.get(updateCreditCard.city).type(val + " City")
