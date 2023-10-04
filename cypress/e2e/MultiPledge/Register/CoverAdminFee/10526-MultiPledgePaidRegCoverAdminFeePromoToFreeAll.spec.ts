@@ -48,7 +48,6 @@ describe('C10526 - Registration > Cover Admin Fee > Paid Reg + Self Donation + S
 			});
 
 			after(() => {
-				pageSetup.goToEvent(event);
 				pageSetup.cleanupPage();
 			});
 

@@ -52,7 +52,6 @@ describe('C10530 Scenario -> Registration > Cover Admin Fee > Edit Review : ', f
 			});
 
 			after(() => {
-				pageSetup.goToEvent(event);
 				pageSetup.cleanupPage();
 			});
 

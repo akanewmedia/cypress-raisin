@@ -75,9 +75,9 @@ import './MultiPledge/Sponsor/3022-MultiPledgeDonationToTeamFromPageLink.spec.ts
 import './MultiPledge/Sponsor/MultipledgeDonationToAParticipantFromEmailLink.spec.ts'
 
 //MP - Store - ALL 3 TESTS FAIL DUE TO PAYMENT INFO NOT LOADING
-// import './MultiPledge/Store/3016-MultiPledgeStoreFailPurchaseOnly.spec.ts'
-// import './MultiPledge/Store/3017-MultiPledgeStoreMultiplePurchasesOnly.spec.ts'
-// import './MultiPledge/Store/3018-MultiPledgeStorePurchaseOnly.spec.ts'
+import './MultiPledge/Store/3016-MultiPledgeStoreFailPurchaseOnly.spec.ts'
+import './MultiPledge/Store/3017-MultiPledgeStoreMultiplePurchasesOnly.spec.ts'
+import './MultiPledge/Store/3018-MultiPledgeStorePurchaseOnly.spec.ts'
 
 
 
