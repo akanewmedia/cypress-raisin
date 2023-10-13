@@ -9,6 +9,7 @@
         "password": "Akaaka1!",
         "fund": "Fund 1"
     },
+    "explicitConsent": true,
     "hideMeFromSearch": true,
     "surveyResponses": [
         {

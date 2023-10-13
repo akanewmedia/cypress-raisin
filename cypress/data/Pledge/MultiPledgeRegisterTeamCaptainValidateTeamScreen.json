@@ -8,6 +8,7 @@
     "goal2": 1000,
     "password": "Akaaka1!"
   },
+  "explicitConsent": true,
   "account": {
     "username": "User",
     "fundraisingGoal": "100",
