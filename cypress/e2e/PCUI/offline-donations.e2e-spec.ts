@@ -105,3 +105,88 @@ describe(
   })
   }
 )
+
+describe('Offline Donations with NON US/CANADA',  () => {    
+    using(events, event => {
+
+    before(() => {
+      pageSetup.goToEvent(event);
+      pageSetup.waitForPageLoad()
+      loginPage.login(data.user.username, data.user.password)
+    }); 
+
+    let nonUs: boolean = true
+    
+     
+
+    it('should go to offline donations page and display offline donation items', () => {
+      // go to offline donations page
+      sidebar.clickDonationsLink();
+      sidebar.clickOfflineDonationsLink();
+
+      cy.get(donationsComponent.rows).should('be.visible')
+
+      //let row = cy.get(donationsComponent.rows).eq(0);
+      donationsComponent.getRowNameValue('Raisin Tester')
+      donationsComponent.getRowNameValue('aka@aka.com')
+      donationsComponent.getRowAmountValue('$20.00')
+    });
+
+    it('should create offline donation', () => {
+
+      // trigger add donation dialog
+      cy.contains(donationsComponent.addDonationButton, 'Add donation').should('be.visible')
+      cy.contains(donationsComponent.addDonationButton, 'Add donation').click();
+
+      // wait for add donation dialog to open
+      cy.get(donationsComponent.addDonationDialog).should('be.visible')
+
+      // populate add donation dialog form
+      donationsComponent.populateAddDonationDialogForm(data, nonUs);
+
+      // submit form
+      donationsComponent.clickSubmitAddDonation();
+
+      // check success message displayed
+      cy.get(snackbarCO.messageContainer).should('contain.text','New offline donation created');
+
+      //Verify first Donor details again
+      donationsComponent.getRowNameValue('Raisin Tester')
+      donationsComponent.getRowNameValue('aka@aka.com')
+      donationsComponent.getRowAmountValue('$20.00')
+    });
+
+    it('should update offline donation', () => {
+
+      // trigger update
+      donationsComponent.clickRowUpdateButton();
+
+      // wait for update donation dialog to open (same dialog used as for create)
+      cy.get(donationsComponent.addDonationDialog).should('be.visible')
+      // populate update donation dialog form
+      data.countryNonUS = "Viet Nam"
+      donationsComponent.populateAddDonationDialogForm(data, nonUs);
+      // submit form
+      donationsComponent.clickUpdateDonation();
+      // check success message displayed
+      cy.get(snackbarCO.messageContainer).should('contain.text', 'Offline donation updated')
+    });
+
+    it('should delete offline donation',  () => {
+
+      // trigger delete
+      donationsComponent.clickRowDeleteButton();
+
+      // wait for delete donation dialog to open
+      cy.get(donationsComponent.confirmationDialog).should('exist')
+
+      // confirm delete
+      donationsComponent.submitConfirmationDialog();
+
+      // check success message displayed
+      cy.get(snackbarCO.messageContainer).should('contain.text', 'Offline donation deleted')
+
+    });
+  })
+  }
+)
