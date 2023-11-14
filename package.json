@@ -29,6 +29,7 @@
     "typescript": "^4.7.4"
   },
   "dependencies": {
+    "Cypress": "npm:cypress@^13.4.0",
     "fs.realpath": "^1.0.0",
     "jasmine-data-provider": "^2.2.0",
     "lodash": "^4.17.21",

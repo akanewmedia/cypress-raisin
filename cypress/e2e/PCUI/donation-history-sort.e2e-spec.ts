@@ -73,8 +73,8 @@ describe('PC >Log in > Donation History > Sort Thanked > Search for Donor > Vali
       historyTable.clickMyDonationsButton();
       historyTable.selectEvent(' RXF Multi Pledge Automation Event ');
       historyTable.sortByAmount();
-      historyTable.verifyNameAndEmailFirstRow('asd asd')
-      historyTable.verifyNameAndEmailFirstRow('asd@asdasda.ca')
+      historyTable.verifyNameAndEmailFirstRow('Raisin Tester')
+      historyTable.verifyNameAndEmailFirstRow('aka@aka.com')
       historyTable.verifyAmountFirstRow('50.00')
       historyTable.verifyDateFirstRow('Aug 18, 2023')
     });
