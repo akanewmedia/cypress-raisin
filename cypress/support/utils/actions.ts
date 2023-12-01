@@ -183,6 +183,7 @@ export function enterMatInput(protractorSelector, value) {
     if (classString.indexOf('mat-mdc-input-element') >= 0) {
       if(classString.indexOf('mat-datepicker-input') >= 0){
         cy.get('.input-wrap--date button').click()
+        cy.wait(1000)
         cy.get('.mat-calendar-body-cell-content.mat-calendar-body-today').click()
       }
       else {
