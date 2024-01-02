@@ -96,8 +96,9 @@ export class OfflineDonationsComponent {
       attribute4: string
       attribute5: string
       correspondenceLanguage:string
-      dateOfBirth:string
-    }) {
+      dateOfBirth:string,
+      countryNonUS:string
+    }, nonUs:boolean = false) {
     this.populateFormField((this.addDonationDialog + '#amount'), values.amount);
     this.populateFormField((this.addDonationDialog + '#paymentSource'), values.paymentSource, 'dropdown');
     this.populateFormField((this.addDonationDialog + '#title'), values.title, 'dropdown');
@@ -110,7 +111,12 @@ export class OfflineDonationsComponent {
     this.populateFormField((this.addDonationDialog + '#phone'), values.phoneNumber);
     this.populateFormField((this.addDonationDialog + '#phoneExtension'), values.phoneExtension);
     this.populateFormField((this.addDonationDialog + '#gender'), values.gender, 'dropdown');
-    this.populateFormField((this.addDonationDialog + `#country`), values.country, 'dropdown');
+    if (nonUs){
+      this.populateFormField((this.addDonationDialog + `#country`), values.countryNonUS, 'dropdown');
+    } else {
+      this.populateFormField((this.addDonationDialog + `#country`), values.country, 'dropdown');
+      this.populateFormField((this.addDonationDialog + `#province`), values.province, 'dropdown');
+    }
     this.populateFormField((this.addDonationDialog + `#addressLine1`), values.addressLine1);
     this.populateFormField((this.addDonationDialog + `#companyName`), values.companyName);
     //this.populateFormField((this.addDonationDialog + `#addressType`), values.addressType, 'dropdown');
@@ -120,7 +126,6 @@ export class OfflineDonationsComponent {
     this.populateFormField((this.addDonationDialog + `#attribute3`), values.attribute3);
     this.populateFormField((this.addDonationDialog + `#attribute4`), values.attribute4);
     this.populateFormField((this.addDonationDialog + `#attribute5`), values.attribute5);
-    this.populateFormField((this.addDonationDialog + `#province`), values.province, 'dropdown');
     this.populateFormField((this.addDonationDialog + `#postalCode`), values.postalCode);
     this.populateFormField((this.addDonationDialog + `#correspondenceLanguage`), values.correspondenceLanguage, 'dropdown');
     //this.selectDate(this.addDonationDialog + `.mat-datepicker-toggle`);

@@ -59,6 +59,7 @@
 	"companyName": "Test Organization",
 	"emailType": "Business",
 	"email": "aka@aka.com",
+	"countryNonUS": "Brazil",
 	"addressType": "Business",
 	"addressLine1": "123 Main St",
 	"addressLine2": "Suite 1000",
