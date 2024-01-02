@@ -1,4 +1,4 @@
-import { Sidebar } from '../../pc-ui-e2e/src/component/sidebar.component';
+  import { Sidebar } from '../../pc-ui-e2e/src/component/sidebar.component';
 import { DonationsHistoryTable } from '../../pc-ui-e2e/src/component/donations-history-table';
 import { SnackbarCO } from '../../pc-ui-e2e/src/component/snackbar';
 import { PageSetup } from '../../support/utils/pageSetup';

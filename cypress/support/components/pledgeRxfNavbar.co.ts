@@ -1,5 +1,5 @@
 //The information regarding the libraries
-import { buildSelector, clickElement, elementByClass, elementById } from "../utils/actions";
+import { buildSelector, clickElement, elementByClass, elementById, scrollToElement } from "../utils/actions";
 
 export class PledgeRxfNavBarComponent {
   container: any;
@@ -52,6 +52,7 @@ export class PledgeRxfNavBarComponent {
    * Clicks on the volunteer menu item
    */
   clickOnVolunteerMenuItem() {
+    scrollToElement(this.volunteerMenuItemLnk)
     clickElement(this.volunteerMenuItemLnk);
   }
 

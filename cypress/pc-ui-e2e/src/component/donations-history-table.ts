@@ -23,17 +23,17 @@ export class DonationsHistoryTable {
     this.tableHeader = buildSelector(this.container, '.data-table-card__header');
     this.myDonationsButton = buildSelector(this.tableHeader, '.my-donations-button');
     this.teamDonationsButton = buildSelector(this.tableHeader,'.team-donations-button');
-    this.selectionHeader = buildSelector(this.container ,'.mat-column-select.mat-header-cell')
-    this.eventDropDown = buildSelector(this.container,'.mat-select');
-    this.nameHeader = buildSelector(this.container, '.mat-column-name.mat-header-cell');
-    this.amountHeader = buildSelector(this.container,'.mat-column-amount.mat-header-cell');
-    this.dateHeader = buildSelector(this.container,'.mat-column-date.mat-header-cell');
-    this.thankedHeader = buildSelector(this.container, '.mat-column-thanked.mat-header-cell');
-    this.receiptIssuedHeader = buildSelector(this.container,'.mat-column-receiptIssued.mat-header-cell');
-    this.messageHeader = buildSelector(this.container,'.mat-column-message.mat-header-cell');
-    this.rows = buildSelector(this.container, 'tbody tr.mat-row');
-    this.nameRow = buildSelector('.mat-column-name.mat-cell')
-    this.amountRow = buildSelector('.mat-column-amount.mat-cell')
+    this.selectionHeader = buildSelector(this.container ,'.mat-column-select.mat-mdc-header-cell')
+    this.eventDropDown = buildSelector(this.container,'.mat-mdc-select');
+    this.nameHeader = buildSelector(this.container, '.mat-column-name.mat-mdc-header-cell');
+    this.amountHeader = buildSelector(this.container,'.mat-column-amount.mat-mdc-header-cell');
+    this.dateHeader = buildSelector(this.container,'.mat-column-date.mat-mdc-header-cell');
+    this.thankedHeader = buildSelector(this.container, '.mat-column-thanked.mat-mdc-header-cell');
+    this.receiptIssuedHeader = buildSelector(this.container,'.mat-column-receiptIssued.mat-mdc-header-cell');
+    this.messageHeader = buildSelector(this.container,'.mat-column-message.mat-mdc-header-cell');
+    this.rows = buildSelector(this.container, 'tbody tr.mat-mdc-row');
+    this.nameRow = buildSelector('.mat-column-name.mat-mdc-cell')
+    this.amountRow = buildSelector('.mat-column-amount.mat-mdc-cell')
     this.dateRow = buildSelector('td.mat-column-date')
   }
 
@@ -88,24 +88,24 @@ export class DonationsHistoryTable {
   }
 
   getRowNameValue(row: any) {
-    cy.get(row + '.mat-column-name.mat-cell')
-    // return row.$('.mat-column-name.mat-cell').getText();
+    cy.get(row + '.mat-column-name.mat-mdc-cell')
+    // return row.$('.mat-column-name.mat-mdc-cell').getText();
   }
 
   getRowAmountValue(row: any) {
-    cy.get(row + '.mat-column-amount.mat-cell')
-    //return row.$('.mat-column-amount.mat-cell').getText();
+    cy.get(row + '.mat-column-amount.mat-mdc-cell')
+    //return row.$('.mat-column-amount.mat-mdc-cell').getText();
   }
 
   getRowDateValue(row: any) {
-    cy.get(row + '.mat-column-date.mat-cell')
-    //return row.$('.mat-column-date.mat-cell').getText();
+    cy.get(row + '.mat-column-date.mat-mdc-cell')
+    //return row.$('.mat-column-date.mat-mdc-cell').getText();
   }
 
   clickReissueTaxReceiptButton(){
-    cy.get('.mat-column-receiptIssued.mat-cell button.action-btn').first().click()
+    cy.get('.mat-column-receiptIssued.mat-mdc-cell button.action-btn').first().click()
     // return row
-    //   .$('.mat-column-receiptIssued.mat-cell button.action-btn')
+    //   .$('.mat-column-receiptIssued.mat-mdc-cell button.action-btn')
     //   .click();
   }
 

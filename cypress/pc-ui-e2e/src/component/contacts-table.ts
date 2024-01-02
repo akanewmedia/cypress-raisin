@@ -5,7 +5,7 @@ export class ContactsTable {
     this.container = buildSelector('.list-container');
     this.selectionHeader = buildSelector('.mat-sort-header-content');
     this.nameHeader = buildSelector(this.container, '.table-column', this.selectionHeader);
-    this.rows = buildSelector(this.container,'tbody tr.mat-row');
+    this.rows = buildSelector(this.container,'tbody tr.mat-mdc-row');
     this.nameRow = ('.identity .identity__name')
   }
   //.list-container .table-column .mat-sort-header-content
@@ -53,18 +53,18 @@ export class ContactsTable {
 
    clickRowSelectCheckButton(row) {
     cy.get(this.rows).eq(row).within(()=>{
-      cy.get('.mat-column-select .mat-checkbox').click()
+      cy.get('.mat-column-select .mat-mdc-checkbox').click()
     })
   }
 
    clickRowEditButton() {
     cy.get(this.rows).eq(0).within(()=>{
-      cy.get('.mat-column-action.mat-cell ' + '.edit-button').click()
+      cy.get('.mat-column-action .edit-button').click()
     })    
   }
 
    clickRowDeleteButton() {
-    cy.get('.mat-column-action' + ' .delete-button').first().click()
+    cy.get('.mat-column-action .delete-button').first().click()
   }
 
    clickEmailButton(row: any) {
@@ -83,7 +83,7 @@ export class ContactsTable {
 
    clickRowCaptainToggleButton(row: any) {
     cy.get(this.rows).eq(row).within(()=>{
-      cy.get('.mat-slide-toggle-thumb').click()
+      cy.get('.mdc-switch').click()
     })
     // return browser.actions().mouseMove(row
     //   .$('.mat-column-captain')
@@ -94,10 +94,19 @@ export class ContactsTable {
    getRowCaptainToggleValue(row: any, bool: boolean) {
     cy.get(this.rows).eq(row).within(()=>{
       if (bool)
-      cy.get('.mat-column-captain .mat-slide-toggle-input').should('be.checked');
+      cy.get('.mat-column-captain .mdc-switch').should('be.checked');
       else
-      cy.get('.mat-column-captain .mat-slide-toggle-input').should('not.be.checked');
+      cy.get('.mat-column-captain .mat-mdc-slide-toggle').should('not.be.checked');
     })
-    //return row.$('.mat-column-captain .mat-slide-toggle-input').getAttribute("aria-checked");
+    //return row.$('.mat-column-captain .mat-mdc-slide-toggle-input').getAttribute("aria-checked");
+  }
+
+  getRowCaptainToggleLabelValue(row: any, bool:boolean) {
+    cy.get(this.rows).eq(row).within(()=>{
+      if (bool)
+      cy.get('.mdc-form-field label span').should('contain.text', "Yes");
+      else
+      cy.get('.mdc-form-field label span').should('contain.text', "No");
+    })
   }
 }

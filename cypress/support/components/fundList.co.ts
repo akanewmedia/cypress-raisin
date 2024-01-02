@@ -21,7 +21,7 @@ export class FundListComponent {
     this.divider = buildSelector(this.autocomplete, '.fund-list-divider');
     this.options = elementsByClass(this.autocomplete, '.fund-list-option');
     this.shortlistOptions = buildSelector(this.autocomplete, '.fund-list-option.fund-shortlist');
-    this.error = buildSelector(this.container, '#mat-error-0 > .error-message');
+    this.error = buildSelector(this.container, ' .error-message');
     this.fundName = buildSelector(this.container, '#other-fund-name');
     this.otherFundNameError = buildSelector(this.container, '.error-message strong');
   }

@@ -47,7 +47,6 @@ describe('C10523 Scenario -> Registration > Cover Admin Fee > Paid Reg + Self Do
 			});
 
 			after(() => {
-				pageSetup.goToEvent(event);
 				pageSetup.cleanupPage();
 			});
 

@@ -20,10 +20,6 @@ describe('TR(7296) Donations > Give Now > One Time > Custom Amount > All fields 
 
             });
 
-            after(() => {
-                pageSetup.goToEvent(event);
-                pageSetup.cleanupPage();
-            });
 
             it("module should be loaded", (done) => {
                 donationsPO.waitForDonationsContainerToBeLoaded().then(() => done());

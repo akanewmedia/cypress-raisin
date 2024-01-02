@@ -51,7 +51,7 @@ describe('User Profile Validation:', () => {
 
     it('should clear all Additional Information fields, validate the error messages, re-fill input fields and re-submit form', () => {
       userProfile.clearAdditionalInformation()
-      cy.wait(1500)
+      cy.wait(2500)
       userProfile.verifyAdditionalInfoRequiredFieldErrors(data.additionalInfoValidationMessages)
       userProfile.fillAdditionalInformation(data)
       userProfile.clickAdditionalInfoSubmit()

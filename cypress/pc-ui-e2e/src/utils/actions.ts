@@ -122,7 +122,7 @@ export function selectDropDownOption(protractorSelector, selectedOption) {
   //scrollToElement('.rx-matrix-container .donation-matrix-other-amount .globalized-number-input input')
 
   cy.get(protractorSelector).invoke('attr', 'class').then((classString) => {    
-    if (classString.indexOf('mat-select') >= 0) {      
+    if (classString.indexOf('mat-select') || classString.indexOf('mat-mdc-select') >= 0) {      
       selectMatDropDownOption(protractorSelector, selectedOption);
     }
     if (classString.indexOf('matNativeControl') >= 0) {
@@ -151,11 +151,11 @@ export function selectMatDropDownOption(
   // browser.sleep(200);
   if (Array.isArray(selectedOption)) {
     selectedOption.map(option => {
-      cy.get('.mat-select-panel mat-option').contains(option).click({force: true});
+      cy.get('.mat-mdc-select-panel .mat-mdc-option').contains(option).click({force: true});
     })   
   }
   else {
-    cy.get('.mat-select-panel mat-option').contains(selectedOption).first().click({force: true});
+    cy.get('.mat-mdc-select-panel .mat-mdc-option').contains(selectedOption).first().click({force: true});
   }
   //cy.get('body').type('{esc}');
 }

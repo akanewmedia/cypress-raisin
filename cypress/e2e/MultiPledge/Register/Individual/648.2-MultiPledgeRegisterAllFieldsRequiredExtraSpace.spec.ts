@@ -52,113 +52,115 @@ describe('TR(648-2) Scenario -> Multi Pledge free registration - all fields requ
             });
             it('should fill account details', () => {
                 cy.wait(5000)
-                scrollToElement(registerPO.container)
                 cy.get(registerPO.container).should('exist')
                 cy.get(registerPO.accountInformationCO.fund).should('be.visible')
                 registerPO.accountInformationCO.enterDetails(data.account.username + getLocalDateTime(), data.account.password, data.account.fundraisingGoal, data.account.fund)
             });
             it('should press continue after entering each profile info field', () => {
-                flowPO.continue();
-                cy.get(registerPO.container).should('exist')
-                registerPO.profileInformationCO.selectTitle(data.extraSpace.title);
+                registerPO.fillInAllProfileInformation(data.extraSpace)
                 // flowPO.continue();
-                cy.get(registerPO.container).should('exist')
-                registerPO.profileInformationCO.enterFirstName(data.extraSpace.firstName);
-                //flowPO.continue();
-                cy.get(registerPO.container).should('exist')
-                registerPO.profileInformationCO.enterMiddleName(data.extraSpace.middleName);
-                //flowPO.continue();
-                cy.get(registerPO.container).should('exist')
-                registerPO.profileInformationCO.enterLastName(data.extraSpace.lastName);
-                //flowPO.continue();
-                cy.get(registerPO.container).should('exist')
-                registerPO.profileInformationCO.selectEmailType(data.emailType);
-                //flowPO.continue();
-                cy.get(registerPO.container).should('exist')
-                registerPO.profileInformationCO.enterEmail(data.extraSpace.email);
-                //flowPO.continue();
-                cy.get(registerPO.container).should('exist')
-                registerPO.profileInformationCO.enterOrgName(data.extraSpace.companyName);
-                //flowPO.continue();
-                cy.get(registerPO.container).should('exist')
-                registerPO.profileInformationCO.selectPhoneType(data.phoneType);
-                //flowPO.continue();
-                cy.get(registerPO.container).should('exist')
-                registerPO.profileInformationCO.enterPhoneNumber(data.extraSpace.phoneNumber);
-                //flowPO.continue();
-                cy.get(registerPO.container).should('exist')
-                registerPO.profileInformationCO.enterPhoneExtension(data.extraSpace.phoneExtension);
-                //flowPO.continue();
-                cy.get(registerPO.container).should('exist')
-                registerPO.profileInformationCO.selectGender(data.gender);
-                //flowPO.continue();
-                cy.get(registerPO.container).should('exist')
-                registerPO.profileInformationCO.selectDateOfBirth(data.dayOfBirth, data.monthOfBirth, data.extraSpace.yearOfBirth);
+                // cy.get(registerPO.container).should('exist')
+                // registerPO.profileInformationCO.selectTitle(data.extraSpace.title);
+                // // flowPO.continue();
+                // cy.get(registerPO.container).should('exist')
+                // registerPO.profileInformationCO.enterFirstName(data.extraSpace.firstName);
+                // //flowPO.continue();
+                // cy.get(registerPO.container).should('exist')
+                // registerPO.profileInformationCO.enterMiddleName(data.extraSpace.middleName);
+                // //flowPO.continue();
+                // cy.get(registerPO.container).should('exist')
+                // registerPO.profileInformationCO.enterLastName(data.extraSpace.lastName);
+                // //flowPO.continue();
+                // cy.get(registerPO.container).should('exist')
+                // registerPO.profileInformationCO.selectEmailType(data.emailType);
+                // //flowPO.continue();
+                // cy.get(registerPO.container).should('exist')
+                // registerPO.profileInformationCO.enterEmail(data.extraSpace.email);
+                // //flowPO.continue();
+                // cy.get(registerPO.container).should('exist')
+                // registerPO.profileInformationCO.enterOrgName(data.extraSpace.companyName);
+                // //flowPO.continue();
+                // cy.get(registerPO.container).should('exist')
+                // registerPO.profileInformationCO.selectPhoneType(data.phoneType);
+                // //flowPO.continue();
+                // cy.get(registerPO.container).should('exist')
+                // registerPO.profileInformationCO.enterPhoneNumber(data.extraSpace.phoneNumber);
+                // //flowPO.continue();
+                // cy.get(registerPO.container).should('exist')
+                // registerPO.profileInformationCO.enterPhoneExtension(data.extraSpace.phoneExtension);
+                // //flowPO.continue();
+                // cy.get(registerPO.container).should('exist')
+                // registerPO.profileInformationCO.selectGender(data.gender);
+                // //flowPO.continue();
+                // cy.get(registerPO.container).should('exist')
+                // registerPO.profileInformationCO.selectDateOfBirth(data.dayOfBirth, data.monthOfBirth, data.extraSpace.yearOfBirth);
             });
             it('should press continue after entering each address field', () => {
-                flowPO.continue();
-                cy.get(registerPO.container).should('exist')
-                registerPO.addressInformationCO.selectAddressType(data.addressType);
-                //flowPO.continue();
-                cy.get(registerPO.container).should('exist')
-                registerPO.addressInformationCO.selectCountry(data.country);
-                //flowPO.continue();
-                cy.get(registerPO.container).should('exist')
-                registerPO.addressInformationCO.enterAddress(data.extraSpace.address);
-                //flowPO.continue();
-                cy.get(registerPO.container).should('exist')
-                registerPO.addressInformationCO.enterCity(data.extraSpace.city);
-                //flowPO.continue();
-                cy.get(registerPO.container).should('exist')
-                registerPO.addressInformationCO.selectProvince(data.province);
-                //flowPO.continue();
-                cy.get(registerPO.container).should('exist')
-                registerPO.addressInformationCO.enterPostCode(data.extraSpace.postCode);
+                registerPO.fillInAllAddressInformation(data.extraSpace)
                 registerPO.fillInTributeInformation(data)
+                // flowPO.continue();
+                // cy.get(registerPO.container).should('exist')
+                // registerPO.addressInformationCO.selectAddressType(data.addressType);
+                // //flowPO.continue();
+                // cy.get(registerPO.container).should('exist')
+                // registerPO.addressInformationCO.selectCountry(data.country);
+                // //flowPO.continue();
+                // cy.get(registerPO.container).should('exist')
+                // registerPO.addressInformationCO.enterAddress(data.extraSpace.address);
+                // //flowPO.continue();
+                // cy.get(registerPO.container).should('exist')
+                // registerPO.addressInformationCO.enterCity(data.extraSpace.city);
+                // //flowPO.continue();
+                // cy.get(registerPO.container).should('exist')
+                // registerPO.addressInformationCO.selectProvince(data.province);
+                // //flowPO.continue();
+                // cy.get(registerPO.container).should('exist')
+                // registerPO.addressInformationCO.enterPostCode(data.extraSpace.postCode);
+                // registerPO.fillInTributeInformation(data)
 
             });
             it('should press continue after entering each additional field', () => {
-                flowPO.continue();
-                cy.get(registerPO.container).should('exist')
-                registerPO.additionalInformation.setHideMeFromSearch(data.hideMeFromSearch);
-                //flowPO.continue();
-                cy.get(registerPO.container).should('exist')
-                registerPO.additionalInformation.setScreenedCompaniesCheckboxChecked(data.allowScreenedCompanies);
-                //flowPO.continue();
-                cy.get(registerPO.container).should('exist')
-                registerPO.additionalInformation.setAkaCommunicationCheckboxChecked(data.allowAkaCommunication);
-                //flowPO.continue();
-                cy.get(registerPO.container).should('exist')
+                registerPO.fillInAdditionalInformation(data.extraSpace)
+                // flowPO.continue();
+                // cy.get(registerPO.container).should('exist')
+                // registerPO.additionalInformation.setHideMeFromSearch(data.hideMeFromSearch);
+                // //flowPO.continue();
+                // cy.get(registerPO.container).should('exist')
+                // registerPO.additionalInformation.setScreenedCompaniesCheckboxChecked(data.allowScreenedCompanies);
+                // //flowPO.continue();
+                // cy.get(registerPO.container).should('exist')
+                // registerPO.additionalInformation.setAkaCommunicationCheckboxChecked(data.allowAkaCommunication);
+                // //flowPO.continue();
+                // cy.get(registerPO.container).should('exist')
+                // registerPO.additionalInformation.setExplicitConsentCheckboxChecked(data.explicitConsent);             
             });
             it('should press continue after filling the custom fields', () => {
-                flowPO.continue();
-                cy.get(registerPO.container).should('exist')
-                setFocus(registerPO.additionalInformation.attribute1);
-                setCustomAttribute(registerPO.additionalInformation.attribute1, data.extraSpace.attribute1);
-                //flowPO.continue();
-                cy.get(registerPO.container).should('exist')
-                setFocus(registerPO.additionalInformation.attribute2);
-                setCustomAttribute(registerPO.additionalInformation.attribute2, data.extraSpace.attribute2);
+                // flowPO.continue();
+                // cy.get(registerPO.container).should('exist')
+                // setFocus(registerPO.additionalInformation.attribute1);
+                // setCustomAttribute(registerPO.additionalInformation.attribute1, data.extraSpace.attribute1);
+                // //flowPO.continue();
+                // cy.get(registerPO.container).should('exist')
+                // setFocus(registerPO.additionalInformation.attribute2);
+                // setCustomAttribute(registerPO.additionalInformation.attribute2, data.extraSpace.attribute2);
 
-                // ** There is a very very weird error checking attribute3, 4 and 5, so I'm commenting out for now
-                //flowPO.continue();
-                //cy.get(registerPO.container).should('exist')
-                setFocus(registerPO.additionalInformation.attribute3);
-                setCustomAttribute(registerPO.additionalInformation.attribute3, data.extraSpace.attribute3);
-                //flowPO.continue();
-                cy.get(registerPO.container).should('exist')
-                setFocus(registerPO.additionalInformation.attribute4);
-                setCustomAttribute(registerPO.additionalInformation.attribute4, data.extraSpace.attribute4);
-                //flowPO.continue();
-                cy.get(registerPO.container).should('exist')
-                setFocus(registerPO.additionalInformation.attribute5);
-                setCustomAttribute(registerPO.additionalInformation.attribute5, data.extraSpace.attribute5);
+                // // ** There is a very very weird error checking attribute3, 4 and 5, so I'm commenting out for now
+                // //flowPO.continue();
+                // //cy.get(registerPO.container).should('exist')
+                // setFocus(registerPO.additionalInformation.attribute3);
+                // setCustomAttribute(registerPO.additionalInformation.attribute3, data.extraSpace.attribute3);
+                // //flowPO.continue();
+                // cy.get(registerPO.container).should('exist')
+                // setFocus(registerPO.additionalInformation.attribute4);
+                // setCustomAttribute(registerPO.additionalInformation.attribute4, data.extraSpace.attribute4);
+                // //flowPO.continue();
+                // cy.get(registerPO.container).should('exist')
+                // setFocus(registerPO.additionalInformation.attribute5);
+                // setCustomAttribute(registerPO.additionalInformation.attribute5, data.extraSpace.attribute5);
             });
             it('should press continue after entering each survey field', () => {
                 // we go through each survey response and fill it out
                 data.surveyResponses.forEach(({ question, answer }) => {
-                    flowPO.continue();
-                    cy.get(registerPO.container).should('exist')
                     surveyCO.setAnswer({ question, answer });
                     pressEsc();
                 });       

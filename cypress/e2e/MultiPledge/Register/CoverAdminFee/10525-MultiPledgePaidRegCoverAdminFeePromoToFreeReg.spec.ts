@@ -48,7 +48,6 @@ describe('C10525 - Registration > Cover Admin Fee > Paid Reg with Promo Code to 
 			});
 
 			after(() => {
-				pageSetup.goToEvent(event);
 				pageSetup.cleanupPage();
 			});
 

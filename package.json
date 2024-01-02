@@ -20,7 +20,7 @@
     "@types/lodash": "^4.14.186",
     "api-testrail": "^1.2.3",
     "babel-plugin-module-resolver": "^4.1.0",
-    "cypress": "^12.15.0",
+    "cypress": "^13.2.0",
     "cypress-plugin-tab": "^1.0.5",
     "faker": "^5.5.3",
     "mochawesome": "^7.1.3",
@@ -29,6 +29,7 @@
     "typescript": "^4.7.4"
   },
   "dependencies": {
+    "Cypress": "npm:cypress@^13.4.0",
     "fs.realpath": "^1.0.0",
     "jasmine-data-provider": "^2.2.0",
     "lodash": "^4.17.21",

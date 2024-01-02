@@ -60,11 +60,11 @@ describe('team progress functionality + send emails:', () => {
 
   it('should toggle captain slider', () => {
     sidebar.clickTeamProgressPageLink();      
-    teamProgressPage.contactsListComponent.contactsTable.getRowCaptainToggleValue(0,false);   
+    teamProgressPage.contactsListComponent.contactsTable.getRowCaptainToggleLabelValue(0,false);   
     teamProgressPage.contactsListComponent.contactsTable.clickRowCaptainToggleButton(0);
-    teamProgressPage.contactsListComponent.contactsTable.getRowCaptainToggleValue(0,true);           
+    teamProgressPage.contactsListComponent.contactsTable.getRowCaptainToggleLabelValue(0,true);           
     teamProgressPage.contactsListComponent.contactsTable.clickRowCaptainToggleButton(0);
-    teamProgressPage.contactsListComponent.contactsTable.getRowCaptainToggleValue(0,false);   
+    teamProgressPage.contactsListComponent.contactsTable.getRowCaptainToggleLabelValue(0,false);   
   })
   });
 });

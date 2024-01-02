@@ -26,7 +26,7 @@ export class ContactsListComponent {
     this.emailSelectedButton = buildSelector(this.container,'.email-selected-button');
     this.emailThankButton = buildSelector(this.container,'.email-thank-button');
     this.newEmailButton = buildSelector(this.container,'.new-email-button');
-    this.confirmDeleteBox = ('.mat-dialog-container ');
+    this.confirmDeleteBox = ('.mat-mdc-dialog-container ');
     this.contactsTable = new ContactsTable();
     this.editContactModal = new EditContactModal();
   }
@@ -38,8 +38,8 @@ export class ContactsListComponent {
   }
 
   async getRowNameValue(row: any){
-    cy.get(row + '.mat-column-name.mat-cell')
-    //return row.$('.mat-column-name.mat-cell').getText();
+    cy.get(row + '.mat-column-name.mat-mdc-cell')
+    //return row.$('.mat-column-name.mat-mdc-cell').getText();
   }
 
   async clickButtonSearchClear(): Promise<void> {
@@ -67,7 +67,7 @@ export class ContactsListComponent {
   }
 
   async clickConfirmYes(): Promise<void> {
-    cy.get(this.confirmDeleteBox + '.mat-flat-button').click()
+    cy.contains(this.confirmDeleteBox + '.mdc-button', "Yes").click()
     // return browser.actions().mouseMove(this.confirmDeleteBox.$('.mat-flat-button'))
     //   .click().perform();
   }

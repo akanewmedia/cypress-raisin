@@ -33,7 +33,7 @@ export class DonationPaymentInformation {
 
     // transaction
     this.transactionFailed = buildSelector(this.container, '.error-notification');
-    this.transactionFailedMessage = buildSelector(this.transactionFailed, '.mat-card-content');
+    this.transactionFailedMessage = buildSelector(this.transactionFailed, '.mat-mdc-card-content');
     this.transactionSuccessful = buildSelector(this.container, 'transactionSuccessful');
   }
 

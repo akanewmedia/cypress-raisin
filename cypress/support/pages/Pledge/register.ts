@@ -23,7 +23,7 @@ export class RegisterPage {
 
   constructor() {
     this.container = buildSelector('.userDetails');
-    this.organizationUserType = buildSelector(this.container, ".mat-checkbox-label");
+    this.organizationUserType = buildSelector(this.container, ".mat-mdc-checkbox label");
     this.accountInformationCO = new AccountInformation(this.container);
     this.profileInformationCO = new Profile(this.container);
     this.addressInformationCO = new Address(this.container);
