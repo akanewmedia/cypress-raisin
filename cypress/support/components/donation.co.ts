@@ -28,7 +28,7 @@ export class Donation {
     this.donation = buildSelector(this.donationContainer, '#customAmount');
     this.honourRollOptionsContainer = buildSelector(this.honourRollContainer, '.honour-roll-options');
     this.honourRollCustomOptions = buildSelector(this.honourRollContainer, '.custom-show-amount-option');
-    this.honourRollCustomText = buildSelector(this.honourRollContainer, '.custom-honourRoll-text');
+    this.honourRollCustomText = buildSelector(this.honourRollContainer, '.mat-mdc-input-element');
     this.privateMessage = buildSelector(this.privateMessageContainer, 'textarea[formcontrolname=message]');
 
     this.invalidDonationAmountValidationMsg = buildSelector(this.donationContainer, 'rx-errors .error-message');
@@ -44,24 +44,24 @@ export class Donation {
   }
 
   selectHonorRollOption(option) {
-    cy.get(this.honourRollOptionsContainer).get('.mat-radio-button .mat-radio-label-content').contains(option).click();
+    cy.get(this.honourRollOptionsContainer).get('.mat-mdc-radio-button label').contains(option).click();
   }
 
   selectFirstHonorRollOption(index) {
-    cy.get(this.honourRollOptionsContainer).get('.mat-radio-button').first().click()
+    cy.get(this.honourRollOptionsContainer).get('.mat-mdc-radio-button .mdc-radio').first().click()
   }
 
   selectLastHonorRollOption(index) {
-    cy.get(this.honourRollOptionsContainer).get('.mat-radio-button').last().click()
+    cy.get(this.honourRollOptionsContainer).get('.mat-mdc-radio-button .mdc-radio').last().click()
   }
 
   selectSponsorshipLevel(text) {
-    cy.contains('.mat-radio-button .mat-radio-label-content', text).click()
-    //cy.get(this.donationContainer).get('.mat-radio-button .mat-radio-label-content').click();
+    cy.contains('.mat-mdc-radio-button label', text).click()
+    //cy.get(this.donationContainer).get('.mat-mdc-radio-button .mat-radio-label-content').click();
   }
 
   selectHonorRollOptionByIndex(index) {
-    cy.get(this.honourRollOptionsContainer + ' .mat-radio-button').eq(index).click()
+    cy.get(this.honourRollOptionsContainer + ' .mat-mdc-radio-button .mdc-radio').eq(index).click()
   }
 
   selectShowAmount(showAmount) {

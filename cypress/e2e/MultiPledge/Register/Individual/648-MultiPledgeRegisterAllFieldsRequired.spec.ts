@@ -73,7 +73,7 @@ describe('TR(648) Scenario -> Multi Pledge free registration - all fields requir
             it('should fill Surveys', () => {
                 // we go through each survey response and fill it out
                 data.surveyResponses.forEach(({ question, answer }) => {
-                    flowPO.continue();
+                    //flowPO.continue();
                     cy.get(registerPO.container).should('exist')
                     surveyCO.setAnswer({ question, answer });
                     pressEsc();

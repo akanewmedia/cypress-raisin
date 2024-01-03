@@ -7,7 +7,7 @@ export class MainToolbar {
   pcTour = buildSelector(this.container + 'pc-tour')
   //pcAccount = buildSelector(this.container)
   myAccountMenuList = buildSelector(this.container + '.account-menu__actions mat-list')
-  accountSettings = buildSelector('.account-menu__actions mat-list .mat-list-item-content span')
+  accountSettings = buildSelector('.account-menu__actions mat-list .mat-mdc-list-item-unscoped-content span')
 
 
   getBadgeCount() {

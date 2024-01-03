@@ -33,7 +33,7 @@ export class UpdateCreditCard {
     const getTexts = ($errors) => {
       return Cypress._.map($errors, 'innerText')
     }
-    cy.get('.mat-form-field-subscript-wrapper .error-message').should('exist').then(getTexts).should('deep.equal', data)
+    cy.get('.mat-mdc-form-field-subscript-wrapper .error-message').should('exist').then(getTexts).should('deep.equal', data)
   }
 
 

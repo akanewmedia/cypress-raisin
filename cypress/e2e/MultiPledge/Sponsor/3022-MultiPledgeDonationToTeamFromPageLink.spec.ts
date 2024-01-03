@@ -87,7 +87,7 @@ describe('TR(3022) Scenario -> Multi Pledge Sponsor Team from Donation Page Link
 			});
 
 			it(`should be on the team page for ${data.teamname}`, () => {
-				waitForUrl('/team/');
+				waitForUrl('/t/');
 			});
 		});
 	});

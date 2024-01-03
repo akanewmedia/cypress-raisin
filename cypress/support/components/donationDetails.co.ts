@@ -138,7 +138,7 @@ export class DonationDetails {
     this.selectedDonationType = buildSelector(this.donationTypeGroup, '.mat-button-toggle-checked');
     this.donationFrequencyGroup = buildSelector(this.container, '.donation-frequency');
     this.selectedDonationFrequency = buildSelector(this.donationFrequencyGroup, '.mat-button-toggle-checked');
-    this.coverAdminFeeCheckbox = buildSelector(this.container, '.mat-checkbox-inner-container');
+    this.coverAdminFeeCheckbox = buildSelector(this.container, '.mdc-checkbox');
     this.startDateFooter = buildSelector('.donations-step-footer-container');
   }
 

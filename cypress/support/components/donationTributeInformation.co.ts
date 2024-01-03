@@ -121,7 +121,9 @@ export class TributeInformation {
   }
 
   selectDeliveryDate() {
-    cy.get(this.tributeContainer + " mat-datepicker-toggle[class='mat-datepicker-toggle']").click().get('.mat-calendar-body-today').click()
+    scrollToElement(this.tributeContainer + " .input-wrap--date button")
+    cy.get(this.tributeContainer + " .input-wrap--date button").click().get('.mat-calendar-body-today').click({force: true})
+    pressEsc()
   }
 
   /**

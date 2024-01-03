@@ -11,16 +11,16 @@ export class EditContactModal {
   readonly cancelModalButton: any;
   readonly saveModalButton: any;
   constructor() {
-    this.container = ('.mat-dialog-container');
+    this.container = ('.mat-mdc-dialog-container');
     this.header = buildSelector(this.container,'.modal-header__inner');
     this.closeModalButton = buildSelector(this.container, '.mat-icon-button');
-    this.firstName = buildSelector(this.container,'.mat-input-element[formcontrolname="firstName"]');
-    this.lastName = buildSelector(this.container,'.mat-input-element[formcontrolname="lastName"]');
-    this.emailAddress = buildSelector(this.container, '.mat-input-element[formcontrolname="email"]'
+    this.firstName = buildSelector(this.container,'.mat-mdc-input-element[formcontrolname="firstName"]');
+    this.lastName = buildSelector(this.container,'.mat-mdc-input-element[formcontrolname="lastName"]');
+    this.emailAddress = buildSelector(this.container, '.mat-mdc-input-element[formcontrolname="email"]'
     );
-    this.phoneNumber = buildSelector(this.container, '.mat-input-element[formcontrolname="phone"]');
+    this.phoneNumber = buildSelector(this.container, '.mat-mdc-input-element[formcontrolname="phone"]');
     this.cancelModalButton = buildSelector(this.container, '.btn-cancel');
-    this.saveModalButton = buildSelector(this.container,'.mat-flat-button');
+    this.saveModalButton = buildSelector(this.container,'.mdc-button');
   }
 
   isPresent() {
@@ -49,7 +49,7 @@ export class EditContactModal {
     this.enterFirstName(first);
     this.enterLastName(last);
     this.enterEmailAddress(email);
-    return this.enterPhoneNumber(phone);
+    this.enterPhoneNumber(phone);
   }
 
   enterFirstName(input: string) {
@@ -73,7 +73,7 @@ export class EditContactModal {
   }
 
   enterPhoneNumber(input: string) {
-    cy.get(this.phoneNumber).clear().type(input)
+    cy.get(this.phoneNumber).clear({force: true}).type(input)
 
     // await this.phoneNumber.clear();
     // return this.phoneNumber.sendKeys(input);
@@ -88,6 +88,6 @@ export class EditContactModal {
   }
 
   clickSaveModalButton() {
-    cy.get(this.saveModalButton).click();
+    cy.contains(this.saveModalButton, "Save").click();
   }
 }

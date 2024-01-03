@@ -9,10 +9,10 @@ export class OfflineDonationsComponent {
   confirmationDialog: any 
 
   constructor() {
-    this.addDonationDialog = ('.add-donation.mat-dialog-content ')
+    this.addDonationDialog = ('.add-donation ')
     this.confirmationDialog = ('pc-confirmation-dialog ')
     this.container = buildSelector('.offline-donations-container ');
-    this.rows = buildSelector('tbody tr.mat-row');
+    this.rows = buildSelector('tbody tr');
     this.addDonationButton = buildSelector(this.container + '.page-header button');  //NEEDS FIX, WON'T WORK
     this.offlineDonationForm = buildSelector('.cdk-overlay-pane mat-dialog-container')
   }
@@ -33,31 +33,31 @@ export class OfflineDonationsComponent {
     const getTexts = ($errors) => {
       return Cypress._.map($errors, 'innerText')
     }
-    cy.get(this.offlineDonationForm + ' .mat-form-field-subscript-wrapper .error-message').should('exist').then(getTexts).should('deep.equal', data)
+    cy.get(this.offlineDonationForm + ' .mat-mdc-form-field-subscript-wrapper .error-message').should('exist').then(getTexts).should('deep.equal', data)
   }
 
   getRowNameValue(value:string) {
     cy.get(this.rows).eq(0).within(() =>{
-      cy.get('.mat-column-name.mat-cell').should('contain.text', value)
+      cy.get('.mat-column-name.mat-mdc-cell').should('contain.text', value)
     })
   }
 
   getRowAmountValue(value:string){
     cy.get(this.rows).eq(0).within(() =>{
-      cy.get('.mat-column-amount.mat-cell').should('contain.text', value)
+      cy.get('.mat-column-amount.mat-mdc-cell').should('contain.text', value)
     })
   }
 
   async clickRowUpdateButton(): Promise<void> {
     cy.get(this.rows).eq(0).within(() =>{
-      cy.get('button.mat-icon-button[aria-label="Edit"]').click()
+      cy.get('button.mat-mdc-icon-button[aria-label="Edit"]').click()
     })
   }
   
 
   async clickRowDeleteButton(): Promise<void> {
     cy.get(this.rows).eq(0).within(() =>{
-      cy.get('button.mat-icon-button[aria-label="Remove"]').click()
+      cy.get('button.mat-mdc-icon-button[aria-label="Remove"]').click()
     })
   }
 
@@ -175,14 +175,14 @@ export class OfflineDonationsComponent {
     }
   }
 
-  async submitAddDonationDialog(): Promise<void> {
+  submitAddDonationDialog() {
     // waitForElementToBeClickable(this.addDonationDialog.$('button.continue'));
     cy.get(this.addDonationDialog + 'button.continue').click()
     //return this.addDonationDialog.$('button.continue').click();
   }
 
-  async submitConfirmationDialog(): Promise<void> {
+  submitConfirmationDialog(){
     // waitForElementToBeClickable(this.confirmationDialog.$('button.mat-flat-button'));
-   cy.get(this.confirmationDialog + 'button.mat-flat-button').click();
+   cy.contains(this.confirmationDialog + 'button', "Yes").click();
   }
 }

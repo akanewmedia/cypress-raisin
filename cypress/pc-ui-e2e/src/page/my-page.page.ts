@@ -27,7 +27,7 @@ export class MyPage {
     this.editContainer = ('.edit-panel ')
     this.header = buildSelector(this.container , '.page-header');
     this.importSection = buildSelector(this.container, '.my-page__import');
-    this.importDropDown = buildSelector(this.importSection, '.mat-select');
+    this.importDropDown = buildSelector(this.importSection, '.mat-mdc-select');
     this.saveButton = buildSelector('.btn-save');
     this.cancelButton = buildSelector(this.importSection, '.cancel');
     this.customizeContainer = buildSelector(this.container, '.my-page__customize');
@@ -171,7 +171,7 @@ export class MyPage {
     const getTexts = ($errors) => {
       return Cypress._.map($errors, 'innerText')
     }
-    cy.get(this.editContainer + '.mat-error').should('exist').then(getTexts).should('deep.equal', data)
+    cy.get(this.editContainer + 'mat-error').should('exist').then(getTexts).should('deep.equal', data)
   }
 
   selectDate(element: any){

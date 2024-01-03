@@ -44,13 +44,13 @@ describe('Verify Fund Selection : ', () => {
             it('Should show an error and not allow the user to proceed if no fund is selected', () => {
                 fundListCO.clearSelection();
                 donationsPO.continue()
-                cy.get(fundListCO.error).should('have.text', data.fundErrors.requiredFund)                
+                cy.get(fundListCO.error).should('contain.text', data.fundErrors.requiredFund)                
             });
 
             it('Should show an error and not allow the user to proceed if non existant fund is selected', () => {
                 fundListCO.search(data.funds.nonExistant);
                 fundListCO.closeFund();
-                cy.get(fundListCO.error).should('have.text', data.fundErrors.invalidFund)
+                cy.get(fundListCO.error).should('contain.text', data.fundErrors.invalidFund)
             });
 
             it('Should show an error and not allow the user to proceed if otherfund is selected and fund name is not added', () => {

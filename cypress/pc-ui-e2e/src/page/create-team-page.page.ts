@@ -17,9 +17,9 @@ export class CreateTeamPage {
     this.container = buildSelector('.team-page');
     this.header = buildSelector(this.container,'.page-header');
     this.createTeamPanel = buildSelector(this.container,'.create-team');
-    this.createTeamButton = buildSelector(this.createTeamPanel, '.mat-flat-button[id="createTeamButton"]');
+    this.createTeamButton = buildSelector(this.createTeamPanel, '.mat-mdc-flat-button[id="createTeamButton"]');
     this.customizeContainer = buildSelector(this.container,'.preview-team__customize');
-    this.editButton = buildSelector(this.customizeContainer, 'button.mat-flat-button');
+    this.editButton = buildSelector(this.customizeContainer, 'button');
     this.editPanel = new EditPanel();
     this.joinPanel = new JoinPanel();
     this.pagePreview = new PagePreview();

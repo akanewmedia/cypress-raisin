@@ -53,90 +53,90 @@ export class Sidebar {
 
   
 
-  async expandSidebar(): Promise<void> {
+  expandSidebar() {
     //return this.sidebarExpandButton.click();
     clickLink(this.sidebarExpandButton)
   }
 
-  async compressSidebar(): Promise<void> {
+  compressSidebar() {
     clickLink(this.sidebarCompressButton)
     //return this.sidebarCompressButton.click();
   }
 
-  async expandPanel(expandablePanel: any): Promise<void> {
+  expandPanel(expandablePanel: any) {
     clickLink(expandablePanel + '.expand-icon')
 
     //return expandablePanel.$('.expand-icon').click();
   }
 
-  async closePanel(expandablePanel: any): Promise<void> {
+  closePanel(expandablePanel: any) {
     clickLink(expandablePanel + '.compress-icon')
 
     //return expandablePanel.$('.compress-icon').click();
   }
 
-  async expandDonationsPanel(): Promise<void> {
+  expandDonationsPanel() {
     //this.clickLink(this.donationsPanel)
     return this.expandPanel(this.donationsPanel);
   }
 
-  async closeDonationsPanel(): Promise<void> {
+  closeDonationsPanel() {
     //this.clickLink(this.donationsPanel)
 
     return this.closePanel(this.donationsPanel);
   }
-  async expandTeamPanel(): Promise<void> {
+  expandTeamPanel() {
     //this.clickLink(this.teamPanel)
     return this.expandPanel(this.teamPanel);
   }
-  async closeTeamPanel(): Promise<void> {
+  closeTeamPanel() {
     //this.clickLink(this.teamPanel)
     return this.closePanel(this.teamPanel);
   }
-  async clickMyPageLink(): Promise<void> {
+  clickMyPageLink() {
     clickLink(this.myPageLink)
   }
 
-  async clickTeamLink(): Promise<void> {
+  clickTeamLink() {
     clickLink(this.teamLink)
   }
-  async clickTeamExpandLink(): Promise<void> {
+  clickTeamExpandLink() {
     clickLink(this.teamExpandLink)    
   }
-  async clickTeamPageLink(): Promise<void> {
+  clickTeamPageLink() {
     clickLink(this.teamPageLink)    
   }
 
-  async clickDashboardLink(): Promise<void> {
+  clickDashboardLink() {
     clickLink(this.dashboardLink)
   }
 
-  async clickTeamProgressPageLink(): Promise<void> {
+  clickTeamProgressPageLink() {
     clickLink(this.teamProgressLink)
   }
 
-  async clickEmailPanel(): Promise<void> {
+  clickEmailPanel() {
     clickLink(this.emailsPanel)
   }
-  async clickEmailLink(): Promise<void> {
+  clickEmailLink() {
     clickLink(this.emailsLink)
   }
-  async clickCreateEmailLink(): Promise<void> {
+  clickCreateEmailLink() {
     clickLink(this.createEmailLink)
   }
-  async clickMyContactsLink(): Promise<void> {
+  clickMyContactsLink() {
     clickLink(this.myContactsLink)
   }
-  async clickDonationsLink(): Promise<void> {
+  clickDonationsLink() {
     clickLink(this.donationsLink)
   }
-  async clickFollowUpsLink(): Promise<void> {
+  clickFollowUpsLink() {
     clickLink(this.followUpsLink)
   }
-  async clickDonationsHistoryLink(): Promise<void> {
+  clickDonationsHistoryLink() {
     clickLink(this.donationsHistoryLink)
   }
-  async clickOfflineDonationsLink(): Promise<void> {
+  clickOfflineDonationsLink() {
     clickLink(this.offlineDonationsLink)
   }
 }

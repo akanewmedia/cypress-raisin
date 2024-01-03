@@ -25,7 +25,6 @@ describe('Scenario -> Multi Pledge group selection: ', () => {
             //pageSetup.logoutIfLoggedIn();
         });
         after(() => {
-            pageSetup.goToEvent(event);
             pageSetup.cleanupPage();
         });        
         describe('Attempting to select an active group', () => {            

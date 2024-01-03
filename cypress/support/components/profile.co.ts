@@ -36,7 +36,7 @@ export class Profile {
     this.gender = buildSelector(this.container, '#gender');
     this.dateOfBirth = buildSelector(this.container, '#date-of-birth');
     this.registrationType = buildSelector(this.container, '#registrationType');
-    this.acceptWaiverOnBehalf = buildSelector(this.container, '#acceptOnBehalf .mat-checkbox');
+    this.acceptWaiverOnBehalf = buildSelector(this.container, '#acceptOnBehalf .mat-mdc-checkbox');
   }
 
   selectSameAsPurchaser(sameAsPurchaser) {

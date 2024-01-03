@@ -23,7 +23,7 @@ export class CreateEmailPage {
   constructor() {
     this.container = buildSelector('.create-email-container ');
     this.header = buildSelector('.page-header h1');
-    this.templateTypeDropDown = buildSelector(this.container + '.mat-select');
+    this.templateTypeDropDown = buildSelector(this.container + '.mat-mdc-select');
     this.previewButton = buildSelector('.preview-button');
     this.saveAsButton = buildSelector('.save-as-button');
     this.saveButton = buildSelector('.save-button');
@@ -32,10 +32,10 @@ export class CreateEmailPage {
     this.orgMsg = buildSelector('.show-org-message .ng-star-inserted');
     this.viewOrgMsgButton = buildSelector('.show-org-message button');
     this.sendToField = buildSelector('.recipient-list .ng-input input');
-    this.subjectField = buildSelector('.subject .mat-input-element');
+    this.subjectField = buildSelector('.subject .mat-mdc-input-element');
     this.messageField = buildSelector('.message');
     this.saveTemplateOverlay = buildSelector('.cdk-overlay-container');
-    this.saveTemplateNameField = buildSelector('pc-save-template .input-wrap .mat-input-element');
+    this.saveTemplateNameField = buildSelector('pc-save-template .input-wrap .mat-mdc-input-element');
     this.saveTemplateSaveButton = buildSelector('Save');
     this.addRecipientsPopup = new AddRecipientsPopup();
   }
@@ -51,7 +51,7 @@ export class CreateEmailPage {
   }
 
   clickAddReceipentsButton() {
-    cy.get(this.addReceipientsButton).click();
+    cy.get(this.addReceipientsButton).click({force: true});
   }
 
   clickSaveAsButton() {

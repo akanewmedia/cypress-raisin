@@ -48,7 +48,6 @@ describe('C10527 - Registration > Cover Admin Fee > Free Reg + Self Donation + F
 			});
 
 			after(() => {
-				pageSetup.goToEvent(event);
 				pageSetup.cleanupPage();
 			});
 

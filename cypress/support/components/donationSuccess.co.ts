@@ -5,6 +5,6 @@ export class DonationSuccessComponent {
   successMessage: any;
   constructor() {
     this.container = buildSelector('app-donations-success');
-    this.successMessage = buildSelector(this.container, '.mat-card-content');
+    this.successMessage = buildSelector(this.container, '.mat-mdc-card-content');
   }
 }
