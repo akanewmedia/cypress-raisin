@@ -126,6 +126,9 @@ export class RegisterPage {
   }
 
   fillInTributeInformation(data){
+    cy.get('.tributee-information h2').should('contain.text', "Tributee Information")
+    //Line below will be uncommented when fix for Tributee Comments is pushed.
+    //cy.get('tributee-information p').should('contain.text', "	If you are creating your page in honour or in memory of someone special, please select a Tribute Type and provide their name as the Tributee. This name will be public when visitors search for your page.")
     this.populateFormField(this.tributeDropDown, 'In Honour', 'dropdown')
     cy.get(this.tributeFirstName).clear().type(data.tributeFirstName)
     cy.get(this.tributeLastName).clear().type(data.tributeLastName)

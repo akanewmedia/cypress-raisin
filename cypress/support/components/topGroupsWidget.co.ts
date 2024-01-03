@@ -16,7 +16,7 @@ export class TopGroupsWidget {
    */
   exists(groupName) {
     return cy.get(this.container + ' table').within(()=>{
-      cy.contains('.location a', groupName).should('not.exist')
+      cy.contains('.location a', "groupName").should('not.exist')
     })
   }
 }
