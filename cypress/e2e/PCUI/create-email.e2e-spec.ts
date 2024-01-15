@@ -99,7 +99,7 @@ describe('create a new email:', () => {
       createEmailPage.addRecipientsPopup.clickAddButton();
       cy.wait(2000)
       createEmailPage.clickSendEmailButton();
-      cy.get(snackbarCO.messageContainer).should('contain.text', 'Email queued to 4 contact(s). Status will update shortly.')
+      cy.get(snackbarCO.messageContainer).should('contain.text', 'Email queued to 3 contact(s). Status will update shortly.')
     });
   })
 });

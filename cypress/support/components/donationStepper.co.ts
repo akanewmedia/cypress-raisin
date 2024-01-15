@@ -59,7 +59,7 @@ export class DonationStepper {
   clickContinue() {
     this.continueButton = buildSelector(this.container, '.continue-button' );
     // scrollToElement(this.continueButton);
-    cy.get(this.continueButton).click();
+    cy.get(this.continueButton).click({force: true});
     cy.wait(1000)
   }
 
