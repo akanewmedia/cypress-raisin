@@ -279,7 +279,7 @@ export function selectAutoCompleteDropDownOption(
   // protractorSelector.sendKeys(selectedOption);
   const ddlContainer = '.cdk-overlay-container';
   return cy
-    .get('body ' + ddlContainer + ' .mat-mdc-autocomplete-panel').within(() => {
+    .get(ddlContainer + ' .mat-mdc-autocomplete-panel').first().within(() => {
       cy.get('mat-option').contains(selectedOption)
       .first()
       .click();
