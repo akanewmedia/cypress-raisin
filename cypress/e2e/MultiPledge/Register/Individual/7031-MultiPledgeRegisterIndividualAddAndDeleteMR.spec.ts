@@ -65,16 +65,23 @@ describe('TR(7031) Scenario -> Multi Pledge Individual Registration with Additio
             it('should enter the additional participant details', () => {
                 flowPO.continue();
                 addParticipantsPO.clickAddParticipantButton();
+                cy.wait(3000)
                 addParticipantsPO.fillInProfileInformationNoWaiver(data.additionalParticipants[0]);
-            });
-            it('should enter the second additional participant details', () => {
                 addParticipantsPO.clickAddParticipantButton();
-                cy.wait(2000)
+                cy.wait(4000)
+            });
+            it('should enter the second additional participant details', () => {   
+                addParticipantsPO.clickAddParticipantButton();
+                cy.wait(3000)
+
                 addParticipantsPO.fillInProfileInformationNoWaiver(data.additionalParticipants[1]);
-            });
-            it('should enter the third additional participant details', () => {
                 addParticipantsPO.clickAddParticipantButton();
                 cy.wait(2000)
+            });
+            it('should enter the third additional participant details', () => {           
+                addParticipantsPO.clickAddParticipantButton();
+                cy.wait(3000)
+
                 addParticipantsPO.fillInProfileInformationNoWaiver(data.additionalParticipants[2]);
             });
             it('should open first tab, delete second participant and cancel deletion', () => {

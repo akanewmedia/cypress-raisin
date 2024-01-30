@@ -264,6 +264,7 @@ export class AdditionalParticipantsPage {
     //   return true 
     // });
     this.removeParticipant(index)
+    cy.wait(2000)
     elementById('#btn-confirm').click();
     cy.wait(1500)
   }
@@ -276,6 +277,7 @@ export class AdditionalParticipantsPage {
     //   return false;
     // });
     this.removeParticipant(index)
+    cy.wait(2000)
     elementById('#btn-cancel').click();
     cy.wait(1500)
   }
