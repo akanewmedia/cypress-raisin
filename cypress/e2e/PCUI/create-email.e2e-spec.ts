@@ -44,6 +44,7 @@ describe('create a new email:', () => {
     });
 
     it('should select Thank You template', () => {
+      cy.wait(10000)
       createEmailPage.selectType('Thank You');
       cy.wait(3000);
       cy.get(createEmailPage.templateTypeDropDown).should('contain.text', 'Thank You')
