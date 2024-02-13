@@ -388,9 +388,7 @@ export function selectDropdownRegularOption(
 }
 
 export function pressEsc() {
-  cy.get('body').trigger('keydown', { keyCode: 27 });
-  cy.wait(500);
-  cy.get('body').trigger('keyup', { keyCode: 27 });
+  cy.get('body').type('{esc}');
 }
 
 // export function  waitForElement(protractorSelector, timeout = 4000) {

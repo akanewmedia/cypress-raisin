@@ -123,6 +123,7 @@ export class TributeInformation {
   selectDeliveryDate() {
     scrollToElement(this.tributeContainer + " .input-wrap--date button")
     cy.get(this.tributeContainer + " .input-wrap--date button").click().get('.mat-calendar-body-today').click({force: true})
+    cy.wait(1500)
     pressEsc()
   }
 
