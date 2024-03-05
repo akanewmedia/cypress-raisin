@@ -66,7 +66,6 @@ describe('TR(3165) Scenario -> Multi Pledge Individual Registration with Additio
                     //flowPO.continue();
                     registerPO.fillInExactAccountInformation(data.participant[0]);
                     registerPO.fillInProfileAndAddressInformation(data.participant[0]);
-                    registerPO.fillInReferredUser(data);
                 });
                 it('should auto skip the additional participant', () => {
                     flowPO.continue();
