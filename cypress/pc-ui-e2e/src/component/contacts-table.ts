@@ -38,9 +38,9 @@ export class ContactsTable {
 
    getRowNameValue(row: any) : Cypress.Chainable{
     cy.get(this.rows).eq(row).within(()=>{
-      return cy.get('.mat-column-name.mat-cell')
+      return cy.get('.mat-column-name')
     })    
-    return cy.get('.mat-column-name.mat-cell')    
+    return cy.get('.mat-column-name')    
   }
 
   getStatus(row: any) : Cypress.Chainable{

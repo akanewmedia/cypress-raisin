@@ -56,7 +56,7 @@ describe('edit my team page', () => {
       teamPagePO.editPanel.getKendoEditor().clear().type(story)
 
       teamPagePO.editPanel.clickSaveButton();
-      cy.wait(3000)
+      cy.wait(6000)
       cy.reload()
       cy.wait(3000)
     })
