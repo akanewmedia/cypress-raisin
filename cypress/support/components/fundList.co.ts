@@ -57,6 +57,7 @@ export class FundListComponent {
 
   selectFund(fundName) {
     this.search(fundName);
+    cy.wait(2500)
     this.clickFund(fundName);
     this.closeFund();
   }
