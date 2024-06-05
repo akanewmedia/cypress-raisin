@@ -249,6 +249,9 @@ export class RegisterPage {
     if(data.explicitConsent){
       this.additionalInformation.setExplicitConsentCheckboxChecked(data.explicitConsent);
     }
+    if(data.isDropDown){
+      this.additionalInformation.verifyCommaDropdown()
+    }
     this.additionalInformation.setAttributes(data)
   }
 

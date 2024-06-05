@@ -1,4 +1,4 @@
-import { buildSelector, elementById, setCheckboxChecked, setCustomAttribute } from "../utils/actions";
+import { buildSelector, elementById, pressEsc, setCheckboxChecked, setCustomAttribute } from "../utils/actions";
 export class AdditionalInformation {
   akaCommunicationCheckbox: any;
   akaCommunicationText: any;
@@ -52,5 +52,11 @@ export class AdditionalInformation {
     setCustomAttribute(this.attribute3, data.attribute3);
     setCustomAttribute(this.attribute4, data.attribute4);
     setCustomAttribute(this.attribute5, data.attribute5);
+  }
+
+  verifyCommaDropdown(){
+    cy.get("#attribute1").click()
+    cy.get('#attribute1-panel').should('contain','This, is, a test').click()
+    pressEsc()
   }
 }

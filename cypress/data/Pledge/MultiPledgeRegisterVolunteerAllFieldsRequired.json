@@ -6,5 +6,6 @@
     {"question": "Multi-Line Text", "answer": "Lorem ipsum dolor sit amet, consectetur."},
     {"question": "Single Choice Radio", "answer": "No"},
     {"question": "Conditional Question Single Line Text", "answer": "Vestibulum ante ipsum primis in faucibus orci"}
-  ]
+  ],
+  "isDropDown": true
 }
