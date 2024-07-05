@@ -97,8 +97,10 @@ export class DonationMatrix {
    * @param {*} data - the data that contains .donationAmount
    */
   enterOtherAmount(data) {
-    cy.wait(2000)
-    cy.get(this.otherAmount).clear().type(data.donationAmount).tab()
+    cy.wait(1000)
+    cy.get(this.otherAmount).clear()
+    cy.wait(1000)
+    cy.get(this.otherAmount).type(data.donationAmount)
   }
 
   /**
