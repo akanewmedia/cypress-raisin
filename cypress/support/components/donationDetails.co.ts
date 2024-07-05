@@ -100,7 +100,7 @@ export class DonationMatrix {
     cy.wait(1000)
     cy.get(this.otherAmount).clear()
     cy.wait(1000)
-    cy.get(this.otherAmount).type(data.donationAmount)
+    cy.get(this.otherAmount).type(data.donationAmount).blur()
   }
 
   /**
