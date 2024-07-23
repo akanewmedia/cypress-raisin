@@ -83,6 +83,10 @@ describe('TR(3165) Scenario -> Multi Pledge Individual Registration with Additio
                     thankYouPO.verifyTransactionNumber(data);
                     thankYouPO.verifySuccessfulTransaction(data);
                 });
+                it('should click on "Start Fundraising now" and go to PCUI', () => {
+                    cy.get('.start-fundraising-btn').click()
+                    cy.url().should('include', '/dashboard');
+                });
             });
         });
     })

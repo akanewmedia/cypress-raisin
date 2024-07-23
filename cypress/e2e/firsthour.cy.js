@@ -3,7 +3,6 @@ import { PageSetup } from '../support/utils/pageSetup';
 // Instantiate PageSetup and get the environment
 const pageSetup = new PageSetup();
 const environment = pageSetup.setEnvironment();
-console.log(`Current environment: ${environment}`);
 
 import './MultiPledge/Register/Individual/3165-MultiPledgeRegisterIndividualReturningParticipantMR.spec';
 import './MultiPledge/Register/Individual/648-MultiPledgeRegisterAllFieldsRequired.spec';
