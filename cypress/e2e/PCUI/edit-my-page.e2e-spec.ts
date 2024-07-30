@@ -4,6 +4,7 @@ import { PageSetup } from '../../support/utils/pageSetup';
 import { LoginPage } from '../../pc-ui-e2e/src/page/login.page';
 import { getLocalDateTime, pressTab } from '../../support/utils/actions';
 import * as specificData from '../../pc-ui-e2e/mock/data/edit-page/edit-my-page.json'
+import 'cypress-file-upload';
 
 let loginPage: LoginPage = new LoginPage()
 let pageSetup: PageSetup = new PageSetup();
@@ -147,6 +148,40 @@ describe('edit my page', () => {
       myPagePO.verifyPreviewGoal(goal)
       myPagePO.verifyPreviewStory(story)        
     });
+
+    it('should upload an image file using a file input and then remove it', () => {  
+      myPagePO.clickEditButton();
+      cy.get('.thumb__edit').click()
+  
+      cy.get('input[type="file"]').then(input => {
+        const el = input[0] as HTMLInputElement;
+        
+        cy.fixture('uploadTest.PNG', 'base64').then(fileContent => {
+          const blob = Cypress.Blob.base64StringToBlob(fileContent, 'image/png');
+  
+          const file = new File([blob], 'uploadTest.PNG', { type: 'image/png' });
+  
+          const dataTransfer = new DataTransfer();
+          dataTransfer.items.add(file);
+  
+          el.files = dataTransfer.files;
+          el.dispatchEvent(new Event('change', { bubbles: true }));
+        });
+      });
+  
+        cy.get('.crop-modal__save').click()
+        cy.wait(3000)
+        myPagePO.clickSaveButton();        
+    });
+
+    it('should delete the file uploaded', () => {
+      cy.wait(2000)
+      myPagePO.clickEditButton();
+
+      cy.get('.thumb__remove').first().click({force: true})
+
+      myPagePO.clickSaveButton();  
+    })
 
     it('should click on View Live page and verify new URL', ()=> {
       cy.get('.external-page-bar .page-view').invoke('removeAttr', 'target').click()

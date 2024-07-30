@@ -44,7 +44,7 @@ export class MyPage {
   }
 
   clickSaveButton() {
-    cy.get(this.saveButton).click()
+    cy.get(this.saveButton).click({force: true})
   }
   
   async clickCancelButton(): Promise<void> {
