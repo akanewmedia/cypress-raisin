@@ -56,14 +56,13 @@ describe('edit my team page', () => {
       teamPagePO.editPanel.getKendoEditor().clear().type(story)
 
       teamPagePO.editPanel.clickSaveButton();
-      cy.wait(6000)
-      cy.reload()
-      cy.wait(3000)
+      cy.wait(2000)        
     })
 
     it('should verify page preview is updated', () => {
-      teamPagePO.editPanel.verifyPreviewTitle(title)
       teamPagePO.editPanel.verifyPreviewGoal(goal)
+      cy.reload()
+      teamPagePO.editPanel.verifyPreviewTitle(title)      
       teamPagePO.editPanel.verifyPreviewStory(story)
     });
   })

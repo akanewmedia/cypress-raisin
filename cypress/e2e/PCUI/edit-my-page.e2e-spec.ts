@@ -2,7 +2,7 @@ import { Sidebar } from '../../pc-ui-e2e/src/component/sidebar.component';
 import { MyPage } from '../../pc-ui-e2e/src/page/my-page.page';
 import { PageSetup } from '../../support/utils/pageSetup';
 import { LoginPage } from '../../pc-ui-e2e/src/page/login.page';
-import { getLocalDateTime, pressTab } from '../../support/utils/actions';
+import { getLocalDateTime, pressEsc, pressTab } from '../../support/utils/actions';
 import * as specificData from '../../pc-ui-e2e/mock/data/edit-page/edit-my-page.json'
 import 'cypress-file-upload';
 
@@ -46,6 +46,7 @@ describe('edit my page', () => {
 
       myPagePO.selectDate('.mat-datepicker-toggle')
       cy.wait(1000)
+      pressEsc()
       //cy.get('.mat-datepicker-input').should('contain.text', data.date)
       myPagePO.clickSaveButton();
       cy.wait(3000)
