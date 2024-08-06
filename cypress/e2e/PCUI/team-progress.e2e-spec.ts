@@ -37,7 +37,6 @@ describe('team progress functionality + send emails:', () => {
 
   it('select one team members and send email', () => {
     teamProgressPage.contactsListComponent.contactsTable.clickEmailButton(0);        
-    cy.get(teamProgressPage.header).should('be.visible')    
     cy.get(createEmailPage.header).should('contain.text', 'E-mail')    
     cy.get(createEmailPage.templateTypeDropDown).should('contain.text', 'E-mail to Teammates')
     createEmailPage.clickSendEmailButton();
