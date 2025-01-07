@@ -1,0 +1,64 @@
+{
+    "events": [
+        0
+    ],
+    "donationAmount": 20.00,
+    "account": {
+        "username": "User",
+        "fundraisingGoal": "500",
+        "password": "Akaaka1!",
+        "fund": "Fund 1"
+    },
+    "hideMeFromSearch": true,
+    "explicitConsent": true,
+    "surveyResponses": [
+        {
+            "question": "Question 1 - Choice One Option",
+            "answer": "Yes"
+        },
+        {
+            "question": "Question 2 - Short answer",
+            "answer": "Vestibulum ante ipsum primis in"
+        },
+        {
+            "question": "Question 3 - Choose 1 option",
+            "answer": "Yes"
+        },
+        {
+            "question": "Question 4 - Choose which ones apply",
+            "answer": "Item 4"
+        },
+        {
+            "question": "Tell me your story",
+            "answer": "Vestibulum ante ipsum primis in"
+        }
+    ],
+    "fullName": "Dr. Bobby Ricky Smith",
+    "transactionNumberStartsWith": "N/A",
+    "tributeFirstName": "Tributee",
+    "tributeLastName": "Test",
+    "tributeType": "In Honour",
+    "ccValidationMessages": [
+		"Credit Card Number is required",
+		"Cardholder's Name is required",
+		"Credit Card Expiry Month is required",
+		"Credit Card Expiry Year is required",
+        "CVV Code is required"
+	],
+    "wrongCard": {
+        "verification": {
+          "type": "Mastercard",
+          "number": "xxxxxxxxxxxx5454",
+          "expiryDate": "12/2028",
+          "cvv": "123"
+        },
+        "number": "545454545454545412345",
+        "cardHolderName": "Bobby Smith",
+        "expiryMonth": "1",
+        "expiryYear": "2023",
+        "cvv": "123"
+    },
+    "ccWrongValidationMessages": [
+        "Please verify your Credit Card Number"
+    ]
+}

@@ -4,6 +4,7 @@ import { PageSetup } from '../support/utils/pageSetup';
 const pageSetup = new PageSetup();
 const environment = pageSetup.setEnvironment();
 
+//import './SinglePledge/Register/Individual/SinglePledgeRegisterAllFieldsRequired.spec'
 import './MultiPledge/Register/Individual/3165-MultiPledgeRegisterIndividualReturningParticipantMR.spec';
 import './MultiPledge/Register/Individual/648-MultiPledgeRegisterAllFieldsRequired.spec';
 import './MultiPledge/Register/TeamCaptain/3174-MultiPledgeRegisterTeamCaptainMR.spec';
@@ -22,6 +23,10 @@ import './MultiPledge/RegItemByGroup/9026-MultiPledgeRegItemByGroupCapRegisterFr
 import './MultiPledge/RegItemByGroup/9027-MultiPledgeRegItemByGroupTeamRegisterFree.spec';
 import './MultiPledge/Misc/PledgeVerifyGoogleAutofill.spec';
 import './MultiPledge/Register/Individual/648.2-MultiPledgeRegisterAllFieldsRequiredExtraSpace.spec';
+import './MultiPledge/Misc/DoubleCustomURL.spec'
+import './MultiPledge/Misc/URLRedirection.spec'
+import './SinglePledge/Register/Individual/SinglePledgeRegisterAllFieldsRequired.spec'
+import './MultiPledge/Misc/PledgeVerifyGoogleAutofill.spec'
 
 
 // Conditionally include files based on environment
