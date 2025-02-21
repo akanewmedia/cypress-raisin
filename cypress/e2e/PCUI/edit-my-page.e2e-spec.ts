@@ -145,6 +145,8 @@ describe('edit my page', () => {
     
 
     it('should verify page preview is updated',  () => {
+      cy.reload()
+      cy.wait(5000)
       myPagePO.verifyPreviewTitle(title)
       myPagePO.verifyPreviewGoal(goal)
       myPagePO.verifyPreviewStory(story)        
