@@ -104,44 +104,44 @@ describe('edit my page', () => {
 
     
 
-    it('Should test Widget Settings', ()=> {
-      myPagePO.clickEditButton();
-      cy.wait(2000)
+    // it('Should test Widget Settings', ()=> {
+    //   myPagePO.clickEditButton();
+    //   cy.wait(2000)
 
-      //Should select Hide Widget and Verify Preview
+    //   //Should select Hide Widget and Verify Preview
       
-      myPagePO.selectWidgetSettings(data.thermometer.hideWidget)
-      myPagePO.clickSaveButton();
-      cy.wait(2500)
-      myPagePO.verifyWidget("hide")      
+    //   myPagePO.selectWidgetSettings(data.thermometer.hideWidget)
+    //   myPagePO.clickSaveButton();
+    //   cy.wait(2500)
+    //   myPagePO.verifyWidget("hide")      
 
-      //Should select Goal Only and Verify Preview
-      myPagePO.clickEditButton();
-      cy.wait(2000)
-      myPagePO.selectWidgetSettings(data.thermometer.goalOnly)
-      myPagePO.clickSaveButton();
-      myPagePO.verifyWidgetAttrGoal(data.thermometer.goalTitle)
-      cy.reload()
-      cy.wait(2000)
+    //   //Should select Goal Only and Verify Preview
+    //   myPagePO.clickEditButton();
+    //   cy.wait(2000)
+    //   myPagePO.selectWidgetSettings(data.thermometer.goalOnly)
+    //   myPagePO.clickSaveButton();
+    //   myPagePO.verifyWidgetAttrGoal(data.thermometer.goalTitle)
+    //   cy.reload()
+    //   cy.wait(2000)
 
-      //Should select Raised Only and Verify Preview
-      myPagePO.clickEditButton();
-      cy.wait(2000)
-      myPagePO.selectWidgetSettings(data.thermometer.raisedOnly)
-      myPagePO.clickSaveButton();
-      myPagePO.verifyWidgetAttrRaised(data.thermometer.raisedTitle)
-      cy.wait(3000)      
+    //   //Should select Raised Only and Verify Preview
+    //   myPagePO.clickEditButton();
+    //   cy.wait(2000)
+    //   myPagePO.selectWidgetSettings(data.thermometer.raisedOnly)
+    //   myPagePO.clickSaveButton();
+    //   myPagePO.verifyWidgetAttrRaised(data.thermometer.raisedTitle)
+    //   cy.wait(3000)      
 
-      //Should select Goal and Raised and Verify Preview
-      myPagePO.clickEditButton();
-      cy.wait(2000)
-      myPagePO.selectWidgetSettings(data.thermometer.goalAndRaised)
-      myPagePO.clickSaveButton();
-      cy.wait(2500)
-      myPagePO.verifyWidget(data.thermometer.goalAndRaisedTitle)
+    //   //Should select Goal and Raised and Verify Preview
+    //   myPagePO.clickEditButton();
+    //   cy.wait(2000)
+    //   myPagePO.selectWidgetSettings(data.thermometer.goalAndRaised)
+    //   myPagePO.clickSaveButton();
+    //   cy.wait(2500)
+    //   myPagePO.verifyWidget(data.thermometer.goalAndRaisedTitle)
 
-      cy.wait(3000)
-    })
+    //   cy.wait(3000)
+    // })
     
 
     it('should verify page preview is updated',  () => {

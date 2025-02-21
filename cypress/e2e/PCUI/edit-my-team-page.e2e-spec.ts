@@ -62,6 +62,7 @@ describe('edit my team page', () => {
     it('should verify page preview is updated', () => {
       teamPagePO.editPanel.verifyPreviewGoal(goal)
       cy.reload()
+      cy.wait(5000)
       teamPagePO.editPanel.verifyPreviewTitle(title)      
       teamPagePO.editPanel.verifyPreviewStory(story)
     });
