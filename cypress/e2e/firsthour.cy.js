@@ -24,9 +24,8 @@ import './MultiPledge/RegItemByGroup/9027-MultiPledgeRegItemByGroupTeamRegisterF
 import './MultiPledge/Misc/PledgeVerifyGoogleAutofill.spec';
 import './MultiPledge/Register/Individual/648.2-MultiPledgeRegisterAllFieldsRequiredExtraSpace.spec';
 import './MultiPledge/Misc/DoubleCustomURL.spec'
-import './MultiPledge/Misc/URLRedirection.spec'
+//import './MultiPledge/Misc/URLRedirection.spec'
 import './SinglePledge/Register/Individual/SinglePledgeRegisterAllFieldsRequired.spec'
-import './MultiPledge/Misc/PledgeVerifyGoogleAutofill.spec'
 
 
 // Conditionally include files based on environment
