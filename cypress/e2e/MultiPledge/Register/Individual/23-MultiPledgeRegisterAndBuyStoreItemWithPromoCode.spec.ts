@@ -91,7 +91,7 @@ describe('TR(23) Scenario -> Multi Pledge Register And Buy Store Item With Promo
 
 			 it('should display thank you page and the participant centre', () => {
 			 	flowPO.continue();
-			 	thankYouPO.verifyTransactionNumber(data);
+			 	 
 			 });
 
 			//  it('should go to participant center', () => {

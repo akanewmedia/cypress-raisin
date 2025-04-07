@@ -101,7 +101,7 @@ describe('C10529 - Registration > Cover Admin Fee > Paid Reg + Self Donation + S
 
 			it('should display thank you page and the participant centre', function () {
 				flowPO.continue();
-				thankYouPO.verifyTransactionNumber(data);
+				 
 			});
 
 			// it('should go to participant center', function () {

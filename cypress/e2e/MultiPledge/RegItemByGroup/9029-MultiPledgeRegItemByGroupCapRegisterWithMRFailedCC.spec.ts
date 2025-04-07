@@ -124,7 +124,7 @@ describe('TR(9029) Scenario -> Multi Pledge > RXF > Select Group > Captain Regis
             });
             it('should submit and then verify the Transaction code', () => {
                 flowPO.continue();
-                thankYouPO.verifyTransactionNumber(data);
+                 
                 thankYouPO.verifySuccessfulTransaction(data);
             });
         });

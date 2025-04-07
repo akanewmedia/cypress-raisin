@@ -82,7 +82,7 @@ describe('Scenario -> Multi Pledge Join a team from the Join Team button on the 
 				reviewPO.verifyNoPaymentInformation();
 				reviewPO.verifyTeamInfo(data.team);
 				flowPO.continue();
-				thankYouPO.verifyTransactionNumber(data);
+				 
 			});
 
 

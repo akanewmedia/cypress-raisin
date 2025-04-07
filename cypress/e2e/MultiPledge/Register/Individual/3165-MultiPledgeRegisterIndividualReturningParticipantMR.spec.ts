@@ -80,11 +80,10 @@ describe('TR(3165) Scenario -> Multi Pledge Individual Registration with Additio
                 });
                 it('should submit and then verify the Transaction code', () => {
                     flowPO.continue();
-                    thankYouPO.verifyTransactionNumber(data);
                     thankYouPO.verifySuccessfulTransaction(data);
                 });
                 it('should click on "Start Fundraising now" and go to PCUI', () => {
-                    cy.get('.start-fundraising-btn').click()
+                    thankYouPO.startFundraising()
                     cy.url().should('include', '/dashboard');
                 });
             });
@@ -138,7 +137,6 @@ describe('TR(3165) Scenario -> Multi Pledge Individual Registration with Additio
                 });
                 it('should submit and then verify the Transaction code', () => {
                     flowPO.continue();
-                    thankYouPO.verifyTransactionNumber(data);
                     thankYouPO.verifySuccessfulTransaction(data);
                 });
                 // it('Should press the login button at the top', () => {

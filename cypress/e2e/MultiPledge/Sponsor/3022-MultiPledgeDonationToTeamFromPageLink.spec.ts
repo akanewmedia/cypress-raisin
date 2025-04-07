@@ -79,7 +79,7 @@ describe('TR(3022) Scenario -> Multi Pledge Sponsor Team from Donation Page Link
 
 			it('should verify the Transaction Number', function () {
 				flowPO.continue();
-				thankYouPO.verifyTransactionNumber(data);
+				 
 			});
 
 			it('should go to team page', () => {

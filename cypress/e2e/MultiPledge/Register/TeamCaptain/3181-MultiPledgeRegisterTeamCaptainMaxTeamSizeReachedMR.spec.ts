@@ -89,7 +89,7 @@ describe('TR(3181) Scenario -> Multi Pledge Team Captain Registration with Addit
             // });
             // it('should submit and then verify the Transaction code', () => {
             //     flowPO.continue();
-            //     thankYouPO.verifyTransactionNumber(data);
+            //      
             //     thankYouPO.verifySuccessfulTransaction(data);
             // });
         });

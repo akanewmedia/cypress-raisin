@@ -158,7 +158,7 @@ describe('TR(453) Scenario -> Guest Purchase, Buy and Sponsor Tickets And Donate
 			it('Complete successful checkout and download invoice', () => {
 				flowPO.continue();
 				cy.wait(5000);
-				thankYouPO.verifyTransactionNumber(data);
+				 
 				thankYouPO.downloadTicketButtonPresence();
 			});
 

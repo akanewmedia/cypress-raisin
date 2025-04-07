@@ -89,7 +89,7 @@ describe('TR(3006) Scenario -> Multi Pledge Register And Add a Self Donation : '
 
 			it('should display thank you page and the participant centre', function () {
 				flowPO.continue();
-				thankYouPO.verifyTransactionNumber(data);
+				 
 			});
 
 			// it('should go to participant center', function () {

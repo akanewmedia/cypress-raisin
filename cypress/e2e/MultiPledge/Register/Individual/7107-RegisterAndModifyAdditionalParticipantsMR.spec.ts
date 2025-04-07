@@ -110,7 +110,7 @@ describe('TR(7107) Scenario -> Multi Pledge Modify additional participants: ', (
             });
             it('should submit and then verify the Transaction code', () => {
                 flowPO.continue();
-                thankYouPO.verifyTransactionNumber(data);
+                 
                 thankYouPO.verifySuccessfulTransaction(data);
             });
         });

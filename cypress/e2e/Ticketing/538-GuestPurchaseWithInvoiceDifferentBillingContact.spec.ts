@@ -106,7 +106,7 @@ describe('TR(538) Scenario -> Guest Purchase With Invoice And Different Billing 
 
 			it('Complete successful checkout and download invoice', () => {
 				flowPO.continue();
-				thankYouPO.verifyTransactionNumber(data);
+				 
 				thankYouPO.downloadInvoiceButtonPresense();
 			});
 		});

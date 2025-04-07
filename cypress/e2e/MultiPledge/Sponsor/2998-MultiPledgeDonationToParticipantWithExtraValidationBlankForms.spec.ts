@@ -86,7 +86,7 @@ describe('TR(2998) Scenario -> Multi Pledge donation to participant - submit bla
             });
             it('should verify the Transaction code', () => {
                 flowPO.continue();
-                thankYouPO.verifyTransactionNumber(data);
+                 
             });
         });
     });

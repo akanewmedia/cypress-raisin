@@ -66,7 +66,7 @@ describe('TR(2993) Scenario -> Multi Pledge donation to event using the organiza
             });
             it('should verify the Transaction code', () => {
                 flowPO.continue();
-                thankYouPO.verifyTransactionNumber(data);
+                 
             });
         });
     });

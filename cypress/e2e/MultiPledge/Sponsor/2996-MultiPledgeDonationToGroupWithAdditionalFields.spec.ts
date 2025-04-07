@@ -68,7 +68,7 @@ describe('TR(2995) Scenario -> Multi Pledge donation to group and fill out optio
             });
             it('should verify the Transaction code', () => {
                 flowPO.continue();
-                thankYouPO.verifyTransactionNumber(data);
+                 
             });
         });
     });

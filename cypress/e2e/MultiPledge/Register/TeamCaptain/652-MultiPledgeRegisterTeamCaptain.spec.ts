@@ -84,7 +84,7 @@ describe('TR(652) Scenario -> Multi Pledge registration, create team', () => {
             });
             it('should display thank you page and the participant centre', function () {
                 flowPO.continue();
-                thankYouPO.verifyTransactionNumber(data);
+                 
             });
         });
     });

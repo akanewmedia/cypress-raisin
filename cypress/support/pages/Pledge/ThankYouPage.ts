@@ -15,7 +15,7 @@ export class ThankYouPage {
     this.transactionNumber = buildSelector(this.thankYouMessageContainer, '.page-content-20000');
     this.transactionMessage = buildSelector(this.thankYouMessageContainer, '.page-content-20000 h1')
     this.systemContentContainer = buildSelector('.system-content');
-    this.startFundraisingButton = buildSelector(this.systemContentContainer, '.start-fundraising-btn');
+    this.startFundraisingButton = buildSelector(this.systemContentContainer, '#startFundraisingButton');
     this.goToProfileButton = buildSelector(this.systemContentContainer, '.sponsor-finish-btn');
   }
   verifyTransactionNumber(data) {
@@ -29,7 +29,8 @@ export class ThankYouPage {
     //expect(this.transactionNumber.getText()).contains(code);
   }
   verifySuccessfulTransaction(data) {
-    cy.get(this.transactionMessage).should('not.contain.text', data.unsuccessfulTransactionMessage)
+    logConstituent()
+    cy.get(this.transactionMessage).should('contain.text', data.successfulTransactionMessage)
     //expect(this.transactionNumber.getText()).not.contains(data.unsuccessfulTransactionMessage);
   }
   startFundraising() {

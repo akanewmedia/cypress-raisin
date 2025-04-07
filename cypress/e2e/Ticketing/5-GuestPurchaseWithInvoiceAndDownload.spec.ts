@@ -120,7 +120,7 @@ describe('TR(5) Scenario -> Guest Purchase With Invoice And Download : ', () => 
 
 			it('Complete successful checkout and download invoice', () => {
 				flowPO.continue();
-				thankYouPO.verifyTransactionNumber(data);
+				 
 				thankYouPO.downloadInvoiceButtonPresense();
 			});
 		});

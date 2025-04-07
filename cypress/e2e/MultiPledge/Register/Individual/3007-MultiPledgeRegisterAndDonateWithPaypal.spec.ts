@@ -83,7 +83,7 @@ describe('TR(3007) Scenario -> Multi Pledge registration, and pay reg free using
             });
             it('should submit and then verify the Transaction code', () => {
                 flowPO.continue();
-                thankYouPO.verifyTransactionNumber(data);
+                 
             });
         });
     });

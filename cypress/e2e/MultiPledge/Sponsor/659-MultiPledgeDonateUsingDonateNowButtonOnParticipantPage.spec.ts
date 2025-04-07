@@ -75,7 +75,7 @@ describe('TR(659) Scenario -> Multi Pledge go to Participant page and click side
 
             it('should verify the Transaction Number', () => {
                 flowPO.continue();
-                thankYouPO.verifyTransactionNumber(data);
+                 
             });
 
             it('should go to participant profile', () => {

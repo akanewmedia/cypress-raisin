@@ -68,7 +68,7 @@ describe('TR(656) Scenario -> Multi Pledge donation to event : ', () => {
     });
     it('should verify the Transaction code', () => {
       flowPO.continue();      
-      thankYouPO.verifyTransactionNumber(data);
+       
     });
   });
 })

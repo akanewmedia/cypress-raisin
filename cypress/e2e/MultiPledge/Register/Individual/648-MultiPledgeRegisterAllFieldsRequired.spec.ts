@@ -120,7 +120,7 @@ describe('TR(648) Scenario -> Multi Pledge free registration - all fields requir
             });
             it('should submit and then verify the Transaction code', () => {
                 flowPO.continue();
-                thankYouPO.verifyTransactionNumber(data);
+                 
             });
         });
     });

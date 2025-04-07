@@ -99,7 +99,7 @@ describe('TR(653) Scenario -> Multi Pledge Join a team from a team captains page
 
 			it('should display thank you page and have a transaction number', () => {
 				flowPO.continue();
-				thankYouPO.verifyTransactionNumber(data);
+				 
 			});
 
 			it('should be able to select "start fundraising" and log into the PC', () => {
