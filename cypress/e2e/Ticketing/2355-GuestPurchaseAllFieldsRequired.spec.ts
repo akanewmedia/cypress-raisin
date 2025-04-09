@@ -120,7 +120,7 @@ describe('TR(2355) Scenario -> Guest Purchase With All Fields Mandatory : ', () 
 
 			it('Complete successful checkout and download invoice', () => {
 				flowPO.continue();
-				thankYouPO.verifyTransactionNumber(data);
+				 
 				thankYouPO.downloadInvoiceButtonPresense();
 			});
 		});

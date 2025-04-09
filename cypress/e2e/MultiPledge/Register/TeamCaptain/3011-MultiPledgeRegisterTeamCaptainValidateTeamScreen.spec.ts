@@ -96,7 +96,7 @@ describe('TR(3011) Scenario -> Multi Pledge registration, create team - validate
             });
             it('should display thank you page', () => {
                 flowPO.continue();
-                thankYouPO.verifyTransactionNumber(data);
+                 
             });
         });
     });

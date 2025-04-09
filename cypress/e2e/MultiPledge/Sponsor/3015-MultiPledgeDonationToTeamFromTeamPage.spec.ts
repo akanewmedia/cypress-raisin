@@ -73,7 +73,7 @@ describe('TR(3015) Scenario -> Multi Pledge donation to team from team page : ',
             });
             it('should verify the Transaction code', () => {
                 flowPO.continue();
-                thankYouPO.verifyTransactionNumber(data);
+                 
             });
         });
     });

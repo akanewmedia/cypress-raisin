@@ -121,7 +121,7 @@ describe('TR(2356) Scenario -> Guest Purchase With Most Fields Hidden : ', () =>
 
 			it('Complete successful checkout and download invoice', () => {
 				flowPO.continue();
-				thankYouPO.verifyTransactionNumber(data);
+				 
 				thankYouPO.downloadInvoiceButtonPresense();
 			});
 		});

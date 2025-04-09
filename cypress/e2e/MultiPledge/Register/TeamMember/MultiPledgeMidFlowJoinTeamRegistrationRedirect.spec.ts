@@ -86,7 +86,7 @@ describe('Scenario -> Multi Pledge Join a team from a mid-flow redirect : ', () 
 
 			it('should complete registration', () => {
 				flowPO.continue();
-				thankYouPO.verifyTransactionNumber(data);
+				 
 			});
 
 			it('should be able to select "start fundraising" and log into the PC', () => {

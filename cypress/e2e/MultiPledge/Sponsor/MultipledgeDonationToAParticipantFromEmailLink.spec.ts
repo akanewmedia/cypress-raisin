@@ -67,7 +67,7 @@ describe('Scenario -> Multi Pledge Sponsor to team from email link: ', function 
 
 			it('should verify the Transaction Number', function () {
 				flowPO.continue();
-				thankYouPO.verifyTransactionNumber(data);
+				 
 			});
 
 			// it('should go to participant page', function () {

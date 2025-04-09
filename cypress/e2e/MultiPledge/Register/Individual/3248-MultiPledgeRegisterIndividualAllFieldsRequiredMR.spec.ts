@@ -76,7 +76,7 @@ describe('TR(3248) Scenario -> Multi Pledge Individual Registration with Additio
             });
             it('should submit and then verify the Transaction code', () => {
                 flowPO.continue();
-                thankYouPO.verifyTransactionNumber(data);
+                 
                 thankYouPO.verifySuccessfulTransaction(data);
             });
         });

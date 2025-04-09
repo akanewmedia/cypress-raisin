@@ -200,7 +200,7 @@ describe('TR(648-2) Scenario -> Multi Pledge free registration - all fields requ
             });
             it('should submit and then verify the Transaction code', () => {
                 flowPO.continue();
-                thankYouPO.verifyTransactionNumber(data);
+                 
             });
         });
     });

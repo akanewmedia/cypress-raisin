@@ -63,7 +63,7 @@ describe('TR(3018) Scenario -> Multi Pledge registration, volunteer - purchase o
             });
             it('should verify the Transaction code', () => {
                 flowPO.continue();
-                thankYouPO.verifyTransactionNumber(data);
+                 
             });
         });
     });

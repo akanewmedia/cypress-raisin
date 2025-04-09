@@ -37,6 +37,7 @@
   ],
   "transactionNumberStartsWith": "Test-",
   "unsuccessfulTransactionMessage": "Unsuccessful",
+  "successfulTransactionMessage": "Thank You for Registering!",
   "paymentHeader": "Payment Details",
   "reviewHeader": "You're Almost Done",
   "thankYouPageHeader": "Thank You for your Donation!",

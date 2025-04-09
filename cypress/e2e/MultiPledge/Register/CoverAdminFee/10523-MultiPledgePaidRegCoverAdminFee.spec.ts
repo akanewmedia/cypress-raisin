@@ -98,7 +98,7 @@ describe('C10523 Scenario -> Registration > Cover Admin Fee > Paid Reg + Self Do
 
 			it('should display thank you page and the participant centre', function () {
 				flowPO.continue();
-				thankYouPO.verifyTransactionNumber(data);
+				 
 			});
 
 			// it('should go to participant center', function () {

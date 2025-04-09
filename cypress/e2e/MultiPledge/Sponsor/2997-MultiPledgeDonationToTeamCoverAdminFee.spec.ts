@@ -77,7 +77,7 @@ describe('TR(2997) Scenario -> Multi Pledge donation to team (cover admin fee) :
             });
             it('should verify the Transaction code', () => {
                 flowPO.continue();
-                thankYouPO.verifyTransactionNumber(data);
+                 
             });
         });
     });

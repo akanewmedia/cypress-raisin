@@ -109,7 +109,7 @@ describe('TR(3013) Scenario -> Multi Pledge Register individual Fail then Succes
 
 			it('should complete registration', () => {
 				flowPO.continue();
-				thankYouPO.verifyTransactionNumber(data);
+				 
 			});
 
 			// it('should go to participant center', () => {

@@ -77,7 +77,7 @@ describe('TR(9026) Scenario -> Multi Pledge Registration Item By Group Ind Regis
             });
             it('should submit and then verify the Transaction code', () => {
                 flowPO.continue();
-                thankYouPO.verifyTransactionNumberContains(data.transactionNACode);
+                thankYouPO.verifySuccessfulTransaction(data);
             });
         });
     });

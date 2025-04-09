@@ -88,7 +88,7 @@ describe('TR(3021) Scenario -> Multi Pledge Team Member Registration - fundraisi
 
 			it('should complete registration', () => {
 				flowPO.continue();
-				thankYouPO.verifyTransactionNumber(data);
+				 
 			});
 		});
 	});

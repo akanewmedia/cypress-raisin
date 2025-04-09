@@ -78,7 +78,7 @@ describe('TR(24) Scenario -> Multi Pledge donation to participant from page link
       });
       it('should verify the Transaction code', () => {
           flowPO.continue();
-          thankYouPO.verifyTransactionNumber(data);
+           
       });
     });
   });

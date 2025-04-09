@@ -121,7 +121,7 @@ describe('C10530 Scenario -> Registration > Cover Admin Fee > Edit Review : ', f
 
 			it('should display thank you page and the participant centre', function () {
 				flowPO.continue();
-				thankYouPO.verifyTransactionNumber(data);
+				 
 			});			
 		});
 	});

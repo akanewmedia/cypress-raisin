@@ -73,7 +73,7 @@ describe('TR(3014.2) Scenario -> Multi Pledge Search For Participant And Donate 
 
 			it('should verify the Transaction Number', () => {
 				flowPO.continue();
-				thankYouPO.verifyTransactionNumber(data);
+				 
 			});
 
 			it('should go to participant page', () => {

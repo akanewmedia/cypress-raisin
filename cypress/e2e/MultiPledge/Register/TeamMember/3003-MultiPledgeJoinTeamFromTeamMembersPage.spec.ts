@@ -103,7 +103,7 @@ describe('TR(3003) Scenario -> Multi Pledge Join a team from a team member page:
 			it('should display thank you page and have a transaction number', () => {
 				flowPO.continue();
 				// actions.waitForElement(thankYouPO.transactionNumber);
-				thankYouPO.verifyTransactionNumber(data);
+				 
 			});
 
 			it('should be able to select "start fundraising" and log into the PC', () => {

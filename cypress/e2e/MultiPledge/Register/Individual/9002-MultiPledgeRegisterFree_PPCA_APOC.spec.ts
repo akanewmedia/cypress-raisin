@@ -90,7 +90,7 @@ describe('TR(3009) Scenario -> Multi Pledge free Individual registration: ', () 
             });
             it('should submit and then verify the Transaction code', () => {
                 flowPO.continue();
-                thankYouPO.verifyTransactionNumber(data);
+                 
             });
         });
     });

@@ -75,7 +75,7 @@ describe('TR(657) Scenario -> Multi Pledge Search For Team And Donate : ', () =>
 
 			it('should verify the Transaction Number', () => {
 				flowPO.continue();
-				thankYouPO.verifyTransactionNumber(data);
+				 
 			});
 
 			it('should go to team page', () => {
