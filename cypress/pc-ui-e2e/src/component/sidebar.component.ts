@@ -24,6 +24,7 @@ export class Sidebar {
   private emailsLink: any;
   private createEmailLink: any;
   private myContactsLink: any;
+  private getSocialLink: any;
 
   constructor() {
     this.container = buildSelector('.side-nav__panel');
@@ -49,6 +50,7 @@ export class Sidebar {
     this.emailsLink = buildSelector(this.container,'.send-emails-link');
     this.createEmailLink = buildSelector(this.container,'.create-email-link');
     this.myContactsLink = buildSelector(this.container,'.my-contacts-link');
+    this.getSocialLink = buildSelector(this.container, '.social-panel')
   }
 
   
@@ -138,5 +140,8 @@ export class Sidebar {
   }
   clickOfflineDonationsLink() {
     clickLink(this.offlineDonationsLink)
+  }
+  clickGetSocialLink() {
+    clickLink(this.getSocialLink)
   }
 }

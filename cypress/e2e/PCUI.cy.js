@@ -9,3 +9,4 @@ import './PCUI/offline-donations.e2e-spec'
 //import './PCUI/process-badges.e2e-spec' Commented because this is failing due to the sever having a different date.
 import './PCUI/referral-tracking-code.e2e-spec'
 import './PCUI/team-progress.e2e-spec'
+import './pcui/get-social.e2e-spec'
