@@ -8,6 +8,8 @@ const resolvePlugin = [
 ]
 
 const { defineConfig } = require('cypress')
+const fs = require('fs')
+const path = require('path')
 
 module.exports = defineConfig({
   projectId: 'cayihf',
@@ -25,6 +27,21 @@ module.exports = defineConfig({
     //baseUrl: 'https://org359.int.akaraisin.com/ui',
     specPattern: 'cypress/e2e/**/*.{js,jsx,ts,tsx}',
     testIsolation: false,
+    downloadsFolder: 'cypress/downloads',
+    setupNodeEvents(on, config) {
+      on('task', {
+        clearDownloads() {
+          const dl = config.downloadsFolder
+          if (fs.existsSync(dl)) {
+            fs.readdirSync(dl).forEach(f =>
+              fs.unlinkSync(path.join(dl, f))
+            )
+          }
+          // tasks must return something
+          return null
+        },
+      })
+    },
   },
   presets: ['@babel/preset-env'],
   plugins: ['@babel/transform-runtime', ...resolvePlugin],

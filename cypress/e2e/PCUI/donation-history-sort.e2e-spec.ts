@@ -1,4 +1,4 @@
-  import { Sidebar } from '../../pc-ui-e2e/src/component/sidebar.component';
+import { Sidebar } from '../../pc-ui-e2e/src/component/sidebar.component';
 import { DonationsHistoryTable } from '../../pc-ui-e2e/src/component/donations-history-table';
 import { SnackbarCO } from '../../pc-ui-e2e/src/component/snackbar';
 import { PageSetup } from '../../support/utils/pageSetup';
@@ -61,13 +61,22 @@ describe('PC >Log in > Donation History > Sort Thanked > Search for Donor > Vali
       historyTable.verifyDateFirstRow('Aug 18, 2023')
     });
 
-    //THERE IS AN ISSUE IN PROD RIGHT NOW THAT PREVENTS THIS SCENARIO FROM WORKING #DEV-2388
-    // it('should generate Tax Receipt', () => {
-    //   historyTable.sortByReceiptIssued()
-    //   historyTable.isRowReissueTaxReceiptButtonVisible()
-    //   historyTable.clickReissueTaxReceiptButton();
-    //   snackbarCO.validateSnackBarMessage('Receipt reissued.');
-    // });
+    it('should Export CSV', () => {
+      cy.task('clearDownloads')
+
+      cy.get('.export-button').click()
+
+      const downloadsFolder = Cypress.config('downloadsFolder')
+      const filename = 'donationHistory.csv'
+      const fullPath = `${downloadsFolder}/${filename}`
+
+      cy.readFile(fullPath, 'binary', { timeout: 15000 })
+        .should(buffer => {
+          expect(buffer.length).to.be.greaterThan(100)
+        })
+
+        cy.task('clearDownloads')
+    });
 
     it('should select event drop down for rxfmptest and sort by amount', () => {
       historyTable.clickMyDonationsButton();
