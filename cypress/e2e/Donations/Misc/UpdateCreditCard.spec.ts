@@ -32,7 +32,7 @@ describe('Update Credit Card Test ', () => {
             it("Page should be loaded and information should be displayed", () => {
                 cy.get('.recuringPaymentUpdate-heading h1').should('contain.text', "Update payment details")
                 //Should match User Name
-                cy.get(updateCreditCard.welcomeMessage).should('contain.text', "Victor Volunteer")
+                cy.get(updateCreditCard.welcomeMessage).should('contain.text', "VDT Test")
 
                 //Should match Donation Amount
                 cy.get(updateCreditCard.amount).should("have.value", "50")
@@ -57,15 +57,16 @@ describe('Update Credit Card Test ', () => {
 
             it("Should click cancel transaction and click NO", ()=>{
                 updateCreditCard.clickCancelButton()
-                cy.get('#dialog_label').should('contain.text', "Are you sure you'd like to cancel your recurring donation?")
+                cy.get('.dialog_label').should('contain.text', "Before cancelling, please consider a few other alternatives.")
                 cy.contains("button", "Yes").should('be.visible')
+                cy.contains("button", "Pause").should('be.visible')
                 cy.contains("button", "No").should('be.visible')
-                cy.contains("button", "No").click()
+                cy.get(".mat-mdc-icon-button").click()
             })
 
             it("Should Update Address and verify if it was properly updated", () => {    
                 //Verify Fields Existence            
-                //cy.get(updateCreditCard.addressType).should('be.visible')
+                cy.get(updateCreditCard.addressType).should('be.visible')
                 cy.get(updateCreditCard.country).should('be.visible')
                 cy.get(updateCreditCard.addressLine1).should('be.visible')
                 cy.get(updateCreditCard.addressLine2).should('be.visible')
@@ -76,10 +77,10 @@ describe('Update Credit Card Test ', () => {
                 //Updates Address
                 
 
-                //cy.get(updateCreditCard.addressType).click()
-                //cy.get(".mat-option-text").contains("Business").click()
+                cy.get(updateCreditCard.addressType).click()
+                cy.get(".mat-mdc-option").contains("Business").click()
                 cy.get(updateCreditCard.province).click()
-                cy.get(".mat-mdc-option ").contains("Ontario").click()
+                cy.get(".mat-mdc-option").contains("Ontario").click()
                 cy.get(updateCreditCard.addressLine1).type(val + " Street")
                 cy.get(updateCreditCard.addressLine2).type(val + " Line 2")
                 cy.get(updateCreditCard.city).type(val + " City")

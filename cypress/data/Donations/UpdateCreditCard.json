@@ -1,7 +1,8 @@
 {
     "events": [8],
-    "URL": "payment-update/cf056139-fd03-4407-a736-b3ce06fec0e9",
-    "validationMessages": [	
+    "URL": "payment-update/5A76DC02-4001-4969-989C-3EDB1B67DC87",
+    "validationMessages": [
+		"Address Type is required",	
 		"Address is required",
 		"City is required",
 		"Province / State is required",
